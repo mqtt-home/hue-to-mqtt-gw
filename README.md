@@ -2,7 +2,13 @@
 
 [![mqtt-smarthome](https://img.shields.io/badge/mqtt-smarthome-blue.svg)](https://github.com/mqtt-smarthome/mqtt-smarthome)
 
-Convert Philips Hue messages to mqtt messages
+Convert Philips Hue messages to mqtt messages.
+
+# Why another hue-mqtt-bridge?
+
+- Support for `Friends of Hue` switches.
+- I like to switch to `zigbee2mqtt` for my hue lights at some
+point of time. The light messages are compatible with this format.
 
 ## Supported devices
 
