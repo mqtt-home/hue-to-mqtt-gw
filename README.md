@@ -91,7 +91,7 @@ to the topic `hue/light/room/some-light/set` to turn the light on with the given
 This application is intended to be executed using docker. Example docker compose usage:
 
 ```
-cupsmqtt:
+huemqtt:
   hostname: huemqtt
   image: pharndt/hue2mqtt:1.0.2
   volumes:
