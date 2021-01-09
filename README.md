@@ -93,7 +93,7 @@ This application is intended to be executed using docker. Example docker compose
 ```
 cupsmqtt:
   hostname: huemqtt
-  image: pharndt/hue2mqtt:1.0.1
+  image: pharndt/hue2mqtt:1.0.2
   volumes:
     - ./config/huemqtt:/var/lib/huemqtt:ro
   restart: always 

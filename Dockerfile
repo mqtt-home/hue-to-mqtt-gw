@@ -2,7 +2,7 @@
 FROM openjdk:8-jdk-alpine
 RUN mkdir /opt/app
 WORKDIR /opt/app
-COPY src/de.rnd7.cupsmqtt/target/cupsmqtt.jar .
+COPY src/de.rnd7.huemqtt/target/huemqtt.jar .
 COPY src/logback.xml .
 
-CMD java -jar ./cupsmqtt.jar /var/lib/cupsmqtt/config.json
+CMD java -jar ./huemqtt.jar /var/lib/huemqtt/config.json
