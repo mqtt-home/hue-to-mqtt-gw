@@ -86,6 +86,25 @@ to the topic `hue/light/room/some-light/set` to turn the light on with the given
 }
 ```
 
+# Bridge status
+
+The bridge maintains two status topics:
+
+## Topic: `.../bridge/state`
+
+| Value     | Description                          |
+| --------- | ------------------------------------ |
+| `online`  | The bridge is started                |
+| `offline` | The bridge is currently not started. |
+
+## Topic: `.../bridge/miele`
+
+| Value          | Description                |
+| -------------- | -------------------------- |
+| `unknown`      | Unknown connection status  |
+| `connected`    | Miele API is connected     |
+| `disconnected` | Miele API is not connected |
+
 # Docker
 
 This application is intended to be executed using docker. Example docker compose usage:
