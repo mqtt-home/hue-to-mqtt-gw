@@ -1,9 +1,9 @@
 package de.rnd7.huemqtt.hue;
 
-import de.rnd7.huemqtt.Events;
-import de.rnd7.huemqtt.mqtt.Message;
-import de.rnd7.huemqtt.mqtt.MotionMessage;
-import de.rnd7.huemqtt.mqtt.PublishMessage;
+import de.rnd7.huemqtt.hue.messages.MotionMessage;
+import de.rnd7.mqttgateway.Events;
+import de.rnd7.mqttgateway.Message;
+import de.rnd7.mqttgateway.PublishMessage;
 import io.github.zeroone3010.yahueapi.MotionSensor;
 
 import java.time.ZonedDateTime;
@@ -26,7 +26,7 @@ public class MotionSensorDevice extends HueDevice {
             final MotionMessage message = MotionMessage.fromState(device.isPresence(), lastUpdated);
             this.lastUpdated = lastUpdated;
 
-            Events.post(new PublishMessage(this.getTopic(), gson.toJson(message)));
+            Events.post(PublishMessage.absolute(this.getTopic(), gson.toJson(message)));
         }
     }
 

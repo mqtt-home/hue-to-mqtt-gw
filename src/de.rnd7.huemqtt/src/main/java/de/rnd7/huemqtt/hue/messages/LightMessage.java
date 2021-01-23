@@ -1,4 +1,4 @@
-package de.rnd7.huemqtt.mqtt;
+package de.rnd7.huemqtt.hue.messages;
 
 import com.google.gson.annotations.SerializedName;
 import io.github.zeroone3010.yahueapi.State;

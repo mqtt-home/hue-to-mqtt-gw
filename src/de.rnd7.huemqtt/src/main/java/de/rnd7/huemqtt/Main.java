@@ -1,9 +1,10 @@
 package de.rnd7.huemqtt;
 
 import de.rnd7.huemqtt.config.Config;
-import de.rnd7.huemqtt.config.ConfigParser;
 import de.rnd7.huemqtt.hue.HueService;
-import de.rnd7.huemqtt.mqtt.GwMqttClient;
+import de.rnd7.mqttgateway.Events;
+import de.rnd7.mqttgateway.GwMqttClient;
+import de.rnd7.mqttgateway.config.ConfigParser;
 import io.github.zeroone3010.yahueapi.Hue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,10 +21,12 @@ public class Main {
         LOGGER.info("Info enabled");
 
         try {
-            Events.register(this);
-            final GwMqttClient client = new GwMqttClient(config, Events.getBus());
+            final GwMqttClient client = GwMqttClient.start(config.getMqtt()
+                .setDefaultClientId("hue-mqtt")
+                .setDefaultTopic("hue"));
 
-            Events.register(client);
+            client.subscribe(config.getMqtt().getTopic() + "/light/#");
+            client.online();
 
             final HueService service = new HueService(
                 new Hue(config.getHue().getHost(), config.getHue().getApiKey()),
@@ -42,7 +45,7 @@ public class Main {
         }
 
         try {
-            new Main(ConfigParser.parse(new File(args[0])));
+            new Main(ConfigParser.parse(new File(args[0]), Config.class));
         } catch (final IOException e) {
             LOGGER.error(e.getMessage(), e);
         }

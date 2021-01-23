@@ -1,6 +1,6 @@
 package de.rnd7.huemqtt.hue;
 
-import de.rnd7.huemqtt.mqtt.Message;
+import de.rnd7.mqttgateway.Message;
 
 public abstract class Device {
 

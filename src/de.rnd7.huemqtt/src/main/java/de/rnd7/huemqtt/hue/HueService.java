@@ -3,8 +3,8 @@ package de.rnd7.huemqtt.hue;
 import com.google.common.eventbus.Subscribe;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import de.rnd7.huemqtt.mqtt.Message;
-import de.rnd7.huemqtt.mqtt.PublishMessage;
+import de.rnd7.mqttgateway.Message;
+import de.rnd7.mqttgateway.TopicCleaner;
 import io.github.zeroone3010.yahueapi.DaylightSensor;
 import io.github.zeroone3010.yahueapi.Hue;
 import io.github.zeroone3010.yahueapi.Light;
@@ -71,33 +71,33 @@ public class HueService {
 
             for (final Room room : hue.getRooms()) {
                 for (Light light : room.getLights()) {
-                    final String topic = baseTopic + "/light/" + PublishMessage.cleanTopic(room.getName() + "/" + light.getName());
+                    final String topic = baseTopic + "/light/" + TopicCleaner.clean(room.getName() + "/" + light.getName());
                     nextDevices.add(new LightDevice(light, topic, topic));
                 }
             }
 
             for (final Light light : hue.getUnassignedLights()) {
-                final String topic = baseTopic + "/light/" + PublishMessage.cleanTopic(light.getName());
+                final String topic = baseTopic + "/light/" + TopicCleaner.clean(light.getName());
                 nextDevices.add(new LightDevice(light, topic, topic));
             }
 
             for (final Switch hueSwitch : hue.getSwitches()) {
-                final String topic = baseTopic + "/switch/" + PublishMessage.cleanTopic(hueSwitch.getName());
+                final String topic = baseTopic + "/switch/" + TopicCleaner.clean(hueSwitch.getName());
                 nextDevices.add(new SwitchDevice(hueSwitch, topic, hueSwitch.getId()));
             }
 
             for (final DaylightSensor sensor : hue.getDaylightSensors()) {
-                final String topic = baseTopic + "/daylight/" + PublishMessage.cleanTopic(sensor.getName());
+                final String topic = baseTopic + "/daylight/" + TopicCleaner.clean(sensor.getName());
                 nextDevices.add(new DaylightSensorDevice(sensor, topic, sensor.getId()));
             }
 
             for (final MotionSensor sensor : hue.getMotionSensors()) {
-                final String topic = baseTopic + "/motion/" + PublishMessage.cleanTopic(sensor.getName());
+                final String topic = baseTopic + "/motion/" + TopicCleaner.clean(sensor.getName());
                 nextDevices.add(new MotionSensorDevice(sensor, topic, sensor.getId()));
             }
 
             for (final TemperatureSensor sensor : hue.getTemperatureSensors()) {
-                final String topic = baseTopic + "/temperature/" + PublishMessage.cleanTopic(sensor.getName());
+                final String topic = baseTopic + "/temperature/" + TopicCleaner.clean(sensor.getName());
                 nextDevices.add(new TemperatureSensorDevice(sensor, topic, sensor.getId()));
             }
 

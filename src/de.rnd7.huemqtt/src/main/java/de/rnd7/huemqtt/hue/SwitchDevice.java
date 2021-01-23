@@ -1,9 +1,9 @@
 package de.rnd7.huemqtt.hue;
 
-import de.rnd7.huemqtt.Events;
-import de.rnd7.huemqtt.mqtt.Message;
-import de.rnd7.huemqtt.mqtt.PublishMessage;
-import de.rnd7.huemqtt.mqtt.SwitchMessage;
+import de.rnd7.huemqtt.hue.messages.SwitchMessage;
+import de.rnd7.mqttgateway.Events;
+import de.rnd7.mqttgateway.Message;
+import de.rnd7.mqttgateway.PublishMessage;
 import io.github.zeroone3010.yahueapi.Switch;
 import io.github.zeroone3010.yahueapi.SwitchEvent;
 
@@ -32,7 +32,7 @@ public class SwitchDevice extends HueDevice {
             final SwitchMessage message = SwitchMessage.fromState(next, lastUpdated);
             this.lastUpdated = lastUpdated;
 
-            Events.post(new PublishMessage(this.getTopic(), gson.toJson(message)));
+            Events.post(PublishMessage.absolute(this.getTopic(), gson.toJson(message)));
         }
     }
 

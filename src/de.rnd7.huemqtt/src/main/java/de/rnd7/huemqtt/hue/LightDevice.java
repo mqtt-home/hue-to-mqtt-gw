@@ -1,9 +1,9 @@
 package de.rnd7.huemqtt.hue;
 
-import de.rnd7.huemqtt.Events;
-import de.rnd7.huemqtt.mqtt.LightMessage;
-import de.rnd7.huemqtt.mqtt.Message;
-import de.rnd7.huemqtt.mqtt.PublishMessage;
+import de.rnd7.huemqtt.hue.messages.LightMessage;
+import de.rnd7.mqttgateway.Events;
+import de.rnd7.mqttgateway.Message;
+import de.rnd7.mqttgateway.PublishMessage;
 import io.github.zeroone3010.yahueapi.Light;
 import io.github.zeroone3010.yahueapi.State;
 
@@ -34,7 +34,7 @@ public class LightDevice extends HueDevice {
             final LightMessage message = LightMessage.fromState(next);
             this.state = next;
 
-            Events.post(new PublishMessage(this.getTopic(), gson.toJson(message)));
+            Events.post(PublishMessage.absolute(this.getTopic(), gson.toJson(message)));
         }
     }
 
