@@ -31,11 +31,15 @@ public class LightDevice extends HueDevice {
     public void triggerUpdate() {
         final State next = light.getState();
         if (!Objects.equals(state, next)) {
-            final LightMessage message = LightMessage.fromState(next);
-            this.state = next;
-
-            Events.post(PublishMessage.absolute(this.getTopic(), gson.toJson(message)));
+            postUpdate(next);
         }
+    }
+
+    private void postUpdate(final State next) {
+        final LightMessage message = LightMessage.fromState(next);
+        this.state = next;
+
+        Events.post(PublishMessage.absolute(this.getTopic(), gson.toJson(message)));
     }
 
     public LightMessage getMessage() {
@@ -44,29 +48,35 @@ public class LightDevice extends HueDevice {
 
     @Override
     public boolean apply(final Message message) {
-        if (message.getTopic().equals(this.setLightTopic)) {
-            return onMessage(message);
-        }
-        else {
-            return false;
-        }
+        return message.getTopic().startsWith(getTopic());
     }
 
     @Override
     protected boolean onMessage(final Message message) {
-        final LightMessage msg = gson.fromJson(message.getRaw(), LightMessage.class);
+        if (message.getTopic().equals(getTopic() + "/get")) {
+            postUpdate(getLight().getState());
+        }
+        else if (message.getTopic().equals(getTopic() + "/set")) {
+            setLightState(gson.fromJson(message.getRaw(), LightMessage.class));
+        }
+        else {
+            return false;
+        }
+        return true;
+    }
 
+    private void setLightState(final LightMessage msg) {
         if (msg.getColor() != null) {
             light.setState(State.builder()
-                    .xy(Arrays.asList(msg.getColor().getX(), msg.getColor().getY()))
-                    .brightness(msg.getBrightness())
-                    .on(msg.getState() == LightMessage.LightState.ON));
+                .xy(Arrays.asList(msg.getColor().getX(), msg.getColor().getY()))
+                .brightness(msg.getBrightness())
+                .on(msg.getState() == LightMessage.LightState.ON));
         }
         else if (msg.getColorTemp() != null) {
             light.setState(State.builder()
-                    .colorTemperatureInMireks(msg.getColorTemp())
-                    .brightness(msg.getBrightness())
-                    .on(msg.getState() == LightMessage.LightState.ON));
+                .colorTemperatureInMireks(msg.getColorTemp())
+                .brightness(msg.getBrightness())
+                .on(msg.getState() == LightMessage.LightState.ON));
         }
         else {
             if (msg.getState() == LightMessage.LightState.ON) {
@@ -76,7 +86,5 @@ public class LightDevice extends HueDevice {
                 light.turnOff();
             }
         }
-
-        return true;
     }
 }
