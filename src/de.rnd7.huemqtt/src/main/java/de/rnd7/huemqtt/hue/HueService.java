@@ -8,7 +8,7 @@ import de.rnd7.mqttgateway.TopicCleaner;
 import io.github.zeroone3010.yahueapi.DaylightSensor;
 import io.github.zeroone3010.yahueapi.Hue;
 import io.github.zeroone3010.yahueapi.Light;
-import io.github.zeroone3010.yahueapi.MotionSensor;
+import io.github.zeroone3010.yahueapi.PresenceSensor;
 import io.github.zeroone3010.yahueapi.Room;
 import io.github.zeroone3010.yahueapi.Switch;
 import io.github.zeroone3010.yahueapi.TemperatureSensor;
@@ -91,9 +91,9 @@ public class HueService {
                 nextDevices.add(new DaylightSensorDevice(sensor, topic, sensor.getId()));
             }
 
-            for (final MotionSensor sensor : hue.getMotionSensors()) {
-                final String topic = baseTopic + "/motion/" + TopicCleaner.clean(sensor.getName());
-                nextDevices.add(new MotionSensorDevice(sensor, topic, sensor.getId()));
+            for (final PresenceSensor sensor : hue.getPresenceSensors()) {
+                final String topic = baseTopic + "/presence/" + TopicCleaner.clean(sensor.getName());
+                nextDevices.add(new PresenceSensorDevice(sensor, topic, sensor.getId()));
             }
 
             for (final TemperatureSensor sensor : hue.getTemperatureSensors()) {

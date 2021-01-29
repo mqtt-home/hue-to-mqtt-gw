@@ -4,16 +4,16 @@ import de.rnd7.huemqtt.hue.messages.MotionMessage;
 import de.rnd7.mqttgateway.Events;
 import de.rnd7.mqttgateway.Message;
 import de.rnd7.mqttgateway.PublishMessage;
-import io.github.zeroone3010.yahueapi.MotionSensor;
+import io.github.zeroone3010.yahueapi.PresenceSensor;
 
 import java.time.ZonedDateTime;
 import java.util.Objects;
 
-public class MotionSensorDevice extends HueDevice {
-    private final MotionSensor device;
+public class PresenceSensorDevice extends HueDevice {
+    private final PresenceSensor device;
     private ZonedDateTime lastUpdated;
 
-    public MotionSensorDevice(final MotionSensor device, final String topic, final String id) {
+    public PresenceSensorDevice(final PresenceSensor device, final String topic, final String id) {
         super(topic, id);
         this.device = device;
         this.lastUpdated = device.getLastUpdated();
