@@ -97,7 +97,6 @@
 
     <modules>
         <module>de.rnd7.huemqtt</module>
-        <module>yetanotherhueapi</module>
     </modules>
 
     <dependencies>
