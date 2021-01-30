@@ -1,18 +1,9 @@
 package de.rnd7.huemqtt.effects;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import de.rnd7.huemqtt.hue.BigDecimalTypeAdapter;
-import de.rnd7.huemqtt.hue.DurationAdapter;
 import de.rnd7.huemqtt.hue.HueDevice;
-import de.rnd7.huemqtt.hue.ZonedDateTimeTypeAdapter;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
 
-import java.math.BigDecimal;
 import java.time.Duration;
 import java.util.stream.Stream;
 
