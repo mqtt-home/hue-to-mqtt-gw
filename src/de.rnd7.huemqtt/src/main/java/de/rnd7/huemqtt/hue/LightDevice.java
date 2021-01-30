@@ -1,11 +1,17 @@
 package de.rnd7.huemqtt.hue;
 
+import de.rnd7.huemqtt.effects.ColorXY;
+import de.rnd7.huemqtt.effects.LightEffectData;
+import de.rnd7.huemqtt.effects.NotifyAndRestoreLights;
+import de.rnd7.huemqtt.effects.NotifyAndTurnOffLights;
 import de.rnd7.huemqtt.hue.messages.LightMessage;
 import de.rnd7.mqttgateway.Events;
 import de.rnd7.mqttgateway.Message;
 import de.rnd7.mqttgateway.PublishMessage;
 import io.github.zeroone3010.yahueapi.Light;
 import io.github.zeroone3010.yahueapi.State;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -13,14 +19,12 @@ import java.util.Objects;
 public class LightDevice extends HueDevice {
     private final Light light;
     private State state;
-    private final String setLightTopic;
+    private static final Logger logger = LoggerFactory.getLogger(LightDevice.class);
 
     public LightDevice(final Light light, final String topic, final String id) {
         super(topic, id);
         this.light = light;
         this.state = light.getState();
-
-        this.setLightTopic = getTopic() + "/set";
     }
 
     public Light getLight() {
@@ -59,6 +63,9 @@ public class LightDevice extends HueDevice {
         else if (message.getTopic().equals(getTopic() + "/set")) {
             setLightState(gson.fromJson(message.getRaw(), LightMessage.class));
         }
+        else if (message.getTopic().equals(getTopic() + "/setEffect")) {
+            applyEffect(gson.fromJson(message.getRaw(), LightEffectData.class));
+        }
         else {
             return false;
         }
@@ -85,6 +92,21 @@ public class LightDevice extends HueDevice {
             else {
                 light.turnOff();
             }
+        }
+    }
+
+    private void applyEffect(final LightEffectData data) {
+        switch (data.getEffect()) {
+            case notify_restore:
+                new NotifyAndRestoreLights(light, data.getColors().toArray(new ColorXY[0]))
+                    .notifiy(data.getDuration());
+                return;
+            case notify_off:
+                new NotifyAndTurnOffLights(light, data.getColors().toArray(new ColorXY[0]))
+                    .notifiy(data.getDuration());
+                return;
+            default:
+                logger.error("Unknown effect {}", data.getEffect());
         }
     }
 }

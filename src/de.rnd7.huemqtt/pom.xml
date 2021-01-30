@@ -18,7 +18,7 @@
         <dependency>
             <groupId>de.rnd7.mqttgateway</groupId>
             <artifactId>mqttgateway</artifactId>
-            <version>1.0.6</version>
+            <version>1.2.0-b8</version>
         </dependency>
 
         <dependency>

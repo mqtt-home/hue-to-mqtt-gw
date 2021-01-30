@@ -22,13 +22,14 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class HueService {
+    private static HueService instance;
     private final Hue hue;
     private String baseTopic;
     private final List<HueDevice> devices = new ArrayList<>();
     private static final Logger LOGGER = LoggerFactory.getLogger(HueService.class);
     private final Gson gson = new GsonBuilder().create();
 
-    public HueService(final Hue hue, final String baseTopic) {
+    private HueService(final Hue hue, final String baseTopic) {
         hue.setCaching(true);
         this.hue = hue;
         this.baseTopic = baseTopic;
@@ -40,17 +41,30 @@ public class HueService {
     public void onMessage(final Message message) {
         for (Device device : devices) {
             if (device.apply(message)) {
+                device.onMessage(message);
                 return;
             }
         }
     }
 
-    public HueService start() {
-        final ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
-        executor.scheduleWithFixedDelay(this::poll, 1500, 500, TimeUnit.MILLISECONDS);
-        executor.scheduleAtFixedRate(this::scan, 1, 1, TimeUnit.HOURS);
+    public static HueService start(final Hue hue, final String baseTopic) {
+        if (instance != null) {
+            throw new IllegalStateException("Hue service cannot be started twice");
+        }
 
-        return this;
+        instance = new HueService(hue, baseTopic);
+
+        final ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
+        executor.scheduleWithFixedDelay(instance::poll, 1500, 500, TimeUnit.MILLISECONDS);
+        executor.scheduleAtFixedRate(instance::scan, 1, 1, TimeUnit.HOURS);
+
+        return instance;
+    }
+
+    public static void refresh() {
+        if (instance != null) {
+            instance.hue.refresh();
+        }
     }
 
     private void poll() {

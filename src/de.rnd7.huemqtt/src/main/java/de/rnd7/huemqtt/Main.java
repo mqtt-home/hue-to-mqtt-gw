@@ -28,9 +28,8 @@ public class Main {
             client.subscribe(config.getMqtt().getTopic() + "/light/#");
             client.online();
 
-            final HueService service = new HueService(
-                new Hue(config.getHue().getHost(), config.getHue().getApiKey()),
-                config.getMqtt().getTopic()).start();
+            final HueService service = HueService.start(new Hue(config.getHue().getHost(), config.getHue().getApiKey()),
+                config.getMqtt().getTopic());
 
             Events.register(service);
         } catch (final Exception e) {
