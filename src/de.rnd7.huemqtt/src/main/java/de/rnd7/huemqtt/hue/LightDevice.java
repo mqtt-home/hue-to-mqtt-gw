@@ -1,5 +1,6 @@
 package de.rnd7.huemqtt.hue;
 
+import com.google.common.collect.ImmutableSet;
 import de.rnd7.huemqtt.effects.ColorXY;
 import de.rnd7.huemqtt.effects.LightEffectData;
 import de.rnd7.huemqtt.effects.NotifyAndRestoreLights;
@@ -18,6 +19,10 @@ import java.util.Objects;
 
 public class LightDevice extends HueDevice {
     private final Light light;
+    private final String getTopic;
+    private final String setTopic;
+    private final String setEffectTopic;
+    private final ImmutableSet<String> topics;
     private State state;
     private static final Logger logger = LoggerFactory.getLogger(LightDevice.class);
 
@@ -25,6 +30,12 @@ public class LightDevice extends HueDevice {
         super(topic, id);
         this.light = light;
         this.state = light.getState();
+
+        this.getTopic = topic + "/get";
+        this.setTopic = topic +  "/set";
+        this.setEffectTopic = topic +  "/set";
+
+        this.topics = ImmutableSet.of(getTopic, setTopic, setEffectTopic, topic);
     }
 
     public Light getLight() {
@@ -52,18 +63,21 @@ public class LightDevice extends HueDevice {
 
     @Override
     public boolean apply(final Message message) {
-        return message.getTopic().startsWith(getTopic());
+        if (topics.contains(message.getTopic())) {
+            return onMessage(message);
+        }
+        return false;
     }
 
     @Override
     protected boolean onMessage(final Message message) {
-        if (message.getTopic().equals(getTopic() + "/get")) {
+        if (message.getTopic().equals(getTopic)) {
             postUpdate(getLight().getState());
         }
-        else if (message.getTopic().equals(getTopic() + "/set")) {
+        else if (message.getTopic().equals(setTopic)) {
             setLightState(gson.fromJson(message.getRaw(), LightMessage.class));
         }
-        else if (message.getTopic().equals(getTopic() + "/setEffect")) {
+        else if (message.getTopic().equals(setEffectTopic)) {
             applyEffect(gson.fromJson(message.getRaw(), LightEffectData.class));
         }
         else {

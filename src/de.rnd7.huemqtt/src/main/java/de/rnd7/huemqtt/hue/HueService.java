@@ -41,7 +41,6 @@ public class HueService {
     public void onMessage(final Message message) {
         for (Device device : devices) {
             if (device.apply(message)) {
-                device.onMessage(message);
                 return;
             }
         }
