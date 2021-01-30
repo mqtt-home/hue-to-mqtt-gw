@@ -23,7 +23,7 @@ public class LightEffectData {
         return colors;
     }
 
-    public LightEffectData addColor(ColorXY color) {
+    public LightEffectData addColor(final ColorXY color) {
         this.colors.add(color);
         return this;
     }
