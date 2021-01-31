@@ -1,19 +1,19 @@
 package de.rnd7.huemqtt.hue;
 
-import de.rnd7.huemqtt.hue.messages.PresenceMessage;
+import de.rnd7.huemqtt.hue.messages.AmbientMessage;
 import de.rnd7.mqttgateway.Events;
 import de.rnd7.mqttgateway.Message;
 import de.rnd7.mqttgateway.PublishMessage;
-import io.github.zeroone3010.yahueapi.PresenceSensor;
+import io.github.zeroone3010.yahueapi.AmbientLightSensor;
 
 import java.time.ZonedDateTime;
 import java.util.Objects;
 
-public class PresenceSensorDevice extends HueDevice {
-    private final PresenceSensor device;
+public class AmbientLightSensorDevice extends HueDevice {
+    private final AmbientLightSensor device;
     private ZonedDateTime lastUpdated;
 
-    public PresenceSensorDevice(final PresenceSensor device, final String topic, final String id) {
+    public AmbientLightSensorDevice(final AmbientLightSensor device, final String topic, final String id) {
         super(topic, id);
         this.device = device;
         this.lastUpdated = device.getLastUpdated();
@@ -23,7 +23,8 @@ public class PresenceSensorDevice extends HueDevice {
     public void triggerUpdate() {
         final ZonedDateTime lastUpdated = device.getLastUpdated();
         if (!Objects.equals(this.lastUpdated, lastUpdated)) {
-            final PresenceMessage message = PresenceMessage.fromState(device.isPresence(), lastUpdated);
+            final AmbientMessage message = AmbientMessage.fromState(device.isDark(),
+                device.isDaylight(), device.getLightLevel(), lastUpdated);
             this.lastUpdated = lastUpdated;
 
             Events.post(PublishMessage.absolute(this.getTopic(), gson.toJson(message)));

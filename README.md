@@ -18,6 +18,7 @@ point of time. The light messages are compatible with this format.
 - Temperature sensors
 - Presence sensors
 - Daylight sensors
+- Ambient light sensors
 
 ## Example message
 

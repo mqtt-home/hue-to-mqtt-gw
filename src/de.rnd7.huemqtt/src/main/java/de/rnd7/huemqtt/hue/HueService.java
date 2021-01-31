@@ -1,10 +1,9 @@
 package de.rnd7.huemqtt.hue;
 
 import com.google.common.eventbus.Subscribe;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import de.rnd7.mqttgateway.Message;
 import de.rnd7.mqttgateway.TopicCleaner;
+import io.github.zeroone3010.yahueapi.AmbientLightSensor;
 import io.github.zeroone3010.yahueapi.DaylightSensor;
 import io.github.zeroone3010.yahueapi.Hue;
 import io.github.zeroone3010.yahueapi.Light;
@@ -24,10 +23,9 @@ import java.util.concurrent.TimeUnit;
 public class HueService {
     private static HueService instance;
     private final Hue hue;
-    private String baseTopic;
+    private final String baseTopic;
     private final List<HueDevice> devices = new ArrayList<>();
     private static final Logger LOGGER = LoggerFactory.getLogger(HueService.class);
-    private final Gson gson = new GsonBuilder().create();
 
     private HueService(final Hue hue, final String baseTopic) {
         hue.setCaching(true);
@@ -107,6 +105,11 @@ public class HueService {
             for (final PresenceSensor sensor : hue.getPresenceSensors()) {
                 final String topic = baseTopic + "/presence/" + TopicCleaner.clean(sensor.getName());
                 nextDevices.add(new PresenceSensorDevice(sensor, topic, sensor.getId()));
+            }
+
+            for (final AmbientLightSensor sensor : hue.getAmbientLightSensors()) {
+                final String topic = baseTopic + "/ambient/" + TopicCleaner.clean(sensor.getName());
+                nextDevices.add(new AmbientLightSensorDevice(sensor, topic, sensor.getId()));
             }
 
             for (final TemperatureSensor sensor : hue.getTemperatureSensors()) {

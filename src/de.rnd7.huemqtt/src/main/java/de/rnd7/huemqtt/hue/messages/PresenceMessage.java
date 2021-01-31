@@ -4,10 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.time.ZonedDateTime;
 
-public class MotionMessage {
+public class PresenceMessage {
 
-    public static MotionMessage fromState(final boolean presence, final ZonedDateTime lastUpdated) {
-        final MotionMessage message = new MotionMessage();
+    public static PresenceMessage fromState(final boolean presence, final ZonedDateTime lastUpdated) {
+        final PresenceMessage message = new PresenceMessage();
 
         message.presence = presence;
         message.lastUpdated = lastUpdated;
