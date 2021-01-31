@@ -22,8 +22,8 @@ public class Main {
 
         try {
             final GwMqttClient client = GwMqttClient.start(config.getMqtt()
-                .setDefaultClientId("hue-mqtt")
-                .setDefaultTopic("hue"));
+                .setDefaultTopic("hue")
+            );
 
             client.subscribe(config.getMqtt().getTopic() + "/light/#");
             client.online();

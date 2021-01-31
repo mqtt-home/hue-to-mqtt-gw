@@ -16,7 +16,7 @@ point of time. The light messages are compatible with this format.
 - Philips Switches
 - Friends of Hue Switches
 - Temperature sensors
-- Motion sensors
+- Presence sensors
 - Daylight sensors
 
 ## Example message

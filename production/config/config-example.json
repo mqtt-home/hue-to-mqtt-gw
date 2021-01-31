@@ -3,7 +3,7 @@
         "url": "tcp://192.168.2.98:1883",
         "username": "user",
         "password": "password",
-        "deduplicate": true
+        "deduplicate": false
     },
     "hue": {
         "host": "192.168.2.99",
