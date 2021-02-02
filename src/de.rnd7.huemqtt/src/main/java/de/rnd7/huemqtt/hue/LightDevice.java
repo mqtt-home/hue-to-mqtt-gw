@@ -71,6 +71,10 @@ public class LightDevice extends HueDevice {
 
     @Override
     protected boolean onMessage(final Message message) {
+        if (message.getRaw() == null) {
+            return false;
+        }
+
         if (message.getTopic().equals(getTopic)) {
             postUpdate(getLight().getState());
         }
@@ -112,10 +116,12 @@ public class LightDevice extends HueDevice {
     private void applyEffect(final LightEffectData data) {
         switch (data.getEffect()) {
             case notify_restore:
+                logger.info("notify_restore {}", light.getName());
                 new NotifyAndRestoreLights(light, data.getColors().toArray(new ColorXY[0]))
                     .notifiy(data.getDuration());
                 return;
             case notify_off:
+                logger.info("notify_off {}", light.getName());
                 new NotifyAndTurnOffLights(light, data.getColors().toArray(new ColorXY[0]))
                     .notifiy(data.getDuration());
                 return;
