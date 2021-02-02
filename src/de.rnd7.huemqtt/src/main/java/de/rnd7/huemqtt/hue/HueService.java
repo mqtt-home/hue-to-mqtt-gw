@@ -1,5 +1,6 @@
 package de.rnd7.huemqtt.hue;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.eventbus.Subscribe;
 import de.rnd7.mqttgateway.Message;
 import de.rnd7.mqttgateway.TopicCleaner;
@@ -24,7 +25,7 @@ public class HueService {
     private static HueService instance;
     private final Hue hue;
     private final String baseTopic;
-    private final List<HueDevice> devices = new ArrayList<>();
+    private ImmutableList<HueDevice> devices = ImmutableList.of();
     private static final Logger LOGGER = LoggerFactory.getLogger(HueService.class);
 
     private HueService(final Hue hue, final String baseTopic) {
@@ -67,6 +68,7 @@ public class HueService {
     private void poll() {
         try {
             hue.refresh();
+
             devices.forEach(HueDevice::triggerUpdate);
         }
         catch (Exception e) {
@@ -117,8 +119,7 @@ public class HueService {
                 nextDevices.add(new TemperatureSensorDevice(sensor, topic, sensor.getId()));
             }
 
-            devices.clear();
-            devices.addAll(nextDevices);
+            devices = ImmutableList.copyOf(nextDevices);
         }
         catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
