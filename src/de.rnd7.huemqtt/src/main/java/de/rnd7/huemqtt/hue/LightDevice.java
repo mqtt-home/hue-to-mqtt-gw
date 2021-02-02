@@ -33,7 +33,7 @@ public class LightDevice extends HueDevice {
 
         this.getTopic = topic + "/get";
         this.setTopic = topic +  "/set";
-        this.setEffectTopic = topic +  "/set";
+        this.setEffectTopic = topic +  "/setEffect";
 
         this.topics = ImmutableSet.of(getTopic, setTopic, setEffectTopic, topic);
     }
