@@ -1,6 +1,7 @@
 package de.rnd7.huemqtt;
 
 import de.rnd7.huemqtt.config.Config;
+import de.rnd7.huemqtt.hue.api.HueAbstractionImpl;
 import de.rnd7.huemqtt.hue.HueService;
 import de.rnd7.mqttgateway.Events;
 import de.rnd7.mqttgateway.GwMqttClient;
@@ -28,7 +29,11 @@ public class Main {
             client.subscribe(config.getMqtt().getTopic() + "/light/#");
             client.online();
 
-            final HueService service = HueService.start(new Hue(config.getHue().getHost(), config.getHue().getApiKey()),
+            final HueAbstractionImpl hue = new HueAbstractionImpl(
+                new Hue(config.getHue().getHost(),
+                    config.getHue().getApiKey()));
+
+            final HueService service = HueService.start(hue,
                 config.getMqtt().getTopic());
 
             Events.register(service);

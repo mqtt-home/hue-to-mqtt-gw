@@ -2,11 +2,11 @@ package de.rnd7.huemqtt.hue;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.eventbus.Subscribe;
+import de.rnd7.huemqtt.hue.api.HueAbstraction;
 import de.rnd7.mqttgateway.Message;
 import de.rnd7.mqttgateway.TopicCleaner;
 import io.github.zeroone3010.yahueapi.AmbientLightSensor;
 import io.github.zeroone3010.yahueapi.DaylightSensor;
-import io.github.zeroone3010.yahueapi.Hue;
 import io.github.zeroone3010.yahueapi.Light;
 import io.github.zeroone3010.yahueapi.PresenceSensor;
 import io.github.zeroone3010.yahueapi.Room;
@@ -23,13 +23,13 @@ import java.util.concurrent.TimeUnit;
 
 public class HueService {
     private static HueService instance;
-    private final Hue hue;
+    private final HueAbstraction hue;
     private final String baseTopic;
     private ImmutableList<HueDevice> devices = ImmutableList.of();
     private static final Logger LOGGER = LoggerFactory.getLogger(HueService.class);
+    private final ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
 
-    private HueService(final Hue hue, final String baseTopic) {
-        hue.setCaching(true);
+    private HueService(final HueAbstraction hue, final String baseTopic) {
         this.hue = hue;
         this.baseTopic = baseTopic;
 
@@ -45,16 +45,20 @@ public class HueService {
         }
     }
 
-    public static HueService start(final Hue hue, final String baseTopic) {
+    public static void shutdown() {
+        instance.executor.shutdown();
+        instance = null;
+    }
+
+    public static HueService start(final HueAbstraction hue, final String baseTopic) {
         if (instance != null) {
             throw new IllegalStateException("Hue service cannot be started twice");
         }
 
         instance = new HueService(hue, baseTopic);
 
-        final ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
-        executor.scheduleWithFixedDelay(instance::poll, 1500, 500, TimeUnit.MILLISECONDS);
-        executor.scheduleAtFixedRate(instance::scan, 1, 1, TimeUnit.HOURS);
+        instance.executor.scheduleWithFixedDelay(instance::poll, 1500, 500, TimeUnit.MILLISECONDS);
+        instance.executor.scheduleAtFixedRate(instance::scan, 1, 1, TimeUnit.HOURS);
 
         return instance;
     }
@@ -65,7 +69,7 @@ public class HueService {
         }
     }
 
-    private void poll() {
+    public void poll() {
         try {
             hue.refresh();
 
@@ -78,8 +82,6 @@ public class HueService {
 
     private void scan() {
         try {
-            hue.getRooms();
-
             final List<HueDevice> nextDevices = new ArrayList<>();
 
             for (final Room room : hue.getRooms()) {
@@ -126,4 +128,15 @@ public class HueService {
         }
     }
 
+    public ImmutableList<HueDevice> getDevices() {
+        return devices;
+    }
+
+    public <T extends HueDevice> T getDevice(String id, Class<T> type) {
+        return devices.stream().filter(d -> d.getId().equals(id))
+            .filter(type::isInstance)
+            .map(type::cast)
+            .findFirst()
+            .orElseThrow(IllegalStateException::new);
+    }
 }

@@ -12,6 +12,7 @@ import java.util.Objects;
 public class DaylightSensorDevice extends HueDevice {
     private final DaylightSensor device;
     private ZonedDateTime lastUpdated;
+    private DaylightMessage message;
 
     public DaylightSensorDevice(final DaylightSensor device, final String topic, final String id) {
         super(topic, id);
@@ -23,11 +24,15 @@ public class DaylightSensorDevice extends HueDevice {
     public void triggerUpdate() {
         final ZonedDateTime lastUpdated = device.getLastUpdated();
         if (!Objects.equals(this.lastUpdated, lastUpdated)) {
-            final DaylightMessage message = DaylightMessage.fromState(device.isDaylightTime(), lastUpdated);
+            this.message = DaylightMessage.fromState(device.isDaylightTime(), lastUpdated);
             this.lastUpdated = lastUpdated;
 
             Events.post(PublishMessage.absolute(this.getTopic(), gson.toJson(message)));
         }
+    }
+
+    public DaylightMessage getMessage() {
+        return message;
     }
 
     @Override
