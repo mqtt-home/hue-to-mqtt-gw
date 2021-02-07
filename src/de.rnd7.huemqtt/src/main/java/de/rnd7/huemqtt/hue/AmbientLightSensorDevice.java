@@ -2,7 +2,6 @@ package de.rnd7.huemqtt.hue;
 
 import de.rnd7.huemqtt.hue.messages.AmbientMessage;
 import de.rnd7.mqttgateway.Events;
-import de.rnd7.mqttgateway.Message;
 import de.rnd7.mqttgateway.PublishMessage;
 import io.github.zeroone3010.yahueapi.AmbientLightSensor;
 
@@ -36,13 +35,4 @@ public class AmbientLightSensorDevice extends HueDevice {
         }
     }
 
-    @Override
-    public boolean apply(final Message message) {
-        return false;
-    }
-
-    @Override
-    protected boolean onMessage(final Message message) {
-        return false;
-    }
 }

@@ -2,7 +2,6 @@ package de.rnd7.huemqtt.hue;
 
 import de.rnd7.huemqtt.hue.messages.TemperatureMessage;
 import de.rnd7.mqttgateway.Events;
-import de.rnd7.mqttgateway.Message;
 import de.rnd7.mqttgateway.PublishMessage;
 import io.github.zeroone3010.yahueapi.TemperatureSensor;
 
@@ -21,22 +20,13 @@ public class TemperatureSensorDevice extends HueDevice {
 
     @Override
     public void triggerUpdate() {
-        final ZonedDateTime lastUpdated = device.getLastUpdated();
+        final ZonedDateTime lastUpdated = this.device.getLastUpdated();
         if (!Objects.equals(this.lastUpdated, lastUpdated)) {
-            final TemperatureMessage message = TemperatureMessage.fromState(device.getDegreesCelsius(), lastUpdated);
+            final TemperatureMessage message = TemperatureMessage.fromState(this.device.getDegreesCelsius(), lastUpdated);
             this.lastUpdated = lastUpdated;
 
-            Events.post(PublishMessage.absolute(this.getTopic(), gson.toJson(message)));
+            Events.post(PublishMessage.absolute(this.getTopic(), this.gson.toJson(message)));
         }
     }
 
-    @Override
-    public boolean apply(final Message message) {
-        return false;
-    }
-
-    @Override
-    protected boolean onMessage(final Message message) {
-        return false;
-    }
 }
