@@ -1,4 +1,4 @@
-package feature;
+package features;
 
 public class DeviceProperty {
 
@@ -6,18 +6,18 @@ public class DeviceProperty {
     private String value;
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public String getValue() {
-        return value;
+        return this.value;
     }
 
     @Override
     public String toString() {
         return "DeviceProperty{" +
-            "name='" + name + '\'' +
-            ", value='" + value + '\'' +
+            "name='" + this.name + '\'' +
+            ", value='" + this.value + '\'' +
             '}';
     }
 }

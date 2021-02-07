@@ -1,10 +1,11 @@
-package feature;
+package features;
 import de.rnd7.huemqtt.hue.api.HueAbstraction;
 import io.github.zeroone3010.yahueapi.AmbientLightSensor;
 import io.github.zeroone3010.yahueapi.DaylightSensor;
 import io.github.zeroone3010.yahueapi.Light;
 import io.github.zeroone3010.yahueapi.PresenceSensor;
 import io.github.zeroone3010.yahueapi.Room;
+import io.github.zeroone3010.yahueapi.Sensor;
 import io.github.zeroone3010.yahueapi.Switch;
 import io.github.zeroone3010.yahueapi.TemperatureSensor;
 
@@ -14,10 +15,10 @@ import java.util.List;
 
 public class HueAbstractionStub implements HueAbstraction {
 
-    private List<DaylightSensor> daylightSensors = new ArrayList<>();
+    private final List<Sensor> sensors = new ArrayList<>();
 
-    void addDaylightSensor(DaylightSensor sensor) {
-        daylightSensors.add(sensor);
+    void addSensor(final Sensor sensor) {
+        this.sensors.add(sensor);
     }
 
     @Override
@@ -25,10 +26,13 @@ public class HueAbstractionStub implements HueAbstraction {
 
     }
 
-    public DaylightSensor getDevice(final String deviceId) {
-        return daylightSensors.stream()
+    public <T extends Sensor> T getSensor(final String deviceId, final Class<T> type) {
+        return this.sensors.stream()
             .filter(d -> d.getId().equals(deviceId))
-            .findFirst().orElseThrow(IllegalStateException::new);
+            .filter(type::isInstance)
+            .map(type::cast)
+            .findFirst()
+            .orElseThrow(IllegalStateException::new);
     }
 
     @Override
@@ -43,27 +47,33 @@ public class HueAbstractionStub implements HueAbstraction {
 
     @Override
     public Iterable<Switch> getSwitches() {
-        return Collections.emptyList();
+        return getSensors(Switch.class);
     }
 
     @Override
     public Iterable<DaylightSensor> getDaylightSensors() {
-        return daylightSensors;
+        return getSensors(DaylightSensor.class);
     }
 
     @Override
     public Iterable<PresenceSensor> getPresenceSensors() {
-        return Collections.emptyList();
+        return getSensors(PresenceSensor.class);
     }
 
     @Override
     public Iterable<AmbientLightSensor> getAmbientLightSensors() {
-        return Collections.emptyList();
+        return getSensors(AmbientLightSensor.class);
     }
 
     @Override
     public Iterable<TemperatureSensor> getTemperatureSensors() {
-        return Collections.emptyList();
+        return getSensors(TemperatureSensor.class);
+    }
+
+    private <T extends Sensor> Iterable<T> getSensors(final Class<T> type) {
+        return this.sensors.stream()
+            .filter(type::isInstance)
+            .map(type::cast)::iterator;
     }
 
 }

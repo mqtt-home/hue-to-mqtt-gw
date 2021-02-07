@@ -1,6 +1,6 @@
-package feature.sensors;
+package features.sensors;
 
-import feature.DeviceDescriptor;
+import features.DeviceDescriptor;
 import io.github.zeroone3010.yahueapi.Sensor;
 
 import java.time.LocalDate;
@@ -9,7 +9,7 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Map;
 
-abstract class SensorStub implements Sensor {
+public abstract class SensorStub implements Sensor {
     private final DeviceDescriptor device;
     private ZonedDateTime lastUpdated = ZonedDateTime
         .of(LocalDate.of(2021, 01, 01),
@@ -21,28 +21,48 @@ abstract class SensorStub implements Sensor {
 
     @Override
     public String getName() {
-        return device.getId();
+        return this.device.getId();
     }
 
     @Override
     public String getProductName() {
-        return device.getType().name();
+        return this.device.getType().name();
     }
 
     @Override
     public String getId() {
-        return device.getId();
+        return this.device.getId();
     }
 
     @Override
     public ZonedDateTime getLastUpdated() {
-        return lastUpdated;
+        return this.lastUpdated;
     }
 
     public void setProperties(final Map<String, String> properties) {
         final String lastUpdated = properties.get("last-updated");
         if (lastUpdated != null) {
             this.lastUpdated = ZonedDateTime.parse(lastUpdated);
+        }
+    }
+
+    protected boolean getBoolean(final Map<String, String> properties, final String key, final boolean defaultValue) {
+        final String value = properties.get(key);
+        if (value != null) {
+            return Boolean.parseBoolean(value);
+        }
+        else {
+            return defaultValue;
+        }
+    }
+
+    protected int getInt(final Map<String, String> properties, final String key, final int defaultValue) {
+        final String value = properties.get(key);
+        if (value != null) {
+            return Integer.parseInt(value);
+        }
+        else {
+            return defaultValue;
         }
     }
 }

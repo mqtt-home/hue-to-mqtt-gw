@@ -12,6 +12,7 @@ import java.util.Objects;
 public class AmbientLightSensorDevice extends HueDevice {
     private final AmbientLightSensor device;
     private ZonedDateTime lastUpdated;
+    private AmbientMessage message;
 
     public AmbientLightSensorDevice(final AmbientLightSensor device, final String topic, final String id) {
         super(topic, id);
@@ -19,15 +20,19 @@ public class AmbientLightSensorDevice extends HueDevice {
         this.lastUpdated = device.getLastUpdated();
     }
 
+    public AmbientMessage getMessage() {
+        return this.message;
+    }
+
     @Override
     public void triggerUpdate() {
-        final ZonedDateTime lastUpdated = device.getLastUpdated();
+        final ZonedDateTime lastUpdated = this.device.getLastUpdated();
         if (!Objects.equals(this.lastUpdated, lastUpdated)) {
-            final AmbientMessage message = AmbientMessage.fromState(device.isDark(),
-                device.isDaylight(), device.getLightLevel(), lastUpdated);
+            this.message = AmbientMessage.fromState(this.device.isDark(),
+                this.device.isDaylight(), this.device.getLightLevel(), lastUpdated);
             this.lastUpdated = lastUpdated;
 
-            Events.post(PublishMessage.absolute(this.getTopic(), gson.toJson(message)));
+            Events.post(PublishMessage.absolute(this.getTopic(), this.gson.toJson(this.message)));
         }
     }
 

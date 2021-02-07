@@ -1,27 +1,29 @@
-package feature;
+package features;
 
 public class DeviceDescriptor {
 
     public enum DeviceType {
-        daylight
+        daylight,
+        ambient,
+        button
     }
 
     private DeviceType type;
     private String id;
 
     public DeviceType getType() {
-        return type;
+        return this.type;
     }
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
     @Override
     public String toString() {
         return "DeviceDescriptor{" +
-            "type=" + type +
-            ", id='" + id + '\'' +
+            "type=" + this.type +
+            ", id='" + this.id + '\'' +
             '}';
     }
 }

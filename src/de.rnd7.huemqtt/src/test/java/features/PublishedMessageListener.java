@@ -1,4 +1,4 @@
-package feature;
+package features;
 
 import com.google.common.eventbus.Subscribe;
 import de.rnd7.mqttgateway.PublishMessage;
@@ -8,18 +8,18 @@ import java.util.List;
 
 public class PublishedMessageListener {
 
-    private List<PublishMessage> messages = new ArrayList<>();
+    private final List<PublishMessage> messages = new ArrayList<>();
 
     @Subscribe
     public void onMessage(final PublishMessage message) {
-        messages.add(message);
+        this.messages.add(message);
     }
 
     public void clear() {
-        messages.clear();
+        this.messages.clear();
     }
 
     public List<PublishMessage> getMessages() {
-        return messages;
+        return this.messages;
     }
 }

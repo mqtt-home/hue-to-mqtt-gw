@@ -1,4 +1,4 @@
-package feature;
+package features;
 
 import io.cucumber.junit.platform.engine.Cucumber;
 

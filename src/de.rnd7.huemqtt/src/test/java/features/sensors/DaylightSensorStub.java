@@ -1,11 +1,9 @@
-package feature.sensors;
+package features.sensors;
 
-import feature.DeviceDescriptor;
-import feature.DeviceProperty;
+import features.DeviceDescriptor;
 import io.github.zeroone3010.yahueapi.DaylightSensor;
 import io.github.zeroone3010.yahueapi.SensorType;
 
-import java.util.List;
 import java.util.Map;
 
 public class DaylightSensorStub extends SensorStub implements DaylightSensor {
@@ -22,16 +20,14 @@ public class DaylightSensorStub extends SensorStub implements DaylightSensor {
 
     @Override
     public boolean isDaylightTime() {
-        return daylight;
+        return this.daylight;
     }
 
     @Override
     public void setProperties(final Map<String, String> properties) {
         super.setProperties(properties);
 
-        final String daylightProp = properties.get("daylight");
-        if (daylightProp != null) {
-            this.daylight = Boolean.parseBoolean(daylightProp);
-        }
+        this.daylight = getBoolean(properties, "daylight", this.daylight);
     }
+
 }
