@@ -11,6 +11,7 @@ import java.util.Objects;
 public class TemperatureSensorDevice extends HueDevice {
     private final TemperatureSensor device;
     private ZonedDateTime lastUpdated;
+    private TemperatureMessage message;
 
     public TemperatureSensorDevice(final TemperatureSensor device, final String topic, final String id) {
         super(topic, id);
@@ -18,14 +19,18 @@ public class TemperatureSensorDevice extends HueDevice {
         this.lastUpdated = device.getLastUpdated();
     }
 
+    public TemperatureMessage getMessage() {
+        return this.message;
+    }
+
     @Override
     public void triggerUpdate() {
         final ZonedDateTime lastUpdated = this.device.getLastUpdated();
         if (!Objects.equals(this.lastUpdated, lastUpdated)) {
-            final TemperatureMessage message = TemperatureMessage.fromState(this.device.getDegreesCelsius(), lastUpdated);
+            this.message = TemperatureMessage.fromState(this.device.getDegreesCelsius(), lastUpdated);
             this.lastUpdated = lastUpdated;
 
-            Events.post(PublishMessage.absolute(this.getTopic(), this.gson.toJson(message)));
+            Events.post(PublishMessage.absolute(this.getTopic(), this.gson.toJson(this.message)));
         }
     }
 

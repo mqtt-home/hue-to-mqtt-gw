@@ -13,7 +13,10 @@ Feature: Daylight sensor
         Then I expect "daylight-1" to have daylight time.
         And I expect the following message on topic "hue/daylight/daylight-1":
         """
-        {"daylight":true,"last-updated":"2021-02-07T15:01:48+01:00[Europe/Berlin]"}
+        {
+            "daylight": true,
+            "last-updated": "2021-02-07T15:01:48+01:00[Europe/Berlin]"
+        }
         """
 
     Scenario: It is not daylight time
@@ -24,5 +27,8 @@ Feature: Daylight sensor
         Then I expect "daylight-1" to not have daylight time.
         And I expect the following message on topic "hue/daylight/daylight-1":
         """
-        {"daylight":false,"last-updated":"2021-02-02T22:00+01:00[Europe/Berlin]"}
+        {
+            "daylight": false,
+            "last-updated": "2021-02-02T22:00+01:00[Europe/Berlin]"
+        }
         """

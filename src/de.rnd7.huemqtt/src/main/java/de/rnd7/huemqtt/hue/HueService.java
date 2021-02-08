@@ -139,4 +139,8 @@ public class HueService {
             .findFirst()
             .orElseThrow(IllegalStateException::new);
     }
+
+    public static HueService get() {
+        return instance;
+    }
 }

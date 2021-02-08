@@ -3,6 +3,7 @@ package features.sensors;
 import features.DeviceDescriptor;
 import io.github.zeroone3010.yahueapi.Sensor;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
@@ -60,6 +61,16 @@ public abstract class SensorStub implements Sensor {
         final String value = properties.get(key);
         if (value != null) {
             return Integer.parseInt(value);
+        }
+        else {
+            return defaultValue;
+        }
+    }
+
+    protected BigDecimal getBigDecimal(final Map<String, String> properties, final String key, final BigDecimal defaultValue) {
+        final String value = properties.get(key);
+        if (value != null) {
+            return new BigDecimal(value);
         }
         else {
             return defaultValue;

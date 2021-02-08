@@ -11,6 +11,7 @@ import java.util.Objects;
 public class PresenceSensorDevice extends HueDevice {
     private final PresenceSensor device;
     private ZonedDateTime lastUpdated;
+    private PresenceMessage message;
 
     public PresenceSensorDevice(final PresenceSensor device, final String topic, final String id) {
         super(topic, id);
@@ -18,14 +19,18 @@ public class PresenceSensorDevice extends HueDevice {
         this.lastUpdated = device.getLastUpdated();
     }
 
+    public PresenceMessage getMessage() {
+        return this.message;
+    }
+
     @Override
     public void triggerUpdate() {
         final ZonedDateTime lastUpdated = this.device.getLastUpdated();
         if (!Objects.equals(this.lastUpdated, lastUpdated)) {
-            final PresenceMessage message = PresenceMessage.fromState(this.device.isPresence(), lastUpdated);
+            this.message = PresenceMessage.fromState(this.device.isPresence(), lastUpdated);
             this.lastUpdated = lastUpdated;
 
-            Events.post(PublishMessage.absolute(this.getTopic(), this.gson.toJson(message)));
+            Events.post(PublishMessage.absolute(this.getTopic(), this.gson.toJson(this.message)));
         }
     }
 

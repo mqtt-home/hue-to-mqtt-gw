@@ -1,13 +1,10 @@
 package features;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import de.rnd7.huemqtt.hue.AmbientLightSensorDevice;
-import de.rnd7.huemqtt.hue.DaylightSensorDevice;
 import de.rnd7.huemqtt.hue.HueService;
 import de.rnd7.mqttgateway.Events;
 import de.rnd7.mqttgateway.PublishMessage;
-import features.sensors.AmbientLightSensorStub;
-import features.sensors.DaylightSensorStub;
+import features.sensors.SensorFactory;
 import features.sensors.SensorStub;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
@@ -15,14 +12,14 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.skyscreamer.jsonassert.JSONAssert;
+import org.skyscreamer.jsonassert.JSONCompareMode;
 
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HueMqttStepDefinitions {
     private final ObjectMapper objectMapper = new ObjectMapper();
@@ -43,13 +40,6 @@ public class HueMqttStepDefinitions {
         Events.register(this.messages);
     }
 
-    @Given("I have a hue bridge")
-    public void i_have_a_hue_bridge() {
-    }
-    @Then("I expect this to work")
-    public void i_expect_this_to_work() {
-    }
-
     @Given("I have a hue bridge with the following devices:")
     public void withDevices(final DataTable dataTable) {
         final List<Map<String,String>> values = dataTable.asMaps(String.class, String.class);
@@ -58,16 +48,9 @@ public class HueMqttStepDefinitions {
 
         this.hueTestStub = new HueAbstractionStub();
 
-        for (final DeviceDescriptor device : devices) {
-            switch (device.getType()) {
-                case daylight:
-                    this.hueTestStub.addSensor(new DaylightSensorStub(device));
-                    break;
-                case ambient:
-                    this.hueTestStub.addSensor(new AmbientLightSensorStub(device));
-                    break;
-            }
-        }
+        devices.stream()
+            .map(SensorFactory::create)
+            .forEach(this.hueTestStub::addSensor);
 
         this.hue = HueService.start(this.hueTestStub, "hue");
     }
@@ -81,42 +64,6 @@ public class HueMqttStepDefinitions {
         this.hue.poll();
     }
 
-    @Then("I expect {string} to have daylight time.")
-    public void expectItIsDaylight(final String deviceId) {
-        final DaylightSensorDevice sensor = this.hue.getDevice(deviceId, DaylightSensorDevice.class);
-        assertTrue(sensor.getMessage().isDaylight());
-    }
-
-    @Then("I expect {string} to not have daylight time.")
-    public void expectItIsNotDaylight(final String deviceId) {
-        final DaylightSensorDevice sensor = this.hue.getDevice(deviceId, DaylightSensorDevice.class);
-        assertFalse(sensor.getMessage().isDaylight());
-    }
-
-    @Then("I expect the ambient sensor {string} to have daylight time.")
-    public void expectAmbientDaylight(final String deviceId) {
-        final AmbientLightSensorDevice sensor = this.hue.getDevice(deviceId, AmbientLightSensorDevice.class);
-        assertTrue(sensor.getMessage().isDaylight());
-    }
-
-    @Then("I expect the ambient sensor {string} to not have daylight time.")
-    public void expectAmbientNotDaylight(final String deviceId) {
-        final AmbientLightSensorDevice sensor = this.hue.getDevice(deviceId, AmbientLightSensorDevice.class);
-        assertFalse(sensor.getMessage().isDaylight());
-    }
-
-    @Then("I expect the ambient sensor {string} to be not dark.")
-    public void expectAmbientNotDark(final String deviceId) {
-        final AmbientLightSensorDevice sensor = this.hue.getDevice(deviceId, AmbientLightSensorDevice.class);
-        assertFalse(sensor.getMessage().isDark());
-    }
-
-    @Then("I expect the ambient sensor {string} to be dark.")
-    public void expectAmbientDark(final String deviceId) {
-        final AmbientLightSensorDevice sensor = this.hue.getDevice(deviceId, AmbientLightSensorDevice.class);
-        assertTrue(sensor.getMessage().isDark());
-    }
-
     @Then("I expect the following message on topic {string}:")
     public void expectMessageOnTopic(final String topic, final String message) {
         final List<PublishMessage> messages = this.messages.getMessages().stream()
@@ -126,7 +73,7 @@ public class HueMqttStepDefinitions {
         assertFalse(messages.isEmpty());
 
         final PublishMessage publishMessage = messages.get(messages.size() - 1);
-        assertEquals(message, publishMessage.getMessage());
+        JSONAssert.assertEquals(message, publishMessage.getMessage(), JSONCompareMode.LENIENT);
     }
 
 }

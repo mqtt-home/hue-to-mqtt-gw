@@ -5,7 +5,9 @@ public class DeviceDescriptor {
     public enum DeviceType {
         daylight,
         ambient,
-        button
+        button,
+        temperature,
+        presence
     }
 
     private DeviceType type;
