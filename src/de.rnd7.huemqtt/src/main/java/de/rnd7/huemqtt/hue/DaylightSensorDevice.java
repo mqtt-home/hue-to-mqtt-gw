@@ -2,7 +2,6 @@ package de.rnd7.huemqtt.hue;
 
 import de.rnd7.huemqtt.hue.messages.DaylightMessage;
 import de.rnd7.mqttgateway.Events;
-import de.rnd7.mqttgateway.Message;
 import de.rnd7.mqttgateway.PublishMessage;
 import io.github.zeroone3010.yahueapi.DaylightSensor;
 
@@ -12,6 +11,7 @@ import java.util.Objects;
 public class DaylightSensorDevice extends HueDevice {
     private final DaylightSensor device;
     private ZonedDateTime lastUpdated;
+    private DaylightMessage message;
 
     public DaylightSensorDevice(final DaylightSensor device, final String topic, final String id) {
         super(topic, id);
@@ -21,22 +21,17 @@ public class DaylightSensorDevice extends HueDevice {
 
     @Override
     public void triggerUpdate() {
-        final ZonedDateTime lastUpdated = device.getLastUpdated();
+        final ZonedDateTime lastUpdated = this.device.getLastUpdated();
         if (!Objects.equals(this.lastUpdated, lastUpdated)) {
-            final DaylightMessage message = DaylightMessage.fromState(device.isDaylightTime(), lastUpdated);
+            this.message = DaylightMessage.fromState(this.device.isDaylightTime(), lastUpdated);
             this.lastUpdated = lastUpdated;
 
-            Events.post(PublishMessage.absolute(this.getTopic(), gson.toJson(message)));
+            Events.post(PublishMessage.absolute(this.getTopic(), this.gson.toJson(this.message)));
         }
     }
 
-    @Override
-    public boolean apply(final Message message) {
-        return false;
+    public DaylightMessage getMessage() {
+        return this.message;
     }
 
-    @Override
-    protected boolean onMessage(final Message message) {
-        return false;
-    }
 }

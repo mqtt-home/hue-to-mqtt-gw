@@ -7,21 +7,21 @@ public abstract class Device {
     private final String topic;
     private final String id;
 
-    public Device(final String topic, final String id) {
+    protected Device(final String topic, final String id) {
         this.topic = topic;
         this.id = id;
     }
 
     public String getTopic() {
-        return topic;
+        return this.topic;
     }
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public boolean apply(final Message message) {
-        if (message.getTopic().equals(topic)) {
+        if (message.getTopic().equals(this.topic)) {
             return onMessage(message);
         }
         return false;
@@ -32,7 +32,7 @@ public abstract class Device {
     @Override
     public String toString() {
         return "Device{" +
-                "topic='" + topic + '\'' +
+                "topic='" + this.topic + '\'' +
                 '}';
     }
 

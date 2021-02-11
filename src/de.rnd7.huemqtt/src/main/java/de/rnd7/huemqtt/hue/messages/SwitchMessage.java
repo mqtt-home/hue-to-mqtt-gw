@@ -17,21 +17,16 @@ public class SwitchMessage {
         return message;
     }
 
+    @SerializedName("button")
     private int button;
+
+    @SerializedName("code")
     private int code;
 
     @SerializedName("last-updated")
     private ZonedDateTime lastUpdated;
 
-    public int getButton() {
-        return button;
-    }
-
-    public int getCode() {
-        return code;
-    }
-
     public ZonedDateTime getLastUpdated() {
-        return lastUpdated;
+        return this.lastUpdated;
     }
 }
