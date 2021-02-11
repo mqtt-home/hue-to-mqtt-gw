@@ -12,3 +12,6 @@ insert_final_newline = true
 
 [*.yml]
 indent_size = 2
+
+[*.feature]
+indent_size = 2
