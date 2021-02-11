@@ -19,8 +19,10 @@ public class LightMessage {
     }
 
     public static class Color {
-        private float x;
-        private float y;
+        @SerializedName("x")
+        private final float x;
+        @SerializedName("y")
+        private final float y;
 
         public Color(final float x, final float y) {
             this.x = x;
@@ -28,11 +30,11 @@ public class LightMessage {
         }
 
         public float getX() {
-            return x;
+            return this.x;
         }
 
         public float getY() {
-            return y;
+            return this.y;
         }
     }
 
@@ -49,12 +51,16 @@ public class LightMessage {
         return message;
     }
 
+    @SerializedName("state")
     private LightState state;
+
+    @SerializedName("brightness")
     private Integer brightness;
 
     @SerializedName("color_temp")
     private Integer colorTemp;
 
+    @SerializedName("color")
     private Color color;
 
     public void setBrightness(final Integer brightness) {
@@ -62,7 +68,7 @@ public class LightMessage {
     }
 
     public Integer getBrightness() {
-        return brightness;
+        return this.brightness;
     }
 
     public void setState(final LightState state) {
@@ -70,7 +76,7 @@ public class LightMessage {
     }
 
     public LightState getState() {
-        return state;
+        return this.state;
     }
 
     public void setColor(final Color color) {
@@ -78,7 +84,7 @@ public class LightMessage {
     }
 
     public Color getColor() {
-        return color;
+        return this.color;
     }
 
     public void setColorTemp(final Integer colorTemp) {
@@ -86,6 +92,6 @@ public class LightMessage {
     }
 
     public Integer getColorTemp() {
-        return colorTemp;
+        return this.colorTemp;
     }
 }

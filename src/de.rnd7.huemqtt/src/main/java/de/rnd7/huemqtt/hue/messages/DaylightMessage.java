@@ -15,16 +15,17 @@ public class DaylightMessage {
         return message;
     }
 
+    @SerializedName("daylight")
     private boolean daylight;
 
     @SerializedName("last-updated")
     private ZonedDateTime lastUpdated;
 
     public ZonedDateTime getLastUpdated() {
-        return lastUpdated;
+        return this.lastUpdated;
     }
 
     public boolean isDaylight() {
-        return daylight;
+        return this.daylight;
     }
 }

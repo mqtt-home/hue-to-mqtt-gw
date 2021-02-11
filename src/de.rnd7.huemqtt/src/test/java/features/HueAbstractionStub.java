@@ -12,18 +12,32 @@ import io.github.zeroone3010.yahueapi.TemperatureSensor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 public class HueAbstractionStub implements HueAbstraction {
 
     private final List<Sensor> sensors = new ArrayList<>();
+    private final List<Light> lights = new ArrayList<>();
 
     void addSensor(final Sensor sensor) {
         this.sensors.add(sensor);
     }
 
+    void addLight(final Light light) {
+        this.lights.add(light);
+    }
+
     @Override
     public void refresh() {
 
+    }
+
+    public <T extends Light> Optional<T> getLight(final String name, final Class<T> type) {
+        return this.lights.stream()
+            .filter(d -> d.getName().equals(name))
+            .filter(type::isInstance)
+            .map(type::cast)
+            .findFirst();
     }
 
     public <T extends Sensor> T getSensor(final String deviceId, final Class<T> type) {
@@ -42,7 +56,7 @@ public class HueAbstractionStub implements HueAbstraction {
 
     @Override
     public Iterable<Light> getUnassignedLights() {
-        return Collections.emptyList();
+        return this.lights;
     }
 
     @Override

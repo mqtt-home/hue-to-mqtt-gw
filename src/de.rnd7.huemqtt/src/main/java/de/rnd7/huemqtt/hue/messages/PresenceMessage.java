@@ -15,16 +15,17 @@ public class PresenceMessage {
         return message;
     }
 
+    @SerializedName("presence")
     private boolean presence;
 
     @SerializedName("last-updated")
     private ZonedDateTime lastUpdated;
 
     public ZonedDateTime getLastUpdated() {
-        return lastUpdated;
+        return this.lastUpdated;
     }
 
     public boolean isPresence() {
-        return presence;
+        return this.presence;
     }
 }

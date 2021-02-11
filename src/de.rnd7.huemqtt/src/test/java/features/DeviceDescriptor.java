@@ -3,11 +3,14 @@ package features;
 public class DeviceDescriptor {
 
     public enum DeviceType {
-        daylight,
         ambient,
         button,
-        temperature,
-        presence
+        daylight,
+        ct_light,
+        light,
+        color_light,
+        presence,
+        temperature
     }
 
     private DeviceType type;

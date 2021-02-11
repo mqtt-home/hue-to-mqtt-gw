@@ -16,16 +16,17 @@ public class TemperatureMessage {
         return message;
     }
 
+    @SerializedName("temperature")
     private BigDecimal temperature;
 
     @SerializedName("last-updated")
     private ZonedDateTime lastUpdated;
 
     public ZonedDateTime getLastUpdated() {
-        return lastUpdated;
+        return this.lastUpdated;
     }
 
     public BigDecimal getTemperature() {
-        return temperature;
+        return this.temperature;
     }
 }

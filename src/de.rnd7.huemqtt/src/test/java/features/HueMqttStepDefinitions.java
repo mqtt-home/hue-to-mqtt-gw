@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import de.rnd7.huemqtt.hue.HueService;
 import de.rnd7.mqttgateway.Events;
 import de.rnd7.mqttgateway.PublishMessage;
+import features.sensors.LightStub;
 import features.sensors.SensorFactory;
 import features.sensors.SensorStub;
 import io.cucumber.datatable.DataTable;
@@ -17,6 +18,8 @@ import org.skyscreamer.jsonassert.JSONCompareMode;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -49,8 +52,14 @@ public class HueMqttStepDefinitions {
         this.hueTestStub = new HueAbstractionStub();
 
         devices.stream()
-            .map(SensorFactory::create)
+            .map(SensorFactory::createSensor)
+            .filter(Objects::nonNull)
             .forEach(this.hueTestStub::addSensor);
+
+        devices.stream()
+            .map(SensorFactory::createLight)
+            .filter(Objects::nonNull)
+            .forEach(this.hueTestStub::addLight);
 
         this.hue = HueService.start(this.hueTestStub, "hue");
     }
@@ -59,7 +68,15 @@ public class HueMqttStepDefinitions {
     public void setProperties(final String deviceId, final DataTable dataTable) {
         final Map<String, String> properties = dataTable.asMap(String.class, String.class);
 
-        this.hueTestStub.getSensor(deviceId, SensorStub.class).setProperties(properties);
+        final Optional<LightStub> light = this.hueTestStub.getLight(deviceId, LightStub.class);
+        if (light.isPresent()) {
+            light.get()
+                .setProperties(properties);
+        }
+        else {
+            this.hueTestStub.getSensor(deviceId, SensorStub.class)
+                .setProperties(properties);
+        }
 
         this.hue.poll();
     }

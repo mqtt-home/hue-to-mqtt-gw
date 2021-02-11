@@ -17,7 +17,10 @@ public class AmbientMessage {
         return message;
     }
 
+    @SerializedName("dark")
     private boolean dark;
+
+    @SerializedName("daylight")
     private boolean daylight;
 
     @SerializedName("last-level")
@@ -27,18 +30,18 @@ public class AmbientMessage {
     private ZonedDateTime lastUpdated;
 
     public ZonedDateTime getLastUpdated() {
-        return lastUpdated;
+        return this.lastUpdated;
     }
 
     public boolean isDark() {
-        return dark;
+        return this.dark;
     }
 
     public boolean isDaylight() {
-        return daylight;
+        return this.daylight;
     }
 
     public int getLightLevel() {
-        return lightLevel;
+        return this.lightLevel;
     }
 }
