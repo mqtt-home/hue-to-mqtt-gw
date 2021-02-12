@@ -7,13 +7,33 @@ public class ConfigHue {
     private String host;
     @SerializedName("api-key")
     private String apiKey;
+    @SerializedName("port")
+    private int port = 80;
 
     public String getHost() {
-        return host;
+        return this.host;
+    }
+
+    public ConfigHue setHost(final String host) {
+        this.host = host;
+        return this;
     }
 
     public String getApiKey() {
-        return apiKey;
+        return this.apiKey;
     }
 
+    public ConfigHue setApiKey(final String apiKey) {
+        this.apiKey = apiKey;
+        return this;
+    }
+
+    public ConfigHue setPort(final int port) {
+        this.port = port;
+        return this;
+    }
+
+    public int getPort() {
+        return this.port;
+    }
 }

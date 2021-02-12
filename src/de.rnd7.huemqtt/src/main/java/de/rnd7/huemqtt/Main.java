@@ -1,12 +1,13 @@
 package de.rnd7.huemqtt;
 
 import de.rnd7.huemqtt.config.Config;
-import de.rnd7.huemqtt.hue.api.HueAbstractionImpl;
 import de.rnd7.huemqtt.hue.HueService;
+import de.rnd7.huemqtt.hue.api.HueAbstractionImpl;
 import de.rnd7.mqttgateway.Events;
 import de.rnd7.mqttgateway.GwMqttClient;
 import de.rnd7.mqttgateway.config.ConfigParser;
 import io.github.zeroone3010.yahueapi.Hue;
+import io.github.zeroone3010.yahueapi.HueBridgeProtocol;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,7 +31,8 @@ public class Main {
             client.online();
 
             final HueAbstractionImpl hue = new HueAbstractionImpl(
-                new Hue(config.getHue().getHost(),
+                new Hue(HueBridgeProtocol.HTTP,
+                    config.getHue().getHost() + ":" + config.getHue().getPort(),
                     config.getHue().getApiKey()));
 
             final HueService service = HueService.start(hue,
