@@ -1,6 +1,11 @@
 # hue-to-mqtt
 
 [![mqtt-smarthome](https://img.shields.io/badge/mqtt-smarthome-blue.svg)](https://github.com/mqtt-smarthome/mqtt-smarthome)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=de.rnd7.huemqtt%3Ade.rnd7.huemqtt.parent&metric=alert_status)](https://sonarcloud.io/dashboard?id=de.rnd7.huemqtt%3Ade.rnd7.huemqtt.parent)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=de.rnd7.huemqtt%3Ade.rnd7.huemqtt.parent&metric=coverage)](https://sonarcloud.io/dashboard?id=de.rnd7.huemqtt%3Ade.rnd7.huemqtt.parent)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=de.rnd7.huemqtt%3Ade.rnd7.huemqtt.parent&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=de.rnd7.huemqtt%3Ade.rnd7.huemqtt.parent)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=de.rnd7.huemqtt%3Ade.rnd7.huemqtt.parent&metric=security_rating)](https://sonarcloud.io/dashboard?id=de.rnd7.huemqtt%3Ade.rnd7.huemqtt.parent)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=de.rnd7.huemqtt%3Ade.rnd7.huemqtt.parent&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=de.rnd7.huemqtt%3Ade.rnd7.huemqtt.parent)
 
 Convert Philips Hue messages to mqtt messages.
 
