@@ -9,6 +9,10 @@ import java.util.Objects;
 public class LightHelper {
     private static final Object MUTEX = new Object();
 
+    private LightHelper() {
+        
+    }
+
     public static void turnOff(final Light light) {
         light.turnOff();
         light.setState(State.builder()
