@@ -6,7 +6,7 @@ import java.util.List;
 
 public class LightEffectData {
     private LightEffect effect = LightEffect.notify_restore;
-    private List<ColorXY> colors = new ArrayList<>();
+    private final List<ColorXY> colors = new ArrayList<>();
     private Duration duration = Duration.ofSeconds(1);
 
     public LightEffectData setEffect(final LightEffect effect) {
@@ -15,12 +15,11 @@ public class LightEffectData {
     }
 
     public LightEffect getEffect() {
-        return effect;
+        return this.effect;
     }
 
-
     public List<ColorXY> getColors() {
-        return colors;
+        return this.colors;
     }
 
     public LightEffectData addColor(final ColorXY color) {
@@ -29,7 +28,7 @@ public class LightEffectData {
     }
 
     public Duration getDuration() {
-        return duration;
+        return this.duration;
     }
 
     public LightEffectData setDuration(final Duration duration) {
