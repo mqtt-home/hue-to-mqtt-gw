@@ -8,8 +8,10 @@ import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.slf4j.LoggerFactory;
 
+import java.time.Duration;
 import java.util.List;
 
+import static org.awaitility.Awaitility.await;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class LogExtension implements BeforeEachCallback, AfterEachCallback {
@@ -38,6 +40,9 @@ public class LogExtension implements BeforeEachCallback, AfterEachCallback {
     }
 
     public void assertMessages(final String... messages) {
+        await().atMost(Duration.ofSeconds(2))
+            .until(() -> getMessages().size() == messages.length);
+        
         final String[] actual = getMessages().stream()
             .map(Object::toString)
             .toArray(String[]::new);
