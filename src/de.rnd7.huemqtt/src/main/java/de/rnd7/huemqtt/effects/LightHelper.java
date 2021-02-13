@@ -3,9 +3,13 @@ package de.rnd7.huemqtt.effects;
 import de.rnd7.huemqtt.hue.HueService;
 import io.github.zeroone3010.yahueapi.Light;
 import io.github.zeroone3010.yahueapi.State;
+import io.reactivex.Observable;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class LightHelper {
     private static final Object MUTEX = new Object();
@@ -49,12 +53,18 @@ public class LightHelper {
         }
     }
 
-    public static void sleep(final Duration duration) {
-        try {
-            Thread.sleep(duration.toMillis());
-        } catch (final InterruptedException e) {
-            Thread.currentThread().interrupt();
-            throw new RuntimeException(e);
+    public static void processTasksWithPostDelay(final List<Runnable> tasks, final Duration delay) {
+        if (tasks.isEmpty()) {
+            return;
         }
+
+        final List<Runnable> finalTasks = new ArrayList<>(tasks);
+        finalTasks.add(() -> {});
+
+        final Object first = finalTasks.get(0);
+        Observable.fromIterable(finalTasks)
+            .concatMap(task -> Observable.just(task)
+                .delay(task == first ? 0 : delay.toMillis(), TimeUnit.MILLISECONDS))
+            .blockingForEach(Runnable::run);
     }
 }

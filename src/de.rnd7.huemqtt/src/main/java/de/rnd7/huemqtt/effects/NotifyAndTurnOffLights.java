@@ -4,6 +4,9 @@ import io.github.zeroone3010.yahueapi.Light;
 import io.github.zeroone3010.yahueapi.State;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class NotifyAndTurnOffLights {
     private final Light light;
@@ -16,11 +19,11 @@ public class NotifyAndTurnOffLights {
 
     public void notifiy(final Duration duration) {
         LightHelper.withOff(() -> {
-            for (final ColorXY notificationColor : this.notificationColors) {
-                turnOn(notificationColor);
+            final List<Runnable> tasks = Stream.of(this.notificationColors)
+                .map(color -> (Runnable) () -> turnOn(color))
+                .collect(Collectors.toList());
 
-                LightHelper.sleep(duration);
-            }
+            LightHelper.processTasksWithPostDelay(tasks, duration);
         }, this.light);
     }
 
