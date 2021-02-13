@@ -29,7 +29,7 @@ public class LogExtension implements BeforeEachCallback, AfterEachCallback {
         this.logger.detachAndStopAllAppenders();
         this.logger.addAppender(this.appender);
     }
-
+    
     @Override
     public void afterEach(final ExtensionContext extensionContext) {
         this.logger.detachAndStopAllAppenders();

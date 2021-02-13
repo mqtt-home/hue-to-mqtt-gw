@@ -23,7 +23,7 @@ class NotifyAndTurnOffLightsTest {
         final ColorXY initialColor = new ColorXY(this.light.getState().getXy());
 
         new NotifyAndTurnOffLights(this.light, ColorConstants.RED)
-            .notifiy(Duration.ofMillis(5));
+            .notifySync(Duration.ofMillis(5));
 
         assertFalse(this.light.isOn());
 
@@ -36,7 +36,7 @@ class NotifyAndTurnOffLightsTest {
         final ColorXY initialColor = new ColorXY(this.light.getState().getXy());
 
         new NotifyAndTurnOffLights(this.light, ColorConstants.RED, ColorConstants.GREEN)
-            .notifiy(Duration.ofMillis(5));
+            .notifySync(Duration.ofMillis(5));
 
         assertFalse(this.light.isOn());
 
