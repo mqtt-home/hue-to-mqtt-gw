@@ -1,5 +1,6 @@
 package de.rnd7.huemqtt.hue;
 
+import de.rnd7.huemqtt.effects.ColorXY;
 import io.github.zeroone3010.yahueapi.Color;
 import io.github.zeroone3010.yahueapi.Light;
 import io.github.zeroone3010.yahueapi.LightType;
@@ -7,6 +8,8 @@ import io.github.zeroone3010.yahueapi.State;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class LightStub implements Light {
     private static final Color WHITE = Color.of(1f,1f,1f);
@@ -69,4 +72,21 @@ public class LightStub implements Light {
     public void clearHistroy() {
         this.history.clear();
     }
+
+    public void assertStates(final Boolean... states) {
+        final Boolean[] actual = getHistory().stream()
+            .map(State::getOn)
+            .toArray(Boolean[]::new);
+        assertArrayEquals(states, actual);
+    }
+
+    public void assertColors(final ColorXY... colors) {
+        final ColorXY[] actual = getHistory().stream()
+            .map(State::getXy)
+            .map(ColorXY::new)
+            .toArray(ColorXY[]::new);
+
+        assertArrayEquals(colors, actual);
+    }
+
 }

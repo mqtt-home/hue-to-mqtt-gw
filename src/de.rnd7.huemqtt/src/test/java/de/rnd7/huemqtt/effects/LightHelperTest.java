@@ -1,10 +1,8 @@
 package de.rnd7.huemqtt.effects;
 
 import de.rnd7.huemqtt.hue.LightStub;
-import io.github.zeroone3010.yahueapi.State;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
@@ -26,12 +24,7 @@ class LightHelperTest {
         LightHelper.withState(light::turnOn, light);
 
         assertFalse(light.isOn());
-
-        final Boolean[] states = light.getHistory().stream()
-            .map(State::getOn)
-            .toArray(Boolean[]::new);
-
-        assertArrayEquals(new Boolean[]{true, false, false}, states);
+        light.assertStates(true, false, false);
     }
 
     @Test
@@ -44,10 +37,6 @@ class LightHelperTest {
 
         assertFalse(light.isOn());
 
-        final Boolean[] states = light.getHistory().stream()
-            .map(State::getOn)
-            .toArray(Boolean[]::new);
-
-        assertArrayEquals(new Boolean[]{true, false, false}, states);
+        light.assertStates(true, false, false);
     }
 }
