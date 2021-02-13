@@ -4,18 +4,34 @@ import de.rnd7.huemqtt.effects.ColorConstants;
 import de.rnd7.huemqtt.effects.ColorXY;
 import de.rnd7.huemqtt.effects.LightEffect;
 import de.rnd7.huemqtt.effects.LightEffectData;
+import de.rnd7.huemqtt.hue.messages.LightMessage;
 import de.rnd7.mqttgateway.Message;
 import io.github.zeroone3010.yahueapi.Light;
+import io.github.zeroone3010.yahueapi.State;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.time.Duration;
+import java.util.stream.Stream;
 
 import static de.rnd7.huemqtt.hue.HueDevice.createParser;
+import static de.rnd7.huemqtt.hue.LightStub.WHITE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class LightDeviceTest {
+
+    private static class TestData {
+        private final LightMessage message;
+        private final State expected;
+
+        private TestData(final LightMessage message, final State expected) {
+            this.message = message;
+            this.expected = expected;
+        }
+    }
 
     @Test
     void test_string() {
@@ -23,46 +39,42 @@ class LightDeviceTest {
         assertTrue(device.toString().startsWith("Device{"));
     }
 
-    @Test
-    void test_null_message() {
-        final Light light = new LightStub();
-        light.turnOn();
+    public static Stream<TestData> testDataSet() {
+        return Stream.of(
+            new TestData(null, State.builder().color(WHITE).on()),
 
-        new LightDevice(light,"", "")
-            .onMessage(new Message("/set", null));
+            new TestData(new LightMessage()
+                .setState(LightMessage.LightState.OFF).setBrightness(1).setColorTemp(366),
+                State.builder().colorTemperatureInMireks(366).brightness(1).off()),
+            new TestData(new LightMessage()
+                .setState(LightMessage.LightState.ON).setBrightness(1).setColorTemp(366),
+                State.builder().colorTemperatureInMireks(366).brightness(1).on()),
 
-        assertTrue(light.isOn());
-    }
-
-    @Test
-    void test_color_temperature_message() {
-        final Light light = new LightStub();
-        light.turnOn();
-
-        new LightDevice(light,"", "")
-            .onMessage(new Message("/set", "{\"state\":\"OFF\",\"brightness\":1,\"color_temp\":366}"));
-
-        assertFalse(light.isOn());
-        assertEquals(1, light.getState().getBri());
-        assertEquals(366, light.getState().getCt());
+            new TestData(new LightMessage()
+                .setState(LightMessage.LightState.ON)
+                .setColor(new LightMessage.Color(ColorConstants.WHITE))
+                .setBrightness(254),
+                State.builder().xy(ColorConstants.WHITE.getXY()).brightness(254).on()),
+            new TestData(new LightMessage()
+                .setState(LightMessage.LightState.OFF)
+                .setColor(new LightMessage.Color(ColorConstants.WHITE))
+                .setBrightness(254),
+                State.builder().xy(ColorConstants.WHITE.getXY()).brightness(254).off())
+        );
     }
     
-    @Test
-    void test_color_message() {
+    @ParameterizedTest
+    @MethodSource(value = "testDataSet")
+    void test_set(final TestData data) {
+        final String raw = data.message == null ? null : createParser().toJson(data.message);
+
         final Light light = new LightStub();
-        light.turnOff();
+        light.turnOn();
 
         new LightDevice(light,"", "")
-            .onMessage(new Message("/set", "{\n" +
-                "    \"state\":\"ON\",\n" +
-                "    \"brightness\":254,\n" +
-                "    \"color\":{\"x\":0.3691,\"y\":0.3719}\n" +
-                "}"));
+            .onMessage(new Message("/set", raw));
 
-        assertTrue(light.isOn());
-        assertEquals(254, light.getState().getBri());
-        assertEquals(0.3691f, light.getState().getXy().get(0), 0.001);
-        assertEquals(0.3719f, light.getState().getXy().get(1), 0.001);
+        assertEquals(data.expected, light.getState());
     }
 
     @Test

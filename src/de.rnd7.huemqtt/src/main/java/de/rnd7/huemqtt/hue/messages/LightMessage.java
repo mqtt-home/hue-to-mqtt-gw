@@ -1,6 +1,7 @@
 package de.rnd7.huemqtt.hue.messages;
 
 import com.google.gson.annotations.SerializedName;
+import de.rnd7.huemqtt.effects.ColorXY;
 import io.github.zeroone3010.yahueapi.State;
 
 import java.util.List;
@@ -23,6 +24,10 @@ public class LightMessage {
         private final float x;
         @SerializedName("y")
         private final float y;
+
+        public Color(final ColorXY xy) {
+            this(xy.getXY().get(0), xy.getXY().get(1));
+        }
 
         public Color(final float x, final float y) {
             this.x = x;
@@ -63,32 +68,36 @@ public class LightMessage {
     @SerializedName("color")
     private Color color;
 
-    public void setBrightness(final Integer brightness) {
+    public LightMessage setBrightness(final Integer brightness) {
         this.brightness = brightness;
+        return this;
     }
 
     public Integer getBrightness() {
         return this.brightness;
     }
 
-    public void setState(final LightState state) {
+    public LightMessage setState(final LightState state) {
         this.state = state;
+        return this;
     }
 
     public LightState getState() {
         return this.state;
     }
 
-    public void setColor(final Color color) {
+    public LightMessage setColor(final Color color) {
         this.color = color;
+        return this;
     }
 
     public Color getColor() {
         return this.color;
     }
 
-    public void setColorTemp(final Integer colorTemp) {
+    public LightMessage setColorTemp(final Integer colorTemp) {
         this.colorTemp = colorTemp;
+        return this;
     }
 
     public Integer getColorTemp() {

@@ -12,7 +12,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class LightStub implements Light {
-    private static final Color WHITE = Color.of(1f,1f,1f);
+    public static final Color WHITE = Color.of(1f,1f,1f);
     private State state = State.builder().color(WHITE).off();
     private int brightness = 254;
 
