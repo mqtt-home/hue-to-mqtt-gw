@@ -6,9 +6,11 @@ import io.github.zeroone3010.yahueapi.Light;
 import io.github.zeroone3010.yahueapi.LightType;
 import io.github.zeroone3010.yahueapi.State;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.awaitility.Awaitility.await;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class LightStub implements Light {
@@ -74,6 +76,9 @@ public class LightStub implements Light {
     }
 
     public void assertStates(final Boolean... states) {
+        await().atMost(Duration.ofSeconds(2))
+            .until(() -> this.history.size() == states.length);
+
         final Boolean[] actual = getHistory().stream()
             .map(State::getOn)
             .toArray(Boolean[]::new);
@@ -81,6 +86,9 @@ public class LightStub implements Light {
     }
 
     public void assertColors(final ColorXY... colors) {
+        await().atMost(Duration.ofSeconds(2))
+            .until(() -> this.history.size() == colors.length);
+
         final ColorXY[] actual = getHistory().stream()
             .map(State::getXy)
             .map(ColorXY::new)

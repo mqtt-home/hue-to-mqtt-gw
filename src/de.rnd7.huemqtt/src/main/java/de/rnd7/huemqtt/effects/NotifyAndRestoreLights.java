@@ -17,7 +17,11 @@ public class NotifyAndRestoreLights {
         this.notificationColors = notificationColors;
     }
 
-    public void notifiy(final Duration duration) {
+    public void notify(final Duration duration) {
+        new Thread(() -> notifySync(duration)).start();
+    }
+
+    public void notifySync(final Duration duration) {
         LightHelper.withState(() -> {
             final List<Runnable> tasks = Stream.of(this.notificationColors)
                 .map(color -> (Runnable) () -> turnOn(color))

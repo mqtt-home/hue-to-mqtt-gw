@@ -118,12 +118,12 @@ public class LightDevice extends HueDevice {
             case notify_restore:
                 logger.info("notify_restore {}", this.light.getName());
                 new NotifyAndRestoreLights(this.light, data.getColors().toArray(new ColorXY[0]))
-                    .notifiy(data.getDuration());
+                    .notify(data.getDuration());
                 return;
             case notify_off:
                 logger.info("notify_off {}", this.light.getName());
                 new NotifyAndTurnOffLights(this.light, data.getColors().toArray(new ColorXY[0]))
-                    .notifiy(data.getDuration());
+                    .notify(data.getDuration());
                 return;
             default:
                 logger.error("Unknown effect {}", data.getEffect());

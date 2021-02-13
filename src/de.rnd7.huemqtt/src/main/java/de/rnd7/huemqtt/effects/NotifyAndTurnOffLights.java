@@ -17,7 +17,11 @@ public class NotifyAndTurnOffLights {
         this.notificationColors = notificationColors;
     }
 
-    public void notifiy(final Duration duration) {
+    public void notify(final Duration duration) {
+        new Thread(() -> notifySync(duration)).start();
+    }
+
+    public void notifySync(final Duration duration) {
         LightHelper.withOff(() -> {
             final List<Runnable> tasks = Stream.of(this.notificationColors)
                 .map(color -> (Runnable) () -> turnOn(color))
@@ -26,6 +30,7 @@ public class NotifyAndTurnOffLights {
             LightHelper.processTasksWithPostDelay(tasks, duration);
         }, this.light);
     }
+
 
     private void turnOn(final ColorXY notificationColor) {
         this.light.setState(State.builder()
