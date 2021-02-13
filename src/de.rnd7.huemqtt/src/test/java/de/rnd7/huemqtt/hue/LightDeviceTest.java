@@ -18,6 +18,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class LightDeviceTest {
 
     @Test
+    void test_string() {
+        final LightDevice device = new LightDevice(new LightStub(), "", "");
+        assertTrue(device.toString().startsWith("Device{"));
+    }
+
+    @Test
     void test_null_message() {
         final Light light = new LightStub();
         light.turnOn();

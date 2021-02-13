@@ -61,10 +61,6 @@ public class LightDevice extends HueDevice {
         Events.post(PublishMessage.absolute(this.getTopic(), this.gson.toJson(message)));
     }
 
-    public LightMessage getMessage() {
-        return LightMessage.fromState(this.light.getState());
-    }
-
     @Override
     public boolean apply(final Message message) {
         if (this.topics.contains(message.getTopic())) {

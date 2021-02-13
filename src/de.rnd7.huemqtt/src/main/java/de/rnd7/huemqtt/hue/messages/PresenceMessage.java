@@ -21,11 +21,21 @@ public class PresenceMessage {
     @SerializedName("last-updated")
     private ZonedDateTime lastUpdated;
 
-    public ZonedDateTime getLastUpdated() {
-        return this.lastUpdated;
+    public PresenceMessage setPresence(final boolean presence) {
+        this.presence = presence;
+        return this;
     }
 
     public boolean isPresence() {
         return this.presence;
+    }
+
+    public PresenceMessage setLastUpdated(final ZonedDateTime lastUpdated) {
+        this.lastUpdated = lastUpdated;
+        return this;
+    }
+
+    public ZonedDateTime getLastUpdated() {
+        return this.lastUpdated;
     }
 }

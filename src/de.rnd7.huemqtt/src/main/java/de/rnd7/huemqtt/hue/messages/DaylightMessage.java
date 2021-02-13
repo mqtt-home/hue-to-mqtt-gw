@@ -21,11 +21,21 @@ public class DaylightMessage {
     @SerializedName("last-updated")
     private ZonedDateTime lastUpdated;
 
-    public ZonedDateTime getLastUpdated() {
-        return this.lastUpdated;
+    public DaylightMessage setDaylight(final boolean daylight) {
+        this.daylight = daylight;
+        return this;
     }
 
     public boolean isDaylight() {
         return this.daylight;
+    }
+
+    public ZonedDateTime getLastUpdated() {
+        return this.lastUpdated;
+    }
+
+    public DaylightMessage setLastUpdated(final ZonedDateTime lastUpdated) {
+        this.lastUpdated = lastUpdated;
+        return this;
     }
 }

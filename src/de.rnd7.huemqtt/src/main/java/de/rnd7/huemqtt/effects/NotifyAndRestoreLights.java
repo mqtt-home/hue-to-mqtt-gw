@@ -18,12 +18,7 @@ public class NotifyAndRestoreLights {
         LightHelper.withState(() -> {
             for (final ColorXY notificationColor : this.notificationColors) {
                 turnOn(notificationColor);
-                try {
-                    Thread.sleep(duration.toMillis());
-                } catch (final InterruptedException e) {
-                    Thread.currentThread().interrupt();
-                    throw new RuntimeException(e);
-                }
+                LightHelper.sleep(duration);
             }
         }, this.light);
     }

@@ -29,19 +29,39 @@ public class AmbientMessage {
     @SerializedName("last-updated")
     private ZonedDateTime lastUpdated;
 
-    public ZonedDateTime getLastUpdated() {
-        return this.lastUpdated;
-    }
-
     public boolean isDark() {
         return this.dark;
+    }
+
+    public AmbientMessage setDark(final boolean dark) {
+        this.dark = dark;
+        return this;
     }
 
     public boolean isDaylight() {
         return this.daylight;
     }
 
+    public AmbientMessage setDaylight(final boolean daylight) {
+        this.daylight = daylight;
+        return this;
+    }
+
     public int getLightLevel() {
         return this.lightLevel;
+    }
+
+    public AmbientMessage setLightLevel(final int lightLevel) {
+        this.lightLevel = lightLevel;
+        return this;
+    }
+
+    public ZonedDateTime getLastUpdated() {
+        return this.lastUpdated;
+    }
+
+    public AmbientMessage setLastUpdated(final ZonedDateTime lastUpdated) {
+        this.lastUpdated = lastUpdated;
+        return this;
     }
 }

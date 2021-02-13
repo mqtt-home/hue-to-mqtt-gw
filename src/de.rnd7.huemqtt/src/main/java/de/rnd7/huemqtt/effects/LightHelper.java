@@ -4,6 +4,7 @@ import de.rnd7.huemqtt.hue.HueService;
 import io.github.zeroone3010.yahueapi.Light;
 import io.github.zeroone3010.yahueapi.State;
 
+import java.time.Duration;
 import java.util.Objects;
 
 public class LightHelper {
@@ -45,6 +46,15 @@ public class LightHelper {
             runnable.run();
 
             turnOff(light);
+        }
+    }
+
+    public static void sleep(final Duration duration) {
+        try {
+            Thread.sleep(duration.toMillis());
+        } catch (final InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new RuntimeException(e);
         }
     }
 }

@@ -129,10 +129,6 @@ public class HueService {
         }
     }
 
-    public ImmutableList<HueDevice> getDevices() {
-        return this.devices;
-    }
-
     public <T extends HueDevice> T getDevice(final String id, final Class<T> type) {
         return this.devices.stream().filter(d -> d.getId().equals(id))
             .filter(type::isInstance)

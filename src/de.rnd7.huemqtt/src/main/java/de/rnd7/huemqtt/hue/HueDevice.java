@@ -28,8 +28,4 @@ public abstract class HueDevice extends Device {
         return false;
     }
 
-    @Override
-    protected boolean onMessage(final Message message) {
-        return false;
-    }
 }

@@ -26,6 +26,29 @@ public class SwitchMessage {
     @SerializedName("last-updated")
     private ZonedDateTime lastUpdated;
 
+    public SwitchMessage setButton(final int button) {
+        this.button = button;
+        return this;
+    }
+
+    public int getButton() {
+        return this.button;
+    }
+
+    public SwitchMessage setCode(final int code) {
+        this.code = code;
+        return this;
+    }
+
+    public int getCode() {
+        return this.code;
+    }
+
+    public SwitchMessage setLastUpdated(final ZonedDateTime lastUpdated) {
+        this.lastUpdated = lastUpdated;
+        return this;
+    }
+
     public ZonedDateTime getLastUpdated() {
         return this.lastUpdated;
     }

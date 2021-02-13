@@ -55,4 +55,5 @@ class IntegrationTest {
             message.getRaw(),
             JSONCompareMode.NON_EXTENSIBLE);
     }
+
 }

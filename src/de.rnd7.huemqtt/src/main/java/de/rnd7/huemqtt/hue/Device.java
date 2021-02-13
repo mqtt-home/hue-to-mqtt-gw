@@ -20,14 +20,11 @@ public abstract class Device {
         return this.id;
     }
 
-    public boolean apply(final Message message) {
-        if (message.getTopic().equals(this.topic)) {
-            return onMessage(message);
-        }
+    public abstract boolean apply(final Message message);
+
+    protected boolean onMessage(final Message message) {
         return false;
     }
-
-    protected abstract boolean onMessage(final Message message);
 
     @Override
     public String toString() {

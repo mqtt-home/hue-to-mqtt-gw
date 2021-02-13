@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 public class LogExtension implements BeforeEachCallback, AfterEachCallback {
     private ListAppender<ILoggingEvent> appender;
     private final Logger logger;
@@ -33,5 +35,13 @@ public class LogExtension implements BeforeEachCallback, AfterEachCallback {
 
     public List<ILoggingEvent> getMessages() {
         return this.appender.list;
+    }
+
+    public void assertMessages(final String... messages) {
+        final String[] actual = getMessages().stream()
+            .map(Object::toString)
+            .toArray(String[]::new);
+
+        assertArrayEquals(messages, actual);
     }
 }

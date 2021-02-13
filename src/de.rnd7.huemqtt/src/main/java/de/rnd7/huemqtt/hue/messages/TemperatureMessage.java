@@ -22,11 +22,22 @@ public class TemperatureMessage {
     @SerializedName("last-updated")
     private ZonedDateTime lastUpdated;
 
-    public ZonedDateTime getLastUpdated() {
-        return this.lastUpdated;
+    public TemperatureMessage setTemperature(final BigDecimal temperature) {
+        this.temperature = temperature;
+        return this;
     }
 
     public BigDecimal getTemperature() {
         return this.temperature;
     }
+
+    public TemperatureMessage setLastUpdated(final ZonedDateTime lastUpdated) {
+        this.lastUpdated = lastUpdated;
+        return this;
+    }
+
+    public ZonedDateTime getLastUpdated() {
+        return this.lastUpdated;
+    }
+
 }
