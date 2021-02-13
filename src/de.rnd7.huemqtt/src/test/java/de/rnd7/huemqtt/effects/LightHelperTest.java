@@ -49,6 +49,7 @@ class LightHelperTest {
     @Test
     void test_process_no_task() {
     	LightHelper.processTasksWithPostDelay(Collections.emptyList(), Duration.ZERO);
+    	assertTrue(true, "processing no tasks should be successful");
     }
 
     long current;
