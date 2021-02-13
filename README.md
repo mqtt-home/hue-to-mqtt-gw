@@ -66,6 +66,10 @@ to the topic `hue/light/room/some-light/set` to turn the light on with the given
 }
 ```
 
+### Get sate
+
+Post a message `{"state": ""}` to `hue/light/room/some-light/get` to get the current light state.
+
 ### Switch
 
 ```json

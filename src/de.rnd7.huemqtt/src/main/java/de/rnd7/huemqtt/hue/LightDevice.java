@@ -35,17 +35,21 @@ public class LightDevice extends HueDevice {
         this.setTopic = topic +  "/set";
         this.setEffectTopic = topic +  "/setEffect";
 
-        this.topics = ImmutableSet.of(getTopic, setTopic, setEffectTopic, topic);
+        this.topics = ImmutableSet.of(this.getTopic, this.setTopic, this.setEffectTopic, topic);
+    }
+
+    public String getGetTopic() {
+        return this.getTopic;
     }
 
     public Light getLight() {
-        return light;
+        return this.light;
     }
 
     @Override
     public void triggerUpdate() {
-        final State next = light.getState();
-        if (!Objects.equals(state, next)) {
+        final State next = this.light.getState();
+        if (!Objects.equals(this.state, next)) {
             postUpdate(next);
         }
     }
@@ -54,16 +58,16 @@ public class LightDevice extends HueDevice {
         final LightMessage message = LightMessage.fromState(next);
         this.state = next;
 
-        Events.post(PublishMessage.absolute(this.getTopic(), gson.toJson(message)));
+        Events.post(PublishMessage.absolute(this.getTopic(), this.gson.toJson(message)));
     }
 
     public LightMessage getMessage() {
-        return LightMessage.fromState(light.getState());
+        return LightMessage.fromState(this.light.getState());
     }
 
     @Override
     public boolean apply(final Message message) {
-        if (topics.contains(message.getTopic())) {
+        if (this.topics.contains(message.getTopic())) {
             return onMessage(message);
         }
         return false;
@@ -75,14 +79,14 @@ public class LightDevice extends HueDevice {
             return false;
         }
 
-        if (message.getTopic().equals(getTopic)) {
+        if (message.getTopic().equals(this.getTopic)) {
             postUpdate(getLight().getState());
         }
-        else if (message.getTopic().equals(setTopic)) {
-            setLightState(gson.fromJson(message.getRaw(), LightMessage.class));
+        else if (message.getTopic().equals(this.setTopic)) {
+            setLightState(this.gson.fromJson(message.getRaw(), LightMessage.class));
         }
-        else if (message.getTopic().equals(setEffectTopic)) {
-            applyEffect(gson.fromJson(message.getRaw(), LightEffectData.class));
+        else if (message.getTopic().equals(this.setEffectTopic)) {
+            applyEffect(this.gson.fromJson(message.getRaw(), LightEffectData.class));
         }
         else {
             return false;
@@ -92,23 +96,23 @@ public class LightDevice extends HueDevice {
 
     private void setLightState(final LightMessage msg) {
         if (msg.getColor() != null) {
-            light.setState(State.builder()
+            this.light.setState(State.builder()
                 .xy(Arrays.asList(msg.getColor().getX(), msg.getColor().getY()))
                 .brightness(msg.getBrightness())
                 .on(msg.getState() == LightMessage.LightState.ON));
         }
         else if (msg.getColorTemp() != null) {
-            light.setState(State.builder()
+            this.light.setState(State.builder()
                 .colorTemperatureInMireks(msg.getColorTemp())
                 .brightness(msg.getBrightness())
                 .on(msg.getState() == LightMessage.LightState.ON));
         }
         else {
             if (msg.getState() == LightMessage.LightState.ON) {
-                light.turnOn();
+                this.light.turnOn();
             }
             else {
-                light.turnOff();
+                this.light.turnOff();
             }
         }
     }
@@ -116,13 +120,13 @@ public class LightDevice extends HueDevice {
     private void applyEffect(final LightEffectData data) {
         switch (data.getEffect()) {
             case notify_restore:
-                logger.info("notify_restore {}", light.getName());
-                new NotifyAndRestoreLights(light, data.getColors().toArray(new ColorXY[0]))
+                logger.info("notify_restore {}", this.light.getName());
+                new NotifyAndRestoreLights(this.light, data.getColors().toArray(new ColorXY[0]))
                     .notifiy(data.getDuration());
                 return;
             case notify_off:
-                logger.info("notify_off {}", light.getName());
-                new NotifyAndTurnOffLights(light, data.getColors().toArray(new ColorXY[0]))
+                logger.info("notify_off {}", this.light.getName());
+                new NotifyAndTurnOffLights(this.light, data.getColors().toArray(new ColorXY[0]))
                     .notifiy(data.getDuration());
                 return;
             default:

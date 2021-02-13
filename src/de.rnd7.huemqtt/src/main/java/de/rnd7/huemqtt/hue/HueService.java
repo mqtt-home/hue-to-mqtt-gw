@@ -46,6 +46,7 @@ public class HueService {
     }
 
     public static void shutdown() {
+        instance.devices = ImmutableList.of();
         instance.executor.shutdown();
         instance = null;
     }
