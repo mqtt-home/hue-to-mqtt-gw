@@ -20,11 +20,6 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMoc
 public class HueTestExtension implements BeforeEachCallback, AfterEachCallback {
     public static final String API_KEY = "abcd1234";
     private static final String API_BASE_PATH = "/api/" + API_KEY + "/";
-    private static final String MOTION_SENSOR_NAME = "Hallway sensor";
-    private static final String AMBIENT_LIGHT_SENSOR_NAME = "Hue ambient light sensor 1";
-    private static final String TEMPERATURE_SENSOR_NAME = "Hue temperature sensor 1";
-    private static final String DIMMER_SWITCH_NAME = "Living room door";
-    private static final String TAP_SWITCH_NAME = "Hue tap switch 1";
 
     final WireMockServer wireMockServer = new WireMockServer(wireMockConfig().dynamicPort());
 
@@ -68,7 +63,6 @@ public class HueTestExtension implements BeforeEachCallback, AfterEachCallback {
         } catch (final IOException e) {
             throw new RuntimeException(e);
         }
-        // return new Hue("localhost:" + this.wireMockServer.port(), API_KEY);
     }
 
     private void mockIndividualGetResponse(final JsonNode hueRoot, final String itemClass, final String id) throws JsonProcessingException {

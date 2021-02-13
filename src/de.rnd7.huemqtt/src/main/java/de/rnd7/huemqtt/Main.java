@@ -18,7 +18,11 @@ public class Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
-    public Main(final Config config) {
+    private Main() {
+
+    }
+
+    public static void start(final Config config) {
         LOGGER.debug("Debug enabled");
         LOGGER.info("Info enabled");
 
@@ -51,7 +55,7 @@ public class Main {
         }
 
         try {
-            new Main(ConfigParser.parse(new File(args[0]), Config.class));
+            start(ConfigParser.parse(new File(args[0]), Config.class));
         } catch (final IOException e) {
             LOGGER.error(e.getMessage(), e);
         }
