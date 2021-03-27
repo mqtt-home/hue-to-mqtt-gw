@@ -27,19 +27,19 @@ public class Main {
         LOGGER.info("Info enabled");
 
         try {
-            final GwMqttClient client = GwMqttClient.start(config.getMqtt()
+            final var client = GwMqttClient.start(config.getMqtt()
                 .setDefaultTopic("hue")
             );
 
             client.subscribe(config.getMqtt().getTopic() + "/light/#");
             client.online();
 
-            final HueAbstractionImpl hue = new HueAbstractionImpl(
+            final var hue = new HueAbstractionImpl(
                 new Hue(HueBridgeProtocol.HTTP,
                     config.getHue().getHost() + ":" + config.getHue().getPort(),
                     config.getHue().getApiKey()));
 
-            final HueService service = HueService.start(hue,
+            final var service = HueService.start(hue,
                 config.getMqtt().getTopic());
 
             Events.register(service);

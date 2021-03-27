@@ -48,14 +48,14 @@ public class LightDevice extends HueDevice {
 
     @Override
     public void triggerUpdate() {
-        final State next = this.light.getState();
+        final var next = this.light.getState();
         if (!Objects.equals(this.state, next)) {
             postUpdate(next);
         }
     }
 
     private void postUpdate(final State next) {
-        final LightMessage message = LightMessage.fromState(next);
+        final var message = LightMessage.fromState(next);
         this.state = next;
 
         Events.post(PublishMessage.absolute(this.getTopic(), this.gson.toJson(message)));

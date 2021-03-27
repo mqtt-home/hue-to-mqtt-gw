@@ -5,13 +5,7 @@ import com.google.common.eventbus.Subscribe;
 import de.rnd7.huemqtt.hue.api.HueAbstraction;
 import de.rnd7.mqttgateway.Message;
 import de.rnd7.mqttgateway.TopicCleaner;
-import io.github.zeroone3010.yahueapi.AmbientLightSensor;
-import io.github.zeroone3010.yahueapi.DaylightSensor;
 import io.github.zeroone3010.yahueapi.Light;
-import io.github.zeroone3010.yahueapi.PresenceSensor;
-import io.github.zeroone3010.yahueapi.Room;
-import io.github.zeroone3010.yahueapi.Switch;
-import io.github.zeroone3010.yahueapi.TemperatureSensor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,7 +32,7 @@ public class HueService {
 
     @Subscribe
     public void onMessage(final Message message) {
-        for (final Device device : this.devices) {
+        for (final var device : this.devices) {
             if (device.apply(message)) {
                 return;
             }
@@ -85,40 +79,40 @@ public class HueService {
         try {
             final List<HueDevice> nextDevices = new ArrayList<>();
 
-            for (final Room room : this.hue.getRooms()) {
+            for (final var room : this.hue.getRooms()) {
                 for (final Light light : room.getLights()) {
-                    final String topic = this.baseTopic + "/light/" + TopicCleaner.clean(room.getName() + "/" + light.getName());
+                    final var topic = this.baseTopic + "/light/" + TopicCleaner.clean(room.getName() + "/" + light.getName());
                     nextDevices.add(new LightDevice(light, topic, topic));
                 }
             }
 
-            for (final Light light : this.hue.getUnassignedLights()) {
-                final String topic = this.baseTopic + "/light/" + TopicCleaner.clean(light.getName());
+            for (final var light : this.hue.getUnassignedLights()) {
+                final var topic = this.baseTopic + "/light/" + TopicCleaner.clean(light.getName());
                 nextDevices.add(new LightDevice(light, topic, topic));
             }
 
-            for (final Switch hueSwitch : this.hue.getSwitches()) {
-                final String topic = this.baseTopic + "/switch/" + TopicCleaner.clean(hueSwitch.getName());
+            for (final var hueSwitch : this.hue.getSwitches()) {
+                final var topic = this.baseTopic + "/switch/" + TopicCleaner.clean(hueSwitch.getName());
                 nextDevices.add(new SwitchDevice(hueSwitch, topic, hueSwitch.getId()));
             }
 
-            for (final DaylightSensor sensor : this.hue.getDaylightSensors()) {
-                final String topic = this.baseTopic + "/daylight/" + TopicCleaner.clean(sensor.getName());
+            for (final var sensor : this.hue.getDaylightSensors()) {
+                final var topic = this.baseTopic + "/daylight/" + TopicCleaner.clean(sensor.getName());
                 nextDevices.add(new DaylightSensorDevice(sensor, topic, sensor.getId()));
             }
 
-            for (final PresenceSensor sensor : this.hue.getPresenceSensors()) {
-                final String topic = this.baseTopic + "/presence/" + TopicCleaner.clean(sensor.getName());
+            for (final var sensor : this.hue.getPresenceSensors()) {
+                final var topic = this.baseTopic + "/presence/" + TopicCleaner.clean(sensor.getName());
                 nextDevices.add(new PresenceSensorDevice(sensor, topic, sensor.getId()));
             }
 
-            for (final AmbientLightSensor sensor : this.hue.getAmbientLightSensors()) {
-                final String topic = this.baseTopic + "/ambient/" + TopicCleaner.clean(sensor.getName());
+            for (final var sensor : this.hue.getAmbientLightSensors()) {
+                final var topic = this.baseTopic + "/ambient/" + TopicCleaner.clean(sensor.getName());
                 nextDevices.add(new AmbientLightSensorDevice(sensor, topic, sensor.getId()));
             }
 
-            for (final TemperatureSensor sensor : this.hue.getTemperatureSensors()) {
-                final String topic = this.baseTopic + "/temperature/" + TopicCleaner.clean(sensor.getName());
+            for (final var sensor : this.hue.getTemperatureSensors()) {
+                final var topic = this.baseTopic + "/temperature/" + TopicCleaner.clean(sensor.getName());
                 nextDevices.add(new TemperatureSensorDevice(sensor, topic, sensor.getId()));
             }
 

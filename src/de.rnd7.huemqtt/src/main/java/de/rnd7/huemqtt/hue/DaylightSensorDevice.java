@@ -21,7 +21,7 @@ public class DaylightSensorDevice extends HueDevice {
 
     @Override
     public void triggerUpdate() {
-        final ZonedDateTime lastUpdated = this.device.getLastUpdated();
+        final var lastUpdated = this.device.getLastUpdated();
         if (!Objects.equals(this.lastUpdated, lastUpdated)) {
             this.message = DaylightMessage.fromState(this.device.isDaylightTime(), lastUpdated);
             this.lastUpdated = lastUpdated;
