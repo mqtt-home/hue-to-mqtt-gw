@@ -1,6 +1,6 @@
 # ---- Prod ----
 FROM balenalib/raspberry-pi:20210225
-RUN install_packages default-jdk
+RUN install_packages openjdk-11-jre:armhf
 RUN mkdir /opt/app
 WORKDIR /opt/app
 COPY src/de.rnd7.huemqtt/target/huemqtt.jar .
