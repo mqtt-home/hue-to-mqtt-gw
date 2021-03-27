@@ -25,7 +25,7 @@ public class AmbientLightSensorDevice extends HueDevice {
 
     @Override
     public void triggerUpdate() {
-        final ZonedDateTime lastUpdated = this.device.getLastUpdated();
+        final var lastUpdated = this.device.getLastUpdated();
         if (!Objects.equals(this.lastUpdated, lastUpdated)) {
             this.message = AmbientMessage.fromState(this.device.isDark(),
                 this.device.isDaylight(), this.device.getLightLevel(), lastUpdated);

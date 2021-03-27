@@ -24,7 +24,7 @@ public class SwitchDevice extends HueDevice {
 
     @Override
     public void triggerUpdate() {
-        final ZonedDateTime nextTimestamp = this.device.getLastUpdated();
+        final var nextTimestamp = this.device.getLastUpdated();
         if (!Objects.equals(this.lastUpdated, nextTimestamp)) {
             final SwitchEvent next = this.device.getLatestEvent();
             this.lastUpdated = nextTimestamp;

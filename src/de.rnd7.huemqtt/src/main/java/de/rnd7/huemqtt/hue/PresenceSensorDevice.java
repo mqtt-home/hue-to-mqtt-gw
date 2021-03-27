@@ -25,7 +25,7 @@ public class PresenceSensorDevice extends HueDevice {
 
     @Override
     public void triggerUpdate() {
-        final ZonedDateTime lastUpdated = this.device.getLastUpdated();
+        final var lastUpdated = this.device.getLastUpdated();
         if (!Objects.equals(this.lastUpdated, lastUpdated)) {
             this.message = PresenceMessage.fromState(this.device.isPresence(), lastUpdated);
             this.lastUpdated = lastUpdated;

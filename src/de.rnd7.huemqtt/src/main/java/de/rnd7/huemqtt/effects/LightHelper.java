@@ -30,7 +30,7 @@ public class LightHelper {
     public static void withState(final Runnable runnable, final Light light) {
         synchronized (MUTEX) {
             HueService.refresh();
-            final State state = light.getState();
+            final var state = light.getState();
 
             runnable.run();
 
@@ -58,10 +58,10 @@ public class LightHelper {
             return;
         }
 
-        final List<Runnable> finalTasks = new ArrayList<>(tasks);
+        final var finalTasks = new ArrayList<>(tasks);
         finalTasks.add(() -> {});
 
-        final Object first = finalTasks.get(0);
+        final var first = finalTasks.get(0);
         Observable.fromIterable(finalTasks)
             .concatMap(task -> Observable.just(task)
                 .delay(task == first ? 0 : delay.toMillis(), TimeUnit.MILLISECONDS))

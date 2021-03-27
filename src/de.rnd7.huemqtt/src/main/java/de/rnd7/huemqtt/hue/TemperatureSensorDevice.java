@@ -25,7 +25,7 @@ public class TemperatureSensorDevice extends HueDevice {
 
     @Override
     public void triggerUpdate() {
-        final ZonedDateTime lastUpdated = this.device.getLastUpdated();
+        final var lastUpdated = this.device.getLastUpdated();
         if (!Objects.equals(this.lastUpdated, lastUpdated)) {
             this.message = TemperatureMessage.fromState(this.device.getDegreesCelsius(), lastUpdated);
             this.lastUpdated = lastUpdated;
