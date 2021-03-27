@@ -15,6 +15,21 @@ Convert Philips Hue messages to mqtt messages.
 - I like to switch to `zigbee2mqtt` for my hue lights at some
 point of time. The light messages are compatible with this format.
 
+# Docker
+
+This application is intended to be executed using docker. Example docker compose usage:
+
+```
+huemqtt:
+  hostname: huemqtt
+  image: pharndt/hue2mqtt:1.0.2
+  volumes:
+    - ./config/huemqtt:/var/lib/huemqtt:ro
+  restart: always 
+  depends_on:
+   - mosquitto
+```
+
 ## Supported devices
 
 - Lights
@@ -106,18 +121,3 @@ The bridge maintains two status topics:
 | --------- | ------------------------------------ |
 | `online`  | The bridge is started                |
 | `offline` | The bridge is currently not started. |
-
-# Docker
-
-This application is intended to be executed using docker. Example docker compose usage:
-
-```
-huemqtt:
-  hostname: huemqtt
-  image: pharndt/hue2mqtt:1.0.2
-  volumes:
-    - ./config/huemqtt:/var/lib/huemqtt:ro
-  restart: always 
-  depends_on:
-   - mosquitto
-```
