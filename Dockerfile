@@ -1,5 +1,5 @@
 # ---- Prod ----
-FROM openjdk:11-jdk-alpine
+FROM openjdk:17-jdk-alpine
 RUN mkdir /opt/app
 WORKDIR /opt/app
 COPY src/de.rnd7.huemqtt/target/huemqtt.jar .
