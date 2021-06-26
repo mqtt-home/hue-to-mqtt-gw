@@ -52,6 +52,8 @@ The message will be posted to the following topic: `hue/light/room/some-light`
 }
 ```
 
+Note that unreachable lights are handled as they are turned off. 
+
 Post a message
 ```json
 {

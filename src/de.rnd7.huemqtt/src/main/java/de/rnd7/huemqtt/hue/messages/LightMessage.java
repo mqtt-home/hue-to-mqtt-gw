@@ -2,6 +2,7 @@ package de.rnd7.huemqtt.hue.messages;
 
 import com.google.gson.annotations.SerializedName;
 import de.rnd7.huemqtt.effects.ColorXY;
+import de.rnd7.huemqtt.hue.LightDevice;
 import io.github.zeroone3010.yahueapi.State;
 
 import java.util.List;
@@ -43,12 +44,13 @@ public class LightMessage {
         }
     }
 
-    public static LightMessage fromState(final State next) {
+    public static LightMessage fromState(final LightDevice.LightState next) {
+        final State state = next.getState();
         final LightMessage message = new LightMessage();
-        message.setColorTemp(next.getCt());
-        message.setBrightness(next.getBri());
-        message.setState(LightState.fromValue(next.getOn()));
-        final List<Float> xy = next.getXy();
+        message.setColorTemp(state.getCt());
+        message.setBrightness(state.getBri());
+        message.setState(next.isReachable() ? LightState.fromValue(state.getOn()) : LightState.OFF);
+        final List<Float> xy = state.getXy();
         if (xy != null && xy.size() == 2) {
             message.setColor(new Color(xy.get(0), xy.get(1)));
         }
