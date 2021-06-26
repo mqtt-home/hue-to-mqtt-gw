@@ -2,7 +2,7 @@
 FROM balenalib/raspberry-pi:20210225
 RUN apt-get update && apt-get install -y --no-install-recommends \
     openjdk-11-jre:armhf \
-    ca-certificates-java \
+#    ca-certificates-java \
  && rm -rf /var/lib/apt/lists/*
 RUN mkdir /opt/app
 WORKDIR /opt/app
