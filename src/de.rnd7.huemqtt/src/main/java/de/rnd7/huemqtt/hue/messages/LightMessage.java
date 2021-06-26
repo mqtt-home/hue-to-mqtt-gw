@@ -61,9 +61,6 @@ public class LightMessage {
     @SerializedName("state")
     private LightState state;
 
-    @SerializedName("state_code")
-    private int stateCode;
-
     @SerializedName("brightness")
     private Integer brightness;
 
@@ -84,16 +81,11 @@ public class LightMessage {
 
     public LightMessage setState(final LightState state) {
         this.state = state;
-        this.stateCode = state == LightState.ON ? 1 : 0;
         return this;
     }
 
     public LightState getState() {
         return this.state;
-    }
-
-    public int getStateCode() {
-        return stateCode;
     }
 
     public LightMessage setColor(final Color color) {
