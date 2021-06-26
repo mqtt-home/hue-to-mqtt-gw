@@ -51,7 +51,7 @@ class IntegrationTest {
         Events.post(new Message(light.getGetTopic(), "{\"state\": \"\"}"));
 
         final Message message = this.subscription.awaitTopic(light.getTopic());
-        JSONAssert.assertEquals("{\"state\":\"OFF\",\"brightness\":254,\"color\":{\"x\":0.3689,\"y\":0.3719}}",
+        JSONAssert.assertEquals("{\"state\":\"OFF\",\"state_code\":0,\"brightness\":254,\"color\":{\"x\":0.3689,\"y\":0.3719}}",
             message.getRaw(),
             JSONCompareMode.NON_EXTENSIBLE);
     }
