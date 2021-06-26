@@ -44,7 +44,7 @@ public abstract class LightStub implements Light {
 
     @Override
     public boolean isReachable() {
-        return false;
+        return true;
     }
 
     @Override

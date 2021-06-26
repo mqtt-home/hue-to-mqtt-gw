@@ -23,13 +23,49 @@ public class LightDevice extends HueDevice {
     private final String setTopic;
     private final String setEffectTopic;
     private final ImmutableSet<String> topics;
-    private State state;
+    private LightState state;
     private static final Logger logger = LoggerFactory.getLogger(LightDevice.class);
+
+    public class LightState {
+        private State state;
+        private boolean reachable;
+
+        public LightState setState(final State state) {
+            this.state = state;
+            return this;
+        }
+
+        public LightState setReachable(final boolean reachable) {
+            this.reachable = reachable;
+            return this;
+        }
+
+        public State getState() {
+            return state;
+        }
+
+        public boolean isReachable() {
+            return reachable;
+        }
+
+        @Override
+        public boolean equals(final Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            final LightState that = (LightState) o;
+            return reachable == that.reachable && com.google.common.base.Objects.equal(state, that.state);
+        }
+
+        @Override
+        public int hashCode() {
+            return com.google.common.base.Objects.hashCode(state, reachable);
+        }
+    }
 
     public LightDevice(final Light light, final String topic, final String id) {
         super(topic, id);
         this.light = light;
-        this.state = light.getState();
+        this.state = new LightState().setState(light.getState()).setReachable(light.isReachable());
 
         this.getTopic = topic + "/get";
         this.setTopic = topic +  "/set";
@@ -48,13 +84,13 @@ public class LightDevice extends HueDevice {
 
     @Override
     public void triggerUpdate() {
-        final State next = this.light.getState();
+        final LightState next = new LightState().setState(this.light.getState()).setReachable(this.light.isReachable());
         if (!Objects.equals(this.state, next)) {
             postUpdate(next);
         }
     }
 
-    private void postUpdate(final State next) {
+    private void postUpdate(final LightState next) {
         final LightMessage message = LightMessage.fromState(next);
         this.state = next;
 
@@ -76,7 +112,7 @@ public class LightDevice extends HueDevice {
         }
 
         if (message.getTopic().equals(this.getTopic)) {
-            postUpdate(getLight().getState());
+            postUpdate(new LightState().setState(getLight().getState()).setReachable(getLight().isReachable()));
         }
         else if (message.getTopic().equals(this.setTopic)) {
             setLightState(this.gson.fromJson(message.getRaw(), LightMessage.class));
