@@ -1,5 +1,6 @@
 package integration;
 
+import org.testcontainers.utility.DockerImageName;
 import com.hivemq.testcontainer.junit5.HiveMQTestContainerExtension;
 import de.rnd7.huemqtt.Main;
 import de.rnd7.huemqtt.hue.HueService;
@@ -20,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class IntegrationTest {
     @RegisterExtension
     public final HiveMQTestContainerExtension hiveMQ
-        = new HiveMQTestContainerExtension("hivemq/hivemq-ce", "2020.6");
+        = new HiveMQTestContainerExtension(DockerImageName.parse("hivemq/hivemq-ce:2020.6"));
 
     @RegisterExtension
     public final HueTestExtension hue = new HueTestExtension();
