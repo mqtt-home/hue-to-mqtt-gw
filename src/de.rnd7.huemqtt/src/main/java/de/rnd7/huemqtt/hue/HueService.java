@@ -15,6 +15,8 @@ import io.github.zeroone3010.yahueapi.TemperatureSensor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -54,11 +56,23 @@ public class HueService {
         }
     }
 
-    public static HueService start(final HueAbstraction hue, final String baseTopic) {
+    private static void assertOnlyOnce() {
         if (instance != null) {
-            throw new IllegalStateException("Hue service cannot be started twice", createdBy);
+            try (final StringWriter sw = new StringWriter();
+                 final PrintWriter pw = new PrintWriter(sw)) {
+                createdBy.printStackTrace(pw);
+
+                throw new IllegalStateException("Hue service cannot be started twice " + sw);
+            }
+            catch (Exception e) {
+                throw new IllegalStateException(e);
+            }
         }
         createdBy = new RuntimeException("Already created by");
+    }
+
+    public static HueService start(final HueAbstraction hue, final String baseTopic) {
+        assertOnlyOnce();
 
         instance = new HueService(hue, baseTopic);
 
