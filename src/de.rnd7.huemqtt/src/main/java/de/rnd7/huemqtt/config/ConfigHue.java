@@ -8,7 +8,7 @@ public class ConfigHue {
     @SerializedName("api-key")
     private String apiKey;
     @SerializedName("port")
-    private int port = 80;
+    private int port = 443;
 
     public String getHost() {
         return this.host;

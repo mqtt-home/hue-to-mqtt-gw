@@ -34,8 +34,11 @@ public class Main {
             client.subscribe(config.getMqtt().getTopic() + "/light/#");
             client.online();
 
+            final HueBridgeProtocol protocol = config.getHue().getPort() == 80 ?
+                HueBridgeProtocol.HTTP : HueBridgeProtocol.UNVERIFIED_HTTPS;
+
             final HueAbstractionImpl hue = new HueAbstractionImpl(
-                new Hue(HueBridgeProtocol.UNVERIFIED_HTTPS,
+                new Hue(protocol,
                     config.getHue().getHost() + ":" + config.getHue().getPort(),
                     config.getHue().getApiKey()));
 
