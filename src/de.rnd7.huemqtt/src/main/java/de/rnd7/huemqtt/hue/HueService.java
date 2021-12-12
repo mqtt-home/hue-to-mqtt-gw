@@ -28,6 +28,7 @@ public class HueService {
     private ImmutableList<HueDevice> devices = ImmutableList.of();
     private static final Logger LOGGER = LoggerFactory.getLogger(HueService.class);
     private final ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
+    private static Throwable createdBy;
 
     private HueService(final HueAbstraction hue, final String baseTopic) {
         this.hue = hue;
@@ -55,8 +56,9 @@ public class HueService {
 
     public static HueService start(final HueAbstraction hue, final String baseTopic) {
         if (instance != null) {
-            throw new IllegalStateException("Hue service cannot be started twice");
+            throw new IllegalStateException("Hue service cannot be started twice", createdBy);
         }
+        createdBy = new RuntimeException("Already created by");
 
         instance = new HueService(hue, baseTopic);
 
