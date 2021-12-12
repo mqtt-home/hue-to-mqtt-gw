@@ -161,26 +161,26 @@
         <dependency>
             <groupId>de.rnd7.mqttgateway</groupId>
             <artifactId>mqttgateway</artifactId>
-            <version>2.1.0-b23</version>
+            <version>2.1.0-b24</version>
         </dependency>
 
         <dependency>
             <groupId>de.rnd7.mqttgateway</groupId>
             <artifactId>test</artifactId>
-            <version>2.1.0-b23</version>
+            <version>2.1.0-b24</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>6.11.0</version>
+            <version>7.1.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit-platform-engine</artifactId>
-            <version>6.11.0</version>
+            <version>7.1.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -195,14 +195,5 @@
             <version>1.5.0</version>
             <scope>test</scope>
         </dependency>
-
-        <!--
-        <dependency>
-            <groupId>com.hivemq</groupId>
-            <artifactId>hivemq-testcontainer-junit5</artifactId>
-            <version>2.0.0</version>
-            <scope>test</scope>
-        </dependency>
-        -->
     </dependencies>
 </project>
