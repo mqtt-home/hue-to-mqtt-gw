@@ -35,7 +35,7 @@ public class Main {
             client.online();
 
             final HueAbstractionImpl hue = new HueAbstractionImpl(
-                new Hue(HueBridgeProtocol.HTTP,
+                new Hue(HueBridgeProtocol.UNVERIFIED_HTTPS,
                     config.getHue().getHost() + ":" + config.getHue().getPort(),
                     config.getHue().getApiKey()));
 

@@ -23,6 +23,11 @@ public class ColorTemperatureLightStub extends LightStub {
     }
 
     @Override
+    public Integer getMaxLumens() {
+        return 100;
+    }
+
+    @Override
     public void setState(final State state) {
 
     }

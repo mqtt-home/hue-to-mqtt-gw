@@ -28,6 +28,11 @@ public abstract class LightStub implements Light {
     }
 
     @Override
+    public String getId() {
+        return this.device.getId();
+    }
+
+    @Override
     public void turnOn() {
 
     }

@@ -26,6 +26,16 @@ public class LightStub implements Light {
     }
 
     @Override
+    public String getId() {
+        return "stubbed-id";
+    }
+
+    @Override
+    public Integer getMaxLumens() {
+        return 100;
+    }
+
+    @Override
     public void turnOn() {
         setState(State.builder().color(WHITE).on());
     }

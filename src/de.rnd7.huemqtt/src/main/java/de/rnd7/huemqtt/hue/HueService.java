@@ -46,9 +46,11 @@ public class HueService {
     }
 
     public static void shutdown() {
-        instance.devices = ImmutableList.of();
-        instance.executor.shutdown();
-        instance = null;
+        if (instance != null) {
+            instance.devices = ImmutableList.of();
+            instance.executor.shutdown();
+            instance = null;
+        }
     }
 
     public static HueService start(final HueAbstraction hue, final String baseTopic) {

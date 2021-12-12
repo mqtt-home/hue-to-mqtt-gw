@@ -1,6 +1,8 @@
 package de.rnd7.huemqtt;
 
 import ch.qos.logback.classic.spi.ILoggingEvent;
+import de.rnd7.huemqtt.hue.HueService;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
@@ -14,6 +16,11 @@ class MainTest {
 
     @RegisterExtension
     public final LogExtension logs = new LogExtension(Main.class);
+
+    @AfterEach
+    public void tearDown(){
+        HueService.shutdown();
+    }
 
     @Test
     void test_no_config() {

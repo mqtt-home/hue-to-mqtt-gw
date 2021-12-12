@@ -21,7 +21,7 @@ public class HueTestExtension implements BeforeEachCallback, AfterEachCallback {
     public static final String API_KEY = "abcd1234";
     private static final String API_BASE_PATH = "/api/" + API_KEY + "/";
 
-    final WireMockServer wireMockServer = new WireMockServer(wireMockConfig().dynamicPort());
+    final WireMockServer wireMockServer = new WireMockServer(wireMockConfig().dynamicHttpsPort().httpDisabled(true));
 
     @Override
     public void beforeEach(final ExtensionContext extensionContext) throws Exception {
@@ -35,7 +35,7 @@ public class HueTestExtension implements BeforeEachCallback, AfterEachCallback {
     }
 
     public int getPort() {
-        return this.wireMockServer.port();
+        return this.wireMockServer.httpsPort();
     }
 
     public void init() {
