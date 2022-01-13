@@ -3,6 +3,7 @@ package de.rnd7.huemqtt;
 import de.rnd7.huemqtt.config.Config;
 import de.rnd7.huemqtt.hue.HueService;
 import de.rnd7.huemqtt.hue.api.HueAbstractionImpl;
+import de.rnd7.huemqtt.hue.api.sse.SSEClient;
 import de.rnd7.mqttgateway.Events;
 import de.rnd7.mqttgateway.GwMqttClient;
 import de.rnd7.mqttgateway.config.ConfigParser;
@@ -46,6 +47,13 @@ public class Main {
                 config.getMqtt().getTopic());
 
             Events.register(service);
+            final SSEClient sseClient = new SSEClient();
+
+            final String host = config.getHue().getHost() + ":" + config.getHue().getPort();
+            final String apiKey = config.getHue().getApiKey();
+
+            new Thread(() -> sseClient.start(host, apiKey)).start();
+
         } catch (final Exception e) {
             LOGGER.error(e.getMessage(), e);
         }
