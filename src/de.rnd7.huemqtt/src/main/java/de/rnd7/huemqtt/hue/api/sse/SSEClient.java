@@ -32,25 +32,24 @@ public class SSEClient {
 
     BlockingQueue<Event> subscribe(final String bridgeIp, final String apiKey) throws Exception {
         LOGGER.debug("Subscribe SSE");
-        // asyncClient = HttpAsyncClients.custom().setss.createDefault();
-        SSLContextBuilder builder = SSLContexts.custom();
+        final SSLContextBuilder builder = SSLContexts.custom();
         builder.loadTrustMaterial(null, new TrustStrategy() {
             @Override
-            public boolean isTrusted(X509Certificate[] chain, String authType)
+            public boolean isTrusted(final X509Certificate[] chain, final String authType)
                 throws CertificateException {
                 return true;
             }
         });
-        SSLContext sslContext = builder.build();
-        SchemeIOSessionStrategy sslioSessionStrategy = new SSLIOSessionStrategy(sslContext,
+        final SSLContext sslContext = builder.build();
+        final SchemeIOSessionStrategy sslioSessionStrategy = new SSLIOSessionStrategy(sslContext,
             new HostnameVerifier(){
                 @Override
-                public boolean verify(String hostname, SSLSession session) {
-                    return true;// TODO as of now allow all hostnames
+                public boolean verify(final String hostname, final SSLSession session) {
+                    return true; // TODO as of now allow all hostnames
                 }
             });
-        Registry<SchemeIOSessionStrategy> sslioSessionRegistry = RegistryBuilder.<SchemeIOSessionStrategy>create().register("https", sslioSessionStrategy).build();
-        PoolingNHttpClientConnectionManager ncm  = new PoolingNHttpClientConnectionManager(new DefaultConnectingIOReactor(),sslioSessionRegistry);
+        final Registry<SchemeIOSessionStrategy> sslioSessionRegistry = RegistryBuilder.<SchemeIOSessionStrategy>create().register("https", sslioSessionStrategy).build();
+        final PoolingNHttpClientConnectionManager ncm = new PoolingNHttpClientConnectionManager(new DefaultConnectingIOReactor(), sslioSessionRegistry);
         asyncClient = HttpAsyncClients.custom().setConnectionManager(ncm).build();
 
         asyncClient.start();

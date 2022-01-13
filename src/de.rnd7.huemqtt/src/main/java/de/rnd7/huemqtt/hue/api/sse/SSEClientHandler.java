@@ -3,13 +3,9 @@ package de.rnd7.huemqtt.hue.api.sse;
 import com.google.gson.Gson;
 import de.rnd7.huemqtt.hue.api.sse.model.HueEvent;
 import de.rnd7.huemqtt.hue.api.sse.model.HueEventData;
-import de.rnd7.huemqtt.hue.api.sse.model.HueEventDataType;
 import de.rnd7.huemqtt.hue.api.sse.model.HueEventType;
-import netscape.javascript.JSException;
 import org.apache.http.impl.nio.client.CloseableHttpAsyncClient;
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -65,7 +61,7 @@ class SSEClientHandler {
                 return;
             }
             final Gson gson = new Gson();
-            HueEvent[] events = gson.fromJson(event.getData(), HueEvent[].class);
+            final HueEvent[] events = gson.fromJson(event.getData(), HueEvent[].class);
             for (final HueEvent hueEvent : events) {
                 handleHueEvent(hueEvent);
             }
