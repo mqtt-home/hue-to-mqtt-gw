@@ -7,9 +7,9 @@ import { HueIdentifiable, HueNameable, isNameable } from "../api/v2/types/genera
 import { Device } from "../api/v2/types/device"
 
 export class StateManager {
-    private _lights: Light[] = []
-    private _buttons: Button[] = []
-    private _rooms: Room[] = []
+    _lights = new Map<string, Light>()
+    _buttons = new Map<string, Button>()
+    _rooms: Room[] = []
 
     roomByResourceId = new Map<string, Room>()
     resourcesByTopic = new Map<string, HueIdentifiable>()
@@ -34,21 +34,30 @@ export class StateManager {
     }
 
     setLights = (lights: Light[]) => {
-        this._lights = lights
-        this.putTopicMapping(this._lights)
+        const map = new Map<string, Light>()
+        for (const light of lights) {
+            map.set(light.id, light)
+        }
+        this._lights = map
+        this.putTopicMapping(lights)
     }
 
     getLights = () => {
-        return this._lights
+        return this._lights.values()
     }
 
     setButtons = (buttons: Button[]) => {
-        this._buttons = buttons
-        this.putTopicMapping(this._buttons)
+        const map = new Map<string, Button>()
+        for (const button of buttons) {
+            map.set(button.id, button)
+        }
+        this._buttons = map
+
+        this.putTopicMapping(buttons)
     }
 
     getButtons = () => {
-        return this._buttons
+        return this._buttons.values()
     }
 
     private putTopicMapping(identifiables: HueIdentifiable[]) {
@@ -59,6 +68,7 @@ export class StateManager {
         }
     }
 }
+
 
 export const initStateManagerFromHue = async () => {
     state.setDevices((await loadDevices()).data)

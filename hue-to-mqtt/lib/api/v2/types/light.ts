@@ -9,27 +9,37 @@ export function isLight(object: HueIdentifiable): object is Light {
     return object && object.type === "light"
 }
 
+export type LightOnOffData = {
+    on: boolean
+}
+
+export type LightDimmingData = {
+    brightness: number,
+    min_dim_level?: number
+}
+
+export type LightColorTemperatureData = {
+    mirek: number
+    mirek_valid: boolean
+    mirek_schema: {
+        mirek_maximum: number
+        mirek_minimum: number
+    },
+}
+
+export type LightColorData = {
+    xy: ColorXY
+    gamut?: Gamut
+    gamut_type: "A"|"B"|"C"|"other"
+}
+
 export type Light = HueIdentifiable & HueOwnable & HueNameable & {
     type: "light"
-    on: { on: boolean }
-    dimming?: {
-        brightness: number,
-        min_dim_level?: number
-    }
-    color_temperature?: {
-        mirek: number
-        mirek_valid: boolean
-        mirek_schema: {
-            mirek_maximum: number
-            mirek_minimum: number
-        },
-    }
+    on: LightOnOffData
+    dimming?: LightDimmingData
+    color_temperature?: LightColorTemperatureData
     effects?: any
-    color?: {
-        xy: ColorXY
-        gamut?: Gamut
-        gamut_type: "A"|"B"|"C"|"other"
-    }
+    color?: LightColorData
     dynamics: any
     alert: {
         action_values: AlertEffectType[]

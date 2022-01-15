@@ -19,10 +19,6 @@ export const startSSE = () => {
             log.error(err)
         }
     }
-
-    sse.addEventListener("message", event => {
-        log.info("New event")
-        console.log(event)
-    })
+    return sse
 }
 
