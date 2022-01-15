@@ -7,6 +7,7 @@ import {
 import { cleanTopic } from "../topic/topic-utils"
 import { HueIdentifiable, isNameable } from "../api/v2/types/general"
 import { Device } from "../api/v2/types/device"
+import config from "../config.json"
 
 export class StateManager {
     _typedResources = new Map<string, HueIdentifiable>()
@@ -34,8 +35,12 @@ export class StateManager {
         for (const resource of resources) {
             this._typedResources.set(resource.id, resource)
             const topic = getTopic(resource)
-            this.resourcesByTopic.set(`${topic}/set`, resource)
-            this.resourcesByTopic.set(`${topic}/get`, resource)
+            const fullTopic = `${config.mqtt.topic}/${topic}`
+            if (isLight(resource)) {
+                this.resourcesByTopic.set(`${fullTopic}/set`, resource)
+            }
+            this.resourcesByTopic.set(`${fullTopic}/get`, resource)
+            this.resourcesByTopic.set(`${fullTopic}/state`, resource)
 
             if (isRoom(resource)) {
                 this.addRoom(resource)
@@ -47,7 +52,12 @@ export class StateManager {
 export const initStateManagerFromHue = async () => {
     state.setDevices((await loadDevices()).data)
 
-    for (const typeName of ["light", "light_level", "room", "bridge_home",
+    // Rooms first
+    for (const typeName of ["room"]) {
+        state.addTypedResources((await loadTyped(typeName)).data)
+    }
+
+    for (const typeName of ["light", "light_level", "bridge_home",
         "grouped_light", "bridge", "device_power", "zigbee_connectivity", "zgp_connectivity",
         "temperature", "motion", "button"]) {
         state.addTypedResources((await loadTyped(typeName)).data)

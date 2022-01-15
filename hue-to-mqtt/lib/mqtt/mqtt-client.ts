@@ -1,6 +1,11 @@
 import mqtt from "mqtt"
 import config from "../config.json"
 import { log } from "../logger"
+import { state } from "../state/state-manager"
+import { publishResource } from "../state/state-event-handler"
+import { LightMessage, toLight } from "../messages/light-message"
+import { putResource } from "../api/v2/hue-api-v2"
+import { isLight } from "../api/v2/types/light"
 
 const makeid = (length: number) => {
     let result = ""
@@ -50,8 +55,26 @@ export const connectMqtt = () => {
         })
     })
 
-    client.on("message",  (topic, message) => {
-        log.info("MQTT subscription active")
-        console.log(`MQTT Message received: ${topic}`)
+    client.on("message",  async (topic, message) => {
+        let resource = state.resourcesByTopic.get(topic)
+        if (resource) {
+            log.info(`MQTT Message received: ${topic}`)
+
+            if (topic.endsWith("/get") || topic.endsWith("/state")) {
+                publishResource(resource)
+            }
+            else if (topic.endsWith("/set") && isLight(resource)) {
+                // only supported for light messages at the moment
+                const lightMsg = JSON.parse(message.toString()) as LightMessage
+                const newResource = toLight(resource, lightMsg)
+
+                // resource will be updated by the Hue SSE API
+                try {
+                    await putResource(newResource)
+                } catch (e) {
+                    log.error(e)
+                }
+            }
+        }
     })
 }

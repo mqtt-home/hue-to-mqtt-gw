@@ -23,3 +23,19 @@ export const fromLight = (light: Light) => {
 
     return message
 }
+
+export const toLight = (template: Light, message: LightMessage) => {
+    let result = {...template}
+
+    result.on.on = message.state.toUpperCase() === "ON"
+    result.dimming = {brightness: message.brightness}
+
+    if (message.color_temp && template.color_temperature) {
+        result.color_temperature = {...template.color_temperature, mirek: message.color_temp}
+    }
+    if (message.color && template.color) {
+        result.color = {...template.color, xy: message.color}
+    }
+
+    return result
+}

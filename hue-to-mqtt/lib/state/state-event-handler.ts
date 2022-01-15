@@ -27,56 +27,52 @@ const handleResource = (data: HueEventData) => {
 
         state._typedResources.set(data.id, newResource)
 
-        let message: any
-        const topic = getTopic(newResource)
-
-        if (isLight(newResource)) {
-            message = fromLight(newResource)
-        }
-        else if (isLightLevel(newResource)) {
-            message = fromLightLevel(newResource)
-        }
-        else if (isButton(newResource)) {
-            message = fromButton(newResource)
-        }
-        else if (isMotion(newResource)) {
-            message = fromMotion(newResource)
-        }
-        else if (isTemperature(newResource)) {
-            message = fromTemperature(newResource)
-        }
-        else if (isDevicePower(newResource)) {
-            message = fromDevicePower(newResource)
-        }
-        else if (isZigbeeGreenPowerConnectivity(newResource)) {
-            message = fromZgpConnectivity(newResource)
-        }
-        else if (isZigbeeConnectivity(newResource)) {
-            message = fromZigbeeConnectivity(newResource)
-        }
-
-        if (message) {
-            publish(message, topic)
-        }
+        publishResource(newResource)
     }
     else {
         log.error(`No resource found with id ${data.id}`)
     }
 }
 
+export const publishResource = (resource: HueIdentifiable) => {
+    let message: any
+    const topic = getTopic(resource)
+
+    if (isLight(resource)) {
+        message = fromLight(resource)
+    }
+    else if (isLightLevel(resource)) {
+        message = fromLightLevel(resource)
+    }
+    else if (isButton(resource)) {
+        message = fromButton(resource)
+    }
+    else if (isMotion(resource)) {
+        message = fromMotion(resource)
+    }
+    else if (isTemperature(resource)) {
+        message = fromTemperature(resource)
+    }
+    else if (isDevicePower(resource)) {
+        message = fromDevicePower(resource)
+    }
+    else if (isZigbeeGreenPowerConnectivity(resource)) {
+        message = fromZgpConnectivity(resource)
+    }
+    else if (isZigbeeConnectivity(resource)) {
+        message = fromZigbeeConnectivity(resource)
+    }
+
+    if (message) {
+        publish(message, topic)
+    }
+    else {
+        log.warn(`Unhandled device: ${resource.type}`)
+    }
+}
+
 export const takeEvent = (event: HueEvent) => {
     for (const data of event.data) {
-        switch (data.type) {
-            case "light":
-            case "light_level":
-            case "button":
-            case "motion":
-            case "device_power":
-            case "temperature":
-                handleResource(data)
-                break
-            default:
-                console.log(`Unhandled device: ${data.type}`)
-        }
+        handleResource(data)
     }
 }
