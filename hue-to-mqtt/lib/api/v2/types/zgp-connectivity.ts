@@ -4,8 +4,10 @@ export function isZigbeeGreenPowerConnectivity(object: HueIdentifiable): object 
     return object && object.type === "zgp_connectivity"
 }
 
+export type  ZigbeeGreenPowerConnectivityStatus = "connected"|"disconnected"|"connectivity_issue"|"unidirectional_incoming"
+
 export type ZigbeeGreenPowerConnectivity = HueIdentifiable & HueOwnable & {
     type: "zgp_connectivity"
-    status: "connected"|"disconnected"|"connectivity_issue"|"unidirectional_incoming"
+    status: ZigbeeGreenPowerConnectivityStatus
     source_id: string
 }

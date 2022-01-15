@@ -4,8 +4,10 @@ export function isZigbeeConnectivity(object: HueIdentifiable): object is ZigbeeC
     return object && object.type === "zigbee_connectivity"
 }
 
+export type ZigbeeConnectivityStatus = "connected"|"disconnected"|"connectivity_issue"|"unidirectional_incoming"
+
 export type ZigbeeConnectivity = HueIdentifiable & HueOwnable & {
     type: "zigbee_connectivity"
-    status: "connected"|"disconnected"|"connectivity_issue"|"unidirectional_incoming"
+    status: ZigbeeConnectivityStatus
     mac_address: string
 }

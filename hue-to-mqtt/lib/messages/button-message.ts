@@ -8,12 +8,10 @@ export type ButtonMessage = {
 }
 
 export const fromButton = (button: Button) => {
-    let message: ButtonMessage = {
+    return {
         button: button.metadata.control_id,
         code: 0,
         event: button.button?.last_event,
         "last-updated": new Date().toISOString()
-    }
-
-    return message
+    } as ButtonMessage
 }

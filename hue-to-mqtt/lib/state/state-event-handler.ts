@@ -12,6 +12,12 @@ import { isTemperature } from "../api/v2/types/temperature"
 import { fromTemperature } from "../messages/temperature-message"
 import { isLightLevel } from "../api/v2/types/light-level"
 import { fromLightLevel } from "../messages/ambient-message"
+import { isDevicePower } from "../api/v2/types/device-power"
+import { fromDevicePower } from "../messages/device-power-message"
+import { isZigbeeGreenPowerConnectivity } from "../api/v2/types/zgp-connectivity"
+import { fromZgpConnectivity } from "../messages/zgp-connectivity-message"
+import { isZigbeeConnectivity } from "../api/v2/types/zigbee-connectivity"
+import { fromZigbeeConnectivity } from "../messages/zigbee-connectivity-message"
 
 const handleResource = (data: HueEventData) => {
     const oldResource = state._typedResources.get(data.id)
@@ -35,6 +41,15 @@ const handleResource = (data: HueEventData) => {
         else if (isTemperature(newResource)) {
             console.log(getTopic(newResource), fromTemperature(newResource))
         }
+        else if (isDevicePower(newResource)) {
+            console.log(getTopic(newResource), fromDevicePower(newResource))
+        }
+        else if (isZigbeeGreenPowerConnectivity(newResource)) {
+            console.log(getTopic(newResource), fromZgpConnectivity(newResource))
+        }
+        else if (isZigbeeConnectivity(newResource)) {
+            console.log(getTopic(newResource), fromZigbeeConnectivity(newResource))
+        }
     }
     else {
         log.error(`No resource found with id ${data.id}`)
@@ -48,6 +63,7 @@ export const takeEvent = (event: HueEvent) => {
             case "light_level":
             case "button":
             case "motion":
+            case "device_power":
             case "temperature":
                 handleResource(data)
                 break
