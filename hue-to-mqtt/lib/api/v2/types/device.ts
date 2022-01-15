@@ -1,6 +1,6 @@
-import { HueIdentifiable, Metadata, Resource } from "./general"
+import { HueIdentifiable, HueNameable, Resource } from "./general"
 
-export type Device = HueIdentifiable & {
+export type Device = HueIdentifiable & HueNameable & {
     type: "device"
     services: [Resource],
     product_data: {
@@ -12,6 +12,5 @@ export type Device = HueIdentifiable & {
         certified: boolean,
         software_version: string
     }
-    metadata: Metadata
     creation_time: string
 }

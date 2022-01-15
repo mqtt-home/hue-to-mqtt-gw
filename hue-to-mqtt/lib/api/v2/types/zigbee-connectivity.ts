@@ -1,6 +1,6 @@
-import { HueResource, Resource } from "./general"
+import { HueIdentifiable, HueOwnable } from "./general"
 
-export type ZigbeeConnectivity = HueResource & {
+export type ZigbeeConnectivity = HueIdentifiable & HueOwnable & {
     type: "zigbee_connectivity"
     status: "connected"|"disconnected"|"connectivity_issue"|"unidirectional_incoming"
     mac_address: string

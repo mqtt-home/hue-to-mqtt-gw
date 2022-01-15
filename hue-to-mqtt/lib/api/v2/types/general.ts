@@ -9,8 +9,23 @@ export type HueIdentifiable = {
     id_v1?: string
 }
 
-export type HueResource = HueIdentifiable & {
+export type HueOwnable = {
     owner: Resource
+}
+
+export function isOwnable(object: any): object is HueOwnable {
+    return "owner" in object
+}
+
+export type HueNameable = {
+    metadata: Metadata
+}
+
+export function isNameable(object: any): object is HueNameable {
+    if ("metadata" in object) {
+        return "name" in object.metadata
+    }
+    return false
 }
 
 export type ResourceType = (

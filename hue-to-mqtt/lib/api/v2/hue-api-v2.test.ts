@@ -1,9 +1,20 @@
 import { loadButtons, loadDevicePower, loadDevices, loadLights, loadRooms, mapRoomByResourceId } from "./hue-api-v2"
-import { getLightTopic, state } from "../../state/state-manager"
-import { cleanTopic } from "../../topic/topic-utils"
-import { fromLight, LightMessage } from "../../messages/light-message"
+import { getLightTopic, getTopic, state } from "../../state/state-manager"
+import { fromLight } from "../../messages/light-message"
+import { isNameable } from "./types/general"
+import { lightStub, roomStub } from "./hue-api-v2-stubs"
 
 describe("API v2", () => {
+    test("nameable", async () => {
+        expect(isNameable(roomStub)).toBeTruthy()
+        expect(isNameable(lightStub)).toBeTruthy()
+    })
+
+    test("topic", async () => {
+        expect(getTopic(roomStub)).toBe("room/my-room")
+        expect(getTopic(lightStub)).toBe("light/unassigned/essen-spot-4")
+    })
+
     test("init state manager", async () => {
         state.setRooms((await loadRooms()).data)
         state.setButtons((await loadButtons()).data)

@@ -1,13 +1,16 @@
-import { HueResource, Metadata } from "./general"
+import { HueIdentifiable, HueNameable, HueOwnable } from "./general"
 
 export type ColorXY = {x: number, y: number}
 export type Gamut = {red: ColorXY, green: ColorXY, blue: ColorXY}
 
 export type AlertEffectType = "breathe"
 
-export type Light = HueResource & {
+export function isLight(object: HueIdentifiable): object is Light {
+    return object.type === "light"
+}
+
+export type Light = HueIdentifiable & HueOwnable & HueNameable & {
     type: "light"
-    metadata: Metadata
     on: { on: boolean }
     dimming?: {
         brightness: number,
@@ -21,6 +24,7 @@ export type Light = HueResource & {
             mirek_minimum: number
         },
     }
+    effects?: any
     color?: {
         xy: ColorXY
         gamut?: Gamut,
@@ -31,5 +35,5 @@ export type Light = HueResource & {
         action_values: AlertEffectType[]
     }
     mode: "normal"|"streaming"
-    gradient: any
+    gradient?: any
 }

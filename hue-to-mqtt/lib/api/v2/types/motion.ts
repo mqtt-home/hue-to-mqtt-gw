@@ -1,6 +1,6 @@
-import { HueResource, Resource } from "./general"
+import { HueIdentifiable, HueOwnable } from "./general"
 
-export type Motion = HueResource & {
+export type Motion = HueIdentifiable & HueOwnable & {
     type?: "motion"
     enabled: boolean
     motion: {

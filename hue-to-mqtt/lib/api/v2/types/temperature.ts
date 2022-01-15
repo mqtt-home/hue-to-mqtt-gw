@@ -1,6 +1,6 @@
-import { HueResource, Resource } from "./general"
+import { HueIdentifiable, HueOwnable } from "./general"
 
-export type Temperature = HueResource & {
+export type Temperature = HueIdentifiable & HueOwnable & {
     type?: "temperature"
     enabled: boolean
     temperature: {

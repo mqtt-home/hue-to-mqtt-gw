@@ -1,6 +1,6 @@
-import { HueResource, Resource } from "./general"
+import { HueIdentifiable, HueOwnable } from "./general"
 
-export type LightLevel = HueResource & {
+export type LightLevel = HueIdentifiable & HueOwnable & {
     type?: "light_level"
     enabled: boolean
     light: {
