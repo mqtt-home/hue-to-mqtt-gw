@@ -32,11 +32,11 @@ describe("State manager", () => {
 
     test("init state manager", async () => {
         await initStateManagerFromHue()
-        for (const button of state.getButtons()) {
-            const device = state.deviceByDeviceId.get(button.id)
-            if (device) {
-                console.log(getTopic(button), button.button?.last_event, button.metadata.control_id, device.metadata.name)
-            }
-        }
+        // for (const button of state.getButtons()) {
+        //     const device = state.deviceByDeviceId.get(button.id)
+        //     if (device) {
+        //         console.log(getTopic(button), button.button?.last_event, button.metadata.control_id, device.metadata.name)
+        //     }
+        // }
     })
 })

@@ -1,23 +1,16 @@
-import { isLight, Light } from "../api/v2/types/light"
-import { Button } from "../api/v2/types/button"
-import { Room } from "../api/v2/types/room"
+import { isLight } from "../api/v2/types/light"
+import { isRoom, Room } from "../api/v2/types/room"
 import { loadButtons, loadDevices, loadLights, loadRooms, mapRoomByResourceId } from "../api/v2/hue-api-v2"
 import { cleanTopic } from "../topic/topic-utils"
-import { HueIdentifiable, HueNameable, isNameable } from "../api/v2/types/general"
+import { HueIdentifiable, isNameable } from "../api/v2/types/general"
 import { Device } from "../api/v2/types/device"
 
 export class StateManager {
-    _lights = new Map<string, Light>()
-    _buttons = new Map<string, Button>()
-    _rooms: Room[] = []
+    _typedResources = new Map<string, HueIdentifiable>()
 
     roomByResourceId = new Map<string, Room>()
     resourcesByTopic = new Map<string, HueIdentifiable>()
     deviceByDeviceId = new Map<string, Device>()
-
-    updateRoomMapping = () => {
-        this.roomByResourceId = mapRoomByResourceId(this._rooms)
-    }
 
     setDevices = (devices: Device[]) => {
         for (const device of devices) {
@@ -28,43 +21,22 @@ export class StateManager {
         }
     }
 
-    setRooms = (rooms: Room[]) => {
-        this._rooms = rooms
-        this.updateRoomMapping()
-    }
-
-    setLights = (lights: Light[]) => {
-        const map = new Map<string, Light>()
-        for (const light of lights) {
-            map.set(light.id, light)
+    addRoom = (room: Room) => {
+        for (const child of room.children) {
+            this.roomByResourceId.set(child.rid, room)
         }
-        this._lights = map
-        this.putTopicMapping(lights)
     }
 
-    getLights = () => {
-        return this._lights.values()
-    }
+    addTypedResources = (resources: HueIdentifiable[]) => {
+        for (const resource of resources) {
+            this._typedResources.set(resource.id, resource)
+            const topic = getTopic(resource)
+            this.resourcesByTopic.set(`${topic}/set`, resource)
+            this.resourcesByTopic.set(`${topic}/get`, resource)
 
-    setButtons = (buttons: Button[]) => {
-        const map = new Map<string, Button>()
-        for (const button of buttons) {
-            map.set(button.id, button)
-        }
-        this._buttons = map
-
-        this.putTopicMapping(buttons)
-    }
-
-    getButtons = () => {
-        return this._buttons.values()
-    }
-
-    private putTopicMapping(identifiables: HueIdentifiable[]) {
-        for (const identifiable of identifiables) {
-            const topic = getTopic(identifiable)
-            this.resourcesByTopic.set(`${topic}/set`, identifiable)
-            this.resourcesByTopic.set(`${topic}/get`, identifiable)
+            if (isRoom(resource)) {
+                this.addRoom(resource)
+            }
         }
     }
 }
@@ -72,9 +44,9 @@ export class StateManager {
 
 export const initStateManagerFromHue = async () => {
     state.setDevices((await loadDevices()).data)
-    state.setRooms((await loadRooms()).data)
-    state.setButtons((await loadButtons()).data)
-    state.setLights((await loadLights()).data)
+    state.addTypedResources((await loadRooms()).data)
+    state.addTypedResources((await loadButtons()).data)
+    state.addTypedResources((await loadLights()).data)
 }
 
 const getNameProvider = (resource: HueIdentifiable) => {
