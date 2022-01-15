@@ -1,0 +1,33 @@
+name: Node Backend
+
+on:
+  push:
+  workflow_dispatch:
+
+
+jobs:
+  build:
+
+    runs-on: pes-4.5
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: Install
+        run: |
+          npm install
+
+      - name: Lint/Test
+        run: |
+          npm run lint
+          npm test
+
+      - name: Build
+        run: |
+          npm run build
