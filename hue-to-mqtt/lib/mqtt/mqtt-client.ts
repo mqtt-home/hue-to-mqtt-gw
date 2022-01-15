@@ -47,7 +47,6 @@ export const connectMqtt = () => {
         client.subscribe(`${config.mqtt.topic}/#`, (err) => {
             if (!err) {
                 log.info("MQTT subscription active")
-                // client.publish('test', 'Hello mqtt')
             }
             else {
                 log.error(err)
