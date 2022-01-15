@@ -52,6 +52,6 @@ export const connectMqtt = () => {
 
     client.on("message",  (topic, message) => {
         log.info("MQTT subscription active")
-        console.log(`MQTT: ${topic}`)
+        console.log(`MQTT Message received: ${topic}`)
     })
 }
