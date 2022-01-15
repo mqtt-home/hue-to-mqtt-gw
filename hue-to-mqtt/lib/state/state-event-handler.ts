@@ -18,6 +18,7 @@ import { isZigbeeGreenPowerConnectivity } from "../api/v2/types/zgp-connectivity
 import { fromZgpConnectivity } from "../messages/zgp-connectivity-message"
 import { isZigbeeConnectivity } from "../api/v2/types/zigbee-connectivity"
 import { fromZigbeeConnectivity } from "../messages/zigbee-connectivity-message"
+import { publish } from "../mqtt/mqtt-client"
 
 const handleResource = (data: HueEventData) => {
     const oldResource = state._typedResources.get(data.id)
@@ -26,29 +27,36 @@ const handleResource = (data: HueEventData) => {
 
         state._typedResources.set(data.id, newResource)
 
+        let message: any
+        const topic = getTopic(newResource)
+
         if (isLight(newResource)) {
-            console.log(getTopic(newResource), fromLight(newResource))
+            message = fromLight(newResource)
         }
         else if (isLightLevel(newResource)) {
-            console.log(getTopic(newResource), fromLightLevel(newResource))
+            message = fromLightLevel(newResource)
         }
         else if (isButton(newResource)) {
-            console.log(getTopic(newResource), fromButton(newResource))
+            message = fromButton(newResource)
         }
         else if (isMotion(newResource)) {
-            console.log(getTopic(newResource), fromMotion(newResource))
+            message = fromMotion(newResource)
         }
         else if (isTemperature(newResource)) {
-            console.log(getTopic(newResource), fromTemperature(newResource))
+            message = fromTemperature(newResource)
         }
         else if (isDevicePower(newResource)) {
-            console.log(getTopic(newResource), fromDevicePower(newResource))
+            message = fromDevicePower(newResource)
         }
         else if (isZigbeeGreenPowerConnectivity(newResource)) {
-            console.log(getTopic(newResource), fromZgpConnectivity(newResource))
+            message = fromZgpConnectivity(newResource)
         }
         else if (isZigbeeConnectivity(newResource)) {
-            console.log(getTopic(newResource), fromZigbeeConnectivity(newResource))
+            message = fromZigbeeConnectivity(newResource)
+        }
+
+        if (message) {
+            publish(message, topic)
         }
     }
     else {

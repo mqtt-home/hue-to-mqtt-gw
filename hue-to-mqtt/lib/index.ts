@@ -4,12 +4,15 @@ import cron from "node-cron"
 import { initStateManagerFromHue, state } from "./state/state-manager"
 import { startSSE } from "./SSEClient"
 import { takeEvent } from "./state/state-event-handler"
+import { connectMqtt } from "./mqtt/mqtt-client"
 
 export const triggerFullUpdate = async () => {
     log.info("Updating devices")
     await initStateManagerFromHue()
     log.info("Updating devices done")
 }
+
+connectMqtt()
 
 triggerFullUpdate().then(() => {
     const sse = startSSE()

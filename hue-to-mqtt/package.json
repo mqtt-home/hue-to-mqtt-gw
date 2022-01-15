@@ -17,6 +17,7 @@
     "devDependencies": {
         "@types/eventsource": "^1.1.8",
         "@types/jest": "^27.4.0",
+        "@types/mqtt": "^2.5.0",
         "@types/node": "^16.11.19",
         "@types/node-cron": "^3.0.1",
         "@types/winston": "^2.4.4",
@@ -38,6 +39,7 @@
     "dependencies": {
         "axios": "^0.24.0",
         "eventsource": "^1.1.0",
+        "mqtt": "^4.3.4",
         "node-cron": "^3.0.0",
         "winston": "^3.4.0",
         "winston-transport": "^4.4.2"
