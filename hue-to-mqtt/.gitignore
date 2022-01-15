@@ -1,0 +1,8 @@
+# IntelliJ
+.idea/
+
+# Node/NPM
+node_modules/
+dist/
+junit.xml
+build_internal/
