@@ -5,7 +5,7 @@ import { Light } from "./types/light"
 import { Device } from "./types/device"
 import { Room } from "./types/room"
 import { Button } from "./types/button"
-import { Result } from "./types/general"
+import { HueIdentifiable, Result } from "./types/general"
 import { DevicePower } from "./types/device-power"
 import { Motion } from "./types/motion"
 
@@ -28,28 +28,37 @@ export const load = async (endpoint: string) => {
     return result.data
 }
 
-export const loadLights: () => Promise<Result<Light>> = async () => {
-    return (await load("resource/light"))
-}
+
 
 export const loadDevices: () => Promise<Result<Device>> = async () => {
-    return (await load("resource/device"))
+    return load("resource/device")
 }
 
-export const loadButtons: () => Promise<Result<Button>> = async () => {
-    return (await load("resource/button"))
-}
+// export const loadLights: () => Promise<Result<Light>> = async () => {
+//     return load("resource/light")
+// }
+// export const loadButtons: () => Promise<Result<Button>> = async () => {
+//     return load("resource/button")
+// }
+//
+// export const loadRooms: () => Promise<Result<Room>> = async () => {
+//     return load("resource/room")
+// }
+//
+// export const loadDevicePower: () => Promise<Result<DevicePower>> = async () => {
+//     return load("resource/device_power")
+// }
+//
+// export const loadMotion: () => Promise<Result<Motion>> = async () => {
+//     return load("resource/motion")
+// }
+//
+// export const loadTemperature: () => Promise<Result<Light>> = async () => {
+//     return (await loadTyped("light")) as Promise<Result<Light>>
+// }
 
-export const loadRooms: () => Promise<Result<Room>> = async () => {
-    return (await load("resource/room"))
-}
-
-export const loadDevicePower: () => Promise<Result<DevicePower>> = async () => {
-    return (await load("resource/device_power"))
-}
-
-export const loadMotion: () => Promise<Result<Motion>> = async () => {
-    return (await load("resource/motion"))
+export const loadTyped: (resourceName: string) => Promise<Result<HueIdentifiable>> = async (resourceName: string) => {
+    return load(`resource/${resourceName}`)
 }
 
 export const mapRoomByResourceId = (rooms: Room[]) => {

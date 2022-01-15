@@ -1,6 +1,9 @@
 import { isLight } from "../api/v2/types/light"
 import { isRoom, Room } from "../api/v2/types/room"
-import { loadButtons, loadDevices, loadLights, loadRooms, mapRoomByResourceId } from "../api/v2/hue-api-v2"
+import {
+    loadDevices,
+    loadTyped
+} from "../api/v2/hue-api-v2"
 import { cleanTopic } from "../topic/topic-utils"
 import { HueIdentifiable, isNameable } from "../api/v2/types/general"
 import { Device } from "../api/v2/types/device"
@@ -41,12 +44,14 @@ export class StateManager {
     }
 }
 
-
 export const initStateManagerFromHue = async () => {
     state.setDevices((await loadDevices()).data)
-    state.addTypedResources((await loadRooms()).data)
-    state.addTypedResources((await loadButtons()).data)
-    state.addTypedResources((await loadLights()).data)
+
+    for (const typeName of ["light", "light_level", "room", "bridge_home",
+        "grouped_light", "bridge", "device_power", "zigbee_connectivity", "zgp_connectivity",
+        "temperature", "motion", "button"]) {
+        state.addTypedResources((await loadTyped(typeName)).data)
+    }
 }
 
 const getNameProvider = (resource: HueIdentifiable) => {
