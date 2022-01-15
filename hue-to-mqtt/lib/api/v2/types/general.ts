@@ -14,7 +14,7 @@ export type HueOwnable = {
 }
 
 export function isOwnable(object: any): object is HueOwnable {
-    return "owner" in object
+    return object && "owner" in object
 }
 
 export type HueNameable = {
@@ -22,7 +22,10 @@ export type HueNameable = {
 }
 
 export function isNameable(object: any): object is HueNameable {
-    if ("metadata" in object) {
+    if (!object) {
+        return false
+    }
+    else if ("metadata" in object) {
         return "name" in object.metadata
     }
     return false

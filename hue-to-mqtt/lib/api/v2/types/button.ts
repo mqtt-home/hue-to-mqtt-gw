@@ -5,5 +5,5 @@ export type ButtonEvent = "initial_press"|"repeat"|"short_release"|"long_release
 export type Button = HueIdentifiable & HueOwnable & {
     type?: "button"
     metadata: {control_id: 0|1|2|3|4|5|6|7|8}
-    button: {last_event: ButtonEvent}
+    button?: {last_event: ButtonEvent} // Deviation from API description. Optional as some of my devices do not return this
 }

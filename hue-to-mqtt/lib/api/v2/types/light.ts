@@ -6,7 +6,7 @@ export type Gamut = {red: ColorXY, green: ColorXY, blue: ColorXY}
 export type AlertEffectType = "breathe"
 
 export function isLight(object: HueIdentifiable): object is Light {
-    return object.type === "light"
+    return object && object.type === "light"
 }
 
 export type Light = HueIdentifiable & HueOwnable & HueNameable & {
@@ -20,15 +20,15 @@ export type Light = HueIdentifiable & HueOwnable & HueNameable & {
         mirek: number
         mirek_valid: boolean
         mirek_schema: {
-            mirek_maximum: number,
+            mirek_maximum: number
             mirek_minimum: number
         },
     }
     effects?: any
     color?: {
         xy: ColorXY
-        gamut?: Gamut,
-        gamut_type: "A"|"B"|"C"|"other",
+        gamut?: Gamut
+        gamut_type: "A"|"B"|"C"|"other"
     }
     dynamics: any
     alert: {

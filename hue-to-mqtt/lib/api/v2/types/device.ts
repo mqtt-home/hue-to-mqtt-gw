@@ -2,15 +2,15 @@ import { HueIdentifiable, HueNameable, Resource } from "./general"
 
 export type Device = HueIdentifiable & HueNameable & {
     type: "device"
-    services: [Resource],
+    services: Resource[]
     product_data: {
-        model_id: string,
-        product_id: string,
-        manufacturer_name: string,
-        product_name: string,
-        product_archetype: string,
-        certified: boolean,
+        model_id: string
+        product_id?: string // Deviation from API (optional)
+        manufacturer_name: string
+        product_name: string
+        product_archetype: string
+        certified: boolean
         software_version: string
     }
-    creation_time: string
+    creation_time?: string // Deviation from API (optional)
 }
