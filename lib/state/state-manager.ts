@@ -65,17 +65,24 @@ const updateAll = async () => {
 }
 
 export const initStateManagerFromHue = async () => {
-    state.setDevices((await loadDevices()).data)
+    const devices = await loadDevices()
+    if (devices) {
+        state.setDevices(devices.data)
+    }
 
     // Rooms first
-    for (const typeName of ["room"]) {
-        state.addTypedResources((await loadTyped(typeName)).data)
+    const rooms = await loadTyped("room")
+    if (rooms) {
+        state.addTypedResources(rooms.data)
     }
 
     for (const typeName of ["light", "light_level", "bridge_home",
         "grouped_light", "bridge", "device_power", "zigbee_connectivity", "zgp_connectivity",
         "temperature", "motion", "button"]) {
-        state.addTypedResources((await loadTyped(typeName)).data)
+        const resources = await loadTyped("typeName")
+        if (resources) {
+            state.addTypedResources(resources.data)
+        }
     }
 
     await updateAll()

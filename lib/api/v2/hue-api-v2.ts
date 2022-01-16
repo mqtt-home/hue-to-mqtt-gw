@@ -8,11 +8,12 @@ import { log } from "../../logger"
 import { getAppConfig } from "../../config/config"
 
 let instance: AxiosInstance
+let baserUrl: string
 
 const getInstance = () => {
     if (!instance) {
         const config = getAppConfig()
-        const baserUrl = `https://${config.hue.host}:${config.hue.port}/clip/v2/`
+        baserUrl = `https://${config.hue.host}:${config.hue.port}/clip/v2/`
 
         instance = axios.create({
             baseURL: baserUrl,
@@ -26,14 +27,19 @@ const getInstance = () => {
 }
 
 export const load = async (endpoint: string) => {
-    const config = getAppConfig()
-    const result = await getInstance().get(endpoint, {
-        headers: {
-            "hue-application-key": config.hue["api-key"],
-            Accept: "application/json"
-        }
-    })
-    return result.data
+    try {
+        const config = getAppConfig()
+        const result = await getInstance().get(endpoint, {
+            headers: {
+                "hue-application-key": config.hue["api-key"],
+                Accept: "application/json"
+            }
+        })
+        return result.data
+    }
+    catch (e) {
+        log.error(`Error fetching data from endpoint: ${baserUrl}/${endpoint} ${e}`)
+    }
 }
 
 type PutLight = {
@@ -69,11 +75,11 @@ export const putLight = async (resource: Light, message: PutLight) => {
     }
 }
 
-export const loadDevices: () => Promise<Result<Device>> = async () => {
+export const loadDevices: () => Promise<Result<Device>> | undefined = async () => {
     return load("resource/device")
 }
 
-export const loadTyped: (resourceName: string) => Promise<Result<HueIdentifiable>> = async (resourceName: string) => {
+export const loadTyped: (resourceName: string) => Promise<Result<HueIdentifiable>> | undefined = async (resourceName: string) => {
     return load(`resource/${resourceName}`)
 }
 
@@ -82,14 +88,7 @@ export const loadTypedById = async (resourceName: string, id: string) => {
     if (data.data.length === 1) {
         return data.data[0]
     }
-}
-
-export const mapRoomByResourceId = (rooms: Room[]) => {
-    const result = new Map<string, Room>()
-    for (const room of rooms) {
-        for (const resource of room.children) {
-            result.set(resource.rid, room)
-        }
+    else {
+        return undefined
     }
-    return result
 }
