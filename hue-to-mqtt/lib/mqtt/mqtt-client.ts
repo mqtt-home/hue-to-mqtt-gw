@@ -3,9 +3,10 @@ import config from "../config.json"
 import { log } from "../logger"
 import { state } from "../state/state-manager"
 import { publishResource } from "../state/state-event-handler"
-import { LightMessage, toLight } from "../messages/light-message"
+import { isEffectMessage, LightEffectMessage, LightMessage, toLight } from "../messages/light-message"
 import { putResource } from "../api/v2/hue-api-v2"
 import { isLight } from "../api/v2/types/light"
+import { putMessage } from "../put/put-handler"
 
 const makeid = (length: number) => {
     let result = ""
@@ -28,7 +29,11 @@ export const publish = (message: any, topic: string) => {
         return
     }
 
-    client.publish(fullTopic, JSON.stringify(message), {retain: true})
+    const body = JSON.stringify(message, (key, value) => {
+        if (value !== null) return value
+    })
+
+    client.publish(fullTopic, body, {retain: true})
 }
 
 export const connectMqtt = () => {
@@ -62,17 +67,8 @@ export const connectMqtt = () => {
             if (topic.endsWith("/get") || topic.endsWith("/state")) {
                 publishResource(resource)
             }
-            else if (topic.endsWith("/set") && isLight(resource)) {
-                // only supported for light messages at the moment
-                const lightMsg = JSON.parse(message.toString()) as LightMessage
-                const newResource = toLight(resource, lightMsg)
-
-                // resource will be updated by the Hue SSE API
-                try {
-                    await putResource(newResource)
-                } catch (e) {
-                    log.error(e)
-                }
+            else if (topic.endsWith("/set")) {
+                await putMessage(resource, message)
             }
         }
     })

@@ -24,7 +24,7 @@ export type LightColorTemperatureData = {
     mirek_schema: {
         mirek_maximum: number
         mirek_minimum: number
-    },
+    }
 }
 
 export type LightColorData = {

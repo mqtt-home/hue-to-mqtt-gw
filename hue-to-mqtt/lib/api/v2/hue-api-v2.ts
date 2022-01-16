@@ -4,7 +4,8 @@ import config from "../../config.json"
 import { Device } from "./types/device"
 import { Room } from "./types/room"
 import { HueIdentifiable, Result } from "./types/general"
-import { Light } from "./types/light"
+import { Light, LightColorData, LightColorTemperatureData, LightOnOffData } from "./types/light"
+import { log } from "../../logger"
 
 let baserUrl = `https://${config.hue.host}:${config.hue.port}/clip/v2/`
 
@@ -25,21 +26,36 @@ export const load = async (endpoint: string) => {
     return result.data
 }
 
+
+type PutLight = {
+    brightness?: number,
+    on?: LightOnOffData,
+    color_temperature?: LightColorTemperatureData,
+    color?: LightColorData
+}
+
 export const putResource = async (resource: Light) => {
-    const message = {
+    return putLight(resource,  {
         brightness: resource.dimming?.brightness,
         on: resource.on,
         color_temperature: resource.color_temperature,
         color: resource.color
-    }
-
-    const result = await instance.put(`resource/light/${resource.id}`, message,{
-        headers: {
-            "hue-application-key": config.hue["api-key"],
-            "Accept": "application/json"
-        }
     })
-    return result.data
+}
+
+export const putLight = async (resource: Light, message: PutLight) => {
+    try {
+        const result = await instance.put(`resource/light/${resource.id}`, message,{
+            headers: {
+                "hue-application-key": config.hue["api-key"],
+                "Accept": "application/json"
+            }
+        })
+        return result.data
+    }
+    catch (e) {
+        log.error(e)
+    }
 }
 
 export const loadDevices: () => Promise<Result<Device>> = async () => {

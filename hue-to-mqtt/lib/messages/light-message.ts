@@ -1,10 +1,21 @@
-import { Light } from "../api/v2/types/light"
+import { ColorXY, Light } from "../api/v2/types/light"
+import { HueIdentifiable, HueOwnable } from "../api/v2/types/general"
 
 export type LightMessage = {
     state: "ON"|"OFF"
     brightness: number
     color_temp?: number
-    color?: {x: number, y: number}
+    color?: ColorXY
+}
+
+export type LightEffectMessage = {
+    effect: "notify_restore"|"notify_off"
+    colors: ColorXY[]
+    duration: number
+}
+
+export function isEffectMessage(object: LightMessage | LightEffectMessage): object is LightEffectMessage {
+    return object && "effect" in object
 }
 
 export const fromLight = (light: Light) => {
