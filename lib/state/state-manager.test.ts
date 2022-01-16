@@ -1,22 +1,23 @@
-import { buttonDevice, buttonStub, lightStub, roomStub } from "./device-stubs"
 import { isNameable } from "../api/v2/types/general"
-import { getTopic, initStateManagerFromHue, state } from "./state-manager"
+import { getTopic, state } from "./state-manager"
+import { deviceStubs } from "../api/v2/device-stubs"
+import { Device } from "../api/v2/types/device"
 
 describe("State manager", () => {
     test("nameable", async () => {
-        expect(isNameable(roomStub)).toBeTruthy()
-        expect(isNameable(lightStub)).toBeTruthy()
+        expect(isNameable(deviceStubs.room)).toBeTruthy()
+        expect(isNameable(deviceStubs.lightWithColor)).toBeTruthy()
     })
 
     test("topic", async () => {
-        expect(getTopic(roomStub)).toBe("room/my-room")
-        expect(getTopic(lightStub)).toBe("light/unassigned/essen-spot-4")
+        expect(getTopic(deviceStubs.room)).toBe("room/my-room")
+        expect(getTopic(deviceStubs.lightWithColor)).toBe("light/unassigned/essen-spot-4")
 
-        state.setDevices([buttonDevice])
-        expect(getTopic(buttonStub)).toBe("button/kueche-oben")
+        state.setDevices([deviceStubs.buttonDevice as Device])
+        expect(getTopic(deviceStubs.button)).toBe("button/kueche-oben")
     })
 
-    test("init state manager", async () => {
-        await initStateManagerFromHue()
-    })
+    // test("init state manager", async () => {
+    //     await initStateManagerFromHue()
+    // })
 })

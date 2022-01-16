@@ -14,6 +14,8 @@ Convert Philips Hue messages to mqtt messages.
 - Support for `Friends of Hue` switches.
 - I like to switch to `zigbee2mqtt` for my hue lights at some
 point of time. The light messages are compatible with this format.
+- Completely written using Hue API v2
+- Server-Sent Events
 
 # Docker
 
