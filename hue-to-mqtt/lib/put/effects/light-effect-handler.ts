@@ -51,6 +51,7 @@ const notifyRestore = async (light: Light, effect: LightEffectMessage) => {
 
     await restoreColor(light)
 }
+
 const lock = new AsyncLock({timeout: 5000})
 export const applyEffect = async (light: Light, effect: LightEffectMessage) => {
     lock.acquire("effect", async (done) => {

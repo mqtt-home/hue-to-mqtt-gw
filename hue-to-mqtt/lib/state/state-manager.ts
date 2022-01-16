@@ -82,7 +82,7 @@ export const getTopic = (resource: HueIdentifiable) => {
         return cleanTopic(`${prefix}/${nameProvider.metadata.name}`)
     }
 
-    return cleanTopic(resource.id)
+    return cleanTopic(`${prefix}/${resource.id}`)
 }
 
 export const state = new StateManager()

@@ -36,7 +36,7 @@ const handleResource = (data: HueEventData) => {
 
 export const publishResource = (resource: HueIdentifiable) => {
     let message: any
-    const topic = getTopic(resource)
+    let topic = getTopic(resource)
 
     if (isLight(resource)) {
         message = fromLight(resource)
@@ -62,13 +62,12 @@ export const publishResource = (resource: HueIdentifiable) => {
     else if (isZigbeeConnectivity(resource)) {
         message = fromZigbeeConnectivity(resource)
     }
-
-    if (message) {
-        publish(message, topic)
-    }
     else {
-        log.warn(`Unhandled device: ${resource.type}`)
+        topic = `unhandled/${topic}`
+        message = resource
     }
+
+    publish(message, topic)
 }
 
 export const takeEvent = (event: HueEvent) => {
