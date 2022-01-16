@@ -23,7 +23,7 @@ describe("Messages", () => {
 
         expect(message)
             .toStrictEqual({
-               "last-level": 22230,
+                "last-level": 22230
             })
     })
 
@@ -33,13 +33,13 @@ describe("Messages", () => {
 
             expect(message)
                 .toStrictEqual({
-                    "brightness": 100,
-                    "color": {
-                        "x": 0.4575,
-                        "y": 0.4099
+                    brightness: 100,
+                    color: {
+                        x: 0.4575,
+                        y: 0.4099
                     },
-                    "color_temp": 366,
-                    "state": "ON"
+                    color_temp: 366,
+                    state: "ON"
                 })
         })
 
@@ -48,47 +48,47 @@ describe("Messages", () => {
 
             expect(message)
                 .toStrictEqual({
-                    "brightness": 100,
-                    "color_temp": 366,
-                    "state": "OFF"
+                    brightness: 100,
+                    color_temp: 366,
+                    state: "OFF"
                 })
         })
 
         test("PUT color", async () => {
             const message: LightMessage = {
-                "brightness": 100,
-                "color": {
-                    "x": 0.1,
-                    "y": 0.2
+                brightness: 100,
+                color: {
+                    x: 0.1,
+                    y: 0.2
                 },
-                "color_temp": 366,
-                "state": "ON"
+                color_temp: 366,
+                state: "ON"
             }
             expect(isEffectMessage(message)).toBeFalsy()
 
             expect(toLight(deviceStubs.lightWithColor as Light, message).color!.xy)
                 .toStrictEqual({
-                    "x": 0.1,
-                    "y": 0.2
+                    x: 0.1,
+                    y: 0.2
                 })
         })
 
         test("PUT ambience", async () => {
             const message: LightMessage = {
-                "brightness": 100,
-                "color_temp": 200,
-                "state": "OFF"
+                brightness: 100,
+                color_temp: 200,
+                state: "OFF"
             }
             expect(isEffectMessage(message)).toBeFalsy()
 
             expect(toLight(deviceStubs.lightWithAmbience as Light, message).color_temperature!)
                 .toStrictEqual({
-                    "mirek": 200,
-                    "mirek_schema": {
-                        "mirek_maximum": 454,
-                        "mirek_minimum": 153
+                    mirek: 200,
+                    mirek_schema: {
+                        mirek_maximum: 454,
+                        mirek_minimum: 153
                     },
-                    "mirek_valid": true
+                    mirek_valid: true
                 })
         })
     })
@@ -109,8 +109,8 @@ describe("Messages", () => {
 
         expect(message)
             .toStrictEqual({
-                "battery_level": 100,
-                "battery_state": "normal"
+                battery_level: 100,
+                battery_state: "normal"
             })
     })
 
@@ -120,7 +120,7 @@ describe("Messages", () => {
 
         expect(message)
             .toStrictEqual({
-                "presence": true
+                presence: true
             })
     })
 
@@ -130,7 +130,7 @@ describe("Messages", () => {
 
         expect(message)
             .toStrictEqual({
-                "temperature": 21.37
+                temperature: 21.37
             })
     })
 
@@ -140,7 +140,7 @@ describe("Messages", () => {
 
         expect(message)
             .toStrictEqual({
-                "status": "unidirectional_incoming"
+                status: "unidirectional_incoming"
             })
     })
 
@@ -150,7 +150,7 @@ describe("Messages", () => {
 
         expect(message)
             .toStrictEqual({
-                "status": "connected"
+                status: "connected"
             })
     })
 })

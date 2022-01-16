@@ -1,8 +1,3 @@
-import { Room } from "./types/room"
-import { Device } from "./types/device"
-import { Light } from "./types/light"
-import { Button } from "./types/button"
-
 export const deviceStubs = {
     room: {
         id: "id",
@@ -13,77 +8,77 @@ export const deviceStubs = {
         type: "room"
     },
     zgp: {
-        "id": "0b3eadd9-a595-4839-91f7-52d9e1667667",
-        "id_v1": "/sensors/29",
-        "owner": {
-            "rid": "a2409be6-2307-4975-aa2a-3908c145140d",
-            "rtype": "device"
+        id: "0b3eadd9-a595-4839-91f7-52d9e1667667",
+        id_v1: "/sensors/29",
+        owner: {
+            rid: "a2409be6-2307-4975-aa2a-3908c145140d",
+            rtype: "device"
         },
-        "source_id": "00:00:00:00:01:02:03:04",
-        "status": "unidirectional_incoming",
-        "type": "zgp_connectivity"
+        source_id: "00:00:00:00:01:02:03:04",
+        status: "unidirectional_incoming",
+        type: "zgp_connectivity"
     },
 
     zigbee: {
-        "id": "b246cf7a-962a-4c3e-86e4-26082e3746dd",
-        "id_v1": "",
-        "mac_address": "00:01:02:03:04:05:06:07",
-        "owner": {
-            "rid": "2d98dacf-d896-4fb9-b338-62d6e2ffb546",
-            "rtype": "device"
+        id: "b246cf7a-962a-4c3e-86e4-26082e3746dd",
+        id_v1: "",
+        mac_address: "00:01:02:03:04:05:06:07",
+        owner: {
+            rid: "2d98dacf-d896-4fb9-b338-62d6e2ffb546",
+            rtype: "device"
         },
-        "status": "connected",
-        "type": "zigbee_connectivity"
+        status: "connected",
+        type: "zigbee_connectivity"
     },
 
     temperature: {
-        "enabled": true,
-        "id": "dba4c348-8d92-4690-8dd2-bdb3730dde90",
-        "id_v1": "/sensors/109",
-        "owner": {
-            "rid": "69216f7e-5568-44a2-8305-d12202083e86",
-            "rtype": "device"
+        enabled: true,
+        id: "dba4c348-8d92-4690-8dd2-bdb3730dde90",
+        id_v1: "/sensors/109",
+        owner: {
+            rid: "69216f7e-5568-44a2-8305-d12202083e86",
+            rtype: "device"
         },
-        "temperature": {
-            "temperature": 21.3700008392334,
-            "temperature_valid": true
+        temperature: {
+            temperature: 21.3700008392334,
+            temperature_valid: true
         },
-        "type": "temperature"
+        type: "temperature"
     },
 
     devicePower: {
-        "id": "5655bfa1-149e-4115-876e-a368e626609e",
-        "id_v1": "/sensors/94",
-        "owner": {
-            "rid": "93b0532d-37a7-489e-84d7-741735815edb",
-            "rtype": "device"
+        id: "5655bfa1-149e-4115-876e-a368e626609e",
+        id_v1: "/sensors/94",
+        owner: {
+            rid: "93b0532d-37a7-489e-84d7-741735815edb",
+            rtype: "device"
         },
-        "power_state": { "battery_level": 100, "battery_state": "normal" },
-        "type": "device_power"
+        power_state: { battery_level: 100, battery_state: "normal" },
+        type: "device_power"
     },
 
     lightLevel: {
-        "enabled": true,
-        "id": "ec374650-a289-4882-9084-406dabf80c97",
-        "id_v1": "/sensors/108",
-        "light": { "light_level": 22230, "light_level_valid": true },
-        "owner": {
-            "rid": "9b70fbd7-7da5-43ed-908b-f9ad57f26287",
-            "rtype": "device"
+        enabled: true,
+        id: "ec374650-a289-4882-9084-406dabf80c97",
+        id_v1: "/sensors/108",
+        light: { light_level: 22230, light_level_valid: true },
+        owner: {
+            rid: "9b70fbd7-7da5-43ed-908b-f9ad57f26287",
+            rtype: "device"
         },
-        "type": "light_level"
+        type: "light_level"
     },
 
     motion: {
-        "enabled": true,
-        "id": "41753df9-0ada-47ad-9ac2-4fc9ed08faf6",
-        "id_v1": "/sensors/107",
-        "motion": { "motion": true, "motion_valid": true },
-        "owner": {
-            "rid": "af7dfde6-b4df-4281-b095-8417d897c8e2",
-            "rtype": "device"
+        enabled: true,
+        id: "41753df9-0ada-47ad-9ac2-4fc9ed08faf6",
+        id_v1: "/sensors/107",
+        motion: { motion: true, motion_valid: true },
+        owner: {
+            rid: "af7dfde6-b4df-4281-b095-8417d897c8e2",
+            rtype: "device"
         },
-        "type": "motion"
+        type: "motion"
     },
 
     buttonDevice: {
@@ -136,7 +131,7 @@ export const deviceStubs = {
             rid: "bc22f451-987c-4358-b697-04fd93a02759",
             rtype: "device"
         },
-        button: {last_event: "short_release"},
+        button: { last_event: "short_release" },
         type: "button"
     },
 
@@ -219,33 +214,33 @@ export const deviceStubs = {
     },
 
     lightWithAmbience: {
-        "alert": { "action_values": ["breathe"] },
-        "color_temperature": {
-            "mirek": 366,
-            "mirek_schema": { "mirek_maximum": 454, "mirek_minimum": 153 },
-            "mirek_valid": true
+        alert: { action_values: ["breathe"] },
+        color_temperature: {
+            mirek: 366,
+            mirek_schema: { mirek_maximum: 454, mirek_minimum: 153 },
+            mirek_valid: true
         },
-        "dimming": { "brightness": 100.0, "min_dim_level": 0.20000000298023224 },
-        "dynamics": {
-            "speed": 0.0,
-            "speed_valid": false,
-            "status": "none",
-            "status_values": ["none"]
+        dimming: { brightness: 100.0, min_dim_level: 0.20000000298023224 },
+        dynamics: {
+            speed: 0.0,
+            speed_valid: false,
+            status: "none",
+            status_values: ["none"]
         },
-        "effects": {
-            "effect_values": ["no_effect", "candle"],
-            "status": "no_effect",
-            "status_values": ["no_effect", "candle"]
+        effects: {
+            effect_values: ["no_effect", "candle"],
+            status: "no_effect",
+            status_values: ["no_effect", "candle"]
         },
-        "id": "fae08e38-24f5-49ad-8d0d-1287ea153ea7",
-        "id_v1": "/lights/26",
-        "metadata": { "archetype": "spot_bulb", "name": "Ambience Light" },
-        "mode": "normal",
-        "on": { "on": false },
-        "owner": {
-            "rid": "4bd84baf-0adf-4bba-be5c-5dad55e5083e",
-            "rtype": "device"
+        id: "fae08e38-24f5-49ad-8d0d-1287ea153ea7",
+        id_v1: "/lights/26",
+        metadata: { archetype: "spot_bulb", name: "Ambience Light" },
+        mode: "normal",
+        on: { on: false },
+        owner: {
+            rid: "4bd84baf-0adf-4bba-be5c-5dad55e5083e",
+            rtype: "device"
         },
-        "type": "light"
+        type: "light"
     }
 }

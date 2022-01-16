@@ -1,5 +1,5 @@
 import { isNameable } from "../api/v2/types/general"
-import { getTopic, initStateManagerFromHue, state } from "./state-manager"
+import { getTopic, state } from "./state-manager"
 import { deviceStubs } from "../api/v2/device-stubs"
 import { Device } from "../api/v2/types/device"
 

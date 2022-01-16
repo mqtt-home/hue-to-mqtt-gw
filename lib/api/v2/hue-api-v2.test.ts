@@ -13,7 +13,7 @@ import { isZigbeeConnectivity } from "./types/zigbee-connectivity"
 describe("API v2", () => {
     const assertTypeCheck = (type: string, method: ((resource: HueIdentifiable) => boolean)) => {
         let found = false
-        for (let [, resource] of Object.entries(deviceStubs)) {
+        for (const [, resource] of Object.entries(deviceStubs)) {
             const isType = resource.type === type
             found = found || isType
             expect(method(resource)).toBe(isType)
