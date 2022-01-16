@@ -1,8 +1,0 @@
-version: '2'
-
-services:
-  huetomqtt:
-    build:
-      context: .
-    image: pharndt/huetomqtt
-    restart: "always"
