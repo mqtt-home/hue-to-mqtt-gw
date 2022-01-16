@@ -136,10 +136,11 @@ export const deviceStubs = {
             rid: "bc22f451-987c-4358-b697-04fd93a02759",
             rtype: "device"
         },
+        button: {last_event: "short_release"},
         type: "button"
     },
 
-    light: {
+    lightWithColor: {
         alert: {
             action_values: [
                 "breathe"
@@ -215,5 +216,36 @@ export const deviceStubs = {
             rtype: "device"
         },
         type: "light"
+    },
+
+    lightWithAmbience: {
+        "alert": { "action_values": ["breathe"] },
+        "color_temperature": {
+            "mirek": 366,
+            "mirek_schema": { "mirek_maximum": 454, "mirek_minimum": 153 },
+            "mirek_valid": true
+        },
+        "dimming": { "brightness": 100.0, "min_dim_level": 0.20000000298023224 },
+        "dynamics": {
+            "speed": 0.0,
+            "speed_valid": false,
+            "status": "none",
+            "status_values": ["none"]
+        },
+        "effects": {
+            "effect_values": ["no_effect", "candle"],
+            "status": "no_effect",
+            "status_values": ["no_effect", "candle"]
+        },
+        "id": "fae08e38-24f5-49ad-8d0d-1287ea153ea7",
+        "id_v1": "/lights/26",
+        "metadata": { "archetype": "spot_bulb", "name": "Ambience Light" },
+        "mode": "normal",
+        "on": { "on": false },
+        "owner": {
+            "rid": "4bd84baf-0adf-4bba-be5c-5dad55e5083e",
+            "rtype": "device"
+        },
+        "type": "light"
     }
 }

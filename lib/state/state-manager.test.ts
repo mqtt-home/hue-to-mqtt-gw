@@ -6,12 +6,12 @@ import { Device } from "../api/v2/types/device"
 describe("State manager", () => {
     test("nameable", async () => {
         expect(isNameable(deviceStubs.room)).toBeTruthy()
-        expect(isNameable(deviceStubs.light)).toBeTruthy()
+        expect(isNameable(deviceStubs.lightWithColor)).toBeTruthy()
     })
 
     test("topic", async () => {
         expect(getTopic(deviceStubs.room)).toBe("room/my-room")
-        expect(getTopic(deviceStubs.light)).toBe("light/unassigned/essen-spot-4")
+        expect(getTopic(deviceStubs.lightWithColor)).toBe("light/unassigned/essen-spot-4")
 
         state.setDevices([deviceStubs.buttonDevice as Device])
         expect(getTopic(deviceStubs.button)).toBe("button/kueche-oben")
