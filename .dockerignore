@@ -1,6 +1,8 @@
 coverage/
 *.iml
 .idea/
+.github/
+.run/
 
 # Node/NPM
 node_modules/
