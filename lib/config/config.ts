@@ -24,19 +24,26 @@ export type Config = {
 
 let appConfig: Config
 
+const mqttDefaults = {
+    qos: 1,
+    retain: true,
+    "bridge-info": true
+}
+
+const hueDefaults = {
+    port: 443
+}
+
+export const applyDefaults = (config: any) => {
+    return {
+        hue: {...hueDefaults, ...config.hue},
+        mqtt: {...mqttDefaults, ...config.mqtt}
+    } as Config
+}
+
 export const loadConfig = (file: string) => {
     const buffer = fs.readFileSync(file)
-    appConfig = JSON.parse(buffer.toString()) as Config
-
-    if (appConfig.mqtt.qos == null) {
-        appConfig.mqtt.qos = 1
-    }
-    if (appConfig.mqtt.retain == null) {
-        appConfig.mqtt.retain = true
-    }
-    if (appConfig.mqtt["bridge-info"] == null) {
-        appConfig.mqtt["bridge-info"] = true
-    }
+    appConfig = applyDefaults(JSON.parse(buffer.toString()))
 }
 
 export const getAppConfig = () => {
