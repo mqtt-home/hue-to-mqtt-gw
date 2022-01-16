@@ -8,6 +8,8 @@ import { cleanTopic } from "../topic/topic-utils"
 import { HueIdentifiable, isNameable } from "../api/v2/types/general"
 import { Device } from "../api/v2/types/device"
 import config from "../config.json"
+import { log } from "../logger"
+import { publishResource } from "./state-event-handler"
 
 export class StateManager {
     _typedResources = new Map<string, HueIdentifiable>()
@@ -23,6 +25,10 @@ export class StateManager {
                 this.deviceByDeviceId.set(service.rid, device)
             }
         }
+    }
+
+    getTyped = () => {
+        return this._typedResources.values()
     }
 
     addRoom = (room: Room) => {
@@ -49,6 +55,15 @@ export class StateManager {
     }
 }
 
+const updateAll = async () => {
+    log.info("Sending full update")
+
+    for (let resource of state.getTyped()) {
+        publishResource(resource)
+    }
+    log.info("Sending full update done")
+}
+
 export const initStateManagerFromHue = async () => {
     state.setDevices((await loadDevices()).data)
 
@@ -62,6 +77,8 @@ export const initStateManagerFromHue = async () => {
         "temperature", "motion", "button"]) {
         state.addTypedResources((await loadTyped(typeName)).data)
     }
+
+    await updateAll()
 }
 
 const getNameProvider = (resource: HueIdentifiable) => {

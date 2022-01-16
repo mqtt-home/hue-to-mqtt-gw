@@ -3,9 +3,6 @@ import config from "../config.json"
 import { log } from "../logger"
 import { state } from "../state/state-manager"
 import { publishResource } from "../state/state-event-handler"
-import { isEffectMessage, LightEffectMessage, LightMessage, toLight } from "../messages/light-message"
-import { putResource } from "../api/v2/hue-api-v2"
-import { isLight } from "../api/v2/types/light"
 import { putMessage } from "../put/put-handler"
 
 const makeid = (length: number) => {
@@ -46,30 +43,36 @@ export const connectMqtt = () => {
         // password: 'emqx_test',
     }
 
-    client = mqtt.connect(config.mqtt.url, options)
-    client.on("connect", function () {
-        log.info("MQTT Connected")
-        client.subscribe(`${config.mqtt.topic}/#`, (err) => {
-            if (!err) {
-                log.info("MQTT subscription active")
-            }
-            else {
-                log.error(err)
+    return new Promise((resolve, reject) => {
+        client = mqtt.connect(config.mqtt.url, options)
+        client.on("connect", function () {
+            log.info("MQTT Connected")
+            client.subscribe(`${config.mqtt.topic}/#`, (err) => {
+                if (!err) {
+                    log.info("MQTT subscription active")
+                    resolve("connected")
+                }
+                else {
+                    log.error(err)
+                    reject(err)
+                }
+            })
+        })
+
+        client.on("message",  async (topic, message) => {
+            let resource = state.resourcesByTopic.get(topic)
+            if (resource) {
+                log.info(`MQTT Message received: ${topic}`)
+
+                if (topic.endsWith("/get") || topic.endsWith("/state")) {
+                    publishResource(resource)
+                }
+                else if (topic.endsWith("/set")) {
+                    await putMessage(resource, message)
+                }
             }
         })
     })
 
-    client.on("message",  async (topic, message) => {
-        let resource = state.resourcesByTopic.get(topic)
-        if (resource) {
-            log.info(`MQTT Message received: ${topic}`)
 
-            if (topic.endsWith("/get") || topic.endsWith("/state")) {
-                publishResource(resource)
-            }
-            else if (topic.endsWith("/set")) {
-                await putMessage(resource, message)
-            }
-        }
-    })
 }

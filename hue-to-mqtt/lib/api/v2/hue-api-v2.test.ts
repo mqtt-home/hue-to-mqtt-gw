@@ -19,6 +19,13 @@ describe("API v2", () => {
         }
     })
 
+    test("load grouped", async () => {
+        const resources = (await loadTyped("grouped_light")) as Result<Room>
+        for (const resource of resources.data) {
+            console.log(resource.id_v1, resource.children)
+        }
+    })
+
     test("load buttons", async () => {
         const buttons = (await loadTyped("button")) as Result<Button>
         for (const button of buttons.data) {

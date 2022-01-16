@@ -3,7 +3,7 @@ import { log } from "./logger"
 import cron from "node-cron"
 import { initStateManagerFromHue, state } from "./state/state-manager"
 import { startSSE } from "./SSEClient"
-import { takeEvent } from "./state/state-event-handler"
+import { publishResource, takeEvent } from "./state/state-event-handler"
 import { connectMqtt } from "./mqtt/mqtt-client"
 
 export const triggerFullUpdate = async () => {
@@ -12,21 +12,26 @@ export const triggerFullUpdate = async () => {
     log.info("Updating devices done")
 }
 
-connectMqtt()
+connectMqtt().then(() => {
+    triggerFullUpdate().then(async () => {
+        const sse = startSSE()
+        sse.addEventListener("message", event => {
+            for (const data of JSON.parse(event.data)) {
+                takeEvent(data)
+            }
+        })
 
-triggerFullUpdate().then(() => {
-    const sse = startSSE()
-    sse.addEventListener("message", event => {
-        for (const data of JSON.parse(event.data)) {
-            takeEvent(data)
-        }
+        log.info("Application is now ready.")
+
+        await updateAll()
+
+        // cron.schedule("*/15 * * * * *", () => {
+        //     log.info("You will see this message every /15 second")
+        // }).start()
+
+        cron.schedule("0 * * * *", triggerFullUpdate).start()
     })
-
-    log.info("Application is now ready.")
-
-    // cron.schedule("*/15 * * * * *", () => {
-    //     log.info("You will see this message every /15 second")
-    // }).start()
-
-    cron.schedule("0 * * * *", triggerFullUpdate).start()
 })
+
+
+
