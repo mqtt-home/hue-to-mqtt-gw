@@ -13,4 +13,6 @@ USER node
 
 # Build project
 RUN npm install
-CMD ["npm", "start"]
+RUN npm run build
+
+CMD ["node", "dist/index.js", "/var/lib/huemqtt/config.json"]

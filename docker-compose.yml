@@ -1,8 +1,9 @@
 version: '2'
 
 services:
-  hue2mqtt:
-    build:
-      context: hue-to-mqtt
-    image: pharndt/hue2mqtt
-    restart: "always"
+  huemqtt:
+    hostname: huemqtt
+    image: d57a55d9f500a60ee208ff7a0a7b802b1d84e8d78a9806205f0cf9bdb41994ea
+    volumes:
+      - ./production/config:/var/lib/huemqtt:ro
+    restart: "no"
