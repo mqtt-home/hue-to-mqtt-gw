@@ -1,6 +1,8 @@
 import { Light, isLight } from "../../api/v2/types/light"
 import { LightEffectMessage } from "../../messages/light-message"
 import { loadTypedById, putLight } from "../../api/v2/hue-api-v2"
+import AsyncLock from "async-lock"
+import { log } from "../../logger"
 
 const applyColors = async (light: Light, effect: LightEffectMessage) => {
     for (let color of effect.colors) {
@@ -49,8 +51,21 @@ const notifyRestore = async (light: Light, effect: LightEffectMessage) => {
 
     await restoreColor(light)
 }
-
+let ctr = 0;
+const lock = new AsyncLock({timeout: 5000})
 export const applyEffect = async (light: Light, effect: LightEffectMessage) => {
+    lock.acquire("effect", async (done) => {
+        const c = ctr++
+        await applyEffectLocked(light, effect)
+        done()
+    }, (err) => {
+        if (err) {
+            log.error(err)
+        }
+    })
+}
+
+const applyEffectLocked = async (light: Light, effect: LightEffectMessage) => {
     const current = await loadTypedById(light.type, light.id)
     if (!current || !isLight(current)) {
         return
