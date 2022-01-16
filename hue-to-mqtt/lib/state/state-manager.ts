@@ -7,9 +7,9 @@ import {
 import { cleanTopic } from "../topic/topic-utils"
 import { HueIdentifiable, isNameable } from "../api/v2/types/general"
 import { Device } from "../api/v2/types/device"
-import config from "../config.json"
 import { log } from "../logger"
 import { publishResource } from "./state-event-handler"
+import { getAppConfig } from "../config/config"
 
 export class StateManager {
     _typedResources = new Map<string, HueIdentifiable>()
@@ -41,7 +41,7 @@ export class StateManager {
         for (const resource of resources) {
             this._typedResources.set(resource.id, resource)
             const topic = getTopic(resource)
-            const fullTopic = `${config.mqtt.topic}/${topic}`
+            const fullTopic = `${getAppConfig().mqtt.topic}/${topic}`
             if (isLight(resource)) {
                 this.resourcesByTopic.set(`${fullTopic}/set`, resource)
             }

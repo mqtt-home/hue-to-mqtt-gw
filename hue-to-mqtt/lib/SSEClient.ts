@@ -1,10 +1,11 @@
 import EventSource from "eventsource"
 import { log } from "./logger"
-import config from "./config.json"
+import { getAppConfig } from "./config/config"
 
 export const startSSE = () => {
     log.info("Starting Server-Sent events")
 
+    const config = getAppConfig()
     let eventSourceInitDict = {
         headers: {
             "hue-application-key": config.hue["api-key"],

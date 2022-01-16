@@ -1,16 +1,26 @@
 import { log } from "./logger"
 
 import cron from "node-cron"
-import { initStateManagerFromHue, state } from "./state/state-manager"
+import { initStateManagerFromHue } from "./state/state-manager"
 import { startSSE } from "./SSEClient"
-import { publishResource, takeEvent } from "./state/state-event-handler"
+import { takeEvent } from "./state/state-event-handler"
 import { connectMqtt } from "./mqtt/mqtt-client"
+import { loadConfig } from "./config/config"
 
 export const triggerFullUpdate = async () => {
     log.info("Updating devices")
     await initStateManagerFromHue()
     log.info("Updating devices done")
 }
+
+if (process.argv.length !== 3) {
+    log.error("Expected config file as argument.")
+    process.exit(1)
+}
+
+const configFile = process.argv[2]
+log.info(`Using config from file ${configFile}`)
+loadConfig(configFile)
 
 connectMqtt().then(() => {
     triggerFullUpdate().then(async () => {
@@ -22,12 +32,6 @@ connectMqtt().then(() => {
         })
 
         log.info("Application is now ready.")
-
-        await updateAll()
-
-        // cron.schedule("*/15 * * * * *", () => {
-        //     log.info("You will see this message every /15 second")
-        // }).start()
 
         cron.schedule("0 * * * *", triggerFullUpdate).start()
     })

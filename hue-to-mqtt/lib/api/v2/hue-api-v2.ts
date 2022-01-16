@@ -1,23 +1,33 @@
-import axios from "axios"
+import axios, { AxiosInstance } from "axios"
 import https from "https"
-import config from "../../config.json"
 import { Device } from "./types/device"
 import { Room } from "./types/room"
 import { HueIdentifiable, Result } from "./types/general"
 import { Light, LightColorData, LightColorTemperatureData, LightOnOffData } from "./types/light"
 import { log } from "../../logger"
+import { getAppConfig } from "../../config/config"
 
-let baserUrl = `https://${config.hue.host}:${config.hue.port}/clip/v2/`
+let instance: AxiosInstance
 
-const instance = axios.create({
-    baseURL: baserUrl,
-    httpsAgent: new https.Agent({
-        rejectUnauthorized: false,
-    })
-})
+const getInstance = () => {
+    if (!instance) {
+        const config = getAppConfig()
+        let baserUrl = `https://${config.hue.host}:${config.hue.port}/clip/v2/`
+
+        instance = axios.create({
+            baseURL: baserUrl,
+            httpsAgent: new https.Agent({
+                rejectUnauthorized: false,
+            })
+        })
+    }
+
+    return instance
+}
 
 export const load = async (endpoint: string) => {
-    const result = await instance.get(endpoint, {
+    const config = getAppConfig()
+    const result = await getInstance().get(endpoint, {
         headers: {
             "hue-application-key": config.hue["api-key"],
             "Accept": "application/json"
@@ -25,7 +35,6 @@ export const load = async (endpoint: string) => {
     })
     return result.data
 }
-
 
 type PutLight = {
     brightness?: number,
@@ -44,8 +53,9 @@ export const putResource = async (resource: Light) => {
 }
 
 export const putLight = async (resource: Light, message: PutLight) => {
+    const config = getAppConfig()
     try {
-        const result = await instance.put(`resource/light/${resource.id}`, message,{
+        const result = await getInstance().put(`resource/light/${resource.id}`, message,{
             headers: {
                 "hue-application-key": config.hue["api-key"],
                 "Accept": "application/json"
