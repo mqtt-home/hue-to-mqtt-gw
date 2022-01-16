@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  hue2mqtt:
+    build:
+      context: hue-to-mqtt
+    image: pharndt/hue2mqtt
+    restart: "always"
