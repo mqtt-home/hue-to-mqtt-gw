@@ -7,15 +7,12 @@ import { applyEffect } from "./effects/light-effect-handler"
 
 export const putMessage = async (resource: HueIdentifiable, message: Buffer) => {
     if (isLight(resource)) {
-        console.log("putMessage")
         // only supported for light messages at the moment
         const lightMsg = JSON.parse(message.toString()) as LightMessage | LightEffectMessage
-        console.log(lightMsg)
         if (isEffectMessage(lightMsg)) {
             await applyEffect(resource, lightMsg)
         }
         else {
-            console.log("no effect")
             const newResource = toLight(resource, lightMsg)
 
             // resource will be updated by the Hue SSE API

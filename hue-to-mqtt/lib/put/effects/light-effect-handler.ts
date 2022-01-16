@@ -1,6 +1,6 @@
-import { Light } from "../../api/v2/types/light"
+import { Light, isLight } from "../../api/v2/types/light"
 import { LightEffectMessage } from "../../messages/light-message"
-import { putLight } from "../../api/v2/hue-api-v2"
+import { loadTypedById, putLight } from "../../api/v2/hue-api-v2"
 
 const applyColors = async (light: Light, effect: LightEffectMessage) => {
     for (let color of effect.colors) {
@@ -37,15 +37,10 @@ const notifyOff = async (light: Light, effect: LightEffectMessage) => {
         on: {on: false}
     })
 
-    if (light.color_temperature) {
-        await putLight(light, {
-            color_temperature: {...light.color_temperature!, mirek: 366},
-        })
-    }
+    await restoreColor(light)
 }
 
 const notifyRestore = async (light: Light, effect: LightEffectMessage) => {
-    console.log("Initial", light.color_temperature, light.color_temperature?.mirek, light.color)
     await applyColors(light, effect)
 
     await putLight(light, {
@@ -55,12 +50,16 @@ const notifyRestore = async (light: Light, effect: LightEffectMessage) => {
     await restoreColor(light)
 }
 
-
 export const applyEffect = async (light: Light, effect: LightEffectMessage) => {
+    const current = await loadTypedById(light.type, light.id)
+    if (!current || !isLight(current)) {
+        return
+    }
+
     if (effect.effect === "notify_restore") {
-        await notifyRestore(light, effect)
+        await notifyRestore(current, effect)
     }
     else if (effect.effect === "notify_off") {
-        await notifyOff(light, effect)
+        await notifyOff(current, effect)
     }
 }

@@ -66,6 +66,13 @@ export const loadTyped: (resourceName: string) => Promise<Result<HueIdentifiable
     return load(`resource/${resourceName}`)
 }
 
+export const loadTypedById = async (resourceName: string, id: string) => {
+    const data: Result<HueIdentifiable> = await load(`resource/${resourceName}/${id}`)
+    if (data.data.length === 1) {
+        return data.data[0]
+    }
+}
+
 export const mapRoomByResourceId = (rooms: Room[]) => {
     const result = new Map<string, Room>()
     for (const room of rooms) {
