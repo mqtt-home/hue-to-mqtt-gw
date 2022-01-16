@@ -1,4 +1,3 @@
-import { isLight } from "../../../dist/api/v2/types/light"
 import { isButton } from "./types/button"
 import { HueIdentifiable } from "./types/general"
 import { isRoom } from "./types/room"
@@ -9,6 +8,7 @@ import { isMotion } from "./types/motion"
 import { isTemperature } from "./types/temperature"
 import { isZigbeeGreenPowerConnectivity } from "./types/zgp-connectivity"
 import { isZigbeeConnectivity } from "./types/zigbee-connectivity"
+import { isLight } from "./types/light"
 
 describe("API v2", () => {
     const assertTypeCheck = (type: string, method: ((resource: HueIdentifiable) => boolean)) => {
