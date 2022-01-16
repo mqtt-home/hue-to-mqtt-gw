@@ -1,7 +1,6 @@
 import axios, { AxiosInstance } from "axios"
 import https from "https"
 import { Device } from "./types/device"
-import { Room } from "./types/room"
 import { HueIdentifiable, Result } from "./types/general"
 import { Light, LightColorData, LightColorTemperatureData, LightOnOffData } from "./types/light"
 import { log } from "../../logger"

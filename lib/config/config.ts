@@ -36,8 +36,8 @@ const hueDefaults = {
 
 export const applyDefaults = (config: any) => {
     return {
-        hue: {...hueDefaults, ...config.hue},
-        mqtt: {...mqttDefaults, ...config.mqtt}
+        hue: { ...hueDefaults, ...config.hue },
+        mqtt: { ...mqttDefaults, ...config.mqtt }
     } as Config
 }
 

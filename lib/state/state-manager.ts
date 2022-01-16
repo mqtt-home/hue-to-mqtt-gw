@@ -79,7 +79,7 @@ export const initStateManagerFromHue = async () => {
     for (const typeName of ["light", "light_level", "bridge_home",
         "grouped_light", "bridge", "device_power", "zigbee_connectivity", "zgp_connectivity",
         "temperature", "motion", "button"]) {
-        const resources = await loadTyped("typeName")
+        const resources = await loadTyped(typeName)
         if (resources) {
             state.addTypedResources(resources.data)
         }
