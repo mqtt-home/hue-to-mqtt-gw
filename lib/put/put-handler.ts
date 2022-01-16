@@ -18,7 +18,8 @@ export const putMessage = async (resource: HueIdentifiable, message: Buffer) => 
             // resource will be updated by the Hue SSE API
             try {
                 await putResource(newResource)
-            } catch (e) {
+            }
+            catch (e) {
                 log.error(e)
             }
         }

@@ -38,6 +38,3 @@ connectMqtt().then(() => {
         cron.schedule("0 * * * *", triggerFullUpdate).start()
     })
 })
-
-
-

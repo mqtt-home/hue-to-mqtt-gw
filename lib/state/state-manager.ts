@@ -58,7 +58,7 @@ export class StateManager {
 const updateAll = async () => {
     log.info("Sending full update")
 
-    for (let resource of state.getTyped()) {
+    for (const resource of state.getTyped()) {
         publishResource(resource)
     }
     log.info("Sending full update done")
@@ -90,7 +90,7 @@ export const getTopic = (resource: HueIdentifiable) => {
     if (isLight(resource)) {
         const room = state.roomByResourceId
             .get(resource.owner.rid)?.metadata
-            .name??"unassigned"
+            .name ?? "unassigned"
         prefix = `${prefix}/${room}`
     }
     const nameProvider = (isNameable(resource) ? resource : getNameProvider(resource))

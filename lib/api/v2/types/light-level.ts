@@ -1,9 +1,6 @@
 import { HueIdentifiable, HueOwnable } from "./general"
 
-export function isLightLevel(object: HueIdentifiable): object is LightLevel {
-    return object && object.type === "light_level"
-}
-
+/* eslint-disable camelcase */
 export type LightLevel = HueIdentifiable & HueOwnable & {
     type?: "light_level"
     enabled: boolean
@@ -11,4 +8,8 @@ export type LightLevel = HueIdentifiable & HueOwnable & {
         light_level: number
         light_level_valid: boolean
     }
+}
+
+export function isLightLevel (object: HueIdentifiable): object is LightLevel {
+    return object && object.type === "light_level"
 }

@@ -6,12 +6,10 @@ export type AmbientMessage = {
 }
 
 export const fromLightLevel = (lightLevel: LightLevel) => {
-    let message: AmbientMessage = {
+    const message: AmbientMessage = {
         "last-level": lightLevel.light.light_level,
         "last-updated": new Date().toISOString()
     }
 
     return message
 }
-
-

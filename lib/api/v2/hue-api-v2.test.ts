@@ -40,7 +40,7 @@ describe("API v2", () => {
         for (const light of lights.data) {
             const room = roomByResourceId.get(light.owner.rid)
 
-            console.log(light.id, light.metadata.name, room?.metadata.name??"none")
+            console.log(light.id, light.metadata.name, room?.metadata.name ?? "none")
         }
     })
 })

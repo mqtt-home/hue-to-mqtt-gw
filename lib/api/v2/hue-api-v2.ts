@@ -12,12 +12,12 @@ let instance: AxiosInstance
 const getInstance = () => {
     if (!instance) {
         const config = getAppConfig()
-        let baserUrl = `https://${config.hue.host}:${config.hue.port}/clip/v2/`
+        const baserUrl = `https://${config.hue.host}:${config.hue.port}/clip/v2/`
 
         instance = axios.create({
             baseURL: baserUrl,
             httpsAgent: new https.Agent({
-                rejectUnauthorized: false,
+                rejectUnauthorized: false
             })
         })
     }
@@ -30,7 +30,7 @@ export const load = async (endpoint: string) => {
     const result = await getInstance().get(endpoint, {
         headers: {
             "hue-application-key": config.hue["api-key"],
-            "Accept": "application/json"
+            Accept: "application/json"
         }
     })
     return result.data
@@ -39,12 +39,13 @@ export const load = async (endpoint: string) => {
 type PutLight = {
     brightness?: number,
     on?: LightOnOffData,
+    /* eslint-disable camelcase */
     color_temperature?: LightColorTemperatureData,
     color?: LightColorData
 }
 
 export const putResource = async (resource: Light) => {
-    return putLight(resource,  {
+    return putLight(resource, {
         brightness: resource.dimming?.brightness,
         on: resource.on,
         color_temperature: resource.color_temperature,
@@ -55,10 +56,10 @@ export const putResource = async (resource: Light) => {
 export const putLight = async (resource: Light, message: PutLight) => {
     const config = getAppConfig()
     try {
-        const result = await getInstance().put(`resource/light/${resource.id}`, message,{
+        const result = await getInstance().put(`resource/light/${resource.id}`, message, {
             headers: {
                 "hue-application-key": config.hue["api-key"],
-                "Accept": "application/json"
+                Accept: "application/json"
             }
         })
         return result.data

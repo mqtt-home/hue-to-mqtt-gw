@@ -3,32 +3,19 @@ export type Result<T> = {
     data: T[]
 }
 
+/* eslint-disable camelcase */
 export type HueIdentifiable = {
     type?: string
     id: string
     id_v1?: string
 }
 
-export type HueOwnable = {
-    owner: Resource
-}
+export type Archetype = string
 
-export function isOwnable(object: any): object is HueOwnable {
-    return object && "owner" in object
-}
+export type Metadata = {archetype: Archetype, name: string}
 
 export type HueNameable = {
     metadata: Metadata
-}
-
-export function isNameable(object: any): object is HueNameable {
-    if (!object) {
-        return false
-    }
-    else if ("metadata" in object) {
-        return "name" in object.metadata
-    }
-    return false
 }
 
 export type ResourceType = (
@@ -60,7 +47,22 @@ export type ResourceType = (
     "geolocation"
 )
 
-export type Archetype = string
-
 export type Resource = {rid: string, rtype: ResourceType}
-export type Metadata = {archetype: Archetype, name: string}
+
+export type HueOwnable = {
+    owner: Resource
+}
+
+export function isOwnable (object: any): object is HueOwnable {
+    return object && "owner" in object
+}
+
+export function isNameable (object: any): object is HueNameable {
+    if (!object) {
+        return false
+    }
+    else if ("metadata" in object) {
+        return "name" in object.metadata
+    }
+    return false
+}

@@ -1,6 +1,6 @@
 import { ColorXY, Light } from "../api/v2/types/light"
-import { HueIdentifiable, HueOwnable } from "../api/v2/types/general"
 
+/* eslint-disable camelcase */
 export type LightMessage = {
     state: "ON"|"OFF"
     brightness: number
@@ -14,14 +14,14 @@ export type LightEffectMessage = {
     duration: number
 }
 
-export function isEffectMessage(object: LightMessage | LightEffectMessage): object is LightEffectMessage {
+export function isEffectMessage (object: LightMessage | LightEffectMessage): object is LightEffectMessage {
     return object && "effect" in object
 }
 
 export const fromLight = (light: Light) => {
-    let message: LightMessage = {
+    const message: LightMessage = {
         state: light.on.on ? "ON" : "OFF",
-        brightness: light.dimming?.brightness??0
+        brightness: light.dimming?.brightness ?? 0
     }
 
     if (light.color_temperature) {
@@ -36,16 +36,16 @@ export const fromLight = (light: Light) => {
 }
 
 export const toLight = (template: Light, message: LightMessage) => {
-    let result = {...template}
+    const result = { ...template }
 
     result.on.on = message.state.toUpperCase() === "ON"
-    result.dimming = {brightness: message.brightness}
+    result.dimming = { brightness: message.brightness }
 
     if (message.color_temp && template.color_temperature) {
-        result.color_temperature = {...template.color_temperature, mirek: message.color_temp}
+        result.color_temperature = { ...template.color_temperature, mirek: message.color_temp }
     }
     if (message.color && template.color) {
-        result.color = {...template.color, xy: message.color}
+        result.color = { ...template.color, xy: message.color }
     }
 
     return result

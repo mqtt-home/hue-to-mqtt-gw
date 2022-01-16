@@ -23,7 +23,7 @@ import { publish } from "../mqtt/mqtt-client"
 const handleResource = (data: HueEventData) => {
     const oldResource = state._typedResources.get(data.id)
     if (oldResource) {
-        const newResource = {...oldResource, ...data} as HueIdentifiable
+        const newResource = { ...oldResource, ...data } as HueIdentifiable
 
         state._typedResources.set(data.id, newResource)
 

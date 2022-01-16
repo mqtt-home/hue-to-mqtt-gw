@@ -5,16 +5,16 @@ import AsyncLock from "async-lock"
 import { log } from "../../logger"
 
 const applyColors = async (light: Light, effect: LightEffectMessage) => {
-    for (let color of effect.colors) {
+    for (const color of effect.colors) {
         await putLight(light, {
-            on: {on: true},
+            on: { on: true },
             color: {
                 xy: color,
                 gamut_type: light.color!.gamut_type
             }
         })
 
-        await new Promise(r => setTimeout(r, effect.duration))
+        await new Promise((resolve) => setTimeout(resolve, effect.duration))
     }
 }
 
@@ -36,7 +36,7 @@ const notifyOff = async (light: Light, effect: LightEffectMessage) => {
     await applyColors(light, effect)
 
     await putLight(light, {
-        on: {on: false}
+        on: { on: false }
     })
 
     await restoreColor(light)
@@ -52,7 +52,7 @@ const notifyRestore = async (light: Light, effect: LightEffectMessage) => {
     await restoreColor(light)
 }
 
-const lock = new AsyncLock({timeout: 5000})
+const lock = new AsyncLock({ timeout: 5000 })
 export const applyEffect = async (light: Light, effect: LightEffectMessage) => {
     lock.acquire("effect", async (done) => {
         await applyEffectLocked(light, effect)

@@ -3,5 +3,5 @@ export const cleanTopic = (topic: string) => {
         .replace(/ /g, "-")
         .replace(/ä/g, "ae")
         .replace(/ö/g, "oe")
-        .replace(/ü/g, "ue");
+        .replace(/ü/g, "ue")
 }

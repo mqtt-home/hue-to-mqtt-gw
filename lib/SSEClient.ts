@@ -6,15 +6,16 @@ export const startSSE = () => {
     log.info("Starting Server-Sent events")
 
     const config = getAppConfig()
-    let eventSourceInitDict = {
+    const eventSourceInitDict = {
         headers: {
             "hue-application-key": config.hue["api-key"],
-            "Accept": "text/event-stream"
+            Accept: "text/event-stream"
         },
-        https: {rejectUnauthorized: false}};
+        https: { rejectUnauthorized: false }
+    }
 
-    let baserUrl = `https://${config.hue.host}:${config.hue.port}`
-    const sse = new EventSource(`${baserUrl}/eventstream/clip/v2`, eventSourceInitDict);
+    const baserUrl = `https://${config.hue.host}:${config.hue.port}`
+    const sse = new EventSource(`${baserUrl}/eventstream/clip/v2`, eventSourceInitDict)
     sse.onerror = (err: any) => {
         if (err) {
             log.error(err)
@@ -22,4 +23,3 @@ export const startSSE = () => {
     }
     return sse
 }
-

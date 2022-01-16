@@ -5,19 +5,17 @@ export type Gamut = {red: ColorXY, green: ColorXY, blue: ColorXY}
 
 export type AlertEffectType = "breathe"
 
-export function isLight(object: HueIdentifiable): object is Light {
-    return object && object.type === "light"
-}
-
 export type LightOnOffData = {
     on: boolean
 }
 
+/* eslint-disable camelcase */
 export type LightDimmingData = {
     brightness: number,
     min_dim_level?: number
 }
 
+/* eslint-disable camelcase */
 export type LightColorTemperatureData = {
     mirek: number
     mirek_valid: boolean
@@ -27,12 +25,14 @@ export type LightColorTemperatureData = {
     }
 }
 
+/* eslint-disable camelcase */
 export type LightColorData = {
     xy: ColorXY
     gamut?: Gamut
     gamut_type: "A"|"B"|"C"|"other"
 }
 
+/* eslint-disable camelcase */
 export type Light = HueIdentifiable & HueOwnable & HueNameable & {
     type: "light"
     on: LightOnOffData
@@ -46,4 +46,8 @@ export type Light = HueIdentifiable & HueOwnable & HueNameable & {
     }
     mode: "normal"|"streaming"
     gradient?: any
+}
+
+export function isLight (object: HueIdentifiable): object is Light {
+    return object && object.type === "light"
 }

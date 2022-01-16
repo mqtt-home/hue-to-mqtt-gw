@@ -6,7 +6,7 @@ export type TemperatureMessage = {
 }
 
 export const fromTemperature = (temperature: Temperature) => {
-    let message: TemperatureMessage = {
+    const message: TemperatureMessage = {
         temperature: Math.round(temperature.temperature.temperature * 100) / 100,
         "last-updated": new Date().toISOString()
     }

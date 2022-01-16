@@ -8,49 +8,51 @@ import { getAppConfig } from "../config/config"
 const makeid = (length: number) => {
     let result = ""
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-    const charactersLength = characters.length;
-    for (let i = 0; i < length; i++ ) {
+    const charactersLength = characters.length
+    for (let i = 0; i < length; i++) {
         result += characters.charAt(Math.floor(Math.random() *
-            charactersLength));
+            charactersLength))
     }
-    return result;
+    return result
 }
 
 let client: mqtt.MqttClient
 
 export const publish = (message: any, topic: string) => {
-    let config = getAppConfig()
+    const config = getAppConfig()
     const fullTopic = `${config.mqtt.topic}/${topic}`
     publishAbsolute(message, fullTopic)
 }
 
 export const publishAbsolute = (message: any, fullTopic: string) => {
-    let config = getAppConfig()
+    const config = getAppConfig()
     if (!client) {
         log.error(`MQTT not available, cannot publish to ${fullTopic}`)
         return
     }
 
     const body = JSON.stringify(message, (key, value) => {
-        if (value !== null) return value
+        if (value !== null) {
+            return value
+        }
     })
-    client.publish(fullTopic, body, {retain: config.mqtt.retain})
+    client.publish(fullTopic, body, { retain: config.mqtt.retain })
 }
 
 const brideTopic = () => {
-    let config = getAppConfig()
-    return config.mqtt["bridge-info-topic"]??`${config.mqtt.topic}/bridge/state`
+    const config = getAppConfig()
+    return config.mqtt["bridge-info-topic"] ?? `${config.mqtt.topic}/bridge/state`
 }
 
 const online = () => {
-    let config = getAppConfig()
+    const config = getAppConfig()
     if (config.mqtt["bridge-info"]) {
         publishAbsolute("online", brideTopic())
     }
 }
 
 const willMessage = () => {
-    let config = getAppConfig()
+    const config = getAppConfig()
     if (config.mqtt["bridge-info"]) {
         return { topic: brideTopic(), payload: "offline", qos: config.mqtt.qos, retain: config.mqtt.retain }
     }
@@ -60,7 +62,7 @@ const willMessage = () => {
 }
 
 export const connectMqtt = () => {
-    let config = getAppConfig()
+    const config = getAppConfig()
     const options = {
         clean: true,
         connectTimeout: 4000,
@@ -87,8 +89,8 @@ export const connectMqtt = () => {
             })
         })
 
-        client.on("message",  async (topic, message) => {
-            let resource = state.resourcesByTopic.get(topic)
+        client.on("message", async (topic, message) => {
+            const resource = state.resourcesByTopic.get(topic)
             if (resource) {
                 log.info(`MQTT Message received: ${topic}`)
 
@@ -101,6 +103,4 @@ export const connectMqtt = () => {
             }
         })
     })
-
-
 }

@@ -6,7 +6,7 @@ export type PresenceMessage = {
 }
 
 export const fromMotion = (motion: Motion) => {
-    let message: PresenceMessage = {
+    const message: PresenceMessage = {
         presence: motion.motion.motion,
         "last-updated": new Date().toISOString()
     }

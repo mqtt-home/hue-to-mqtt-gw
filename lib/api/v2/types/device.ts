@@ -1,5 +1,6 @@
 import { HueIdentifiable, HueNameable, Resource } from "./general"
 
+/* eslint-disable camelcase */
 export type Device = HueIdentifiable & HueNameable & {
     type: "device"
     services: Resource[]
