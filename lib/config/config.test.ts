@@ -13,7 +13,7 @@ describe("Config", () => {
             }
         }
 
-        expect(applyDefaults(config)).toBe({
+        expect(applyDefaults(config)).toStrictEqual({
             hue: {
                 "api-key": "some-api-key",
                 host: "192.168.1.1",
