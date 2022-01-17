@@ -27,8 +27,7 @@ export const fromLight = (light: Light) => {
     if (light.color_temperature) {
         message.color_temp = light.color_temperature.mirek
     }
-
-    if (light.color) {
+    else if (light.color) {
         message.color = light.color.xy
     }
 
@@ -44,7 +43,7 @@ export const toLight = (template: Light, message: LightMessage) => {
     if (message.color_temp && template.color_temperature) {
         result.color_temperature = { ...template.color_temperature, mirek: message.color_temp }
     }
-    if (message.color && template.color) {
+    else if (message.color && template.color) {
         result.color = { ...template.color, xy: message.color }
     }
 
