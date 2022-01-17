@@ -24,7 +24,7 @@ export const fromLight = (light: Light) => {
         brightness: light.dimming?.brightness ?? 0
     }
 
-    if (light.color_temperature) {
+    if (light.color_temperature && light.color_temperature.mirek && light.color_temperature.mirek_valid) {
         message.color_temp = light.color_temperature.mirek
     }
     else if (light.color) {

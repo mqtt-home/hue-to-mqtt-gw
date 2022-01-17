@@ -163,7 +163,7 @@ export const deviceStubs = {
             }
         },
         color_temperature: {
-            mirek: 366,
+            mirek: null,
             mirek_schema: {
                 mirek_maximum: 500,
                 mirek_minimum: 153

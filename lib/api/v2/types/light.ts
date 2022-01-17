@@ -17,7 +17,7 @@ export type LightDimmingData = {
 
 /* eslint-disable camelcase */
 export type LightColorTemperatureData = {
-    mirek: number
+    mirek: number | null
     mirek_valid: boolean
     mirek_schema: {
         mirek_maximum: number

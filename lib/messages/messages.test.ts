@@ -38,7 +38,6 @@ describe("Messages", () => {
                         x: 0.4575,
                         y: 0.4099
                     },
-                    color_temp: 366,
                     state: "ON"
                 })
         })
@@ -61,7 +60,6 @@ describe("Messages", () => {
                     x: 0.1,
                     y: 0.2
                 },
-                color_temp: 366,
                 state: "ON"
             }
             expect(isEffectMessage(message)).toBeFalsy()
