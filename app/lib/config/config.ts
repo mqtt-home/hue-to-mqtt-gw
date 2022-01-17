@@ -43,7 +43,11 @@ export const applyDefaults = (config: any) => {
 
 export const loadConfig = (file: string) => {
     const buffer = fs.readFileSync(file)
-    appConfig = applyDefaults(JSON.parse(buffer.toString()))
+    applyConfig(JSON.parse(buffer.toString()))
+}
+
+export const applyConfig = (config: any) => {
+    appConfig = applyDefaults(config)
 }
 
 export const getAppConfig = () => {

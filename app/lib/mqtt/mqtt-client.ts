@@ -5,7 +5,7 @@ import { publishResource } from "../state/state-event-handler"
 import { putMessage } from "../put/put-handler"
 import { getAppConfig } from "../config/config"
 
-const makeid = (length: number) => {
+export const makeid = (length: number) => {
     let result = ""
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
     const charactersLength = characters.length

@@ -18,14 +18,17 @@ jobs:
           node-version: 16.x
 
       - name: Install
+        working-directory: app
         run: |
           npm install
 
       - name: Lint/Test
+        working-directory: app
         run: |
           npm run lint
           npm test
 
       - name: Build
+        working-directory: app
         run: |
           npm run build
