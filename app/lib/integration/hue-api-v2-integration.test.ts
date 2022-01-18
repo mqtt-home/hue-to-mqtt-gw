@@ -13,18 +13,16 @@ import devicesJson from "../../../stub/stubs/clip/v2/resource/device.json"
 jest.setTimeout(60 * 5 * 1000)
 
 describe("API v2 - Integration", () => {
-
     let hue: StartedTestContainer
 
     beforeAll(async () => {
-
         const buildContext = path.resolve(__dirname, "../../../stub")
         const container = await GenericContainer.fromDockerfile(buildContext)
-            .build();
+            .build()
 
         hue = await container
-             .withExposedPorts(80)
-             .start();
+            .withExposedPorts(80)
+            .start()
 
         setTestConfig(applyDefaults({
             hue: {

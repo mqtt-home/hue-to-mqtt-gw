@@ -32,5 +32,4 @@ describe("API v2", () => {
         assertTypeCheck("zgp_connectivity", isZigbeeGreenPowerConnectivity)
         assertTypeCheck("zigbee_connectivity", isZigbeeConnectivity)
     })
-
 })

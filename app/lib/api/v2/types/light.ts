@@ -49,6 +49,8 @@ export type Light = HueIdentifiable & HueOwnable & HueNameable & {
 }
 
 export function isLight (object?: HueIdentifiable): object is Light {
-    if (!object) return false
+    if (!object) {
+        return false
+    }
     return object && object.type === "light"
 }
