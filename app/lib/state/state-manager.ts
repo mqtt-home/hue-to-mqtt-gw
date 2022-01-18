@@ -28,7 +28,7 @@ export class StateManager {
     }
 
     getTyped = () => {
-        return this._typedResources.values()
+        return this._typedResources
     }
 
     addRoom = (room: Room) => {
@@ -58,7 +58,7 @@ export class StateManager {
 const updateAll = async () => {
     log.info("Sending full update")
 
-    for (const resource of state.getTyped()) {
+    for (const resource of state.getTyped().values()) {
         publishResource(resource)
     }
     log.info("Sending full update done")

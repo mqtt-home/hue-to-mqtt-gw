@@ -17,7 +17,8 @@ describe("Config", () => {
             hue: {
                 "api-key": "some-api-key",
                 host: "192.168.1.1",
-                port: 443
+                port: 443,
+                protocol: "https"
             },
             mqtt: {
                 "bridge-info": true,

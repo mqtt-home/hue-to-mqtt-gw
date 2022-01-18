@@ -1,0 +1,33 @@
+{
+  "errors": [],
+  "data": [
+    {
+      "enabled": true,
+      "id": "cef24a29-13d4-4be4-a8e5-688a96551996",
+      "id_v1": "idv1/62",
+      "light": {
+        "light_level": 14385,
+        "light_level_valid": true
+      },
+      "owner": {
+        "rid": "754acb08-1e9f-4946-aa4a-ee7b604c7354",
+        "rtype": "device"
+      },
+      "type": "light_level"
+    },
+    {
+      "enabled": true,
+      "id": "9dc6b279-f97d-4f62-94e3-4335e25741b2",
+      "id_v1": "idv1/63",
+      "light": {
+        "light_level": 18102,
+        "light_level_valid": true
+      },
+      "owner": {
+        "rid": "89264700-c386-4284-97e8-1b4a6746966b",
+        "rtype": "device"
+      },
+      "type": "light_level"
+    }
+  ]
+}

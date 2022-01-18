@@ -1,0 +1,135 @@
+{
+  "errors": [],
+  "data": [
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "id": "488ed706-b7a3-4d8d-a0a1-6925e3ac3017",
+      "id_v1": "idv1/65",
+      "on": {
+        "on": true
+      },
+      "type": "grouped_light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "id": "2f70c74a-733c-431e-92fa-44330b365692",
+      "id_v1": "idv1/46",
+      "on": {
+        "on": false
+      },
+      "type": "grouped_light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "id": "8ddc6454-4687-4b9a-a26b-e0d86b601d64",
+      "id_v1": "idv1/64",
+      "on": {
+        "on": true
+      },
+      "type": "grouped_light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "id": "f3bea34f-f238-426c-a375-2aa1f742d0a9",
+      "id_v1": "idv1/48",
+      "on": {
+        "on": false
+      },
+      "type": "grouped_light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "id": "e303cbdf-e88e-4235-9663-39a01b64dc6b",
+      "id_v1": "idv1/49",
+      "on": {
+        "on": false
+      },
+      "type": "grouped_light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "id": "fd596f50-477d-4a49-98df-3caa1141e5f2",
+      "id_v1": "idv1/52",
+      "on": {
+        "on": false
+      },
+      "type": "grouped_light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "id": "baea903c-611c-406a-bdee-d6bc9a53a4ba",
+      "id_v1": "idv1/55",
+      "on": {
+        "on": true
+      },
+      "type": "grouped_light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "id": "9d6af332-bf59-4d81-a292-2fb77c32135e",
+      "id_v1": "idv1/56",
+      "on": {
+        "on": false
+      },
+      "type": "grouped_light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "id": "da733f08-997e-4700-b82f-ef80027ddd3f",
+      "id_v1": "idv1/59",
+      "on": {
+        "on": true
+      },
+      "type": "grouped_light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "id": "7aff50e5-6652-4b5f-b34b-b3f1813fec94",
+      "id_v1": "idv1/61",
+      "on": {
+        "on": false
+      },
+      "type": "grouped_light"
+    }
+  ]
+}

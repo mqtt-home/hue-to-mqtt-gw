@@ -17,7 +17,7 @@ export const transform: (fragment: any) => any  = (fragment: any) => {
             result[key] = transform(value)
         }
         else if (typeof value == "string") {
-            if (key === "id" || key === "rid") {
+            if (key === "id" || key === "rid" || key === "bridge_id" ) {
                 result[key] = getReplacement(value, randomUUID)
             }
             else if (key === "id_v1") {

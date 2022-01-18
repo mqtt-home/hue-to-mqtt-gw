@@ -15,6 +15,7 @@ export type ConfigHue = {
     host: string
     "api-key": string
     port: number
+    protocol: "http"|"https"
 }
 
 export type Config = {
@@ -31,7 +32,8 @@ const mqttDefaults = {
 }
 
 const hueDefaults = {
-    port: 443
+    port: 443,
+    protocol: "https"
 }
 
 export const applyDefaults = (config: any) => {
@@ -52,4 +54,8 @@ export const applyConfig = (config: any) => {
 
 export const getAppConfig = () => {
     return appConfig
+}
+
+export const setTestConfig = (config: Config) => {
+    appConfig = config
 }

@@ -12,7 +12,8 @@ let baserUrl: string
 const getInstance = () => {
     if (!instance) {
         const config = getAppConfig()
-        baserUrl = `https://${config.hue.host}:${config.hue.port}/clip/v2/`
+        const protocol = config.hue.protocol
+        baserUrl = `${protocol}://${config.hue.host}:${config.hue.port}/clip/v2/`
 
         instance = axios.create({
             baseURL: baserUrl,

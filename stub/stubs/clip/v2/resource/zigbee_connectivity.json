@@ -1,0 +1,423 @@
+{
+  "errors": [],
+  "data": [
+    {
+      "id": "0b7019d9-667a-4628-badb-81566709f199",
+      "id_v1": "idv1/0",
+      "mac_address": "79-50-34-32-73-34",
+      "owner": {
+        "rid": "cfbd1729-78d2-470d-896c-e49371ebb88c",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "b33f4343-2dea-4efb-b9f3-fd4f4ed6f227",
+      "id_v1": "idv1/1",
+      "mac_address": "40-04-29-53-92-61",
+      "owner": {
+        "rid": "743163a9-2bd3-4eae-a73e-6dfd72ef0ea6",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "91ee915a-9b1a-458e-b964-2ef71b8e376d",
+      "id_v1": "idv1/3",
+      "mac_address": "65-30-62-70-86-94",
+      "owner": {
+        "rid": "38c559b0-f8f6-44e6-8037-8e159dd1c0c3",
+        "rtype": "device"
+      },
+      "status": "connectivity_issue",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "f0afe6dd-2e11-43b6-9508-4a83a00af1f5",
+      "id_v1": "idv1/4",
+      "mac_address": "48-86-19-41-50-94",
+      "owner": {
+        "rid": "62e5ce4b-2233-4eab-aaca-a4c4d035b2a7",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "f05819e2-fdd5-47a9-8b06-25b5ee6283ba",
+      "id_v1": "idv1/5",
+      "mac_address": "18-20-48-37-96-03",
+      "owner": {
+        "rid": "50bbbec8-82f6-42f4-959e-8721efaa188c",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "02424a09-6636-4629-8c9e-1579e0696b94",
+      "id_v1": "idv1/6",
+      "mac_address": "73-33-93-44-51-85",
+      "owner": {
+        "rid": "455560bc-1050-4dfd-8f88-07090e48fc59",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "9497ebf5-6b3f-49b5-87ab-f062bdb51a72",
+      "id_v1": "idv1/7",
+      "mac_address": "74-78-64-56-29-88",
+      "owner": {
+        "rid": "5d7bf44c-0d0f-46c6-86ba-f37b82339288",
+        "rtype": "device"
+      },
+      "status": "connectivity_issue",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "5a931739-eafb-432a-91a5-65b039fa4c5a",
+      "id_v1": "idv1/9",
+      "mac_address": "97-66-97-96-29-68",
+      "owner": {
+        "rid": "e1fe70f2-faa9-4df4-8b73-7f5cabf8e22f",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "750feedd-55fc-4df7-b661-90e9b034d834",
+      "id_v1": "idv1/10",
+      "mac_address": "75-58-24-85-07-74",
+      "owner": {
+        "rid": "754acb08-1e9f-4946-aa4a-ee7b604c7354",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "a6b66076-bb60-4102-9a73-5a18c1a5db20",
+      "id_v1": "idv1/11",
+      "mac_address": "29-07-28-00-99-07",
+      "owner": {
+        "rid": "2f922f53-d164-44be-84fe-955a709e1d12",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "d296cafb-1e76-4d71-ada8-9f0912c64c55",
+      "id_v1": "idv1/12",
+      "mac_address": "32-43-31-28-49-05",
+      "owner": {
+        "rid": "53ca6c36-e171-448c-b91b-ccc0fb62bd83",
+        "rtype": "device"
+      },
+      "status": "connectivity_issue",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "786422cf-28c9-4b19-b99a-68ab1228766d",
+      "id_v1": "idv1/13",
+      "mac_address": "92-64-14-17-12-13",
+      "owner": {
+        "rid": "3534983a-050d-44f4-bb6d-350a4088d8bd",
+        "rtype": "device"
+      },
+      "status": "connectivity_issue",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "39ed3b91-65ab-4fd5-b629-d411f64b52b7",
+      "id_v1": "idv1/14",
+      "mac_address": "21-65-73-36-20-42",
+      "owner": {
+        "rid": "3e1779fd-79a7-4897-96f3-dad9e77302f7",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "e5ffcda8-9177-4fef-a6a8-67cc05c88bba",
+      "id_v1": "idv1/15",
+      "mac_address": "47-18-98-69-16-95",
+      "owner": {
+        "rid": "2cf669e1-e6e5-4731-9d7a-73f2183073b7",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "b6c09519-e103-48bb-8eeb-4ba615ec1d2c",
+      "id_v1": "idv1/16",
+      "mac_address": "42-31-15-77-41-81",
+      "owner": {
+        "rid": "dd4b3d26-bdf4-41c8-94b0-6ea6759930ad",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "6117d33c-04c2-4099-9460-b373b6d5bcb0",
+      "id_v1": "idv1/17",
+      "mac_address": "07-99-57-65-65-50",
+      "owner": {
+        "rid": "e13bd6ba-3627-4685-a049-6d5875c0c4c1",
+        "rtype": "device"
+      },
+      "status": "connectivity_issue",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "49d7dfd4-9de8-4bb8-92bc-ba24fa10eed8",
+      "id_v1": "idv1/18",
+      "mac_address": "83-92-00-63-96-14",
+      "owner": {
+        "rid": "6a1c5944-746d-481f-86d8-7c29fd59a02e",
+        "rtype": "device"
+      },
+      "status": "connectivity_issue",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "950ea346-0087-45a3-aa7b-7ea68cf5c98d",
+      "id_v1": "idv1/19",
+      "mac_address": "31-50-41-86-01-56",
+      "owner": {
+        "rid": "3e490c1b-efb8-448a-a240-f050d4d264a7",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "41f1493f-c655-4907-a701-46cbb39a3d5a",
+      "id_v1": "idv1/20",
+      "mac_address": "99-65-02-37-50-04",
+      "owner": {
+        "rid": "3e125374-bc4c-47cb-a83e-0339baa34723",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "d4f1b17e-0b9e-4f15-a36c-ece29a154579",
+      "id_v1": "idv1/21",
+      "mac_address": "06-69-14-85-25-96",
+      "owner": {
+        "rid": "496cb309-79ad-4a46-8271-7997a63eb8e3",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "3ebd0e8f-8294-423c-920a-526a594108e3",
+      "id_v1": "idv1/22",
+      "mac_address": "08-17-12-02-18-64",
+      "owner": {
+        "rid": "ffebd167-8373-4eed-aea7-38a14bca522e",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "f48d6ee5-86a3-407c-8b96-bc7c33cb01ce",
+      "id_v1": "idv1/23",
+      "mac_address": "40-99-25-66-27-10",
+      "owner": {
+        "rid": "37866cba-6fb2-4ca7-a63d-3b39e9478b33",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "77bad4e6-df2a-435c-8747-632de239c9fc",
+      "id_v1": "idv1/24",
+      "mac_address": "14-71-15-92-34-64",
+      "owner": {
+        "rid": "5771c2cf-48dc-47c9-8ae9-485d7b75686a",
+        "rtype": "device"
+      },
+      "status": "connectivity_issue",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "9d0840a0-c1ee-40f5-99d5-2584105b9adf",
+      "id_v1": "idv1/25",
+      "mac_address": "05-61-26-89-46-40",
+      "owner": {
+        "rid": "9d383649-2f71-472d-8166-1c8a5a60319f",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "68511d7f-1c43-407a-9776-71c31756889b",
+      "id_v1": "idv1/26",
+      "mac_address": "36-39-09-37-70-38",
+      "owner": {
+        "rid": "156efd29-a427-4324-8bb4-59e4a0368307",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "c8a5d9c6-b98e-4247-a5bd-d45411103b09",
+      "id_v1": "idv1/27",
+      "mac_address": "74-79-96-47-63-14",
+      "owner": {
+        "rid": "698bcfd1-e0ae-4155-8793-6323ea3f6345",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "a77ffdb1-4688-41b4-b3a5-923bfdb1f060",
+      "id_v1": "idv1/29",
+      "mac_address": "19-64-62-45-78-90",
+      "owner": {
+        "rid": "4ba4831b-6551-42cf-afce-d591335e6167",
+        "rtype": "device"
+      },
+      "status": "connectivity_issue",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "16518145-1790-424d-ba62-81876b5d3f2a",
+      "id_v1": "idv1/30",
+      "mac_address": "14-34-99-68-84-09",
+      "owner": {
+        "rid": "4cb85d9c-ca14-4916-a4ee-b59d1ff5146f",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "9e2629cf-c789-4cca-b296-9341c86a7ce4",
+      "id_v1": "idv1/32",
+      "mac_address": "08-61-45-46-36-87",
+      "owner": {
+        "rid": "b8e386c8-1567-417f-a8fe-d9b80f151a04",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "0fa244c0-87c3-456e-93b2-1bb6552db15e",
+      "id_v1": "idv1/33",
+      "mac_address": "09-29-06-69-98-71",
+      "owner": {
+        "rid": "77ef71d3-79b9-4cf8-bf55-ddd0121ecc77",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "3db773f7-d27c-45e5-820e-dde6934ed400",
+      "id_v1": "idv1/34",
+      "mac_address": "66-17-97-48-41-40",
+      "owner": {
+        "rid": "d3563f81-ec0b-405f-beb3-7bdc9a8eb7ed",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "868b10da-cec5-433c-8887-e22376cf6282",
+      "id_v1": "idv1/35",
+      "mac_address": "54-61-82-01-26-09",
+      "owner": {
+        "rid": "34f810bd-02ac-4092-a025-9b9f525b3022",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "108ec0f7-d921-4c6d-9b24-7ed7b6e19380",
+      "id_v1": "idv1/37",
+      "mac_address": "75-15-53-25-97-03",
+      "owner": {
+        "rid": "b14ef533-20d1-4367-825d-e67fcd73a075",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "46acc7cc-472f-4fa7-97c1-4957c74d3a16",
+      "id_v1": "idv1/38",
+      "mac_address": "39-20-13-10-19-59",
+      "owner": {
+        "rid": "d78840a9-d1ff-408c-862d-3bd0097b4446",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "378c57f3-ff36-417e-a457-41a60dd6bf30",
+      "id_v1": "idv1/40",
+      "mac_address": "56-28-11-81-54-92",
+      "owner": {
+        "rid": "f3c5649f-3f6f-4787-8628-7bbf56f61c20",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "85cc2425-4b9e-4a99-974b-0bda9d16a1a6",
+      "id_v1": "idv1/41",
+      "mac_address": "29-79-26-33-68-68",
+      "owner": {
+        "rid": "89264700-c386-4284-97e8-1b4a6746966b",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "14b85292-eb52-476c-83b8-f32bd998f222",
+      "id_v1": "idv1/43",
+      "mac_address": "28-53-67-66-82-88",
+      "owner": {
+        "rid": "84b45b66-305b-4e97-aab1-145c7d700aff",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    },
+    {
+      "id": "4c7ae50b-9500-4a25-b35d-8821005fbd3b",
+      "id_v1": "idv1/44",
+      "mac_address": "88-84-96-32-28-64",
+      "owner": {
+        "rid": "60732df1-3cdd-4a10-b996-a188d96f8d27",
+        "rtype": "device"
+      },
+      "status": "connected",
+      "type": "zigbee_connectivity"
+    }
+  ]
+}
