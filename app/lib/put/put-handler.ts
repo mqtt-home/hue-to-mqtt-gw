@@ -8,6 +8,7 @@ import { applyEffect } from "./effects/light-effect-handler"
 export const putMessage = async (resource: HueIdentifiable, message: Buffer) => {
     if (isLight(resource)) {
         // only supported for light messages at the moment
+        try {
         const lightMsg = JSON.parse(message.toString()) as LightMessage | LightEffectMessage
         if (isEffectMessage(lightMsg)) {
             await applyEffect(resource, lightMsg)
@@ -22,6 +23,9 @@ export const putMessage = async (resource: HueIdentifiable, message: Buffer) => 
             catch (e) {
                 log.error(e)
             }
+        }
+        } catch (e) {
+            log.error("invalid message", e)
         }
     }
 }

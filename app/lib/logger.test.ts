@@ -1,41 +1,58 @@
 import { createLogger, log } from "./logger"
 import { Writable } from "stream"
 import * as winston from "winston"
+import * as Transport from "winston-transport"
 
-describe("Log format", () => {
-    let output = ""
-    let logger: winston.Logger
 
-    beforeEach(() => {
-        log.silent = true
+export class TestLogger {
+    output = ""
+    transports: Transport[]
 
+    constructor () {
         const stream = new Writable()
         stream._write = (chunk, encoding, next) => {
-            output = output += chunk.toString()
+            this.output = this.output += chunk.toString()
             next()
         }
-        logger = createLogger(new winston.transports.Stream({ stream }))
+        this.transports = [...log.transports]
+        log.clear()
+        log.add(new winston.transports.Stream({ stream }))
+    }
+
+    close = () => {
+        log.clear()
+        for (let transport of this.transports) {
+            log.add(transport)
+        }
+    }
+}
+
+describe("Log format", () => {
+    let logger: TestLogger
+
+    beforeAll(() => {
+        logger = new TestLogger()
     })
 
     afterEach(() => {
-        output = ""
+        logger.output = ""
     })
 
     test("info log", () => {
-        logger.info("some info")
+        log.info("some info")
 
-        expect(output).toMatch(/\d+\d+\d+\d+-\d+\d+-\d+\d+T.* INFO some info.*/)
+        expect(logger.output).toMatch(/\d+\d+\d+\d+-\d+\d+-\d+\d+T.* INFO some info.*/)
     })
 
     test("warn log", () => {
-        logger.warn("some warning")
+        log.warn("some warning")
 
-        expect(output).toMatch(/\d+\d+\d+\d+-\d+\d+-\d+\d+T.* WARN some warning.*/)
+        expect(logger.output).toMatch(/\d+\d+\d+\d+-\d+\d+-\d+\d+T.* WARN some warning.*/)
     })
 
     test("error log", () => {
-        logger.error("some error")
+        log.error("some error")
 
-        expect(output).toMatch(/\d+\d+\d+\d+-\d+\d+-\d+\d+T.* ERROR some error.*/)
+        expect(logger.output).toMatch(/\d+\d+\d+\d+-\d+\d+-\d+\d+T.* ERROR some error.*/)
     })
 })

@@ -3,6 +3,7 @@ import { deviceStubs } from "../api/v2/device-stubs"
 import { applyDefaults, setTestConfig } from "../config/config"
 import { LightEffectMessage, LightMessage } from "../messages/light-message"
 import { putMessage } from "./put-handler"
+import { TestLogger } from "../logger.test"
 
 let messages: any[]
 
@@ -13,6 +14,16 @@ jest.spyOn(api, "putLight").mockImplementation((x, message) => {
 })
 
 describe("PUT handler", () => {
+    let logger: TestLogger
+
+    beforeAll(() => {
+        logger = new TestLogger()
+    })
+
+    afterEach(() => {
+        logger.output = ""
+    })
+
     beforeEach(() => {
         messages = []
 
@@ -59,6 +70,16 @@ describe("PUT handler", () => {
             },
             { color: deviceStubs.lightWithColor.color }
         ])
+    })
+
+    test("PUT invalid message", async () => {
+        const message = "invalid-message"
+
+        await putMessage(deviceStubs.lightWithColor, Buffer.from(message))
+
+        expect(messages.length).toBe(0)
+        expect(logger.output).toMatch(/\d+\d+\d+\d+-\d+\d+-\d+\d+T.* ERROR invalid message Unexpected token i in JSON at position 0.*/)
+
     })
 
     test("Turn on", async () => {
