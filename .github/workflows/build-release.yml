@@ -28,6 +28,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           releaseType: ${{ github.event.inputs.releaseType }}
 
+      - name: Update version
+        working-directory: app
+        env:
+          RELEASE_VERSION: ${{ steps.next.outputs.version }}
+        run: npm version $RELEASE_VERSION --allow-same-version
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
 
@@ -71,4 +77,4 @@ jobs:
               - ...
 
           draft: false
-          prerelease: true
+          prerelease: false
