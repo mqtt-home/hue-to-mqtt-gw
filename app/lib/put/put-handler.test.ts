@@ -79,7 +79,6 @@ describe("PUT handler", () => {
 
         expect(messages.length).toBe(0)
         expect(logger.output).toMatch(/\d+\d+\d+\d+-\d+\d+-\d+\d+T.* ERROR invalid message Unexpected token i in JSON at position 0.*/)
-
     })
 
     test("Turn on", async () => {

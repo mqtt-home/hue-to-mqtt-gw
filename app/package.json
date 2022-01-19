@@ -8,7 +8,7 @@
         "coverage": "jest --coverage",
         "start": "tsc && node dist/index.js",
         "build": "tsc",
-        "lint": "eslint lib/** --ext .ts",
+        "lint": "eslint lib/** --ext .ts --fix",
         "generate-test-stubs": "node dist/lib/test-stub-generator.js"
     },
     "keywords": [],

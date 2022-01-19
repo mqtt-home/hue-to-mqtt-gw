@@ -1,8 +1,7 @@
-import { createLogger, log } from "./logger"
+import { log } from "./logger"
 import { Writable } from "stream"
 import * as winston from "winston"
 import * as Transport from "winston-transport"
-
 
 export class TestLogger {
     output = ""
@@ -21,7 +20,7 @@ export class TestLogger {
 
     close = () => {
         log.clear()
-        for (let transport of this.transports) {
+        for (const transport of this.transports) {
             log.add(transport)
         }
     }

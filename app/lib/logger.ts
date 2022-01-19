@@ -12,4 +12,3 @@ export const createLogger = (transport: Transport = new winston.transports.Conso
 }
 
 export const log = createLogger()
-

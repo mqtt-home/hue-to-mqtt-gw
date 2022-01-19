@@ -9,22 +9,23 @@ export const putMessage = async (resource: HueIdentifiable, message: Buffer) => 
     if (isLight(resource)) {
         // only supported for light messages at the moment
         try {
-        const lightMsg = JSON.parse(message.toString()) as LightMessage | LightEffectMessage
-        if (isEffectMessage(lightMsg)) {
-            await applyEffect(resource, lightMsg)
-        }
-        else {
-            const newResource = toLight(resource, lightMsg)
+            const lightMsg = JSON.parse(message.toString()) as LightMessage | LightEffectMessage
+            if (isEffectMessage(lightMsg)) {
+                await applyEffect(resource, lightMsg)
+            }
+            else {
+                const newResource = toLight(resource, lightMsg)
 
-            // resource will be updated by the Hue SSE API
-            try {
-                await putResource(newResource)
-            }
-            catch (e) {
-                log.error(e)
+                // resource will be updated by the Hue SSE API
+                try {
+                    await putResource(newResource)
+                }
+                catch (e) {
+                    log.error(e)
+                }
             }
         }
-        } catch (e) {
+        catch (e) {
             log.error("invalid message", e)
         }
     }
