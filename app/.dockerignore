@@ -11,4 +11,4 @@ junit.xml
 build_internal/
 
 # Test Cases
-*.test.ts
+**/*.test.ts
