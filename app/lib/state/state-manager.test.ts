@@ -16,8 +16,4 @@ describe("State manager", () => {
         state.setDevices([deviceStubs.buttonDevice as Device])
         expect(getTopic(deviceStubs.button)).toBe("button/kueche-oben")
     })
-
-    // test("init state manager", async () => {
-    //     await initStateManagerFromHue()
-    // })
 })

@@ -45,23 +45,37 @@ const notifyOff = async (light: Light, effect: LightEffectMessage) => {
 const notifyRestore = async (light: Light, effect: LightEffectMessage) => {
     await applyColors(light, effect)
 
-    await putLight(light, {
-        on: light.on
-    })
+    if (!light.on) {
+        await putLight(light, {
+            on: light.on
+        })
+    }
 
     await restoreColor(light)
 }
 
+const resolvable = () => {
+    let resolveResult: any
+    const promise = new Promise(resolve => {
+        resolveResult = resolve
+    })
+    return [resolveResult, promise]
+}
+
 const lock = new AsyncLock({ timeout: 5000 })
 export const applyEffect = async (light: Light, effect: LightEffectMessage) => {
+    const [resolveResult, promise] = resolvable()
     lock.acquire("effect", async (done) => {
         await applyEffectLocked(light, effect)
         done()
+        resolveResult()
     }, (err) => {
         if (err) {
             log.error(err)
         }
     })
+
+    return promise
 }
 
 const applyEffectLocked = async (light: Light, effect: LightEffectMessage) => {

@@ -61,7 +61,7 @@ const willMessage = () => {
     }
 }
 
-export const connectMqtt = () => {
+export const connectMqtt: (() => Promise<() => void>) = () => {
     const config = getAppConfig()
     const options = {
         clean: true,
@@ -80,7 +80,9 @@ export const connectMqtt = () => {
                 if (!err) {
                     online()
                     log.info("MQTT subscription active")
-                    resolve("connected")
+                    resolve(() => {
+                        client.end()
+                    })
                 }
                 else {
                     log.error(err)
@@ -92,8 +94,6 @@ export const connectMqtt = () => {
         client.on("message", async (topic, message) => {
             const resource = state.resourcesByTopic.get(topic)
             if (resource) {
-                log.info(`MQTT Message received: ${topic}`)
-
                 if (topic.endsWith("/get") || topic.endsWith("/state")) {
                     publishResource(resource)
                 }
