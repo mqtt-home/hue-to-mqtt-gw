@@ -9,3 +9,6 @@ node_modules/
 dist/
 junit.xml
 build_internal/
+
+# Test Cases
+**/*.test.ts
