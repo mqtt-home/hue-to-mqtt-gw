@@ -1,0 +1,33 @@
+{
+  "errors": [],
+  "data": [
+    {
+      "enabled": true,
+      "id": "82bac25f-74c7-410a-8165-fa75ae4037cf",
+      "id_v1": "idv1/10",
+      "motion": {
+        "motion": false,
+        "motion_valid": true
+      },
+      "owner": {
+        "rid": "754acb08-1e9f-4946-aa4a-ee7b604c7354",
+        "rtype": "device"
+      },
+      "type": "motion"
+    },
+    {
+      "enabled": true,
+      "id": "f6519f25-0329-4fd6-b105-f46a34880755",
+      "id_v1": "idv1/41",
+      "motion": {
+        "motion": false,
+        "motion_valid": true
+      },
+      "owner": {
+        "rid": "89264700-c386-4284-97e8-1b4a6746966b",
+        "rtype": "device"
+      },
+      "type": "motion"
+    }
+  ]
+}

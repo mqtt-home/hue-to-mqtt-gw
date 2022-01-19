@@ -1,0 +1,82 @@
+{
+  "errors": [],
+  "data": [
+    {
+      "id": "50a0d49b-c84f-4ba4-ab09-19a2c858b9aa",
+      "id_v1": "idv1/2",
+      "owner": {
+        "rid": "4ce8fdec-ebd3-4522-85c0-58303c577de2",
+        "rtype": "device"
+      },
+      "source_id": "99-65-97-02-96-43",
+      "status": "unidirectional_incoming",
+      "type": "zgp_connectivity"
+    },
+    {
+      "id": "7aa93281-5963-4ff9-a16a-752d100b5fdf",
+      "id_v1": "idv1/8",
+      "owner": {
+        "rid": "b19c7161-7c93-46d3-bbe7-d1fe080b4298",
+        "rtype": "device"
+      },
+      "source_id": "05-11-97-54-20-63",
+      "status": "unidirectional_incoming",
+      "type": "zgp_connectivity"
+    },
+    {
+      "id": "3d317054-b59e-4c12-9102-7051e88cb381",
+      "id_v1": "idv1/28",
+      "owner": {
+        "rid": "0c5e7ba6-fd7c-4376-b604-2f7a503c224c",
+        "rtype": "device"
+      },
+      "source_id": "06-01-27-18-03-06",
+      "status": "unidirectional_incoming",
+      "type": "zgp_connectivity"
+    },
+    {
+      "id": "720d18da-31d8-438e-b1d2-dae5d4b1420d",
+      "id_v1": "idv1/31",
+      "owner": {
+        "rid": "0ecc23f4-b241-4543-a48e-c6356a58d7ac",
+        "rtype": "device"
+      },
+      "source_id": "33-99-71-21-57-79",
+      "status": "unidirectional_incoming",
+      "type": "zgp_connectivity"
+    },
+    {
+      "id": "55dd74ca-76eb-4586-8c07-8264787eefb7",
+      "id_v1": "idv1/36",
+      "owner": {
+        "rid": "6e1d64a0-bc3d-4417-9cba-10b0b4a85c2a",
+        "rtype": "device"
+      },
+      "source_id": "05-57-86-63-44-68",
+      "status": "unidirectional_incoming",
+      "type": "zgp_connectivity"
+    },
+    {
+      "id": "e91aa189-094e-4f6e-9260-73d88f99ae31",
+      "id_v1": "idv1/39",
+      "owner": {
+        "rid": "77c8349f-7310-44cf-94b2-4c2f798a5c89",
+        "rtype": "device"
+      },
+      "source_id": "31-21-18-36-41-39",
+      "status": "unidirectional_incoming",
+      "type": "zgp_connectivity"
+    },
+    {
+      "id": "c9f8eda7-70a7-470c-8620-27f1d0580f2d",
+      "id_v1": "idv1/42",
+      "owner": {
+        "rid": "ea175df1-c987-4520-b18c-6ee7f0350e58",
+        "rtype": "device"
+      },
+      "source_id": "92-30-87-24-61-97",
+      "status": "unidirectional_incoming",
+      "type": "zgp_connectivity"
+    }
+  ]
+}

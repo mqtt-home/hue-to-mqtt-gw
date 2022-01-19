@@ -1,0 +1,1416 @@
+{
+  "errors": [],
+  "data": [
+    {
+      "id": "cfbd1729-78d2-470d-896c-e49371ebb88c",
+      "id_v1": "idv1/0",
+      "metadata": {
+        "archetype": "bridge_v2",
+        "name": "Kitchen (8rhN)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "BSB002",
+        "product_archetype": "bridge_v2",
+        "product_name": "Philips hue",
+        "software_version": "1.49.1949107040"
+      },
+      "services": [
+        {
+          "rid": "7a1ef18d-e048-4c5d-9041-a7e107172b2c",
+          "rtype": "bridge"
+        },
+        {
+          "rid": "0b7019d9-667a-4628-badb-81566709f199",
+          "rtype": "zigbee_connectivity"
+        },
+        {
+          "rid": "50d15841-2575-4db0-893a-0f8053b62fb0",
+          "rtype": "entertainment"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "743163a9-2bd3-4eae-a73e-6dfd72ef0ea6",
+      "id_v1": "idv1/1",
+      "metadata": {
+        "archetype": "hue_centris",
+        "name": "Kitchen (ASIp)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "5060731P7_02",
+        "product_archetype": "hue_centris",
+        "product_name": "Hue Centris spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "6e3d82ff-fea2-4e91-a4ca-197ed24d5bc6",
+          "rtype": "light"
+        },
+        {
+          "rid": "b33f4343-2dea-4efb-b9f3-fd4f4ed6f227",
+          "rtype": "zigbee_connectivity"
+        },
+        {
+          "rid": "ed96fa60-1ab1-4170-ad72-2b1d75c6723c",
+          "rtype": "entertainment"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "4ce8fdec-ebd3-4522-85c0-58303c577de2",
+      "id_v1": "idv1/2",
+      "metadata": {
+        "archetype": "unknown_archetype",
+        "name": "Guest Room (qWoD)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "PhilipsFoH",
+        "model_id": "FOHSWITCH",
+        "product_archetype": "unknown_archetype",
+        "product_name": "Friends of Hue Switch",
+        "software_version": "0.0.0"
+      },
+      "services": [
+        {
+          "rid": "fdd2c73f-f922-4696-846c-5bc62e1a91e0",
+          "rtype": "button"
+        },
+        {
+          "rid": "2ba5b145-ea58-4c9f-8971-41ce5798ee29",
+          "rtype": "button"
+        },
+        {
+          "rid": "3cbfec83-f480-4e0d-aafc-ab997ab51c0a",
+          "rtype": "button"
+        },
+        {
+          "rid": "ddcd4a93-502b-4149-ad52-0aa0f548e46b",
+          "rtype": "button"
+        },
+        {
+          "rid": "50a0d49b-c84f-4ba4-ab09-19a2c858b9aa",
+          "rtype": "zgp_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "38c559b0-f8f6-44e6-8037-8e159dd1c0c3",
+      "id_v1": "idv1/3",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Living Room (WVPi)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LTG002",
+        "product_archetype": "spot_bulb",
+        "product_name": "Hue ambiance spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "f55fe662-ecda-4cf8-bf6c-400851e5ca03",
+          "rtype": "light"
+        },
+        {
+          "rid": "91ee915a-9b1a-458e-b964-2ef71b8e376d",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "62e5ce4b-2233-4eab-aaca-a4c4d035b2a7",
+      "id_v1": "idv1/4",
+      "metadata": {
+        "archetype": "hue_lightstrip",
+        "name": "Dining Room (qFS6)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LCL001",
+        "product_archetype": "hue_lightstrip",
+        "product_name": "Hue lightstrip plus",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "f3e268d1-4815-49e4-a048-e2f505a55ab2",
+          "rtype": "light"
+        },
+        {
+          "rid": "f0afe6dd-2e11-43b6-9508-4a83a00af1f5",
+          "rtype": "zigbee_connectivity"
+        },
+        {
+          "rid": "f1c73739-0156-4121-87cd-f8d75ad18185",
+          "rtype": "entertainment"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "50bbbec8-82f6-42f4-959e-8721efaa188c",
+      "id_v1": "idv1/5",
+      "metadata": {
+        "archetype": "hue_centris",
+        "name": "Home Office (YC0a)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "5060831P7_04",
+        "product_archetype": "hue_centris",
+        "product_name": "Hue Centris spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "7220af2f-9711-4eab-8319-53872cc9cc06",
+          "rtype": "light"
+        },
+        {
+          "rid": "f05819e2-fdd5-47a9-8b06-25b5ee6283ba",
+          "rtype": "zigbee_connectivity"
+        },
+        {
+          "rid": "81b4f471-b2da-433a-a3c8-5eaf4fdfc7b7",
+          "rtype": "entertainment"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "455560bc-1050-4dfd-8f88-07090e48fc59",
+      "id_v1": "idv1/6",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Guest Room (LS2e)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LCG002",
+        "product_archetype": "spot_bulb",
+        "product_name": "Hue color spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "586bb15d-9713-488a-afe5-d4af91705be6",
+          "rtype": "light"
+        },
+        {
+          "rid": "02424a09-6636-4629-8c9e-1579e0696b94",
+          "rtype": "zigbee_connectivity"
+        },
+        {
+          "rid": "e699d6d1-d2ef-44da-8e31-4186c88a2e8e",
+          "rtype": "entertainment"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "5d7bf44c-0d0f-46c6-86ba-f37b82339288",
+      "id_v1": "idv1/7",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Living Room (vXRO)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LTG002",
+        "product_archetype": "spot_bulb",
+        "product_name": "Hue ambiance spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "234c7916-e5d1-4c7a-b713-7a204cce6d3f",
+          "rtype": "light"
+        },
+        {
+          "rid": "9497ebf5-6b3f-49b5-87ab-f062bdb51a72",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "b19c7161-7c93-46d3-bbe7-d1fe080b4298",
+      "id_v1": "idv1/8",
+      "metadata": {
+        "archetype": "unknown_archetype",
+        "name": "Home Office (wk5a)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "PhilipsFoH",
+        "model_id": "FOHSWITCH",
+        "product_archetype": "unknown_archetype",
+        "product_name": "Friends of Hue Switch",
+        "software_version": "0.0.0"
+      },
+      "services": [
+        {
+          "rid": "fc847306-10dd-4399-ae9a-d55e54907847",
+          "rtype": "button"
+        },
+        {
+          "rid": "5bcf2789-6064-4892-b919-cd6a7830c1cb",
+          "rtype": "button"
+        },
+        {
+          "rid": "f1b1e90d-7eca-4826-b6dc-b7d37bbc67f8",
+          "rtype": "button"
+        },
+        {
+          "rid": "1803eab4-2217-4c17-b118-e15a25b7a6a9",
+          "rtype": "button"
+        },
+        {
+          "rid": "7aa93281-5963-4ff9-a16a-752d100b5fdf",
+          "rtype": "zgp_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "e1fe70f2-faa9-4df4-8b73-7f5cabf8e22f",
+      "id_v1": "idv1/9",
+      "metadata": {
+        "archetype": "unknown_archetype",
+        "name": "Basement (HhuJ)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "ROM001",
+        "product_archetype": "unknown_archetype",
+        "product_name": "Hue Smart button",
+        "software_version": "2.47.8"
+      },
+      "services": [
+        {
+          "rid": "f979ce30-69b4-4212-b6c5-dd24f24b89ca",
+          "rtype": "button"
+        },
+        {
+          "rid": "0301cc00-1cb4-4872-b4eb-1b70fe1248e7",
+          "rtype": "device_power"
+        },
+        {
+          "rid": "5a931739-eafb-432a-91a5-65b039fa4c5a",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "754acb08-1e9f-4946-aa4a-ee7b604c7354",
+      "id_v1": "idv1/10",
+      "metadata": {
+        "archetype": "unknown_archetype",
+        "name": "Game Room (KkZZ)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "SML001",
+        "product_archetype": "unknown_archetype",
+        "product_name": "Hue motion sensor",
+        "software_version": "1.1.27575"
+      },
+      "services": [
+        {
+          "rid": "82bac25f-74c7-410a-8165-fa75ae4037cf",
+          "rtype": "motion"
+        },
+        {
+          "rid": "2ee436c8-cd0d-4a0f-9be5-57ed1c4ee929",
+          "rtype": "device_power"
+        },
+        {
+          "rid": "750feedd-55fc-4df7-b661-90e9b034d834",
+          "rtype": "zigbee_connectivity"
+        },
+        {
+          "rid": "cef24a29-13d4-4be4-a8e5-688a96551996",
+          "rtype": "light_level"
+        },
+        {
+          "rid": "84d4f11f-9ac3-4090-84dd-da8c98324faa",
+          "rtype": "temperature"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "2f922f53-d164-44be-84fe-955a709e1d12",
+      "id_v1": "idv1/11",
+      "metadata": {
+        "archetype": "unknown_archetype",
+        "name": "Storage Room (BsRp)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "RDM001",
+        "product_archetype": "unknown_archetype",
+        "product_name": "Hue wall switch module",
+        "software_version": "1.0.3"
+      },
+      "services": [
+        {
+          "rid": "188e851c-d976-4955-b113-198a187e9982",
+          "rtype": "button"
+        },
+        {
+          "rid": "cf610a50-d650-43fa-af4d-d322bb8a47ab",
+          "rtype": "button"
+        },
+        {
+          "rid": "f8617ab2-7743-45e7-b4b1-dede688b8b68",
+          "rtype": "device_power"
+        },
+        {
+          "rid": "a6b66076-bb60-4102-9a73-5a18c1a5db20",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "53ca6c36-e171-448c-b91b-ccc0fb62bd83",
+      "id_v1": "idv1/12",
+      "metadata": {
+        "archetype": "plug",
+        "name": "Gym Room (KPj0)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LOM001",
+        "product_archetype": "plug",
+        "product_name": "Hue Smart plug",
+        "software_version": "1.93.6"
+      },
+      "services": [
+        {
+          "rid": "7762ab77-3749-48ac-b650-9b60f3d61e5b",
+          "rtype": "light"
+        },
+        {
+          "rid": "d296cafb-1e76-4d71-ada8-9f0912c64c55",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "3534983a-050d-44f4-bb6d-350a4088d8bd",
+      "id_v1": "idv1/13",
+      "metadata": {
+        "archetype": "sultan_bulb",
+        "name": "Living Room (j0Ca)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LWA001",
+        "product_archetype": "sultan_bulb",
+        "product_name": "Hue white lamp",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "5327522d-dd48-48d0-b498-0c21c44e01f0",
+          "rtype": "light"
+        },
+        {
+          "rid": "786422cf-28c9-4b19-b99a-68ab1228766d",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "3e1779fd-79a7-4897-96f3-dad9e77302f7",
+      "id_v1": "idv1/14",
+      "metadata": {
+        "archetype": "unknown_archetype",
+        "name": "Kitchen (iq5O)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "ROM001",
+        "product_archetype": "unknown_archetype",
+        "product_name": "Hue Smart button",
+        "software_version": "2.47.8"
+      },
+      "services": [
+        {
+          "rid": "2cf02078-19d2-4dce-a581-1426347bdbbe",
+          "rtype": "button"
+        },
+        {
+          "rid": "2c9ff220-6cc8-449b-8c45-0773c5bed055",
+          "rtype": "device_power"
+        },
+        {
+          "rid": "39ed3b91-65ab-4fd5-b629-d411f64b52b7",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "2cf669e1-e6e5-4731-9d7a-73f2183073b7",
+      "id_v1": "idv1/15",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Bedroom (y102)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LTG002",
+        "product_archetype": "spot_bulb",
+        "product_name": "Hue ambiance spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "962f7baf-f00b-41b6-a094-763405258278",
+          "rtype": "light"
+        },
+        {
+          "rid": "e5ffcda8-9177-4fef-a6a8-67cc05c88bba",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "dd4b3d26-bdf4-41c8-94b0-6ea6759930ad",
+      "id_v1": "idv1/16",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Gym Room (l9K5)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LTG002",
+        "product_archetype": "spot_bulb",
+        "product_name": "Hue ambiance spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "45c8dfdf-b33e-4c73-b16e-e4dd17ae55eb",
+          "rtype": "light"
+        },
+        {
+          "rid": "b6c09519-e103-48bb-8eeb-4ba615ec1d2c",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "e13bd6ba-3627-4685-a049-6d5875c0c4c1",
+      "id_v1": "idv1/17",
+      "metadata": {
+        "archetype": "hue_lightstrip",
+        "name": "Playroom (IISR)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LCL001",
+        "product_archetype": "hue_lightstrip",
+        "product_name": "Hue lightstrip plus",
+        "software_version": "1.88.2"
+      },
+      "services": [
+        {
+          "rid": "8ac8527a-dd74-48bf-81e1-a0d64f9fcbb9",
+          "rtype": "light"
+        },
+        {
+          "rid": "6117d33c-04c2-4099-9460-b373b6d5bcb0",
+          "rtype": "zigbee_connectivity"
+        },
+        {
+          "rid": "5813c039-a803-4c33-a730-1cf123dddbf7",
+          "rtype": "entertainment"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "6a1c5944-746d-481f-86d8-7c29fd59a02e",
+      "id_v1": "idv1/18",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Dining Room (AVZ4)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LTG002",
+        "product_archetype": "spot_bulb",
+        "product_name": "Hue ambiance spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "db28b333-8d17-4b99-b301-565e1d1bcd83",
+          "rtype": "light"
+        },
+        {
+          "rid": "49d7dfd4-9de8-4bb8-92bc-ba24fa10eed8",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "3e490c1b-efb8-448a-a240-f050d4d264a7",
+      "id_v1": "idv1/19",
+      "metadata": {
+        "archetype": "hue_centris",
+        "name": "Bedroom (kOIo)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "5060731P7_03",
+        "product_archetype": "hue_centris",
+        "product_name": "Hue Centris spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "35c48b2a-f0d5-4ae3-a689-46358e8f7a27",
+          "rtype": "light"
+        },
+        {
+          "rid": "950ea346-0087-45a3-aa7b-7ea68cf5c98d",
+          "rtype": "zigbee_connectivity"
+        },
+        {
+          "rid": "f6202f12-509a-495a-8821-ee52cb3bf09b",
+          "rtype": "entertainment"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "3e125374-bc4c-47cb-a83e-0339baa34723",
+      "id_v1": "idv1/20",
+      "metadata": {
+        "archetype": "hue_centris",
+        "name": "Dining Room (r03l)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "5060731P7_04",
+        "product_archetype": "hue_centris",
+        "product_name": "Hue Centris spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "333dcf41-cfda-4c8e-bb1b-f7a9e0041544",
+          "rtype": "light"
+        },
+        {
+          "rid": "41f1493f-c655-4907-a701-46cbb39a3d5a",
+          "rtype": "zigbee_connectivity"
+        },
+        {
+          "rid": "92d58932-91de-48d5-a25e-cb1c3871876d",
+          "rtype": "entertainment"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "496cb309-79ad-4a46-8271-7997a63eb8e3",
+      "id_v1": "idv1/21",
+      "metadata": {
+        "archetype": "hue_centris",
+        "name": "Guest Room (YT5Q)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "5060731P7_01",
+        "product_archetype": "hue_centris",
+        "product_name": "Hue Centris ceiling",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "49c922c3-3c97-4c86-b827-91a1ec909d8c",
+          "rtype": "light"
+        },
+        {
+          "rid": "d4f1b17e-0b9e-4f15-a36c-ece29a154579",
+          "rtype": "zigbee_connectivity"
+        },
+        {
+          "rid": "19f34c5a-70b7-45a5-9a99-91c228de4f75",
+          "rtype": "entertainment"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "ffebd167-8373-4eed-aea7-38a14bca522e",
+      "id_v1": "idv1/22",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Home Office (hWL6)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LTG002",
+        "product_archetype": "spot_bulb",
+        "product_name": "Hue ambiance spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "156acf18-af29-4ebd-a963-a186b6019c5f",
+          "rtype": "light"
+        },
+        {
+          "rid": "3ebd0e8f-8294-423c-920a-526a594108e3",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "37866cba-6fb2-4ca7-a63d-3b39e9478b33",
+      "id_v1": "idv1/23",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Playroom (L0c6)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LTG002",
+        "product_archetype": "spot_bulb",
+        "product_name": "Hue ambiance spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "e138b6f2-c996-402b-8318-fa3f8788efc4",
+          "rtype": "light"
+        },
+        {
+          "rid": "f48d6ee5-86a3-407c-8b96-bc7c33cb01ce",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "5771c2cf-48dc-47c9-8ae9-485d7b75686a",
+      "id_v1": "idv1/24",
+      "metadata": {
+        "archetype": "hue_lightstrip",
+        "name": "Basement (2mFV)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LCL001",
+        "product_archetype": "hue_lightstrip",
+        "product_name": "Hue lightstrip plus",
+        "software_version": "1.88.2"
+      },
+      "services": [
+        {
+          "rid": "da2871d8-b24d-4dbc-a0d9-2861cdb954a6",
+          "rtype": "light"
+        },
+        {
+          "rid": "77bad4e6-df2a-435c-8747-632de239c9fc",
+          "rtype": "zigbee_connectivity"
+        },
+        {
+          "rid": "52f97dbb-ab38-4564-a4b8-fd6f20c6fd1a",
+          "rtype": "entertainment"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "9d383649-2f71-472d-8166-1c8a5a60319f",
+      "id_v1": "idv1/25",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Playroom (HGeP)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LTG002",
+        "product_archetype": "spot_bulb",
+        "product_name": "Hue ambiance spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "60be30a3-7b21-4120-9161-d3d544108513",
+          "rtype": "light"
+        },
+        {
+          "rid": "9d0840a0-c1ee-40f5-99d5-2584105b9adf",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "156efd29-a427-4324-8bb4-59e4a0368307",
+      "id_v1": "idv1/26",
+      "metadata": {
+        "archetype": "unknown_archetype",
+        "name": "Playroom (WjmH)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "RDM001",
+        "product_archetype": "unknown_archetype",
+        "product_name": "Hue wall switch module",
+        "software_version": "1.0.3"
+      },
+      "services": [
+        {
+          "rid": "7e97703a-d72e-4adb-9355-803eb3db6c81",
+          "rtype": "button"
+        },
+        {
+          "rid": "05b8e3eb-ae00-4709-9c45-a111dabada51",
+          "rtype": "device_power"
+        },
+        {
+          "rid": "68511d7f-1c43-407a-9776-71c31756889b",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "698bcfd1-e0ae-4155-8793-6323ea3f6345",
+      "id_v1": "idv1/27",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Library (t8e1)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LCG002",
+        "product_archetype": "spot_bulb",
+        "product_name": "Hue color spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "6c202cd9-a897-439e-baf6-0458edecb906",
+          "rtype": "light"
+        },
+        {
+          "rid": "c8a5d9c6-b98e-4247-a5bd-d45411103b09",
+          "rtype": "zigbee_connectivity"
+        },
+        {
+          "rid": "321532ed-1659-45c6-8c8d-5b255ee4498d",
+          "rtype": "entertainment"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "0c5e7ba6-fd7c-4376-b604-2f7a503c224c",
+      "id_v1": "idv1/28",
+      "metadata": {
+        "archetype": "unknown_archetype",
+        "name": "Dining Room (fE41)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "PhilipsFoH",
+        "model_id": "FOHSWITCH",
+        "product_archetype": "unknown_archetype",
+        "product_name": "Friends of Hue Switch",
+        "software_version": "0.0.0"
+      },
+      "services": [
+        {
+          "rid": "f10f81c7-6aea-4efa-a755-a69e45bc1608",
+          "rtype": "button"
+        },
+        {
+          "rid": "f223b916-876c-43de-a82b-15a04cfead21",
+          "rtype": "button"
+        },
+        {
+          "rid": "17ee1f35-f3b2-49c3-a9e1-0075b13a0cea",
+          "rtype": "button"
+        },
+        {
+          "rid": "6dd175e2-27f0-42f7-95fa-68a83e52463f",
+          "rtype": "button"
+        },
+        {
+          "rid": "3d317054-b59e-4c12-9102-7051e88cb381",
+          "rtype": "zgp_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "4ba4831b-6551-42cf-afce-d591335e6167",
+      "id_v1": "idv1/29",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Storage Room (RWJ9)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LTG002",
+        "product_archetype": "spot_bulb",
+        "product_name": "Hue ambiance spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "3e26f6e8-9b00-4f9d-bd4c-9cdd4bd0b319",
+          "rtype": "light"
+        },
+        {
+          "rid": "a77ffdb1-4688-41b4-b3a5-923bfdb1f060",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "4cb85d9c-ca14-4916-a4ee-b59d1ff5146f",
+      "id_v1": "idv1/30",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Library (y62G)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LTG002",
+        "product_archetype": "spot_bulb",
+        "product_name": "Hue ambiance spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "35bcd75c-d80e-41f0-871d-103980944d16",
+          "rtype": "light"
+        },
+        {
+          "rid": "16518145-1790-424d-ba62-81876b5d3f2a",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "0ecc23f4-b241-4543-a48e-c6356a58d7ac",
+      "id_v1": "idv1/31",
+      "metadata": {
+        "archetype": "unknown_archetype",
+        "name": "Library (rnUZ)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "PhilipsFoH",
+        "model_id": "FOHSWITCH",
+        "product_archetype": "unknown_archetype",
+        "product_name": "Friends of Hue Switch",
+        "software_version": "0.0.0"
+      },
+      "services": [
+        {
+          "rid": "dde3ba8e-a0bf-4b4c-864a-9cacc64b5e69",
+          "rtype": "button"
+        },
+        {
+          "rid": "3cb4e038-1d2d-497d-94dc-e5c738c12620",
+          "rtype": "button"
+        },
+        {
+          "rid": "8c17181f-2c01-4dbc-8135-18064feb9437",
+          "rtype": "button"
+        },
+        {
+          "rid": "ed523336-56c6-4096-8c2e-6cf713a46d66",
+          "rtype": "button"
+        },
+        {
+          "rid": "720d18da-31d8-438e-b1d2-dae5d4b1420d",
+          "rtype": "zgp_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "b8e386c8-1567-417f-a8fe-d9b80f151a04",
+      "id_v1": "idv1/32",
+      "metadata": {
+        "archetype": "unknown_archetype",
+        "name": "Family Room (8r0x)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "ROM001",
+        "product_archetype": "unknown_archetype",
+        "product_name": "Hue Smart button",
+        "software_version": "2.47.8"
+      },
+      "services": [
+        {
+          "rid": "7cb8646e-360b-4ae3-87cd-ed298c536254",
+          "rtype": "button"
+        },
+        {
+          "rid": "79b1caf6-26fc-4017-adaf-ec047c3f61b6",
+          "rtype": "device_power"
+        },
+        {
+          "rid": "9e2629cf-c789-4cca-b296-9341c86a7ce4",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "77ef71d3-79b9-4cf8-bf55-ddd0121ecc77",
+      "id_v1": "idv1/33",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Family Room (HqfT)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LCG002",
+        "product_archetype": "spot_bulb",
+        "product_name": "Hue color spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "f3828b13-fea4-45fa-b9f8-32ae8556bbb4",
+          "rtype": "light"
+        },
+        {
+          "rid": "0fa244c0-87c3-456e-93b2-1bb6552db15e",
+          "rtype": "zigbee_connectivity"
+        },
+        {
+          "rid": "f4680acc-07fa-4c37-85b7-f87832fe4a55",
+          "rtype": "entertainment"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "d3563f81-ec0b-405f-beb3-7bdc9a8eb7ed",
+      "id_v1": "idv1/34",
+      "metadata": {
+        "archetype": "hue_centris",
+        "name": "Game Room (I3yr)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "5060731P7_05",
+        "product_archetype": "hue_centris",
+        "product_name": "Hue Centris spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "4fa7c8ce-ac33-404a-b141-afeafbe74809",
+          "rtype": "light"
+        },
+        {
+          "rid": "3db773f7-d27c-45e5-820e-dde6934ed400",
+          "rtype": "zigbee_connectivity"
+        },
+        {
+          "rid": "43822a35-e24a-4e20-a2b5-ba3bb7ba2842",
+          "rtype": "entertainment"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "34f810bd-02ac-4092-a025-9b9f525b3022",
+      "id_v1": "idv1/35",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Bedroom (mh8f)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LTG002",
+        "product_archetype": "spot_bulb",
+        "product_name": "Hue ambiance spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "a716df09-7ac1-4aa1-9bc2-4fef8cbcd8da",
+          "rtype": "light"
+        },
+        {
+          "rid": "868b10da-cec5-433c-8887-e22376cf6282",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "6e1d64a0-bc3d-4417-9cba-10b0b4a85c2a",
+      "id_v1": "idv1/36",
+      "metadata": {
+        "archetype": "unknown_archetype",
+        "name": "Kitchen (BAXa)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "PhilipsFoH",
+        "model_id": "FOHSWITCH",
+        "product_archetype": "unknown_archetype",
+        "product_name": "Friends of Hue Switch",
+        "software_version": "0.0.0"
+      },
+      "services": [
+        {
+          "rid": "fad3c285-8758-4989-abff-b68219a188bd",
+          "rtype": "button"
+        },
+        {
+          "rid": "6d578a77-5736-4770-8239-c4e457083df4",
+          "rtype": "button"
+        },
+        {
+          "rid": "35a2e8f0-0130-4a82-a41f-93f28098d845",
+          "rtype": "button"
+        },
+        {
+          "rid": "62eefb44-0369-49bf-a8cc-3a06bd6fe7f5",
+          "rtype": "button"
+        },
+        {
+          "rid": "55dd74ca-76eb-4586-8c07-8264787eefb7",
+          "rtype": "zgp_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "b14ef533-20d1-4367-825d-e67fcd73a075",
+      "id_v1": "idv1/37",
+      "metadata": {
+        "archetype": "hue_centris",
+        "name": "Bedroom (fdID)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "5060831P7_03",
+        "product_archetype": "hue_centris",
+        "product_name": "Hue Centris spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "9cceef87-0aa7-4a03-92e2-ac9d771d531a",
+          "rtype": "light"
+        },
+        {
+          "rid": "108ec0f7-d921-4c6d-9b24-7ed7b6e19380",
+          "rtype": "zigbee_connectivity"
+        },
+        {
+          "rid": "7353b74a-fd04-443e-bf95-c5ed4efbb9db",
+          "rtype": "entertainment"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "d78840a9-d1ff-408c-862d-3bd0097b4446",
+      "id_v1": "idv1/38",
+      "metadata": {
+        "archetype": "hue_centris",
+        "name": "Living Room (ameq)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "5060831P7_02",
+        "product_archetype": "hue_centris",
+        "product_name": "Hue Centris spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "dda9caff-e105-4686-958c-7f6cdb71a8fb",
+          "rtype": "light"
+        },
+        {
+          "rid": "46acc7cc-472f-4fa7-97c1-4957c74d3a16",
+          "rtype": "zigbee_connectivity"
+        },
+        {
+          "rid": "dfc47773-e3ce-454b-90fa-ed037f2f5c7f",
+          "rtype": "entertainment"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "77c8349f-7310-44cf-94b2-4c2f798a5c89",
+      "id_v1": "idv1/39",
+      "metadata": {
+        "archetype": "unknown_archetype",
+        "name": "Guest Room (lWvR)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "PhilipsFoH",
+        "model_id": "FOHSWITCH",
+        "product_archetype": "unknown_archetype",
+        "product_name": "Friends of Hue Switch",
+        "software_version": "0.0.0"
+      },
+      "services": [
+        {
+          "rid": "9f4461eb-6560-4cc3-88a5-0372197c92bb",
+          "rtype": "button"
+        },
+        {
+          "rid": "8b337f83-aafc-47a6-947d-abbbad7c4f5b",
+          "rtype": "button"
+        },
+        {
+          "rid": "b44f4183-2440-42b1-bb1f-1ef6fa9ca891",
+          "rtype": "button"
+        },
+        {
+          "rid": "7e61358d-3aa9-4e61-aadb-4924ef32a72c",
+          "rtype": "button"
+        },
+        {
+          "rid": "e91aa189-094e-4f6e-9260-73d88f99ae31",
+          "rtype": "zgp_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "f3c5649f-3f6f-4787-8628-7bbf56f61c20",
+      "id_v1": "idv1/40",
+      "metadata": {
+        "archetype": "hue_centris",
+        "name": "Guest Room (Uq0d)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "5060831P7_01",
+        "product_archetype": "hue_centris",
+        "product_name": "Hue Centris ceiling",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "819a22da-ca95-4ff7-9a44-48e1a8bf72ae",
+          "rtype": "light"
+        },
+        {
+          "rid": "378c57f3-ff36-417e-a457-41a60dd6bf30",
+          "rtype": "zigbee_connectivity"
+        },
+        {
+          "rid": "ee4cc5fb-ff5f-4d8c-9664-7149cc419ad1",
+          "rtype": "entertainment"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "89264700-c386-4284-97e8-1b4a6746966b",
+      "id_v1": "idv1/41",
+      "metadata": {
+        "archetype": "unknown_archetype",
+        "name": "Game Room (ISdf)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "SML001",
+        "product_archetype": "unknown_archetype",
+        "product_name": "Hue motion sensor",
+        "software_version": "1.1.27575"
+      },
+      "services": [
+        {
+          "rid": "f6519f25-0329-4fd6-b105-f46a34880755",
+          "rtype": "motion"
+        },
+        {
+          "rid": "b40754c0-826a-4964-acfa-f2aec03132cd",
+          "rtype": "device_power"
+        },
+        {
+          "rid": "85cc2425-4b9e-4a99-974b-0bda9d16a1a6",
+          "rtype": "zigbee_connectivity"
+        },
+        {
+          "rid": "9dc6b279-f97d-4f62-94e3-4335e25741b2",
+          "rtype": "light_level"
+        },
+        {
+          "rid": "f38996ee-4111-4c69-8d65-e7dd2c50f149",
+          "rtype": "temperature"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "ea175df1-c987-4520-b18c-6ee7f0350e58",
+      "id_v1": "idv1/42",
+      "metadata": {
+        "archetype": "unknown_archetype",
+        "name": "Playroom (nWS0)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "PhilipsFoH",
+        "model_id": "FOHSWITCH",
+        "product_archetype": "unknown_archetype",
+        "product_name": "Friends of Hue Switch",
+        "software_version": "0.0.0"
+      },
+      "services": [
+        {
+          "rid": "e23e353b-61ce-4dc2-a938-46cadf770092",
+          "rtype": "button"
+        },
+        {
+          "rid": "29b70050-0d8b-493c-a6fd-749335b12803",
+          "rtype": "button"
+        },
+        {
+          "rid": "e35cb449-8401-41c1-b686-39ab9bfffc15",
+          "rtype": "button"
+        },
+        {
+          "rid": "886f468e-094e-49cc-95ce-9fbcc0f0b063",
+          "rtype": "button"
+        },
+        {
+          "rid": "c9f8eda7-70a7-470c-8620-27f1d0580f2d",
+          "rtype": "zgp_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "84b45b66-305b-4e97-aab1-145c7d700aff",
+      "id_v1": "idv1/43",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Game Room (vyOQ)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LTG002",
+        "product_archetype": "spot_bulb",
+        "product_name": "Hue ambiance spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "7e2aadae-552a-443f-b27d-42a8aea9b28d",
+          "rtype": "light"
+        },
+        {
+          "rid": "14b85292-eb52-476c-83b8-f32bd998f222",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    },
+    {
+      "id": "60732df1-3cdd-4a10-b996-a188d96f8d27",
+      "id_v1": "idv1/44",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Game Room (1xZE)"
+      },
+      "product_data": {
+        "certified": true,
+        "manufacturer_name": "Signify Netherlands B.V.",
+        "model_id": "LTG002",
+        "product_archetype": "spot_bulb",
+        "product_name": "Hue ambiance spot",
+        "software_version": "1.93.3"
+      },
+      "services": [
+        {
+          "rid": "7cee2e77-f7d2-4f4f-b911-a14a726edfe6",
+          "rtype": "light"
+        },
+        {
+          "rid": "4c7ae50b-9500-4a25-b35d-8821005fbd3b",
+          "rtype": "zigbee_connectivity"
+        }
+      ],
+      "type": "device"
+    }
+  ]
+}

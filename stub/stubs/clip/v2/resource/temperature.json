@@ -1,0 +1,33 @@
+{
+  "errors": [],
+  "data": [
+    {
+      "enabled": true,
+      "id": "84d4f11f-9ac3-4090-84dd-da8c98324faa",
+      "id_v1": "idv1/66",
+      "owner": {
+        "rid": "754acb08-1e9f-4946-aa4a-ee7b604c7354",
+        "rtype": "device"
+      },
+      "temperature": {
+        "temperature": 21.940000534057617,
+        "temperature_valid": true
+      },
+      "type": "temperature"
+    },
+    {
+      "enabled": true,
+      "id": "f38996ee-4111-4c69-8d65-e7dd2c50f149",
+      "id_v1": "idv1/67",
+      "owner": {
+        "rid": "89264700-c386-4284-97e8-1b4a6746966b",
+        "rtype": "device"
+      },
+      "temperature": {
+        "temperature": 21.729999542236328,
+        "temperature_valid": true
+      },
+      "type": "temperature"
+    }
+  ]
+}

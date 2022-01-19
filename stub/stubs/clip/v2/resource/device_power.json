@@ -1,0 +1,96 @@
+{
+  "errors": [],
+  "data": [
+    {
+      "id": "0301cc00-1cb4-4872-b4eb-1b70fe1248e7",
+      "id_v1": "idv1/9",
+      "owner": {
+        "rid": "e1fe70f2-faa9-4df4-8b73-7f5cabf8e22f",
+        "rtype": "device"
+      },
+      "power_state": {
+        "battery_level": 100,
+        "battery_state": "normal"
+      },
+      "type": "device_power"
+    },
+    {
+      "id": "2ee436c8-cd0d-4a0f-9be5-57ed1c4ee929",
+      "id_v1": "idv1/10",
+      "owner": {
+        "rid": "754acb08-1e9f-4946-aa4a-ee7b604c7354",
+        "rtype": "device"
+      },
+      "power_state": {
+        "battery_level": 95,
+        "battery_state": "normal"
+      },
+      "type": "device_power"
+    },
+    {
+      "id": "f8617ab2-7743-45e7-b4b1-dede688b8b68",
+      "id_v1": "idv1/11",
+      "owner": {
+        "rid": "2f922f53-d164-44be-84fe-955a709e1d12",
+        "rtype": "device"
+      },
+      "power_state": {
+        "battery_level": 100,
+        "battery_state": "normal"
+      },
+      "type": "device_power"
+    },
+    {
+      "id": "2c9ff220-6cc8-449b-8c45-0773c5bed055",
+      "id_v1": "idv1/14",
+      "owner": {
+        "rid": "3e1779fd-79a7-4897-96f3-dad9e77302f7",
+        "rtype": "device"
+      },
+      "power_state": {
+        "battery_level": 100,
+        "battery_state": "normal"
+      },
+      "type": "device_power"
+    },
+    {
+      "id": "05b8e3eb-ae00-4709-9c45-a111dabada51",
+      "id_v1": "idv1/26",
+      "owner": {
+        "rid": "156efd29-a427-4324-8bb4-59e4a0368307",
+        "rtype": "device"
+      },
+      "power_state": {
+        "battery_level": 100,
+        "battery_state": "normal"
+      },
+      "type": "device_power"
+    },
+    {
+      "id": "79b1caf6-26fc-4017-adaf-ec047c3f61b6",
+      "id_v1": "idv1/32",
+      "owner": {
+        "rid": "b8e386c8-1567-417f-a8fe-d9b80f151a04",
+        "rtype": "device"
+      },
+      "power_state": {
+        "battery_level": 100,
+        "battery_state": "normal"
+      },
+      "type": "device_power"
+    },
+    {
+      "id": "b40754c0-826a-4964-acfa-f2aec03132cd",
+      "id_v1": "idv1/41",
+      "owner": {
+        "rid": "89264700-c386-4284-97e8-1b4a6746966b",
+        "rtype": "device"
+      },
+      "power_state": {
+        "battery_level": 100,
+        "battery_state": "normal"
+      },
+      "type": "device_power"
+    }
+  ]
+}

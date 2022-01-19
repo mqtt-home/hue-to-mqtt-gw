@@ -1,0 +1,458 @@
+{
+  "errors": [],
+  "data": [
+    {
+      "id": "fdd2c73f-f922-4696-846c-5bc62e1a91e0",
+      "id_v1": "idv1/2",
+      "metadata": {
+        "control_id": 1
+      },
+      "owner": {
+        "rid": "4ce8fdec-ebd3-4522-85c0-58303c577de2",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "id": "2ba5b145-ea58-4c9f-8971-41ce5798ee29",
+      "id_v1": "idv1/2",
+      "metadata": {
+        "control_id": 2
+      },
+      "owner": {
+        "rid": "4ce8fdec-ebd3-4522-85c0-58303c577de2",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "id": "3cbfec83-f480-4e0d-aafc-ab997ab51c0a",
+      "id_v1": "idv1/2",
+      "metadata": {
+        "control_id": 3
+      },
+      "owner": {
+        "rid": "4ce8fdec-ebd3-4522-85c0-58303c577de2",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "button": {
+        "last_event": "short_release"
+      },
+      "id": "ddcd4a93-502b-4149-ad52-0aa0f548e46b",
+      "id_v1": "idv1/2",
+      "metadata": {
+        "control_id": 4
+      },
+      "owner": {
+        "rid": "4ce8fdec-ebd3-4522-85c0-58303c577de2",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "id": "fc847306-10dd-4399-ae9a-d55e54907847",
+      "id_v1": "idv1/8",
+      "metadata": {
+        "control_id": 1
+      },
+      "owner": {
+        "rid": "b19c7161-7c93-46d3-bbe7-d1fe080b4298",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "button": {
+        "last_event": "short_release"
+      },
+      "id": "5bcf2789-6064-4892-b919-cd6a7830c1cb",
+      "id_v1": "idv1/8",
+      "metadata": {
+        "control_id": 2
+      },
+      "owner": {
+        "rid": "b19c7161-7c93-46d3-bbe7-d1fe080b4298",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "id": "f1b1e90d-7eca-4826-b6dc-b7d37bbc67f8",
+      "id_v1": "idv1/8",
+      "metadata": {
+        "control_id": 3
+      },
+      "owner": {
+        "rid": "b19c7161-7c93-46d3-bbe7-d1fe080b4298",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "id": "1803eab4-2217-4c17-b118-e15a25b7a6a9",
+      "id_v1": "idv1/8",
+      "metadata": {
+        "control_id": 4
+      },
+      "owner": {
+        "rid": "b19c7161-7c93-46d3-bbe7-d1fe080b4298",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "button": {
+        "last_event": "short_release"
+      },
+      "id": "f979ce30-69b4-4212-b6c5-dd24f24b89ca",
+      "id_v1": "idv1/9",
+      "metadata": {
+        "control_id": 1
+      },
+      "owner": {
+        "rid": "e1fe70f2-faa9-4df4-8b73-7f5cabf8e22f",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "button": {
+        "last_event": "short_release"
+      },
+      "id": "188e851c-d976-4955-b113-198a187e9982",
+      "id_v1": "idv1/11",
+      "metadata": {
+        "control_id": 1
+      },
+      "owner": {
+        "rid": "2f922f53-d164-44be-84fe-955a709e1d12",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "id": "cf610a50-d650-43fa-af4d-d322bb8a47ab",
+      "id_v1": "idv1/11",
+      "metadata": {
+        "control_id": 2
+      },
+      "owner": {
+        "rid": "2f922f53-d164-44be-84fe-955a709e1d12",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "button": {
+        "last_event": "short_release"
+      },
+      "id": "2cf02078-19d2-4dce-a581-1426347bdbbe",
+      "id_v1": "idv1/14",
+      "metadata": {
+        "control_id": 1
+      },
+      "owner": {
+        "rid": "3e1779fd-79a7-4897-96f3-dad9e77302f7",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "button": {
+        "last_event": "short_release"
+      },
+      "id": "7e97703a-d72e-4adb-9355-803eb3db6c81",
+      "id_v1": "idv1/26",
+      "metadata": {
+        "control_id": 1
+      },
+      "owner": {
+        "rid": "156efd29-a427-4324-8bb4-59e4a0368307",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "button": {
+        "last_event": "none"
+      },
+      "id": "f10f81c7-6aea-4efa-a755-a69e45bc1608",
+      "id_v1": "idv1/28",
+      "metadata": {
+        "control_id": 1
+      },
+      "owner": {
+        "rid": "0c5e7ba6-fd7c-4376-b604-2f7a503c224c",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "button": {
+        "last_event": "none"
+      },
+      "id": "f223b916-876c-43de-a82b-15a04cfead21",
+      "id_v1": "idv1/28",
+      "metadata": {
+        "control_id": 2
+      },
+      "owner": {
+        "rid": "0c5e7ba6-fd7c-4376-b604-2f7a503c224c",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "button": {
+        "last_event": "none"
+      },
+      "id": "17ee1f35-f3b2-49c3-a9e1-0075b13a0cea",
+      "id_v1": "idv1/28",
+      "metadata": {
+        "control_id": 3
+      },
+      "owner": {
+        "rid": "0c5e7ba6-fd7c-4376-b604-2f7a503c224c",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "button": {
+        "last_event": "none"
+      },
+      "id": "6dd175e2-27f0-42f7-95fa-68a83e52463f",
+      "id_v1": "idv1/28",
+      "metadata": {
+        "control_id": 4
+      },
+      "owner": {
+        "rid": "0c5e7ba6-fd7c-4376-b604-2f7a503c224c",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "id": "dde3ba8e-a0bf-4b4c-864a-9cacc64b5e69",
+      "id_v1": "idv1/31",
+      "metadata": {
+        "control_id": 1
+      },
+      "owner": {
+        "rid": "0ecc23f4-b241-4543-a48e-c6356a58d7ac",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "id": "3cb4e038-1d2d-497d-94dc-e5c738c12620",
+      "id_v1": "idv1/31",
+      "metadata": {
+        "control_id": 2
+      },
+      "owner": {
+        "rid": "0ecc23f4-b241-4543-a48e-c6356a58d7ac",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "button": {
+        "last_event": "short_release"
+      },
+      "id": "8c17181f-2c01-4dbc-8135-18064feb9437",
+      "id_v1": "idv1/31",
+      "metadata": {
+        "control_id": 3
+      },
+      "owner": {
+        "rid": "0ecc23f4-b241-4543-a48e-c6356a58d7ac",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "id": "ed523336-56c6-4096-8c2e-6cf713a46d66",
+      "id_v1": "idv1/31",
+      "metadata": {
+        "control_id": 4
+      },
+      "owner": {
+        "rid": "0ecc23f4-b241-4543-a48e-c6356a58d7ac",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "button": {
+        "last_event": "short_release"
+      },
+      "id": "7cb8646e-360b-4ae3-87cd-ed298c536254",
+      "id_v1": "idv1/32",
+      "metadata": {
+        "control_id": 1
+      },
+      "owner": {
+        "rid": "b8e386c8-1567-417f-a8fe-d9b80f151a04",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "id": "fad3c285-8758-4989-abff-b68219a188bd",
+      "id_v1": "idv1/36",
+      "metadata": {
+        "control_id": 1
+      },
+      "owner": {
+        "rid": "6e1d64a0-bc3d-4417-9cba-10b0b4a85c2a",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "button": {
+        "last_event": "short_release"
+      },
+      "id": "6d578a77-5736-4770-8239-c4e457083df4",
+      "id_v1": "idv1/36",
+      "metadata": {
+        "control_id": 2
+      },
+      "owner": {
+        "rid": "6e1d64a0-bc3d-4417-9cba-10b0b4a85c2a",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "id": "35a2e8f0-0130-4a82-a41f-93f28098d845",
+      "id_v1": "idv1/36",
+      "metadata": {
+        "control_id": 3
+      },
+      "owner": {
+        "rid": "6e1d64a0-bc3d-4417-9cba-10b0b4a85c2a",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "id": "62eefb44-0369-49bf-a8cc-3a06bd6fe7f5",
+      "id_v1": "idv1/36",
+      "metadata": {
+        "control_id": 4
+      },
+      "owner": {
+        "rid": "6e1d64a0-bc3d-4417-9cba-10b0b4a85c2a",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "button": {
+        "last_event": "short_release"
+      },
+      "id": "9f4461eb-6560-4cc3-88a5-0372197c92bb",
+      "id_v1": "idv1/39",
+      "metadata": {
+        "control_id": 1
+      },
+      "owner": {
+        "rid": "77c8349f-7310-44cf-94b2-4c2f798a5c89",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "id": "8b337f83-aafc-47a6-947d-abbbad7c4f5b",
+      "id_v1": "idv1/39",
+      "metadata": {
+        "control_id": 2
+      },
+      "owner": {
+        "rid": "77c8349f-7310-44cf-94b2-4c2f798a5c89",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "id": "b44f4183-2440-42b1-bb1f-1ef6fa9ca891",
+      "id_v1": "idv1/39",
+      "metadata": {
+        "control_id": 3
+      },
+      "owner": {
+        "rid": "77c8349f-7310-44cf-94b2-4c2f798a5c89",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "id": "7e61358d-3aa9-4e61-aadb-4924ef32a72c",
+      "id_v1": "idv1/39",
+      "metadata": {
+        "control_id": 4
+      },
+      "owner": {
+        "rid": "77c8349f-7310-44cf-94b2-4c2f798a5c89",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "id": "e23e353b-61ce-4dc2-a938-46cadf770092",
+      "id_v1": "idv1/42",
+      "metadata": {
+        "control_id": 1
+      },
+      "owner": {
+        "rid": "ea175df1-c987-4520-b18c-6ee7f0350e58",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "id": "29b70050-0d8b-493c-a6fd-749335b12803",
+      "id_v1": "idv1/42",
+      "metadata": {
+        "control_id": 2
+      },
+      "owner": {
+        "rid": "ea175df1-c987-4520-b18c-6ee7f0350e58",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "button": {
+        "last_event": "short_release"
+      },
+      "id": "e35cb449-8401-41c1-b686-39ab9bfffc15",
+      "id_v1": "idv1/42",
+      "metadata": {
+        "control_id": 3
+      },
+      "owner": {
+        "rid": "ea175df1-c987-4520-b18c-6ee7f0350e58",
+        "rtype": "device"
+      },
+      "type": "button"
+    },
+    {
+      "id": "886f468e-094e-49cc-95ce-9fbcc0f0b063",
+      "id_v1": "idv1/42",
+      "metadata": {
+        "control_id": 4
+      },
+      "owner": {
+        "rid": "ea175df1-c987-4520-b18c-6ee7f0350e58",
+        "rtype": "device"
+      },
+      "type": "button"
+    }
+  ]
+}

@@ -1,0 +1,1922 @@
+{
+  "errors": [],
+  "data": [
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color": {
+        "gamut": {
+          "blue": {
+            "x": 0.1532,
+            "y": 0.0475
+          },
+          "green": {
+            "x": 0.17,
+            "y": 0.7
+          },
+          "red": {
+            "x": 0.6915,
+            "y": 0.3083
+          }
+        },
+        "gamut_type": "C",
+        "xy": {
+          "x": 0.4452,
+          "y": 0.4068
+        }
+      },
+      "color_temperature": {
+        "mirek": null,
+        "mirek_schema": {
+          "mirek_maximum": 500,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": false
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none",
+          "dynamic_palette"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ]
+      },
+      "id": "6e3d82ff-fea2-4e91-a4ca-197ed24d5bc6",
+      "id_v1": "idv1/1",
+      "metadata": {
+        "archetype": "hue_centris",
+        "name": "Kitchen (ASIp)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "743163a9-2bd3-4eae-a73e-6dfd72ef0ea6",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color_temperature": {
+        "mirek": 366,
+        "mirek_schema": {
+          "mirek_maximum": 454,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle"
+        ]
+      },
+      "id": "f55fe662-ecda-4cf8-bf6c-400851e5ca03",
+      "id_v1": "idv1/3",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Living Room (WVPi)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": true
+      },
+      "owner": {
+        "rid": "38c559b0-f8f6-44e6-8037-8e159dd1c0c3",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color": {
+        "gamut": {
+          "blue": {
+            "x": 0.1532,
+            "y": 0.0475
+          },
+          "green": {
+            "x": 0.17,
+            "y": 0.7
+          },
+          "red": {
+            "x": 0.6915,
+            "y": 0.3083
+          }
+        },
+        "gamut_type": "C",
+        "xy": {
+          "x": 0.4575,
+          "y": 0.4099
+        }
+      },
+      "color_temperature": {
+        "mirek": 366,
+        "mirek_schema": {
+          "mirek_maximum": 500,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.03999999910593033
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none",
+          "dynamic_palette"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ]
+      },
+      "id": "f3e268d1-4815-49e4-a048-e2f505a55ab2",
+      "id_v1": "idv1/4",
+      "metadata": {
+        "archetype": "hue_lightstrip",
+        "name": "Dining Room (qFS6)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "62e5ce4b-2233-4eab-aaca-a4c4d035b2a7",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color": {
+        "gamut": {
+          "blue": {
+            "x": 0.1532,
+            "y": 0.0475
+          },
+          "green": {
+            "x": 0.17,
+            "y": 0.7
+          },
+          "red": {
+            "x": 0.6915,
+            "y": 0.3083
+          }
+        },
+        "gamut_type": "C",
+        "xy": {
+          "x": 0.2004,
+          "y": 0.5948
+        }
+      },
+      "color_temperature": {
+        "mirek": null,
+        "mirek_schema": {
+          "mirek_maximum": 500,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": false
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none",
+          "dynamic_palette"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ]
+      },
+      "id": "7220af2f-9711-4eab-8319-53872cc9cc06",
+      "id_v1": "idv1/5",
+      "metadata": {
+        "archetype": "hue_centris",
+        "name": "Home Office (YC0a)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "50bbbec8-82f6-42f4-959e-8721efaa188c",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color": {
+        "gamut": {
+          "blue": {
+            "x": 0.1532,
+            "y": 0.0475
+          },
+          "green": {
+            "x": 0.17,
+            "y": 0.7
+          },
+          "red": {
+            "x": 0.6915,
+            "y": 0.3083
+          }
+        },
+        "gamut_type": "C",
+        "xy": {
+          "x": 0.4387,
+          "y": 0.4047
+        }
+      },
+      "color_temperature": {
+        "mirek": 336,
+        "mirek_schema": {
+          "mirek_maximum": 500,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 72.44,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none",
+          "dynamic_palette"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ]
+      },
+      "id": "586bb15d-9713-488a-afe5-d4af91705be6",
+      "id_v1": "idv1/6",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Guest Room (LS2e)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": true
+      },
+      "owner": {
+        "rid": "455560bc-1050-4dfd-8f88-07090e48fc59",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color_temperature": {
+        "mirek": 366,
+        "mirek_schema": {
+          "mirek_maximum": 454,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle"
+        ]
+      },
+      "id": "234c7916-e5d1-4c7a-b713-7a204cce6d3f",
+      "id_v1": "idv1/7",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Living Room (vXRO)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": true
+      },
+      "owner": {
+        "rid": "5d7bf44c-0d0f-46c6-86ba-f37b82339288",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": []
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none"
+        ]
+      },
+      "id": "7762ab77-3749-48ac-b650-9b60f3d61e5b",
+      "id_v1": "idv1/12",
+      "metadata": {
+        "archetype": "plug",
+        "name": "Gym Room (KPj0)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "53ca6c36-e171-448c-b91b-ccc0fb62bd83",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 5
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle"
+        ]
+      },
+      "id": "5327522d-dd48-48d0-b498-0c21c44e01f0",
+      "id_v1": "idv1/13",
+      "metadata": {
+        "archetype": "sultan_bulb",
+        "name": "Living Room (j0Ca)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "3534983a-050d-44f4-bb6d-350a4088d8bd",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color_temperature": {
+        "mirek": 366,
+        "mirek_schema": {
+          "mirek_maximum": 454,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle"
+        ]
+      },
+      "id": "962f7baf-f00b-41b6-a094-763405258278",
+      "id_v1": "idv1/15",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Bedroom (y102)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "2cf669e1-e6e5-4731-9d7a-73f2183073b7",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color_temperature": {
+        "mirek": 336,
+        "mirek_schema": {
+          "mirek_maximum": 454,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 72.44,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle"
+        ]
+      },
+      "id": "45c8dfdf-b33e-4c73-b16e-e4dd17ae55eb",
+      "id_v1": "idv1/16",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Gym Room (l9K5)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": true
+      },
+      "owner": {
+        "rid": "dd4b3d26-bdf4-41c8-94b0-6ea6759930ad",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color": {
+        "gamut": {
+          "blue": {
+            "x": 0.1532,
+            "y": 0.0475
+          },
+          "green": {
+            "x": 0.17,
+            "y": 0.7
+          },
+          "red": {
+            "x": 0.6915,
+            "y": 0.3083
+          }
+        },
+        "gamut_type": "C",
+        "xy": {
+          "x": 0.3687,
+          "y": 0.371
+        }
+      },
+      "color_temperature": {
+        "mirek": null,
+        "mirek_schema": {
+          "mirek_maximum": 500,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": false
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.03999999910593033
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none",
+          "dynamic_palette"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ]
+      },
+      "id": "8ac8527a-dd74-48bf-81e1-a0d64f9fcbb9",
+      "id_v1": "idv1/17",
+      "metadata": {
+        "archetype": "hue_lightstrip",
+        "name": "Playroom (IISR)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "e13bd6ba-3627-4685-a049-6d5875c0c4c1",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color_temperature": {
+        "mirek": 366,
+        "mirek_schema": {
+          "mirek_maximum": 454,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle"
+        ]
+      },
+      "id": "db28b333-8d17-4b99-b301-565e1d1bcd83",
+      "id_v1": "idv1/18",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Dining Room (AVZ4)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": true
+      },
+      "owner": {
+        "rid": "6a1c5944-746d-481f-86d8-7c29fd59a02e",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color": {
+        "gamut": {
+          "blue": {
+            "x": 0.1532,
+            "y": 0.0475
+          },
+          "green": {
+            "x": 0.17,
+            "y": 0.7
+          },
+          "red": {
+            "x": 0.6915,
+            "y": 0.3083
+          }
+        },
+        "gamut_type": "C",
+        "xy": {
+          "x": 0.4575,
+          "y": 0.4099
+        }
+      },
+      "color_temperature": {
+        "mirek": 366,
+        "mirek_schema": {
+          "mirek_maximum": 500,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none",
+          "dynamic_palette"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ]
+      },
+      "id": "35c48b2a-f0d5-4ae3-a689-46358e8f7a27",
+      "id_v1": "idv1/19",
+      "metadata": {
+        "archetype": "hue_centris",
+        "name": "Bedroom (kOIo)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "3e490c1b-efb8-448a-a240-f050d4d264a7",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color": {
+        "gamut": {
+          "blue": {
+            "x": 0.1532,
+            "y": 0.0475
+          },
+          "green": {
+            "x": 0.17,
+            "y": 0.7
+          },
+          "red": {
+            "x": 0.6915,
+            "y": 0.3083
+          }
+        },
+        "gamut_type": "C",
+        "xy": {
+          "x": 0.4575,
+          "y": 0.4099
+        }
+      },
+      "color_temperature": {
+        "mirek": 366,
+        "mirek_schema": {
+          "mirek_maximum": 500,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none",
+          "dynamic_palette"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ]
+      },
+      "id": "333dcf41-cfda-4c8e-bb1b-f7a9e0041544",
+      "id_v1": "idv1/20",
+      "metadata": {
+        "archetype": "hue_centris",
+        "name": "Dining Room (r03l)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "3e125374-bc4c-47cb-a83e-0339baa34723",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color": {
+        "gamut": {
+          "blue": {
+            "x": 0.1532,
+            "y": 0.0475
+          },
+          "green": {
+            "x": 0.17,
+            "y": 0.7
+          },
+          "red": {
+            "x": 0.6915,
+            "y": 0.3083
+          }
+        },
+        "gamut_type": "C",
+        "xy": {
+          "x": 0.4575,
+          "y": 0.4099
+        }
+      },
+      "color_temperature": {
+        "mirek": 366,
+        "mirek_schema": {
+          "mirek_maximum": 500,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none",
+          "dynamic_palette"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ]
+      },
+      "id": "49c922c3-3c97-4c86-b827-91a1ec909d8c",
+      "id_v1": "idv1/21",
+      "metadata": {
+        "archetype": "hue_centris",
+        "name": "Guest Room (YT5Q)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "496cb309-79ad-4a46-8271-7997a63eb8e3",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color_temperature": {
+        "mirek": 366,
+        "mirek_schema": {
+          "mirek_maximum": 454,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle"
+        ]
+      },
+      "id": "156acf18-af29-4ebd-a963-a186b6019c5f",
+      "id_v1": "idv1/22",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Home Office (hWL6)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "ffebd167-8373-4eed-aea7-38a14bca522e",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color_temperature": {
+        "mirek": 366,
+        "mirek_schema": {
+          "mirek_maximum": 454,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle"
+        ]
+      },
+      "id": "e138b6f2-c996-402b-8318-fa3f8788efc4",
+      "id_v1": "idv1/23",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Playroom (L0c6)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "37866cba-6fb2-4ca7-a63d-3b39e9478b33",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color": {
+        "gamut": {
+          "blue": {
+            "x": 0.1532,
+            "y": 0.0475
+          },
+          "green": {
+            "x": 0.17,
+            "y": 0.7
+          },
+          "red": {
+            "x": 0.6915,
+            "y": 0.3083
+          }
+        },
+        "gamut_type": "C",
+        "xy": {
+          "x": 0.561,
+          "y": 0.4042
+        }
+      },
+      "color_temperature": {
+        "mirek": null,
+        "mirek_schema": {
+          "mirek_maximum": 500,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": false
+      },
+      "dimming": {
+        "brightness": 0.39,
+        "min_dim_level": 0.03999999910593033
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none",
+          "dynamic_palette"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ]
+      },
+      "id": "da2871d8-b24d-4dbc-a0d9-2861cdb954a6",
+      "id_v1": "idv1/24",
+      "metadata": {
+        "archetype": "hue_lightstrip",
+        "name": "Basement (2mFV)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": true
+      },
+      "owner": {
+        "rid": "5771c2cf-48dc-47c9-8ae9-485d7b75686a",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color_temperature": {
+        "mirek": 366,
+        "mirek_schema": {
+          "mirek_maximum": 454,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle"
+        ]
+      },
+      "id": "60be30a3-7b21-4120-9161-d3d544108513",
+      "id_v1": "idv1/25",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Playroom (HGeP)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "9d383649-2f71-472d-8166-1c8a5a60319f",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color": {
+        "gamut": {
+          "blue": {
+            "x": 0.1532,
+            "y": 0.0475
+          },
+          "green": {
+            "x": 0.17,
+            "y": 0.7
+          },
+          "red": {
+            "x": 0.6915,
+            "y": 0.3083
+          }
+        },
+        "gamut_type": "C",
+        "xy": {
+          "x": 0.4575,
+          "y": 0.4099
+        }
+      },
+      "color_temperature": {
+        "mirek": 366,
+        "mirek_schema": {
+          "mirek_maximum": 500,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none",
+          "dynamic_palette"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ]
+      },
+      "id": "6c202cd9-a897-439e-baf6-0458edecb906",
+      "id_v1": "idv1/27",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Library (t8e1)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "698bcfd1-e0ae-4155-8793-6323ea3f6345",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color_temperature": {
+        "mirek": 366,
+        "mirek_schema": {
+          "mirek_maximum": 454,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle"
+        ]
+      },
+      "id": "3e26f6e8-9b00-4f9d-bd4c-9cdd4bd0b319",
+      "id_v1": "idv1/29",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Storage Room (RWJ9)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": true
+      },
+      "owner": {
+        "rid": "4ba4831b-6551-42cf-afce-d591335e6167",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color_temperature": {
+        "mirek": 366,
+        "mirek_schema": {
+          "mirek_maximum": 454,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle"
+        ]
+      },
+      "id": "35bcd75c-d80e-41f0-871d-103980944d16",
+      "id_v1": "idv1/30",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Library (y62G)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "4cb85d9c-ca14-4916-a4ee-b59d1ff5146f",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color": {
+        "gamut": {
+          "blue": {
+            "x": 0.1532,
+            "y": 0.0475
+          },
+          "green": {
+            "x": 0.17,
+            "y": 0.7
+          },
+          "red": {
+            "x": 0.6915,
+            "y": 0.3083
+          }
+        },
+        "gamut_type": "C",
+        "xy": {
+          "x": 0.4575,
+          "y": 0.4099
+        }
+      },
+      "color_temperature": {
+        "mirek": 366,
+        "mirek_schema": {
+          "mirek_maximum": 500,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none",
+          "dynamic_palette"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ]
+      },
+      "id": "f3828b13-fea4-45fa-b9f8-32ae8556bbb4",
+      "id_v1": "idv1/33",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Family Room (HqfT)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "77ef71d3-79b9-4cf8-bf55-ddd0121ecc77",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color": {
+        "gamut": {
+          "blue": {
+            "x": 0.1532,
+            "y": 0.0475
+          },
+          "green": {
+            "x": 0.17,
+            "y": 0.7
+          },
+          "red": {
+            "x": 0.6915,
+            "y": 0.3083
+          }
+        },
+        "gamut_type": "C",
+        "xy": {
+          "x": 0.4575,
+          "y": 0.4099
+        }
+      },
+      "color_temperature": {
+        "mirek": 366,
+        "mirek_schema": {
+          "mirek_maximum": 500,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none",
+          "dynamic_palette"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ]
+      },
+      "id": "4fa7c8ce-ac33-404a-b141-afeafbe74809",
+      "id_v1": "idv1/34",
+      "metadata": {
+        "archetype": "hue_centris",
+        "name": "Game Room (I3yr)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "d3563f81-ec0b-405f-beb3-7bdc9a8eb7ed",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color_temperature": {
+        "mirek": 366,
+        "mirek_schema": {
+          "mirek_maximum": 454,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle"
+        ]
+      },
+      "id": "a716df09-7ac1-4aa1-9bc2-4fef8cbcd8da",
+      "id_v1": "idv1/35",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Bedroom (mh8f)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "34f810bd-02ac-4092-a025-9b9f525b3022",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color": {
+        "gamut": {
+          "blue": {
+            "x": 0.1532,
+            "y": 0.0475
+          },
+          "green": {
+            "x": 0.17,
+            "y": 0.7
+          },
+          "red": {
+            "x": 0.6915,
+            "y": 0.3083
+          }
+        },
+        "gamut_type": "C",
+        "xy": {
+          "x": 0.4022,
+          "y": 0.1682
+        }
+      },
+      "color_temperature": {
+        "mirek": null,
+        "mirek_schema": {
+          "mirek_maximum": 500,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": false
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none",
+          "dynamic_palette"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ]
+      },
+      "id": "9cceef87-0aa7-4a03-92e2-ac9d771d531a",
+      "id_v1": "idv1/37",
+      "metadata": {
+        "archetype": "hue_centris",
+        "name": "Bedroom (fdID)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "b14ef533-20d1-4367-825d-e67fcd73a075",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color": {
+        "gamut": {
+          "blue": {
+            "x": 0.1532,
+            "y": 0.0475
+          },
+          "green": {
+            "x": 0.17,
+            "y": 0.7
+          },
+          "red": {
+            "x": 0.6915,
+            "y": 0.3083
+          }
+        },
+        "gamut_type": "C",
+        "xy": {
+          "x": 0.4022,
+          "y": 0.1682
+        }
+      },
+      "color_temperature": {
+        "mirek": null,
+        "mirek_schema": {
+          "mirek_maximum": 500,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": false
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none",
+          "dynamic_palette"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ]
+      },
+      "id": "dda9caff-e105-4686-958c-7f6cdb71a8fb",
+      "id_v1": "idv1/38",
+      "metadata": {
+        "archetype": "hue_centris",
+        "name": "Living Room (ameq)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "d78840a9-d1ff-408c-862d-3bd0097b4446",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color": {
+        "gamut": {
+          "blue": {
+            "x": 0.1532,
+            "y": 0.0475
+          },
+          "green": {
+            "x": 0.17,
+            "y": 0.7
+          },
+          "red": {
+            "x": 0.6915,
+            "y": 0.3083
+          }
+        },
+        "gamut_type": "C",
+        "xy": {
+          "x": 0.4022,
+          "y": 0.1682
+        }
+      },
+      "color_temperature": {
+        "mirek": null,
+        "mirek_schema": {
+          "mirek_maximum": 500,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": false
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none",
+          "dynamic_palette"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle",
+          "fire"
+        ]
+      },
+      "id": "819a22da-ca95-4ff7-9a44-48e1a8bf72ae",
+      "id_v1": "idv1/40",
+      "metadata": {
+        "archetype": "hue_centris",
+        "name": "Guest Room (Uq0d)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "f3c5649f-3f6f-4787-8628-7bbf56f61c20",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color_temperature": {
+        "mirek": 336,
+        "mirek_schema": {
+          "mirek_maximum": 454,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 72.44,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle"
+        ]
+      },
+      "id": "7e2aadae-552a-443f-b27d-42a8aea9b28d",
+      "id_v1": "idv1/43",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Game Room (vyOQ)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": true
+      },
+      "owner": {
+        "rid": "84b45b66-305b-4e97-aab1-145c7d700aff",
+        "rtype": "device"
+      },
+      "type": "light"
+    },
+    {
+      "alert": {
+        "action_values": [
+          "breathe"
+        ]
+      },
+      "color_temperature": {
+        "mirek": 366,
+        "mirek_schema": {
+          "mirek_maximum": 454,
+          "mirek_minimum": 153
+        },
+        "mirek_valid": true
+      },
+      "dimming": {
+        "brightness": 100,
+        "min_dim_level": 0.20000000298023224
+      },
+      "dynamics": {
+        "speed": 0,
+        "speed_valid": false,
+        "status": "none",
+        "status_values": [
+          "none"
+        ]
+      },
+      "effects": {
+        "effect_values": [
+          "no_effect",
+          "candle"
+        ],
+        "status": "no_effect",
+        "status_values": [
+          "no_effect",
+          "candle"
+        ]
+      },
+      "id": "7cee2e77-f7d2-4f4f-b911-a14a726edfe6",
+      "id_v1": "idv1/44",
+      "metadata": {
+        "archetype": "spot_bulb",
+        "name": "Game Room (1xZE)"
+      },
+      "mode": "normal",
+      "on": {
+        "on": false
+      },
+      "owner": {
+        "rid": "60732df1-3cdd-4a10-b996-a188d96f8d27",
+        "rtype": "device"
+      },
+      "type": "light"
+    }
+  ]
+}
