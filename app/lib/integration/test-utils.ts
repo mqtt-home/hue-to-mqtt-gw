@@ -4,9 +4,9 @@ export const JEST_DEFAULT_TIMEOUT = 5 * 1000
 export const curlHealthTest = (host: string, port: number) => {
     return {
         test: `curl -f http://${host}:${port} || exit 1`,
-        interval: 1000,
+        interval: 5000,
         timeout: 3000,
-        retries: 5,
+        retries: 20,
         startPeriod: 1000
     }
 }
