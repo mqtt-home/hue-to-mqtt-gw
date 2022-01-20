@@ -3,7 +3,8 @@ version: '2'
 services:
   huemqtt:
     hostname: huemqtt
-    image: pharndt/hue2mqtt:latest
+    image: pharndt/hue2mqtt:${VERSION}
+    build: app
     volumes:
       - ./production/config:/var/lib/huemqtt:ro
     restart: "no"

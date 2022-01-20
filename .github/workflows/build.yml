@@ -32,3 +32,6 @@ jobs:
         working-directory: app
         run: |
           npm run build
+
+      - name: Build container
+        run: docker-compose build
