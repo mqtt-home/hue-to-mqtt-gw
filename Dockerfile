@@ -4,7 +4,7 @@ FROM node:17.3.1-alpine3.14
 WORKDIR /opt/app
 
 # Copy project files
-COPY . .
+COPY ./app .
 
 # Run container as non-root (unprivileged) user
 # The node user is provided in the Node.js Alpine base image
