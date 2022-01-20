@@ -4,7 +4,7 @@ services:
   huemqtt:
     hostname: huemqtt
     image: pharndt/hue2mqtt:${VERSION}
-    build: app
+    build: .
     volumes:
       - ./production/config:/var/lib/huemqtt:ro
     restart: "no"
