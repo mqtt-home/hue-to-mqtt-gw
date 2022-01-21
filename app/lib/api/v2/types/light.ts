@@ -25,11 +25,13 @@ export type LightColorTemperatureData = {
     }
 }
 
+export type GamutType = "A"|"B"|"C"|"other"
+
 /* eslint-disable camelcase */
 export type LightColorData = {
     xy: ColorXY
     gamut?: Gamut
-    gamut_type: "A"|"B"|"C"|"other"
+    gamut_type: GamutType
 }
 
 /* eslint-disable camelcase */
