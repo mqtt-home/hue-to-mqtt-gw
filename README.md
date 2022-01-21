@@ -120,3 +120,23 @@ The bridge maintains two status topics:
 | --------- | ------------------------------------ |
 | `online`  | The bridge is started                |
 | `offline` | The bridge is currently not started. |
+
+
+# Raspberry PI OS note
+
+When you get the following message on Raspberry PI OS:
+```
+#
+# Fatal error in , line 0
+# unreachable code
+```
+
+Read this: https://blog.samcater.com/fix-workaround-rpi4-docker-libseccomp2-docker-20/
+Conclusion:
+
+```
+$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 04EE7237B7D453EC 648ACFD622F3D138
+$ echo 'deb http://httpredir.debian.org/debian buster-backports main contrib non-free' | sudo tee -a /etc/apt/sources.list.d/debian-backports.list
+$ sudo apt update
+$ sudo apt install libseccomp2 -t buster-backports
+```
