@@ -4,10 +4,12 @@ import { Light } from "../../api/v2/types/light"
 import * as api from "../../api/v2/hue-api-v2"
 import { applyDefaults, setTestConfig } from "../../config/config"
 import { LightEffectMessage } from "../../messages/light-message"
+import { expectedForNotifyOff, expectedForNotifyRestore } from "./light-effect-handler-stubs"
 
 let messages: any[]
+const currentLight = { ...deviceStubs.lightWithColor }
 
-jest.spyOn(api, "loadTypedById").mockReturnValue(Promise.resolve(deviceStubs.lightWithColor))
+jest.spyOn(api, "loadTypedById").mockReturnValue(Promise.resolve(currentLight))
 jest.spyOn(api, "putLight").mockImplementation((x, message) => {
     messages.push(message)
     return Promise.resolve()
@@ -41,25 +43,23 @@ describe("Light effects", () => {
             duration: 5
         }
 
-        await applyEffect(deviceStubs.lightWithColor as Light, effect)
+        await applyEffect(currentLight as Light, effect)
+        expect(messages).toStrictEqual(expectedForNotifyRestore(effect))
+    })
 
-        expect(messages).toStrictEqual([
-            {
-                color: {
-                    gamut_type: "C",
-                    xy: effect.colors[0]
-                },
-                on: { on: true }
-            },
-            {
-                color: {
-                    gamut_type: "C",
-                    xy: effect.colors[1]
-                },
-                on: { on: true }
-            },
-            { color: deviceStubs.lightWithColor.color }
-        ])
+    test("notify restore - light off", async () => {
+        currentLight.on = { on: false }
+        const effect: LightEffectMessage = {
+            effect: "notify_restore",
+            colors: [
+                { x: 0.2004, y: 0.5948 },
+                { x: 0.6758, y: 0.2953 }
+            ],
+            duration: 5
+        }
+
+        await applyEffect(currentLight as Light, effect)
+        expect(messages).toStrictEqual(expectedForNotifyOff(effect))
     })
 
     test("notify off", async () => {
@@ -72,27 +72,7 @@ describe("Light effects", () => {
             duration: 5
         }
 
-        await applyEffect(deviceStubs.lightWithColor as Light, effect)
-
-        expect(messages).toStrictEqual([
-            {
-                color: {
-                    gamut_type: "C",
-                    xy: effect.colors[0]
-                },
-                on: { on: true }
-            },
-            {
-                color: {
-                    gamut_type: "C",
-                    xy: effect.colors[1]
-                },
-                on: { on: true }
-            },
-            {
-                on: { on: false }
-            },
-            { color: deviceStubs.lightWithColor.color }
-        ])
+        await applyEffect(currentLight as Light, effect)
+        expect(messages).toStrictEqual(expectedForNotifyOff(effect))
     })
 })

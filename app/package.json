@@ -6,9 +6,9 @@
     "scripts": {
         "test": "jest",
         "coverage": "jest --coverage",
-        "start": "tsc && node dist/index.js",
+        "start": "tsc && node dist/app/lib/index.js",
         "build": "tsc",
-        "lint": "eslint lib/** --ext .ts --fix",
+        "lint": "eslint lib/** --ext .ts",
         "generate-test-stubs": "node dist/lib/test-stub-generator.js"
     },
     "keywords": [],

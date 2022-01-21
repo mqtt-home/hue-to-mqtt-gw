@@ -54,8 +54,8 @@ describe("API v2 - Integration", () => {
     })
 
     afterAll(async () => {
-        await hue.stop()
-        await mqtt.stop()
+        await hue?.stop()
+        await mqtt?.stop()
         log.silent = false
         jest.setTimeout(JEST_DEFAULT_TIMEOUT)
     })

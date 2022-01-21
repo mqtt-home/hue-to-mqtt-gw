@@ -43,7 +43,7 @@ export const load = async (endpoint: string) => {
 }
 
 type PutLight = {
-    brightness?: number,
+    dimming?: {brightness: number},
     on?: LightOnOffData,
     /* eslint-disable camelcase */
     color_temperature?: LightColorTemperatureData,
@@ -52,7 +52,7 @@ type PutLight = {
 
 export const putResource = async (resource: Light) => {
     return putLight(resource, {
-        brightness: resource.dimming?.brightness,
+        dimming: resource.dimming,
         on: resource.on,
         color_temperature: resource.color_temperature,
         color: resource.color

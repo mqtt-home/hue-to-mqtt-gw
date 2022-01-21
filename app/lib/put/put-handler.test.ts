@@ -4,6 +4,7 @@ import { applyDefaults, setTestConfig } from "../config/config"
 import { LightEffectMessage, LightMessage } from "../messages/light-message"
 import { putMessage } from "./put-handler"
 import { TestLogger } from "../logger.test"
+import { expectedForNotifyRestore } from "./effects/light-effect-handler-stubs"
 
 let messages: any[]
 
@@ -53,23 +54,7 @@ describe("PUT handler", () => {
 
         await putMessage(deviceStubs.lightWithColor, Buffer.from(JSON.stringify(effect)))
 
-        expect(messages).toStrictEqual([
-            {
-                color: {
-                    gamut_type: "C",
-                    xy: effect.colors[0]
-                },
-                on: { on: true }
-            },
-            {
-                color: {
-                    gamut_type: "C",
-                    xy: effect.colors[1]
-                },
-                on: { on: true }
-            },
-            { color: deviceStubs.lightWithColor.color }
-        ])
+        expect(messages).toStrictEqual(expectedForNotifyRestore(effect))
     })
 
     test("PUT invalid message", async () => {
@@ -91,7 +76,7 @@ describe("PUT handler", () => {
 
         expect(messages).toStrictEqual([
             {
-                brightness: 50,
+                dimming: { brightness: 50 },
                 color: deviceStubs.lightWithColor.color,
                 color_temperature: {
                     mirek: null,
@@ -118,7 +103,7 @@ describe("PUT handler", () => {
 
         expect(messages).toStrictEqual([
             {
-                brightness: 50,
+                dimming: { brightness: 50 },
                 color: deviceStubs.lightWithColor.color,
                 color_temperature: {
                     mirek: null,
@@ -146,7 +131,7 @@ describe("PUT handler", () => {
 
         expect(messages).toStrictEqual([
             {
-                brightness: 100,
+                dimming: { brightness: 100 },
                 color: deviceStubs.lightWithColor.color,
                 color_temperature: {
                     mirek: 250,
