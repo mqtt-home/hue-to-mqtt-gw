@@ -106,5 +106,5 @@ export const convertToXY = (red: number, green: number, blue: number, gamutType:
         xy[1] = closestPoint[1]
     }
 
-    return { x: precision(xy[0]), y: precision(xy[1])}
+    return { x: precision(xy[0]), y: precision(xy[1]) }
 }

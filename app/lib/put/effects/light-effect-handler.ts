@@ -1,8 +1,8 @@
 import { Light, isLight } from "../../api/v2/types/light"
 import { LightEffectMessage } from "../../messages/light-message"
 import { loadTypedById, putLight } from "../../api/v2/hue-api-v2"
-import AsyncLock from "async-lock"
 import { log } from "../../logger"
+import { lock, resolvable } from "../../concurrency/concurrency"
 
 const applyColors = async (light: Light, effect: LightEffectMessage) => {
     for (const color of effect.colors) {
@@ -53,31 +53,11 @@ const notifyRestore = async (light: Light, effect: LightEffectMessage) => {
     await applyColors(light, effect)
 
     await restoreColor(light)
-
-    // if (light.on && light.on.on) {
-    //     // I don't like to get a flickering with the original color,
-    //     // so restore color is not possible when the light was previously off.
-    //     await restoreColor(light)
-    // }
-    // else {
-    //     await putLight(light, {
-    //         on: light.on
-    //     })
-    // }
 }
 
-const resolvable = () => {
-    let resolveResult: any
-    const promise = new Promise(resolve => {
-        resolveResult = resolve
-    })
-    return [resolveResult, promise]
-}
-
-const lock = new AsyncLock({ timeout: 5000 })
 export const applyEffect = async (light: Light, effect: LightEffectMessage) => {
     const [resolveResult, promise] = resolvable()
-    lock.acquire("effect", async (done) => {
+    lock.acquire("lights", async (done) => {
         await applyEffectLocked(light, effect)
         done()
         resolveResult()
