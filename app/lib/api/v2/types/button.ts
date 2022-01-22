@@ -1,4 +1,5 @@
 import { HueIdentifiable, HueOwnable } from "./general"
+import { isMotion } from "./motion"
 
 export type ButtonEvent = "initial_press"|"repeat"|"short_release"|"long_release"|"double_short_release"
 
@@ -18,4 +19,8 @@ export type Button = HueIdentifiable & HueOwnable & {
 
 export function isButton (object: HueIdentifiable): object is Button {
     return object && object.type === "button"
+}
+
+export function isTrigger (object: HueIdentifiable): boolean {
+    return isButton(object) || isMotion(object)
 }

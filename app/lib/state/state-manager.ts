@@ -10,7 +10,7 @@ import { Device } from "../api/v2/types/device"
 import { log } from "../logger"
 import { publishResource } from "./state-event-handler"
 import { getAppConfig } from "../config/config"
-import { isButton } from "../api/v2/types/button"
+import { isButton, isTrigger } from "../api/v2/types/button"
 
 export class StateManager {
     _typedResources = new Map<string, HueIdentifiable>()
@@ -60,8 +60,8 @@ const updateAll = async () => {
     log.info("Sending full update")
 
     for (const resource of state.getTyped().values()) {
-        // Never update buttons, otherwise we would fire events again
-        if (!isButton(resource)) {
+        // Never update triggers (buttons, motion sensors), otherwise we would fire events again
+        if (!isTrigger(resource)) {
             publishResource(resource)
         }
     }
