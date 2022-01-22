@@ -53,6 +53,19 @@ describe("Messages", () => {
                 })
         })
 
+        test("brightness is rounded", async () => {
+            const light = { ...deviceStubs.lightWithAmbience } as Light
+            light.dimming!.brightness = 12.34
+            const message: any = fromLight(light)
+
+            expect(message)
+                .toStrictEqual({
+                    brightness: 12,
+                    color_temp: 366,
+                    state: "OFF"
+                })
+        })
+
         test("PUT color", async () => {
             const message: LightMessage = {
                 brightness: 100,

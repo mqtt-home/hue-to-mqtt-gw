@@ -21,7 +21,7 @@ export function isEffectMessage (object: LightMessage | LightEffectMessage): obj
 export const fromLight = (light: Light) => {
     const message: LightMessage = {
         state: light.on.on ? "ON" : "OFF",
-        brightness: light.dimming?.brightness ?? 0
+        brightness: Math.round(light.dimming?.brightness ?? 0)
     }
 
     if (light.color_temperature && light.color_temperature.mirek && light.color_temperature.mirek_valid) {

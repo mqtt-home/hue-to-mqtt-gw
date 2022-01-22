@@ -5,6 +5,8 @@ import { HueIdentifiable, Result } from "./types/general"
 import { Light, LightColorData, LightColorTemperatureData, LightOnOffData } from "./types/light"
 import { log } from "../../logger"
 import { getAppConfig } from "../../config/config"
+import AsyncLock from "async-lock"
+import { resolvable } from "../../concurrency/concurrency"
 
 let instance: AxiosInstance
 let baserUrl: string
@@ -59,7 +61,7 @@ export const putResource = async (resource: Light) => {
     })
 }
 
-export const putLight = async (resource: Light, message: PutLight) => {
+const putLightLocked = async (resource: Light, message: PutLight) => {
     const config = getAppConfig()
     try {
         const result = await getInstance().put(`resource/light/${resource.id}`, message, {
@@ -73,6 +75,22 @@ export const putLight = async (resource: Light, message: PutLight) => {
     catch (e) {
         log.error(e)
     }
+}
+
+const lock = new AsyncLock({ timeout: 5000 })
+export const putLight = async (light: Light, message: PutLight) => {
+    const [resolveResult, promise] = resolvable()
+    lock.acquire("put", async (done) => {
+        await putLightLocked(light, message)
+        done()
+        resolveResult()
+    }, (err) => {
+        if (err) {
+            log.error(err)
+        }
+    })
+
+    return promise
 }
 
 export const loadDevices: () => Promise<Result<Device>> | undefined = async () => {
