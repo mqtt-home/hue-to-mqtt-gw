@@ -10,7 +10,7 @@ import { Device } from "../api/v2/types/device"
 import { log } from "../logger"
 import { publishResource } from "./state-event-handler"
 import { getAppConfig } from "../config/config"
-import { isButton, isTrigger } from "../api/v2/types/button"
+import { isTrigger } from "../api/v2/types/button"
 
 export class StateManager {
     _typedResources = new Map<string, HueIdentifiable>()
