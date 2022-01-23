@@ -21,7 +21,7 @@ export const putMessage = async (resource: HueIdentifiable, message: Buffer) => 
                     await putResource(newResource)
                 }
                 catch (e) {
-                    log.error(e)
+                    log.error(e + "\nMessage was:\n" + JSON.stringify(lightMsg, null, 2))
                 }
             }
         }
