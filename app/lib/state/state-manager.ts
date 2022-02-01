@@ -11,6 +11,7 @@ import { log } from "../logger"
 import { publishResource } from "./state-event-handler"
 import { getAppConfig } from "../config/config"
 import { isTrigger } from "../api/v2/types/button"
+import { isGroupedLight } from "../api/v2/types/grouped-light"
 
 export class StateManager {
     _typedResources = new Map<string, HueIdentifiable>()
@@ -43,7 +44,7 @@ export class StateManager {
             this._typedResources.set(resource.id, resource)
             const topic = getTopic(resource)
             const fullTopic = `${getAppConfig().mqtt.topic}/${topic}`
-            if (isLight(resource)) {
+            if (isLight(resource) || isGroupedLight(resource)) {
                 this.resourcesByTopic.set(`${fullTopic}/set`, resource)
             }
             this.resourcesByTopic.set(`${fullTopic}/get`, resource)
@@ -96,21 +97,32 @@ const getNameProvider = (resource: HueIdentifiable) => {
     return state.deviceByDeviceId.get(resource.id)
 }
 
+const mapName = (resource: HueIdentifiable) => {
+    const customName = getAppConfig()?.names[resource.id]
+    if (customName != null) {
+        return customName
+    }
+
+    const nameProvider = (isNameable(resource) ? resource : getNameProvider(resource))
+    if (isNameable(nameProvider)) {
+        return nameProvider.metadata.name
+    }
+    else {
+        return resource.id
+    }
+}
+
 export const getTopic = (resource: HueIdentifiable) => {
     let prefix = resource.type
+
     if (isLight(resource)) {
         const room = state.roomByResourceId
             .get(resource.owner.rid)?.metadata
             .name ?? "unassigned"
         prefix = `${prefix}/${room}`
     }
-    const nameProvider = (isNameable(resource) ? resource : getNameProvider(resource))
 
-    if (isNameable(nameProvider)) {
-        return cleanTopic(`${prefix}/${nameProvider.metadata.name}`)
-    }
-
-    return cleanTopic(`${prefix}/${resource.id}`)
+    return cleanTopic(`${prefix}/${mapName(resource)}`)
 }
 
 export const state = new StateManager()

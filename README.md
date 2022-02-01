@@ -106,9 +106,22 @@ Post a message `{"state": ""}` to `hue/light/room/some-light/get` to get the cur
     "hue": {
         "host": "192.168.2.99",
         "api-key": "api-key-here"
+    },
+    "names": {
+        "resource-uuid": "office"
     }
 }
 ```
+
+### Name mappings
+
+for resources without an own name (like light groups) or when you like to define a custom
+name, you can use the `names` configuration.
+
+Without a name configuration, the name will be generated from
+- the room (when available)
+- the name defined by Hue (when available)
+- the resource UUID as fallback 
 
 # Bridge status
 

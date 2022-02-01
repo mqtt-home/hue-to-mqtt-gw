@@ -1,9 +1,10 @@
 import { HueIdentifiable } from "../api/v2/types/general"
 import { isLight } from "../api/v2/types/light"
-import { isEffectMessage, LightEffectMessage, LightMessage, toLight } from "../messages/light-message"
-import { putResource } from "../api/v2/hue-api-v2"
+import { isEffectMessage, LightEffectMessage, LightMessage, toGroupedLight, toLight } from "../messages/light-message"
+import { putGroupedLightResource, putLightResource } from "../api/v2/hue-api-v2"
 import { log } from "../logger"
 import { applyEffect } from "./effects/light-effect-handler"
+import { isGroupedLight } from "../api/v2/types/grouped-light"
 
 export const putMessage = async (resource: HueIdentifiable, message: Buffer) => {
     if (isLight(resource)) {
@@ -18,7 +19,7 @@ export const putMessage = async (resource: HueIdentifiable, message: Buffer) => 
 
                 // resource will be updated by the Hue SSE API
                 try {
-                    await putResource(newResource)
+                    await putLightResource(newResource)
                 }
                 catch (e) {
                     log.error(e + "\nMessage was:\n" + JSON.stringify(lightMsg, null, 2))
@@ -27,6 +28,18 @@ export const putMessage = async (resource: HueIdentifiable, message: Buffer) => 
         }
         catch (e) {
             log.error("invalid message", e)
+        }
+    }
+    else if (isGroupedLight(resource)) {
+        const lightMsg = JSON.parse(message.toString()) as LightMessage
+        const newResource = toGroupedLight(resource, lightMsg)
+
+        // resource will be updated by the Hue SSE API
+        try {
+            await putGroupedLightResource(newResource)
+        }
+        catch (e) {
+            log.error(e + "\nMessage was:\n" + JSON.stringify(lightMsg, null, 2))
         }
     }
 }

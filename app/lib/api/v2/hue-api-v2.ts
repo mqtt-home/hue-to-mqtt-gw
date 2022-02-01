@@ -7,6 +7,7 @@ import { log } from "../../logger"
 import { getAppConfig } from "../../config/config"
 import AsyncLock from "async-lock"
 import { resolvable } from "../../concurrency/concurrency"
+import { GroupedLight } from "./types/grouped-light"
 
 let instance: AxiosInstance
 let baserUrl: string
@@ -52,7 +53,7 @@ type PutLight = {
     color?: LightColorData
 }
 
-export const putResource = async (resource: Light) => {
+export const putLightResource = async (resource: Light) => {
     return putLight(resource, {
         dimming: resource.dimming,
         on: resource.on,
@@ -61,10 +62,19 @@ export const putResource = async (resource: Light) => {
     })
 }
 
-const putLightLocked = async (resource: Light, message: PutLight) => {
+export const putGroupedLightResource = async (resource: GroupedLight) => {
+    return putLight(resource, {
+        on: resource.on
+    })
+}
+
+const putLightLocked = async (resource: HueIdentifiable, message: PutLight) => {
     const config = getAppConfig()
+    const topic = `resource/${resource.type}/${resource.id}`
+    console.log(topic, message)
+
     try {
-        const result = await getInstance().put(`resource/light/${resource.id}`, message, {
+        const result = await getInstance().put(topic, message, {
             headers: {
                 "hue-application-key": config.hue["api-key"],
                 Accept: "application/json"
@@ -78,7 +88,7 @@ const putLightLocked = async (resource: Light, message: PutLight) => {
 }
 
 const lock = new AsyncLock({ timeout: 5000 })
-export const putLight = async (light: Light, message: PutLight) => {
+export const putLight = async (light: HueIdentifiable, message: PutLight) => {
     const [resolveResult, promise] = resolvable()
     lock.acquire("put", async (done) => {
         await putLightLocked(light, message)
