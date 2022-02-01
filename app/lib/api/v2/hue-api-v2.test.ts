@@ -9,6 +9,7 @@ import { isTemperature } from "./types/temperature"
 import { isZigbeeGreenPowerConnectivity } from "./types/zgp-connectivity"
 import { isZigbeeConnectivity } from "./types/zigbee-connectivity"
 import { isLight } from "./types/light"
+import { isGroupedLight } from "./types/grouped-light"
 
 describe("API v2", () => {
     const assertTypeCheck = (type: string, method: ((resource: HueIdentifiable) => boolean)) => {
@@ -31,5 +32,6 @@ describe("API v2", () => {
         assertTypeCheck("temperature", isTemperature)
         assertTypeCheck("zgp_connectivity", isZigbeeGreenPowerConnectivity)
         assertTypeCheck("zigbee_connectivity", isZigbeeConnectivity)
+        assertTypeCheck("grouped_light", isGroupedLight)
     })
 })

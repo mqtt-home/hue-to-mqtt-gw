@@ -242,5 +242,19 @@ export const deviceStubs = {
             rtype: "device"
         },
         type: "light"
+    },
+
+    grouped_light: {
+        alert: {
+            action_values: [
+                "breathe"
+            ]
+        },
+        id: "488ed706-b7a3-4d8d-a0a1-6925e3ac3017",
+        id_v1: "idv1/65",
+        on: {
+            on: true
+        },
+        type: "grouped_light"
     }
 }

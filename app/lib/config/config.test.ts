@@ -26,7 +26,8 @@ describe("Config", () => {
                 retain: true,
                 topic: "hue",
                 url: "tcp://192.168.1.1:1883"
-            }
+            },
+            names: {}
         })
     })
 })

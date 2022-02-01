@@ -21,6 +21,7 @@ export type ConfigHue = {
 export type Config = {
     mqtt: ConfigMqtt
     hue: ConfigHue
+    names: any
 }
 
 let appConfig: Config
@@ -39,7 +40,8 @@ const hueDefaults = {
 export const applyDefaults = (config: any) => {
     return {
         hue: { ...hueDefaults, ...config.hue },
-        mqtt: { ...mqttDefaults, ...config.mqtt }
+        mqtt: { ...mqttDefaults, ...config.mqtt },
+        names: config.names ?? {}
     } as Config
 }
 

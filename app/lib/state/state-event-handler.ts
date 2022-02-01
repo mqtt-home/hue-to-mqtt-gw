@@ -19,6 +19,8 @@ import { fromZgpConnectivity } from "../messages/zgp-connectivity-message"
 import { isZigbeeConnectivity } from "../api/v2/types/zigbee-connectivity"
 import { fromZigbeeConnectivity } from "../messages/zigbee-connectivity-message"
 import { publish } from "../mqtt/mqtt-client"
+import { isGroupedLight } from "../api/v2/types/grouped-light"
+import { fromGroupedLight } from "../messages/grouped-light-message"
 
 const handleResource = (data: HueEventData) => {
     const oldResource = state._typedResources.get(data.id)
@@ -61,6 +63,9 @@ export const publishResource = (resource: HueIdentifiable) => {
     }
     else if (isZigbeeConnectivity(resource)) {
         message = fromZigbeeConnectivity(resource)
+    }
+    else if (isGroupedLight(resource)) {
+        message = fromGroupedLight(resource)
     }
     else {
         topic = `unhandled/${topic}`

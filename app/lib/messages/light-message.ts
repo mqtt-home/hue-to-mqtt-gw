@@ -1,4 +1,5 @@
 import { ColorXY, Light } from "../api/v2/types/light"
+import { GroupedLight } from "../api/v2/types/grouped-light"
 
 /* eslint-disable camelcase */
 export type LightMessage = {
@@ -46,6 +47,14 @@ export const toLight = (template: Light, message: LightMessage) => {
     else if (message.color && template.color) {
         result.color = { ...template.color, xy: message.color }
     }
+
+    return result
+}
+
+export const toGroupedLight = (template: GroupedLight, message: LightMessage) => {
+    const result = { ...template }
+
+    result.on.on = message.state.toUpperCase() === "ON"
 
     return result
 }
