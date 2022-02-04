@@ -21,7 +21,8 @@ export type ConfigHue = {
 export type Config = {
     mqtt: ConfigMqtt
     hue: ConfigHue
-    names: any
+    names: any,
+    "hourly-full-update": boolean
 }
 
 let appConfig: Config
@@ -37,8 +38,14 @@ const hueDefaults = {
     protocol: "https"
 }
 
+const configDefaults = {
+    "hourly-full-update": true
+}
+
 export const applyDefaults = (config: any) => {
     return {
+        ...configDefaults,
+        ...config,
         hue: { ...hueDefaults, ...config.hue },
         mqtt: { ...mqttDefaults, ...config.mqtt },
         names: config.names ?? {}

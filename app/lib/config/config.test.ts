@@ -27,7 +27,26 @@ describe("Config", () => {
                 topic: "hue",
                 url: "tcp://192.168.1.1:1883"
             },
-            names: {}
+            names: {},
+            "hourly-full-update": true
         })
+
+        expect(applyDefaults(config)["hourly-full-update"]).toBeTruthy()
+    })
+
+    test("disable hourly-full-update", async () => {
+        const config = {
+            mqtt: {
+                url: "tcp://192.168.1.1:1883",
+                topic: "hue"
+            },
+            hue: {
+                host: "192.168.1.1",
+                "api-key": "some-api-key"
+            },
+            "hourly-full-update": false
+        }
+
+        expect(applyDefaults(config)["hourly-full-update"]).toBeFalsy()
     })
 })
