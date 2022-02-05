@@ -28,13 +28,13 @@ describe("Config", () => {
                 url: "tcp://192.168.1.1:1883"
             },
             names: {},
-            "hourly-full-update": true
+            "send-full-update": true
         })
 
-        expect(applyDefaults(config)["hourly-full-update"]).toBeTruthy()
+        expect(applyDefaults(config)["send-full-update"]).toBeTruthy()
     })
 
-    test("disable hourly-full-update", async () => {
+    test("disable send-full-update", async () => {
         const config = {
             mqtt: {
                 url: "tcp://192.168.1.1:1883",
@@ -44,9 +44,9 @@ describe("Config", () => {
                 host: "192.168.1.1",
                 "api-key": "some-api-key"
             },
-            "hourly-full-update": false
+            "send-full-update": false
         }
 
-        expect(applyDefaults(config)["hourly-full-update"]).toBeFalsy()
+        expect(applyDefaults(config)["send-full-update"]).toBeFalsy()
     })
 })

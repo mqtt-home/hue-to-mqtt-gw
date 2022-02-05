@@ -22,7 +22,7 @@ export type Config = {
     mqtt: ConfigMqtt
     hue: ConfigHue
     names: any,
-    "hourly-full-update": boolean
+    "send-full-update": boolean
 }
 
 let appConfig: Config
@@ -39,7 +39,7 @@ const hueDefaults = {
 }
 
 const configDefaults = {
-    "hourly-full-update": true
+    "send-full-update": true
 }
 
 export const applyDefaults = (config: any) => {

@@ -4,7 +4,6 @@ import { takeEvent } from "./state/state-event-handler"
 import { log } from "./logger"
 import cron from "node-cron"
 import { initStateManagerFromHue } from "./state/state-manager"
-import { getAppConfig } from "./config/config"
 
 export const triggerFullUpdate = async () => {
     log.info("Updating devices")
@@ -25,16 +24,13 @@ export const startApp = async () => {
 
     log.info("Application is now ready.")
 
-    let task: cron.ScheduledTask | null
-    if (getAppConfig()["hourly-full-update"]) {
-        log.info("Scheduling hourly-full-update.")
-        task = cron.schedule("0 * * * *", triggerFullUpdate)
-        task.start()
-    }
+    log.info("Scheduling hourly-full-update.")
+    const task = cron.schedule("0 * * * *", triggerFullUpdate)
+    task.start()
 
     return () => {
         mqttCleanUp()
         sse.close()
-        task?.stop()
+        task.stop()
     }
 }

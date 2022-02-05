@@ -58,15 +58,17 @@ export class StateManager {
 }
 
 const updateAll = async () => {
-    log.info("Sending full update")
+    if (getAppConfig()["send-full-update"]) {
+        log.info("Sending full update")
 
-    for (const resource of state.getTyped().values()) {
-        // Never update triggers (buttons, motion sensors), otherwise we would fire events again
-        if (!isTrigger(resource)) {
-            publishResource(resource)
+        for (const resource of state.getTyped().values()) {
+            // Never update triggers (buttons, motion sensors), otherwise we would fire events again
+            if (!isTrigger(resource)) {
+                publishResource(resource)
+            }
         }
+        log.info("Sending full update done")
     }
-    log.info("Sending full update done")
 }
 
 export const initStateManagerFromHue = async () => {
