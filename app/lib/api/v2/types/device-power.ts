@@ -1,8 +1,10 @@
 import { HueIdentifiable, HueOwnable } from "./general"
 
+export type BatteryState = "normal"|"low"|"critical"
+
 /* eslint-disable camelcase */
 export type DevicePowerData = {
-    battery_state: "normal"|"low"|"critical"
+    battery_state: BatteryState
     battery_level: number
 }
 

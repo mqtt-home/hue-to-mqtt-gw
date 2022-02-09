@@ -117,6 +117,7 @@ describe("Messages", () => {
 
     test("device power", async () => {
         const message: any = fromDevicePower(deviceStubs.devicePower as DevicePower)
+        delete message["last-updated"]
 
         expect(message)
             .toStrictEqual({
