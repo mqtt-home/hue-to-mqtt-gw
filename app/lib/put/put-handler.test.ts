@@ -128,11 +128,15 @@ describe("PUT handler", () => {
         }
 
         await putMessage(deviceStubs.lightWithColor, Buffer.from(JSON.stringify(msg)))
-
         expect(messages).toStrictEqual([
             {
-                dimming: { brightness: 100 },
-                color: deviceStubs.lightWithColor.color,
+                dimming: {
+                    brightness: 100
+                },
+                on: {
+                    on: false
+                },
+                color: undefined,
                 color_temperature: {
                     mirek: 250,
                     mirek_schema: {
@@ -140,9 +144,6 @@ describe("PUT handler", () => {
                         mirek_minimum: 153
                     },
                     mirek_valid: true
-                },
-                on: {
-                    on: false
                 }
             }
         ])
