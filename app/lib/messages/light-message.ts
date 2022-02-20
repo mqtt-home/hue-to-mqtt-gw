@@ -47,7 +47,8 @@ export const toLight = (template: Light, message: LightMessage) => {
     }
     else if (message.color && template.color) {
         delete result.color_temperature
-        result.color = { ...template.color, xy: message.color }
+        delete result.dimming
+        result.color = { xy: message.color }
     }
 
     return result

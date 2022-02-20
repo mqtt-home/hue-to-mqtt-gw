@@ -31,7 +31,7 @@ export type GamutType = "A"|"B"|"C"|"other"
 export type LightColorData = {
     xy: ColorXY
     gamut?: Gamut
-    gamut_type: GamutType
+    gamut_type?: GamutType
 }
 
 /* eslint-disable camelcase */
