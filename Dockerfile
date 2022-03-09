@@ -1,4 +1,4 @@
-FROM node:17.5.0-alpine3.14
+FROM node:17.6.0-alpine3.14
 
 # Set working directory
 WORKDIR /opt/app
