@@ -59,5 +59,15 @@ export const toGroupedLight = (template: GroupedLight, message: LightMessage) =>
 
     result.on.on = message.state.toUpperCase() === "ON"
 
+    if (message.color_temp && template.color_temperature) {
+        result.color_temperature = { ...template.color_temperature, mirek: message.color_temp }
+        delete result.color
+    }
+    else if (message.color && template.color) {
+        delete result.color_temperature
+        delete result.dimming
+        result.color = { xy: message.color }
+    }
+
     return result
 }

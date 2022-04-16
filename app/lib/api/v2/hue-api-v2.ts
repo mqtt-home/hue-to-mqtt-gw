@@ -64,7 +64,10 @@ export const putLightResource = async (resource: Light) => {
 
 export const putGroupedLightResource = async (resource: GroupedLight) => {
     return putLight(resource, {
-        on: resource.on
+        dimming: resource.dimming,
+        on: resource.on,
+        color_temperature: resource.color_temperature,
+        color: resource.color
     })
 }
 
