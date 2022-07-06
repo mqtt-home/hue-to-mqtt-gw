@@ -1,5 +1,5 @@
 import { HueIdentifiable, HueNameable, HueOwnable } from "./general"
-import { AlertEffectType, LightOnOffData } from "./light"
+import { AlertEffectType, LightColorData, LightColorTemperatureData, LightDimmingData, LightOnOffData } from "./light"
 
 /* eslint-disable camelcase */
 export type GroupedLight = HueIdentifiable & HueOwnable & HueNameable & {
@@ -8,6 +8,9 @@ export type GroupedLight = HueIdentifiable & HueOwnable & HueNameable & {
     alert: {
         action_values: AlertEffectType[]
     }
+    dimming?: LightDimmingData
+    color_temperature?: LightColorTemperatureData
+    color?: LightColorData
 }
 
 export function isGroupedLight (object?: HueIdentifiable): object is GroupedLight {
