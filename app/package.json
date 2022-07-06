@@ -20,7 +20,7 @@
         "@types/eventsource": "1.1.9",
         "@types/jest": "27.4.1",
         "@types/node": "16.11.43",
-        "@types/node-cron": "3.0.1",
+        "@types/node-cron": "3.0.2",
         "@typescript-eslint/eslint-plugin": "5.29.0",
         "@typescript-eslint/parser": "5.20.0",
         "eslint": "8.19.0",
@@ -41,7 +41,7 @@
         "axios": "0.27.2",
         "eventsource": "2.0.2",
         "mqtt": "4.3.7",
-        "node-cron": "3.0.0",
+        "node-cron": "3.0.1",
         "winston": "3.7.2",
         "winston-transport": "4.5.0"
     }
