@@ -7,7 +7,7 @@
         "test": "jest",
         "coverage": "jest --coverage",
         "start": "tsc && node dist/app/lib/index.js",
-        "build": "tsc",
+        "build": "ncc build lib/index.ts -o dist",
         "lint": "eslint lib/** --ext .ts",
         "generate-test-stubs": "node dist/lib/test-stub-generator.js"
     },
@@ -16,6 +16,7 @@
     "license": "Apache-2.0",
     "private": true,
     "devDependencies": {
+        "@vercel/ncc": "0.34.0",
         "@types/async-lock": "1.1.5",
         "@types/eventsource": "1.1.9",
         "@types/jest": "28.1.4",
