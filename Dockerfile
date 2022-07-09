@@ -5,5 +5,6 @@
 
 FROM node:18.5-alpine
 COPY app/dist /opt/app/
+WORKDIR /opt/app/
 
-CMD ["node", "dist/index.js", "/var/lib/huemqtt/config.json"]
+CMD ["node", "index.js", "/var/lib/huemqtt/config.json"]
