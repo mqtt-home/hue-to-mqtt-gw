@@ -19,7 +19,7 @@ This application is intended to be executed using docker. Example docker compose
 ```
 huemqtt:
   hostname: huemqtt
-  image: pharndt/hue2mqtt:1.0.2
+  image: pharndt/hue2mqtt:2.5.1
   volumes:
     - ./config/huemqtt:/var/lib/huemqtt:ro
   restart: always 
