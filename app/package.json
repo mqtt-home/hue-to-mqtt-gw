@@ -9,7 +9,7 @@
         "start": "tsc && node dist/app/lib/index.js",
         "clean": "rimraf dist",
         "prebuild": "run-s clean",
-        "build": "ncc build lib/index.ts -o dist",
+        "build": "ncc build lib/index.ts -o dist --minify",
         "lint": "eslint lib/** --ext .ts",
         "generate-test-stubs": "node dist/lib/test-stub-generator.js"
     },
