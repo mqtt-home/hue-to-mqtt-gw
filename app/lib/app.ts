@@ -22,11 +22,11 @@ export const startApp = async () => {
         }
     })
 
-    log.info("Application is now ready.")
-
     log.info("Scheduling hourly-full-update.")
     const task = cron.schedule("0 * * * *", triggerFullUpdate)
     task.start()
+
+    log.info("Application is now ready.")
 
     return () => {
         mqttCleanUp()

@@ -62,6 +62,7 @@ export const toGroupedLight = (template: GroupedLight, message: LightMessage) =>
     if (message.color_temp && template.color_temperature) {
         result.color_temperature = { ...template.color_temperature, mirek: message.color_temp }
         delete result.color
+        result.dimming = { brightness: message.brightness }
     }
     else if (message.color && template.color) {
         delete result.color_temperature
