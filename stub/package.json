@@ -10,7 +10,7 @@
   "author": "Philipp Arndt",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^17.0.9",
+    "@types/node": "^18.0.0",
     "@types/rimraf": "^3.0.2",
     "axios": "^0.27.0",
     "rimraf": "^3.0.2",
