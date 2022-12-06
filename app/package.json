@@ -43,7 +43,7 @@
     },
     "dependencies": {
         "async-lock": "1.4.0",
-        "axios": "1.2.0",
+        "axios": "1.2.1",
         "eventsource": "2.0.2",
         "mqtt": "4.3.7",
         "node-cron": "3.0.2",
