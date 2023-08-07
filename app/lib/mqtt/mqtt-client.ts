@@ -85,7 +85,7 @@ export const connectMqtt: (() => Promise<() => void>) = () => {
                     })
                 }
                 else {
-                    log.error(err)
+                    log.error("MQTT subscription failed with error", err)
                     reject(err)
                 }
             })

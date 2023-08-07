@@ -63,7 +63,7 @@ describe("PUT handler", () => {
         await putMessage(deviceStubs.lightWithColor, Buffer.from(message))
 
         expect(messages.length).toBe(0)
-        expect(logger.output).toMatch(/\d+\d+\d+\d+-\d+\d+-\d+\d+T.* ERROR invalid message Unexpected token i in JSON at position 0.*/)
+        expect(logger.output).toContain("Unexpected token i in JSON at position 0")
     })
 
     test("Turn on", async () => {

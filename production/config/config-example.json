@@ -8,5 +8,6 @@
     "hue": {
         "host": "192.168.2.99",
         "api-key": "api-key-here"
-    }
+    },
+    "loglevel": "debug"
 }

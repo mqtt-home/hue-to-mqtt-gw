@@ -28,7 +28,8 @@ describe("Config", () => {
                 url: "tcp://192.168.1.1:1883"
             },
             names: {},
-            "send-full-update": true
+            "send-full-update": true,
+            loglevel: "info"
         })
 
         expect(applyDefaults(config)["send-full-update"]).toBeTruthy()

@@ -63,7 +63,7 @@ export const applyEffect = async (light: Light, effect: LightEffectMessage) => {
         resolveResult()
     }, (err) => {
         if (err) {
-            log.error(err)
+            log.error("Light effect failed with error", err)
         }
     })
 

@@ -20,7 +20,7 @@ describe("API v2 - Integration", () => {
     let mqtt: StartedTestContainer
 
     beforeAll(async () => {
-        log.silent = true
+        log.off()
 
         const buildRoot = path.resolve(__dirname, "../../../stub")
         const hueContainer = await GenericContainer.fromDockerfile(buildRoot)
@@ -56,7 +56,7 @@ describe("API v2 - Integration", () => {
     afterAll(async () => {
         await hue?.stop()
         await mqtt?.stop()
-        log.silent = false
+        log.on()
         jest.setTimeout(JEST_DEFAULT_TIMEOUT)
     })
 

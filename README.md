@@ -109,7 +109,8 @@ Post a message `{"state": ""}` to `hue/light/room/some-light/get` to get the cur
     },
     "names": {
         "resource-uuid": "office"
-    }
+    },
+    "loglevel": "debug"
 }
 ```
 
