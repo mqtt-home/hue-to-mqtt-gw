@@ -11,6 +11,7 @@
         "prebuild": "run-s clean",
         "build": "ncc build lib/index.ts -o dist --minify",
         "lint": "eslint lib/** --ext .ts",
+        "lint:fix": "eslint lib/** --ext .ts --fix",
         "generate-test-stubs": "node dist/lib/test-stub-generator.js"
     },
     "keywords": [],
