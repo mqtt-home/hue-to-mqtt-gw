@@ -22,6 +22,7 @@ export class StateManager {
 
     setDevices = (devices: Device[]) => {
         for (const device of devices) {
+            log.debug(device.metadata.name, device.id)
             this.deviceByDeviceId.set(device.id, device)
             for (const service of device.services) {
                 this.deviceByDeviceId.set(service.rid, device)

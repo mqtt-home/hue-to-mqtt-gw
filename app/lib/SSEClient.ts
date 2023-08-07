@@ -18,7 +18,7 @@ export const startSSE = () => {
     const sse = new EventSource(`${baserUrl}/eventstream/clip/v2`, eventSourceInitDict)
     sse.onerror = (err: any) => {
         if (err) {
-            log.error(err)
+            log.error("SSE Error", err)
         }
     }
     return sse
