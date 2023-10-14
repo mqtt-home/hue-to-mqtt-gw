@@ -49,6 +49,6 @@
         "mqtt": "4.3.7",
         "node-cron": "3.0.2",
         "winston": "3.11.0",
-        "winston-transport": "4.5.0"
+        "winston-transport": "4.6.0"
     }
 }
