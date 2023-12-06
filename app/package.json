@@ -21,7 +21,7 @@
     "devDependencies": {
         "@types/async-lock": "1.4.2",
         "@types/eventsource": "1.1.15",
-        "@types/jest": "29.5.10",
+        "@types/jest": "29.5.11",
         "@types/node": "18.19.2",
         "@types/node-cron": "3.0.11",
         "@typescript-eslint/eslint-plugin": "6.13.2",
