@@ -55,11 +55,11 @@ export const applyDefaults = (config: any) => {
     } as Config
 }
 
-function replaceEnvVariables(input: string) {
-    const envVariableRegex = /\${([^}]+)}/g;
+function replaceEnvVariables (input: string) {
+    const envVariableRegex = /\${([^}]+)}/g
 
     return input.replace(envVariableRegex, (_, envVarName) => {
-        return process.env[envVarName] || '';
+        return process.env[envVarName] || ""
     })
 }
 

@@ -61,6 +61,7 @@ describe("Config", () => {
             },
             hue: {
                 host: "192.168.1.1",
+                // eslint-disable-next-line no-template-curly-in-string
                 "api-key": "${API_KEY}"
             }
         }
