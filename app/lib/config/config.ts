@@ -65,7 +65,9 @@ function replaceEnvVariables (input: string) {
 
 export const loadConfig = (file: string) => {
     const buffer = fs.readFileSync(file)
-    applyConfig(JSON.parse(replaceEnvVariables(buffer.toString())))
+    const effectiveConfig = replaceEnvVariables(buffer.toString())
+    log.info("Using config", effectiveConfig)
+    applyConfig(JSON.parse(effectiveConfig))
 }
 
 export const applyConfig = (config: any) => {
