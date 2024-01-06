@@ -1,4 +1,5 @@
-import { applyDefaults } from "./config"
+import { applyDefaults, getAppConfig, loadConfig } from "./config"
+import * as fs from "fs"
 
 describe("Config", () => {
     test("default values", async () => {
@@ -49,5 +50,24 @@ describe("Config", () => {
         }
 
         expect(applyDefaults(config)["send-full-update"]).toBeFalsy()
+    })
+
+    test("load config with env variables", async () => {
+        // new temp file
+        const config = {
+            mqtt: {
+                url: "tcp://192.168.1.1:1883",
+                topic: "hue"
+            },
+            hue: {
+                host: "192.168.1.1",
+                "api-key": "${API_KEY}"
+            }
+        }
+        process.env.API_KEY = "12345"
+
+        fs.writeFileSync("/tmp/config.json", JSON.stringify(config))
+        loadConfig("/tmp/config.json")
+        expect(getAppConfig().hue["api-key"]).toBe("12345")
     })
 })

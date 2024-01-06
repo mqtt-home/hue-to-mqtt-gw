@@ -55,9 +55,17 @@ export const applyDefaults = (config: any) => {
     } as Config
 }
 
+function replaceEnvVariables(input: string) {
+    const envVariableRegex = /\${([^}]+)}/g;
+
+    return input.replace(envVariableRegex, (_, envVarName) => {
+        return process.env[envVarName] || '';
+    })
+}
+
 export const loadConfig = (file: string) => {
     const buffer = fs.readFileSync(file)
-    applyConfig(JSON.parse(buffer.toString()))
+    applyConfig(JSON.parse(replaceEnvVariables(buffer.toString())))
 }
 
 export const applyConfig = (config: any) => {
