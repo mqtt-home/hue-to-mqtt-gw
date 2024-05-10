@@ -19,7 +19,8 @@ describe("Config", () => {
                 "api-key": "some-api-key",
                 host: "192.168.1.1",
                 port: 443,
-                protocol: "https"
+                protocol: "https",
+                "sse-watchdog-millis": 0
             },
             mqtt: {
                 "bridge-info": true,
