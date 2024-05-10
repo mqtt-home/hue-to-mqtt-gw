@@ -32,7 +32,7 @@ const handleResource = (data: HueEventData) => {
         publishResource(newResource)
     }
     else {
-        log.error(`No resource found with id ${data.id}`)
+        log.debug(`No resource found with id ${data.id}`)
     }
 }
 
