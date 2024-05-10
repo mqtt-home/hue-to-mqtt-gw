@@ -17,7 +17,7 @@ export const startApp = async () => {
 
     const level = log.level()
     if (level === "DEBUG") {
-        let resources = await loadAllResources()
+        const resources = await loadAllResources()
         log.debug("All resources", JSON.stringify(resources))
     }
 
