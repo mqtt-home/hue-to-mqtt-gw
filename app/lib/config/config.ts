@@ -17,6 +17,7 @@ export type ConfigHue = {
     "api-key": string
     port: number
     protocol: "http"|"https"
+    "sse-watchdog-millis": number
 }
 
 export type Config = {
@@ -37,7 +38,8 @@ const mqttDefaults = {
 
 const hueDefaults = {
     port: 443,
-    protocol: "https"
+    protocol: "https",
+    "sse-watchdog-millis": 0
 }
 
 const configDefaults = {

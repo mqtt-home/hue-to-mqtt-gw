@@ -1,6 +1,5 @@
 import { connectMqtt } from "./mqtt/mqtt-client"
-import { startSSE } from "./SSEClient"
-import { takeEvent } from "./state/state-event-handler"
+import { destroySSE, initSSE } from "./SSEClient"
 import { log } from "./logger"
 import cron from "node-cron"
 import { initStateManagerFromHue } from "./state/state-manager"
@@ -15,12 +14,7 @@ export const startApp = async () => {
     const mqttCleanUp = await connectMqtt()
     await triggerFullUpdate()
 
-    const sse = startSSE()
-    sse.addEventListener("message", event => {
-        for (const data of JSON.parse(event.data)) {
-            takeEvent(data)
-        }
-    })
+    initSSE()
 
     log.info("Scheduling hourly-full-update.")
     const task = cron.schedule("0 * * * *", triggerFullUpdate)
@@ -30,7 +24,7 @@ export const startApp = async () => {
 
     return () => {
         mqttCleanUp()
-        sse.close()
+        destroySSE()
         task.stop()
     }
 }
