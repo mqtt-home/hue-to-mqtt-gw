@@ -3,6 +3,7 @@ import { destroySSE, initSSE } from "./SSEClient"
 import { log } from "./logger"
 import cron from "node-cron"
 import { initStateManagerFromHue } from "./state/state-manager"
+import { loadAllResources } from "./api/v2/hue-api-v2"
 
 export const triggerFullUpdate = async () => {
     log.info("Updating devices")
@@ -13,6 +14,12 @@ export const triggerFullUpdate = async () => {
 export const startApp = async () => {
     const mqttCleanUp = await connectMqtt()
     await triggerFullUpdate()
+
+    const level = log.level()
+    if (level === "DEBUG") {
+        let resources = await loadAllResources()
+        log.debug("All resources", JSON.stringify(resources))
+    }
 
     initSSE()
 

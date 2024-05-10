@@ -128,5 +128,8 @@ export const log = {
     on: () => {
         logger.silent = false
     },
+    level: () => {
+        return logger.level
+    },
     configure: (loglevel: string) => logger.configure(loggerConfig(loglevel))
 }

@@ -110,6 +110,11 @@ export const loadDevices: () => Promise<Result<Device>> | undefined = async () =
     return load("resource/device")
 }
 
+export const loadAllResources: () => Promise<Result<Device>> | undefined = async () => {
+    return load("resource")
+}
+
+
 export const loadTyped: (resourceName: string) => Promise<Result<HueIdentifiable>> | undefined = async (resourceName: string) => {
     return load(`resource/${resourceName}`)
 }
