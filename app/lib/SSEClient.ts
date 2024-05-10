@@ -35,6 +35,7 @@ const registerSSEWatchDog = () => {
         return
     }
 
+    lastEvent = Date.now()
     log.info(`SSE watchdog enabled with ${millis}ms`)
     setInterval(() => {
         log.debug("Checking for SSE watchdog", Date.now() - lastEvent, millis)
