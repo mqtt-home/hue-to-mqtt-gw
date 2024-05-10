@@ -99,7 +99,7 @@ export const initStateManagerFromHue = async () => {
         "relative_rotary",
         "temperature",
         "zgp_connectivity",
-        "zigbee_connectivity",
+        "zigbee_connectivity"
     ]) {
         const resources = await loadTyped(typeName)
         if (resources) {
