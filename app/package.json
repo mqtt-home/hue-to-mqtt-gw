@@ -35,7 +35,7 @@
         "jest": "29.7.0",
         "jest-junit": "16.0.0",
         "jest-standard-reporter": "2.0.0",
-        "npm-run-all2": "5.0.0",
+        "npm-run-all2": "5.0.2",
         "rimraf": "5.0.6",
         "testcontainers": "10.9.0",
         "ts-jest": "29.1.2",
