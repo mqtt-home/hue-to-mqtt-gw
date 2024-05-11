@@ -1,6 +1,7 @@
 import { isLight } from "../api/v2/types/light"
 import { isRoom, Room } from "../api/v2/types/room"
 import {
+    loadAllResources,
     loadDevices,
     loadTyped
 } from "../api/v2/hue-api-v2"
@@ -68,7 +69,7 @@ const updateAll = async () => {
                 publishResource(resource)
             }
         }
-        log.info("Sending full update done")
+        log.info("Sending full update done", state._typedResources.size)
     }
 }
 
@@ -84,29 +85,15 @@ export const initStateManagerFromHue = async () => {
         state.addTypedResources(rooms.data)
     }
 
-    for (const typeName of [
-        "bridge",
-        "bridge_home",
-        "button",
-        "device_power",
-        "device_power",
-        "device_software_update",
-        "entertainment",
-        "grouped_light",
-        "light",
-        "light_level",
-        "motion",
-        "relative_rotary",
-        "temperature",
-        "zgp_connectivity",
-        "zigbee_connectivity",
-        "grouped_motion",
-        "grouped_light_level",
-        "scene"
-    ]) {
-        const resources = await loadTyped(typeName)
-        if (resources) {
-            state.addTypedResources(resources.data)
+    const resources = await loadAllResources()
+    if (!resources) {
+        log.error("Failed to load resources")
+        process.exit(1)
+    }
+
+    for (const resource of resources.data) {
+        if (!isRoom(resource)) {
+            state.addTypedResources([resource])
         }
     }
 
