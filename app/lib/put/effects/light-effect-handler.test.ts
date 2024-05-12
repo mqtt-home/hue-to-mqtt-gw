@@ -5,7 +5,7 @@ import * as api from "../../api/v2/hue-api-v2"
 import { applyDefaults, setTestConfig } from "../../config/config"
 import { LightEffectMessage } from "../../messages/light-message"
 import { expectedForNotifyOff, expectedForNotifyRestore } from "./light-effect-handler-stubs"
-import { vi } from "vitest"
+import { beforeEach, describe, expect, test, vi } from "vitest"
 
 let messages: any[]
 const currentLight = { ...deviceStubs.lightWithColor }
