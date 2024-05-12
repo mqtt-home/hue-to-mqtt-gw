@@ -20,18 +20,18 @@ jobs:
       - name: Install
         working-directory: app
         run: |
-          npm install
+          pnpm install
 
       - name: Lint/Test
         working-directory: app
         run: |
-          npm run lint
-          npm test
+          pnpm lint
+          pnpm test
 
       - name: Build
         working-directory: app
         run: |
-          npm run build
+          pnpm build
 
       - name: Build container
         run: docker-compose build
