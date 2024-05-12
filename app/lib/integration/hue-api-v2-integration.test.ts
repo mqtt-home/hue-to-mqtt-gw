@@ -14,7 +14,7 @@ import { log } from "../logger"
 import { curlHealthTest, CONTAINER_TIMEOUT, DEFAULT_TIMEOUT } from "./test-utils"
 import { afterAll, beforeAll, describe, expect, test, vi } from "vitest"
 
-vi.setConfig({ hookTimeout: CONTAINER_TIMEOUT})
+vi.setConfig({ hookTimeout: CONTAINER_TIMEOUT })
 
 describe("API v2 - Integration", () => {
     let hue: StartedTestContainer
