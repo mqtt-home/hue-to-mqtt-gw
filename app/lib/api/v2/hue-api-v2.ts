@@ -74,7 +74,7 @@ export const putGroupedLightResource = async (resource: GroupedLight) => {
 const putLightLocked = async (resource: HueIdentifiable, message: PutLight) => {
     const config = getAppConfig()
     const topic = `resource/${resource.type}/${resource.id}`
-    console.log(topic, message)
+    log.debug("putLightLocked", topic, message)
 
     try {
         const result = await getInstance().put(topic, message, {
