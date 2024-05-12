@@ -1,5 +1,6 @@
 import { applyDefaults, getAppConfig, loadConfig } from "./config"
 import * as fs from "fs"
+import { describe, expect, test } from "vitest"
 
 describe("Config", () => {
     test("default values", async () => {

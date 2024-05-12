@@ -2,6 +2,7 @@ import { isNameable } from "../api/v2/types/general"
 import { getTopic, state } from "./state-manager"
 import { deviceStubs } from "../api/v2/device-stubs"
 import { Device } from "../api/v2/types/device"
+import { describe, expect, test } from "vitest"
 
 describe("State manager", () => {
     test("nameable", async () => {

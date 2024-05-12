@@ -90,11 +90,29 @@ const putLightLocked = async (resource: HueIdentifiable, message: PutLight) => {
     }
 }
 
+let testPutLights = false
+let messages: any[] = []
+export const startTestPutLights = () => {
+    testPutLights = true
+    messages = []
+}
+export const stopTestPutLights = () => {
+    testPutLights = false
+    const result = messages
+    messages = []
+    return result
+}
+
 const lock = new AsyncLock({ timeout: 5000 })
 export const putLight = async (light: HueIdentifiable, message: PutLight) => {
     const [resolveResult, promise] = resolvable()
     lock.acquire("put", async (done) => {
-        await putLightLocked(light, message)
+        if (testPutLights) {
+            messages.push(message)
+        }
+        else {
+            await putLightLocked(light, message)
+        }
         done()
         resolveResult()
     }, (err) => {

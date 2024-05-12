@@ -1,4 +1,5 @@
 import { colors } from "."
+import { describe, expect, test } from "vitest"
 
 describe("Colors", () => {
     test("XY to RGB", async () => {

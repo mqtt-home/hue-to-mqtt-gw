@@ -15,23 +15,27 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 20.x
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
 
       - name: Install
         working-directory: app
         run: |
-          npm install
+          pnpm install
 
       - name: Lint/Test
         working-directory: app
         run: |
-          npm run lint
-          npm test
+          pnpm lint
+          pnpm test
 
       - name: Build
         working-directory: app
         run: |
-          npm run build
+          pnpm build
 
       - name: Build container
         run: docker-compose build

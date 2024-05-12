@@ -22,6 +22,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       - uses: philipparndt/get-release-number@v3
         id: next
         with:
@@ -32,17 +36,17 @@ jobs:
         working-directory: app
         env:
           RELEASE_VERSION: ${{ steps.next.outputs.version }}
-        run: npm version $RELEASE_VERSION --allow-same-version
+        run: pnpm version $RELEASE_VERSION --allow-same-version
 
       - name: Install
         working-directory: app
         shell: bash
-        run: npm install
+        run: pnpm install
 
       - name: Build
         working-directory: app
         shell: bash
-        run: npm run build
+        run: pnpm build
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
