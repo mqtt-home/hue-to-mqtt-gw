@@ -6,14 +6,9 @@ import { putMessage } from "./put-handler"
 import { TestLogger } from "../logger.test"
 import { expectedForNotifyRestore } from "./effects/light-effect-handler-stubs"
 import { afterEach, beforeAll, beforeEach, describe, expect, test, vi } from "vitest"
-
-let messages: any[]
+import { startTestPutLights, stopTestPutLights } from "../api/v2/hue-api-v2"
 
 vi.spyOn(api, "loadTypedById").mockReturnValue(Promise.resolve(deviceStubs.lightWithColor))
-vi.spyOn(api, "putLight").mockImplementation((x, message) => {
-    messages.push(message)
-    return Promise.resolve()
-})
 
 describe("PUT handler", () => {
     let logger: TestLogger
@@ -24,10 +19,11 @@ describe("PUT handler", () => {
 
     afterEach(() => {
         logger.output = ""
+        stopTestPutLights()
     })
 
     beforeEach(() => {
-        messages = []
+        startTestPutLights()
 
         setTestConfig(applyDefaults({
             hue: {
@@ -55,7 +51,7 @@ describe("PUT handler", () => {
 
         await putMessage(deviceStubs.lightWithColor, Buffer.from(JSON.stringify(effect)))
 
-        expect(messages).toStrictEqual(expectedForNotifyRestore(effect))
+        expect(stopTestPutLights()).toStrictEqual(expectedForNotifyRestore(effect))
     })
 
     test("PUT invalid message", async () => {
@@ -63,7 +59,7 @@ describe("PUT handler", () => {
 
         await putMessage(deviceStubs.lightWithColor, Buffer.from(message))
 
-        expect(messages.length).toBe(0)
+        expect(stopTestPutLights().length).toBe(0)
         expect(logger.output).toContain("invalid message")
     })
 
@@ -75,7 +71,7 @@ describe("PUT handler", () => {
 
         await putMessage(deviceStubs.lightWithColor, Buffer.from(JSON.stringify(msg)))
 
-        expect(messages).toStrictEqual([
+        expect(stopTestPutLights()).toStrictEqual([
             {
                 dimming: { brightness: 50 },
                 color: deviceStubs.lightWithColor.color,
@@ -102,7 +98,7 @@ describe("PUT handler", () => {
 
         await putMessage(deviceStubs.lightWithColor, Buffer.from(JSON.stringify(msg)))
 
-        expect(messages).toStrictEqual([
+        expect(stopTestPutLights()).toStrictEqual([
             {
                 dimming: { brightness: 50 },
                 color: deviceStubs.lightWithColor.color,
@@ -129,7 +125,7 @@ describe("PUT handler", () => {
         }
 
         await putMessage(deviceStubs.lightWithColor, Buffer.from(JSON.stringify(msg)))
-        expect(messages).toStrictEqual([
+        expect(stopTestPutLights()).toStrictEqual([
             {
                 dimming: {
                     brightness: 100
