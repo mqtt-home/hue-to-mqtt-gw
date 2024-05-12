@@ -4,8 +4,8 @@
     "description": "Hue To MQTT Gateway",
     "main": "index.js",
     "scripts": {
-        "test": "jest",
-        "coverage": "jest --coverage",
+        "test": "vitest",
+        "coverage": "vitest --coverage",
         "start": "tsc && node dist/app/lib/index.js",
         "clean": "rimraf dist",
         "prebuild": "run-s clean",
@@ -21,7 +21,6 @@
     "devDependencies": {
         "@types/async-lock": "1.4.2",
         "@types/eventsource": "1.1.15",
-        "@types/jest": "29.5.12",
         "@types/node": "18.19.33",
         "@types/node-cron": "3.0.11",
         "@typescript-eslint/eslint-plugin": "6.21.0",
@@ -32,19 +31,17 @@
         "eslint-plugin-import": "2.29.1",
         "eslint-plugin-node": "11.1.0",
         "eslint-plugin-promise": "6.1.1",
-        "jest": "29.7.0",
-        "jest-junit": "16.0.0",
-        "jest-standard-reporter": "2.0.0",
         "npm-run-all2": "6.1.2",
         "rimraf": "5.0.7",
         "testcontainers": "10.9.0",
-        "ts-jest": "29.1.2",
         "ts-node": "10.9.2",
-        "typescript": "5.4.5"
+        "typescript": "5.4.5",
+        "vitest": "1.6.0"
     },
     "dependencies": {
         "async-lock": "1.4.1",
         "axios": "1.6.8",
+        "chalk": "^5.3.0",
         "eventsource": "2.0.2",
         "mqtt": "4.3.8",
         "node-cron": "3.0.3",

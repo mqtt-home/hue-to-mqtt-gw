@@ -2,6 +2,7 @@ import { createLogger, log, logLevelColor, setLogger, unpackError } from "./logg
 import { Writable } from "stream"
 import * as winston from "winston"
 import chalk from "chalk"
+import { beforeEach, describe, expect, test } from "vitest"
 
 export class TestLogger {
     output = ""

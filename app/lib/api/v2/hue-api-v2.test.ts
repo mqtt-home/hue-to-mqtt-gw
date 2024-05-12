@@ -10,6 +10,7 @@ import { isZigbeeGreenPowerConnectivity } from "./types/zgp-connectivity"
 import { isZigbeeConnectivity } from "./types/zigbee-connectivity"
 import { isLight } from "./types/light"
 import { isGroupedLight } from "./types/grouped-light"
+import { describe, expect, test } from "vitest"
 
 describe("API v2", () => {
     const assertTypeCheck = (type: string, method: ((resource: HueIdentifiable) => boolean)) => {

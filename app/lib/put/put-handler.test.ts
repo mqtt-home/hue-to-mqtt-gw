@@ -5,11 +5,12 @@ import { LightEffectMessage, LightMessage } from "../messages/light-message"
 import { putMessage } from "./put-handler"
 import { TestLogger } from "../logger.test"
 import { expectedForNotifyRestore } from "./effects/light-effect-handler-stubs"
+import { afterEach, beforeAll, beforeEach, describe, expect, test, vi } from "vitest"
 
 let messages: any[]
 
-jest.spyOn(api, "loadTypedById").mockReturnValue(Promise.resolve(deviceStubs.lightWithColor))
-jest.spyOn(api, "putLight").mockImplementation((x, message) => {
+vi.spyOn(api, "loadTypedById").mockReturnValue(Promise.resolve(deviceStubs.lightWithColor))
+vi.spyOn(api, "putLight").mockImplementation((x, message) => {
     messages.push(message)
     return Promise.resolve()
 })

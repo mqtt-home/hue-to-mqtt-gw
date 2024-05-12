@@ -5,12 +5,13 @@ import * as api from "../../api/v2/hue-api-v2"
 import { applyDefaults, setTestConfig } from "../../config/config"
 import { LightEffectMessage } from "../../messages/light-message"
 import { expectedForNotifyOff, expectedForNotifyRestore } from "./light-effect-handler-stubs"
+import { vi } from "vitest"
 
 let messages: any[]
 const currentLight = { ...deviceStubs.lightWithColor }
 
-jest.spyOn(api, "loadTypedById").mockReturnValue(Promise.resolve(currentLight))
-jest.spyOn(api, "putLight").mockImplementation((x, message) => {
+vi.spyOn(api, "loadTypedById").mockReturnValue(Promise.resolve(currentLight))
+vi.spyOn(api, "putLight").mockImplementation((x, message) => {
     messages.push(message)
     return Promise.resolve()
 })

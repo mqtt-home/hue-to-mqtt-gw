@@ -15,6 +15,7 @@ import { ZigbeeConnectivity } from "../api/v2/types/zigbee-connectivity"
 import { fromZigbeeConnectivity } from "./zigbee-connectivity-message"
 import { Light } from "../api/v2/types/light"
 import { fromLight, isEffectMessage, LightMessage, toLight } from "./light-message"
+import { describe, expect, test } from "vitest"
 
 describe("Messages", () => {
     test("ambient", async () => {

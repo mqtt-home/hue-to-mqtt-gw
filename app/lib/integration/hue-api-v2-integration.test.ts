@@ -11,9 +11,10 @@ import roomsJson from "../../../stub/stubs/clip/v2/resource/room.json"
 import devicesJson from "../../../stub/stubs/clip/v2/resource/device.json"
 import { startApp } from "../app"
 import { log } from "../logger"
-import { curlHealthTest, JEST_CONTAINER_TIMEOUT, JEST_DEFAULT_TIMEOUT } from "./test-utils"
+import { curlHealthTest, CONTAINER_TIMEOUT, DEFAULT_TIMEOUT } from "./test-utils"
+import { afterAll, beforeAll, describe, expect, test, vi } from "vitest"
 
-jest.setTimeout(JEST_CONTAINER_TIMEOUT)
+vi.setConfig({ hookTimeout: CONTAINER_TIMEOUT})
 
 describe("API v2 - Integration", () => {
     let hue: StartedTestContainer
@@ -57,7 +58,7 @@ describe("API v2 - Integration", () => {
         await hue?.stop()
         await mqtt?.stop()
         log.on()
-        jest.setTimeout(JEST_DEFAULT_TIMEOUT)
+        vi.setConfig({ hookTimeout: DEFAULT_TIMEOUT })
     })
 
     test("leaks", () => {
