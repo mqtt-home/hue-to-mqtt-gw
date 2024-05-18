@@ -54,7 +54,12 @@ const online = () => {
 const willMessage = () => {
     const config = getAppConfig()
     if (config.mqtt["bridge-info"]) {
-        return { topic: brideTopic(), payload: "offline", qos: config.mqtt.qos, retain: config.mqtt.retain }
+        return {
+            topic: brideTopic(),
+            payload: Buffer.from("offline"),
+            qos: config.mqtt.qos,
+            retain: config.mqtt.retain
+        }
     }
     else {
         return undefined

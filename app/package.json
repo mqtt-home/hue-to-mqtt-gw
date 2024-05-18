@@ -6,7 +6,7 @@
     "scripts": {
         "test": "vitest",
         "coverage": "vitest --coverage",
-        "start": "tsc && node dist/app/lib/index.js",
+        "start": "ncc build lib/index.ts -o dist && node dist/index.js ../production/config/config.json",
         "clean": "rimraf dist",
         "prebuild": "run-s clean",
         "build": "ncc build lib/index.ts -o dist --minify",
