@@ -86,7 +86,11 @@ const putLightLocked = async (resource: HueIdentifiable, message: PutLight) => {
         return result.data
     }
     catch (e) {
-        log.error("Put light failed with error", message, e)
+        log.error("Put light failed with error", {
+            topic,
+            message,
+            e
+        })
     }
 }
 
@@ -117,7 +121,11 @@ export const putLight = async (light: HueIdentifiable, message: PutLight) => {
         resolveResult()
     }, (err) => {
         if (err) {
-            log.error("Put light failed with error", message, err)
+            log.error("Put light failed with error [lock acquire]", {
+                light,
+                message,
+                err
+            })
         }
     })
 
