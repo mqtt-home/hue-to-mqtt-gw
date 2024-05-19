@@ -17,6 +17,13 @@ export const putMessage = async (resource: HueIdentifiable, message: Buffer) => 
             else {
                 const newResource = toLight(resource, lightMsg)
 
+                if (newResource.color && newResource.color_temperature) {
+                    log.warn("PUT Handler: Both color and color_temperature set, put is likely to fail", {
+                        newResource,
+                        message
+                    })
+                }
+
                 // resource will be updated by the Hue SSE API
                 try {
                     await putLightResource(newResource)
