@@ -109,6 +109,14 @@ export const stopTestPutLights = () => {
 
 const lock = new AsyncLock({ timeout: 5000 })
 export const putLight = async (light: HueIdentifiable, message: PutLight) => {
+
+    if (message.color && message.color_temperature) {
+        log.warn("Both color and color_temperature set, put is likely to fail", {
+            light,
+            message
+        })
+    }
+
     const [resolveResult, promise] = resolvable()
     lock.acquire("put", async (done) => {
         if (testPutLights) {
