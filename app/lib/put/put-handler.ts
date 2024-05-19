@@ -1,7 +1,7 @@
 import { HueIdentifiable } from "../api/v2/types/general"
 import { isLight } from "../api/v2/types/light"
 import { isEffectMessage, LightEffectMessage, LightMessage, toGroupedLight, toLight } from "../messages/light-message"
-import { putGroupedLightResource, putLightResource } from "../api/v2/hue-api-v2"
+import { putGroupedLightResource, putLightResource, validatePutLights } from "../api/v2/hue-api-v2"
 import { log } from "../logger"
 import { applyEffect } from "./effects/light-effect-handler"
 import { isGroupedLight } from "../api/v2/types/grouped-light"
@@ -17,12 +17,7 @@ export const putMessage = async (resource: HueIdentifiable, message: Buffer) => 
             else {
                 const newResource = toLight(resource, lightMsg)
 
-                if (newResource.color && newResource.color_temperature) {
-                    log.warn("PUT Handler: Both color and color_temperature set, put is likely to fail", {
-                        newResource,
-                        message
-                    })
-                }
+                validatePutLights(newResource, "putMessage")
 
                 // resource will be updated by the Hue SSE API
                 try {
