@@ -1,6 +1,6 @@
 import { HueIdentifiable, HueOwnable } from "./general"
 
-/* eslint-disable camelcase */
+ 
 export type LightLevel = HueIdentifiable & HueOwnable & {
     type?: "light_level"
     enabled: boolean

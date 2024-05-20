@@ -2,7 +2,7 @@ import { HueIdentifiable, HueOwnable } from "./general"
 
 export type ZigbeeGreenPowerConnectivityStatus = "connected"|"disconnected"|"connectivity_issue"|"unidirectional_incoming"
 
-/* eslint-disable camelcase */
+ 
 export type ZigbeeGreenPowerConnectivity = HueIdentifiable & HueOwnable & {
     type: "zgp_connectivity"
     status: ZigbeeGreenPowerConnectivityStatus

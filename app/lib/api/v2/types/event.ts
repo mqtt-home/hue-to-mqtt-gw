@@ -4,7 +4,7 @@ import { ButtonData } from "./button"
 import { LightColorData, LightColorTemperatureData, LightDimmingData, LightOnOffData } from "./light"
 import { TemperatureData } from "./temperature"
 
-/* eslint-disable camelcase */
+ 
 export type HueEventData = HueIdentifiable & HueOwnable & {
     motion?: MotionData
     button?: ButtonData

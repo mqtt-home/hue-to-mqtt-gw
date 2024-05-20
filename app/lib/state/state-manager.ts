@@ -106,7 +106,7 @@ const getNameProvider = (resource: HueIdentifiable) => {
 
 const mapName = (resource: HueIdentifiable) => {
     const customName = getAppConfig()?.names[resource.id]
-    if (customName != null) {
+    if (customName !== null) {
         return customName
     }
 
