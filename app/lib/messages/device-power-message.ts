@@ -1,6 +1,6 @@
 import { BatteryState, DevicePower } from "../api/v2/types/device-power"
 
-/* eslint-disable camelcase */
+ 
 export type DevicePowerMessage = {
     battery_level: number
     battery_state: BatteryState

@@ -1,7 +1,7 @@
 import { ColorXY, Light } from "../api/v2/types/light"
 import { GroupedLight } from "../api/v2/types/grouped-light"
 
-/* eslint-disable camelcase */
+ 
 export type LightMessage = {
     state: "ON"|"OFF"
     brightness: number

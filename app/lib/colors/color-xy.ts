@@ -17,7 +17,7 @@ const colorTriangle = (gamutType: GamutType) => {
 }
 
 const checkPointInLampsReach = (point: number[], colorPoints: number[][]) => {
-    if (point != null && colorPoints != null) {
+    if (point !== null && colorPoints !== null) {
         const red = colorPoints[0]
         const green = colorPoints[1]
         const blue = colorPoints[2]

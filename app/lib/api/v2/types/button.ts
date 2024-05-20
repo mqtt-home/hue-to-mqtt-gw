@@ -3,12 +3,12 @@ import { isMotion } from "./motion"
 
 export type ButtonEvent = "initial_press"|"repeat"|"short_release"|"long_release"|"double_short_release"
 
-/* eslint-disable camelcase */
+ 
 export type ButtonData = {
     last_event: ButtonEvent
 }
 
-/* eslint-disable camelcase */
+ 
 export type Button = HueIdentifiable & HueOwnable & {
     type?: "button"
     metadata: {

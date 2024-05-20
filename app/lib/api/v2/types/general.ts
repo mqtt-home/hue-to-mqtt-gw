@@ -3,7 +3,7 @@ export type Result<T> = {
     data: T[]
 }
 
-/* eslint-disable camelcase */
+ 
 export type HueIdentifiable = {
     type?: string
     id: string

@@ -1,6 +1,6 @@
 import { HueIdentifiable, HueOwnable } from "./general"
 
-/* eslint-disable camelcase */
+ 
 export type TemperatureData = {
     temperature: number
     temperature_valid: boolean

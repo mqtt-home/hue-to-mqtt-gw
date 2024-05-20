@@ -1,7 +1,7 @@
 import { HueIdentifiable, HueNameable, HueOwnable } from "./general"
 import { AlertEffectType, LightColorData, LightColorTemperatureData, LightDimmingData, LightOnOffData } from "./light"
 
-/* eslint-disable camelcase */
+ 
 export type GroupedLight = HueIdentifiable & HueOwnable & HueNameable & {
     type: "grouped_light"
     on: LightOnOffData

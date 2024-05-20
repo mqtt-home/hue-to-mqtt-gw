@@ -1,6 +1,6 @@
 import { HueIdentifiable, HueOwnable } from "./general"
 
-/* eslint-disable camelcase */
+ 
 export type MotionData = {
     motion: boolean
     motion_valid: boolean

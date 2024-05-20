@@ -9,13 +9,13 @@ export type LightOnOffData = {
     on: boolean
 }
 
-/* eslint-disable camelcase */
+ 
 export type LightDimmingData = {
     brightness: number,
     min_dim_level?: number
 }
 
-/* eslint-disable camelcase */
+ 
 export type LightColorTemperatureData = {
     mirek: number | null
     mirek_valid: boolean
@@ -27,14 +27,14 @@ export type LightColorTemperatureData = {
 
 export type GamutType = "A"|"B"|"C"|"other"
 
-/* eslint-disable camelcase */
+ 
 export type LightColorData = {
     xy: ColorXY
     gamut?: Gamut
     gamut_type?: GamutType
 }
 
-/* eslint-disable camelcase */
+ 
 export type Light = HueIdentifiable & HueOwnable & HueNameable & {
     type: "light"
     on: LightOnOffData
