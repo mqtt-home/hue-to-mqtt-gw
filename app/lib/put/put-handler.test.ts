@@ -6,7 +6,7 @@ import { putMessage } from "./put-handler"
 import { TestLogger } from "../logger.test"
 import { expectedForNotifyRestore } from "./effects/light-effect-handler-stubs"
 import { afterEach, beforeAll, beforeEach, describe, expect, test, vi } from "vitest"
-import { startTestPutLights, stopTestPutLights } from "../api/v2/hue-api-v2"
+import { cleanMessage, startTestPutLights, stopTestPutLights } from "../api/v2/hue-api-v2"
 
 vi.spyOn(api, "loadTypedById").mockReturnValue(Promise.resolve(deviceStubs.lightWithColor))
 
@@ -144,5 +144,77 @@ describe("PUT handler", () => {
                 }
             }
         ])
+    })
+
+    describe("Clean message", () => {
+        test("Both set", async () => {
+            const cleaned = cleanMessage({
+                color_temperature: {
+                    mirek: 250
+                },
+                color: {
+                    xy: [0.5, 0.5]
+                }
+            })
+            expect(cleaned).toStrictEqual({
+                color_temperature: {
+                    mirek: 250
+                }
+            })
+        })
+
+        test("Temperature set", async () => {
+            const cleaned = cleanMessage({
+                color_temperature: {
+                    mirek: 250
+                }
+            })
+            expect(cleaned).toStrictEqual({
+                color_temperature: {
+                    mirek: 250
+                }
+            })
+        })
+
+        test("Temperature set and color empty", async () => {
+            const cleaned = cleanMessage({
+                color_temperature: {
+                    mirek: 250
+                },
+                color: {}
+            })
+            expect(cleaned).toStrictEqual({
+                color_temperature: {
+                    mirek: 250
+                }
+            })
+        })
+
+        test("Color set", async () => {
+            const cleaned = cleanMessage({
+                color: {
+                    xy: [0.5, 0.5]
+                }
+            })
+            expect(cleaned).toStrictEqual({
+                color: {
+                    xy: [0.5, 0.5]
+                }
+            })
+        })
+
+        test("Color set and temperature empty", async () => {
+            const cleaned = cleanMessage({
+                color: {
+                    xy: [0.5, 0.5]
+                },
+                color_temperature: {}
+            })
+            expect(cleaned).toStrictEqual({
+                color: {
+                    xy: [0.5, 0.5]
+                }
+            })
+        })
     })
 })

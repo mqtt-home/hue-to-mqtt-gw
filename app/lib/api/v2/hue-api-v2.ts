@@ -53,22 +53,42 @@ type PutLight = {
     color?: LightColorData
 }
 
+const EMPTY = JSON.stringify({})
+
+export const cleanMessage = (message: any) => {
+    const result = { ...message }
+
+    if (JSON.stringify(result.color_temperature) === EMPTY) {
+        delete result.color_temperature
+    }
+
+    if (JSON.stringify(result.color) === EMPTY) {
+        delete result.color
+    }
+
+    if (result.color_temperature && result.color) {
+        delete result.color
+    }
+
+    return result
+}
+
 export const putLightResource = async (resource: Light) => {
-    return putLight(resource, {
+    return putLight(resource, cleanMessage({
         dimming: resource.dimming,
         on: resource.on,
         color_temperature: resource.color_temperature,
         color: resource.color
-    })
+    }))
 }
 
 export const putGroupedLightResource = async (resource: GroupedLight) => {
-    return putLight(resource, {
+    return putLight(resource, cleanMessage({
         dimming: resource.dimming,
         on: resource.on,
         color_temperature: resource.color_temperature,
         color: resource.color
-    })
+    }))
 }
 
 const putLightLocked = async (resource: HueIdentifiable, message: PutLight) => {
@@ -107,18 +127,8 @@ export const stopTestPutLights = () => {
     return result
 }
 
-export const validatePutLights = (message: any, info: string) => {
-    if (message.color && message.color_temperature && !Object.is(message.color, {}) && !Object.is(message.color_temperature, {})) {
-        log.warn(`${info} Both color and color_temperature set, put is likely to fail`, {
-            message
-        })
-    }
-}
-
 const lock = new AsyncLock({ timeout: 5000 })
 export const putLight = async (light: HueIdentifiable, message: PutLight) => {
-    validatePutLights(message, "putLight")
-
     const [resolveResult, promise] = resolvable()
     lock.acquire("put", async (done) => {
         if (testPutLights) {
