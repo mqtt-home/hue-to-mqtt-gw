@@ -74,7 +74,6 @@ describe("PUT handler", () => {
         expect(stopTestPutLights()).toStrictEqual([
             {
                 dimming: { brightness: 50 },
-                color: deviceStubs.lightWithColor.color,
                 color_temperature: {
                     mirek: null,
                     mirek_schema: {
@@ -101,7 +100,6 @@ describe("PUT handler", () => {
         expect(stopTestPutLights()).toStrictEqual([
             {
                 dimming: { brightness: 50 },
-                color: deviceStubs.lightWithColor.color,
                 color_temperature: {
                     mirek: null,
                     mirek_schema: {
