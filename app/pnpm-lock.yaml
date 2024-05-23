@@ -21,8 +21,8 @@ importers:
         specifier: 2.0.2
         version: 2.0.2
       mqtt:
-        specifier: 5.6.1
-        version: 5.6.1
+        specifier: 5.6.2
+        version: 5.6.2
       node-cron:
         specifier: 3.0.3
         version: 3.0.3
@@ -1048,6 +1048,7 @@ packages:
 
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
@@ -1232,8 +1233,8 @@ packages:
   mqtt-packet@9.0.0:
     resolution: {integrity: sha512-8v+HkX+fwbodsWAZIZTI074XIoxVBOmPeggQuDFCGg1SqNcC+uoRMWu7J6QlJPqIUIJXmjNYYHxBBLr1Y/Df4w==}
 
-  mqtt@5.6.1:
-    resolution: {integrity: sha512-0av+NmA7flOg5YZLZnh2Ytg56nvtiiAQJ70ziTUOCt4om5zodzYPbAeXIWtLXSJctmeuplxRB7mDdNwTr6CKhg==}
+  mqtt@5.6.2:
+    resolution: {integrity: sha512-bbmR8b4luc4UedbteHJ5Idc5zngJglVyogrJcE2buu+5Iipk5e3du3doBr+HCqKJt/OfuLQ9v0SfVgs6zOGZlg==}
     engines: {node: '>=16.0.0'}
     hasBin: true
 
@@ -2990,7 +2991,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  mqtt@5.6.1:
+  mqtt@5.6.2:
     dependencies:
       '@types/readable-stream': 4.0.14
       '@types/ws': 8.5.10
