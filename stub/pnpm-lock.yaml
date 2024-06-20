@@ -22,7 +22,7 @@ importers:
         version: 5.0.7
       typescript:
         specifier: ^5.0.0
-        version: 5.4.5
+        version: 5.5.2
       winston:
         specifier: ^3.4.0
         version: 3.13.0
@@ -284,8 +284,8 @@ packages:
     resolution: {integrity: sha512-aZbgViZrg1QNcG+LULa7nhZpJTZSLm/mXnHXnbAbjmN5aSa0y7V+wvv6+4WaBtpISJzThKy+PIPxc1Nq1EJ9mg==}
     engines: {node: '>= 14.0.0'}
 
-  typescript@5.4.5:
-    resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
+  typescript@5.5.2:
+    resolution: {integrity: sha512-NcRtPEOsPFFWjobJEtfihkLCZCXZt/os3zf8nTxjVH3RvTSxjrCamJpbExGvYOF+tFHc3pA65qpdwPbzjohhew==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -560,7 +560,7 @@ snapshots:
 
   triple-beam@1.4.1: {}
 
-  typescript@5.4.5: {}
+  typescript@5.5.2: {}
 
   undici-types@5.26.5: {}
 
