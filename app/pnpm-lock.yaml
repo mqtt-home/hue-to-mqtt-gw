@@ -21,8 +21,8 @@ importers:
         specifier: 2.0.2
         version: 2.0.2
       mqtt:
-        specifier: 5.7.2
-        version: 5.7.2
+        specifier: 5.7.3
+        version: 5.7.3
       node-cron:
         specifier: 3.0.3
         version: 3.0.3
@@ -1244,8 +1244,8 @@ packages:
   mqtt-packet@9.0.0:
     resolution: {integrity: sha512-8v+HkX+fwbodsWAZIZTI074XIoxVBOmPeggQuDFCGg1SqNcC+uoRMWu7J6QlJPqIUIJXmjNYYHxBBLr1Y/Df4w==}
 
-  mqtt@5.7.2:
-    resolution: {integrity: sha512-b5xIA9J/K1LTubSWKaNYYLxYIusQdip6o9/8bRWad2TelRr8xLifjQt+SnamDAwMp3O6NdvR9E8ae7VMuN02kg==}
+  mqtt@5.7.3:
+    resolution: {integrity: sha512-v+5la6Q6zjl0AWsI7ICDA/K3hclkNj7CMa0khMugCC+LKPLrQF+sSQb/9ckezZLMvcBC1tXhRzqmcagQoDl9fQ==}
     engines: {node: '>=16.0.0'}
     hasBin: true
 
@@ -3001,18 +3001,18 @@ snapshots:
   mqtt-packet@9.0.0:
     dependencies:
       bl: 6.0.12
-      debug: 4.3.4
+      debug: 4.3.5
       process-nextick-args: 2.0.1
     transitivePeerDependencies:
       - supports-color
 
-  mqtt@5.7.2:
+  mqtt@5.7.3:
     dependencies:
       '@types/readable-stream': 4.0.14
       '@types/ws': 8.5.10
       commist: 3.2.0
       concat-stream: 2.0.0
-      debug: 4.3.4
+      debug: 4.3.5
       help-me: 5.0.0
       lru-cache: 10.2.2
       minimist: 1.2.8
@@ -3068,7 +3068,7 @@ snapshots:
 
   number-allocator@1.0.14:
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.5
       js-sdsl: 4.3.0
     transitivePeerDependencies:
       - supports-color
@@ -3499,7 +3499,7 @@ snapshots:
   vite-node@1.6.0(@types/node@20.14.9):
     dependencies:
       cac: 6.7.14
-      debug: 4.3.4
+      debug: 4.3.5
       pathe: 1.1.2
       picocolors: 1.0.0
       vite: 5.2.11(@types/node@20.14.9)
