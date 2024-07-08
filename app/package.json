@@ -28,7 +28,7 @@
         "eslint": "9.6.0",
         "eslint-plugin-n": "17.9.0",
         "npm-run-all2": "6.2.2",
-        "rimraf": "5.0.8",
+        "rimraf": "5.0.9",
         "testcontainers": "10.10.1",
         "ts-node": "10.9.2",
         "typescript": "5.5.3",
