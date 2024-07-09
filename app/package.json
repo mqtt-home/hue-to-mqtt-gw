@@ -29,7 +29,7 @@
         "eslint-plugin-n": "17.9.0",
         "npm-run-all2": "6.2.2",
         "rimraf": "5.0.9",
-        "testcontainers": "10.10.1",
+        "testcontainers": "10.10.2",
         "ts-node": "10.9.2",
         "typescript": "5.5.3",
         "typescript-eslint": "8.0.0-alpha.41",
