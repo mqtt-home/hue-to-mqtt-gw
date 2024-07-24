@@ -32,7 +32,7 @@
         "testcontainers": "10.10.4",
         "ts-node": "10.9.2",
         "typescript": "5.5.4",
-        "typescript-eslint": "8.0.0-alpha.52",
+        "typescript-eslint": "8.0.0-alpha.53",
         "vitest": "1.6.0"
     },
     "dependencies": {
