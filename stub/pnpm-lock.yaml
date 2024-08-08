@@ -25,7 +25,7 @@ importers:
         version: 5.5.4
       winston:
         specifier: ^3.4.0
-        version: 3.14.0
+        version: 3.14.1
 
 packages:
 
@@ -303,8 +303,8 @@ packages:
     resolution: {integrity: sha512-wQCXXVgfv/wUPOfb2x0ruxzwkcZfxcktz6JIMUaPLmcNhO4bZTwA/WtDWK74xV3F2dKu8YadrFv0qhwYjVEwhA==}
     engines: {node: '>= 12.0.0'}
 
-  winston@3.14.0:
-    resolution: {integrity: sha512-XEJvmKJglhTW2TgfpKdkpj0119Yn5AClR7LJ0rBNUQFx20mNQj3s1ukTA1i77q+YBaHYbcKtXpxgPqfdUPCIYA==}
+  winston@3.14.1:
+    resolution: {integrity: sha512-CJi4Il/msz8HkdDfXOMu+r5Au/oyEjFiOZzbX2d23hRLY0narGjqfE5lFlrT5hfYJhPtM8b85/GNFsxIML/RVA==}
     engines: {node: '>= 12.0.0'}
 
   wrap-ansi@7.0.0:
@@ -578,7 +578,7 @@ snapshots:
       readable-stream: 3.6.2
       triple-beam: 1.4.1
 
-  winston@3.14.0:
+  winston@3.14.1:
     dependencies:
       '@colors/colors': 1.6.0
       '@dabh/diagnostics': 2.0.3
