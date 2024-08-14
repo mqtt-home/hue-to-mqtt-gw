@@ -21,8 +21,8 @@ importers:
         specifier: 2.0.2
         version: 2.0.2
       mqtt:
-        specifier: 5.9.1
-        version: 5.9.1
+        specifier: 5.10.0
+        version: 5.10.0
       node-cron:
         specifier: 3.0.3
         version: 3.0.3
@@ -1236,8 +1236,8 @@ packages:
   mqtt-packet@9.0.0:
     resolution: {integrity: sha512-8v+HkX+fwbodsWAZIZTI074XIoxVBOmPeggQuDFCGg1SqNcC+uoRMWu7J6QlJPqIUIJXmjNYYHxBBLr1Y/Df4w==}
 
-  mqtt@5.9.1:
-    resolution: {integrity: sha512-FMENfSUMfCSUCnkuUVAL4U01795SUEfrX0NZ53HNr1r2VNpwKhR5Au9viq9WCFGtgrDAmsll4fkloqFCFgStYA==}
+  mqtt@5.10.0:
+    resolution: {integrity: sha512-2qpkUi5Ftp8cBX4sPCh/yr4ULBfLFQkjlhTGVpilHznOlsmDWIligmT1anSaJ1FqiH29RONNZJXhcJQaFwddgQ==}
     engines: {node: '>=16.0.0'}
     hasBin: true
 
@@ -2948,7 +2948,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  mqtt@5.9.1:
+  mqtt@5.10.0:
     dependencies:
       '@types/readable-stream': 4.0.14
       '@types/ws': 8.5.10
