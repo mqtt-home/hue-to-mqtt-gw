@@ -27,7 +27,7 @@
         "@vercel/ncc": "0.38.2",
         "eslint": "9.13.0",
         "eslint-plugin-n": "17.11.1",
-        "npm-run-all2": "6.2.4",
+        "npm-run-all2": "6.2.6",
         "rimraf": "5.0.10",
         "testcontainers": "10.13.2",
         "ts-node": "10.9.2",
