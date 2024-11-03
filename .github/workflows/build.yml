@@ -38,4 +38,4 @@ jobs:
           pnpm build
 
       - name: Build container
-        run: docker-compose build
+        run: docker compose build
