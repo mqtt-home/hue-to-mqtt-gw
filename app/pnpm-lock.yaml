@@ -21,8 +21,8 @@ importers:
         specifier: 2.0.2
         version: 2.0.2
       mqtt:
-        specifier: 5.10.1
-        version: 5.10.1
+        specifier: 5.10.2
+        version: 5.10.2
       node-cron:
         specifier: 3.0.3
         version: 3.0.3
@@ -1250,11 +1250,11 @@ packages:
   mlly@1.7.0:
     resolution: {integrity: sha512-U9SDaXGEREBYQgfejV97coK0UL1r+qnF2SyO9A3qcI8MzKnsIFKHNVEkrDyNncQTKQQumsasmeq84eNMdBfsNQ==}
 
-  mqtt-packet@9.0.0:
-    resolution: {integrity: sha512-8v+HkX+fwbodsWAZIZTI074XIoxVBOmPeggQuDFCGg1SqNcC+uoRMWu7J6QlJPqIUIJXmjNYYHxBBLr1Y/Df4w==}
+  mqtt-packet@9.0.1:
+    resolution: {integrity: sha512-koZF1V/X2RZUI6uD9wN5OK1JxxcG1ofAR4H3LjCw1FkeKzruZQ26aAA6v2m1lZyWONZIR5wMMJFrZJDRNzbiQw==}
 
-  mqtt@5.10.1:
-    resolution: {integrity: sha512-hXCOki8sANoQ7w+2OzJzg6qMBxTtrH9RlnVNV8panLZgnl+Gh0J/t4k6r8Az8+C7y3KAcyXtn0mmLixyUom8Sw==}
+  mqtt@5.10.2:
+    resolution: {integrity: sha512-Q8NrMXB6FwQ2DulGONeDb6BtFHxyQHmXWzDrSC724iyofxLleq/wuZmztV3kg1Kda9I7l0oHP+FKesowoFxyUg==}
     engines: {node: '>=16.0.0'}
     hasBin: true
 
@@ -2963,7 +2963,7 @@ snapshots:
       pkg-types: 1.1.1
       ufo: 1.5.3
 
-  mqtt-packet@9.0.0:
+  mqtt-packet@9.0.1:
     dependencies:
       bl: 6.0.12
       debug: 4.3.5
@@ -2971,7 +2971,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  mqtt@5.10.1:
+  mqtt@5.10.2:
     dependencies:
       '@types/readable-stream': 4.0.14
       '@types/ws': 8.5.10
@@ -2981,7 +2981,7 @@ snapshots:
       help-me: 5.0.0
       lru-cache: 10.2.2
       minimist: 1.2.8
-      mqtt-packet: 9.0.0
+      mqtt-packet: 9.0.1
       number-allocator: 1.0.14
       readable-stream: 4.5.2
       reinterval: 1.1.0
