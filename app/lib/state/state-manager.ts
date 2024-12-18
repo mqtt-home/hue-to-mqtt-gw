@@ -43,6 +43,7 @@ export class StateManager {
 
     addTypedResources = (resources: HueIdentifiable[]) => {
         for (const resource of resources) {
+            log.debug("Adding resource", resource)
             this._typedResources.set(resource.id, resource)
             const topic = getTopic(resource)
             const fullTopic = `${getAppConfig().mqtt.topic}/${topic}`
