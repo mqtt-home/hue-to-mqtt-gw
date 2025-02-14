@@ -3,7 +3,7 @@
 #
 # CMD ["/opt/app/index.js", "/var/lib/huemqtt/config.json"]
 
-FROM node:20.18-alpine
+FROM node:22.14-alpine
 COPY app/dist /opt/app/
 WORKDIR /opt/app/
 
