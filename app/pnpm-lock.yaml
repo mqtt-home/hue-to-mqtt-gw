@@ -40,8 +40,8 @@ importers:
         specifier: 1.1.15
         version: 1.1.15
       '@types/node':
-        specifier: 20.17.19
-        version: 20.17.19
+        specifier: 22.13.4
+        version: 22.13.4
       '@types/node-cron':
         specifier: 3.0.11
         version: 3.0.11
@@ -65,7 +65,7 @@ importers:
         version: 10.18.0
       ts-node:
         specifier: 10.9.2
-        version: 10.9.2(@types/node@20.17.19)(typescript@5.7.3)
+        version: 10.9.2(@types/node@22.13.4)(typescript@5.7.3)
       typescript:
         specifier: 5.7.3
         version: 5.7.3
@@ -74,7 +74,7 @@ importers:
         version: 8.24.0(eslint@9.20.1)(typescript@5.7.3)
       vitest:
         specifier: 1.6.1
-        version: 1.6.1(@types/node@20.17.19)
+        version: 1.6.1(@types/node@22.13.4)
 
 packages:
 
@@ -452,8 +452,8 @@ packages:
   '@types/node@18.19.33':
     resolution: {integrity: sha512-NR9+KrpSajr2qBVp/Yt5TU/rp+b5Mayi3+OlMlcg2cVCfRmcG5PWZ7S4+MG9PZ5gWBoc9Pd0BKSRViuBCRPu0A==}
 
-  '@types/node@20.17.19':
-    resolution: {integrity: sha512-LEwC7o1ifqg/6r2gn9Dns0f1rhK+fPFDoMiceTJ6kWmVk6bgXBI/9IOWfVan4WiAavK9pIVWdX0/e3J+eEUh5A==}
+  '@types/node@22.13.4':
+    resolution: {integrity: sha512-ywP2X0DYtX3y08eFVx5fNIw7/uIv8hYUKgXoK8oayJlLnKcRfEYCxWMVE1XagUdVtCJlZT1AU4LXEABW+L1Peg==}
 
   '@types/readable-stream@4.0.14':
     resolution: {integrity: sha512-xZn/AuUbCMShGsqH/ehZtGDwQtbx00M9rZ2ENLe4tOjFZ/JFeWMhEZkk2fEe1jAUqqEAURIkFJ7Az/go8mM1/w==}
@@ -1653,8 +1653,8 @@ packages:
   undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
 
-  undici-types@6.19.6:
-    resolution: {integrity: sha512-e/vggGopEfTKSvj4ihnOLTsqhrKRN3LeO6qSN/GxohhuRv8qH9bNQ4B8W7e/vFL+0XTnmHPB4/kegunZGA4Org==}
+  undici-types@6.20.0:
+    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
 
   undici@5.28.5:
     resolution: {integrity: sha512-zICwjrDrcrUE0pyyJc1I2QzBkLM8FINsgOrt6WjA+BgajVq9Nxu2PbFFXUrAggLfDXlZGZBVZYw7WNV5KiBiBA==}
@@ -2060,13 +2060,13 @@ snapshots:
 
   '@types/docker-modem@3.0.6':
     dependencies:
-      '@types/node': 20.17.19
+      '@types/node': 22.13.4
       '@types/ssh2': 1.15.0
 
   '@types/dockerode@3.3.29':
     dependencies:
       '@types/docker-modem': 3.0.6
-      '@types/node': 20.17.19
+      '@types/node': 22.13.4
       '@types/ssh2': 1.15.0
 
   '@types/estree@1.0.5': {}
@@ -2083,22 +2083,22 @@ snapshots:
     dependencies:
       undici-types: 5.26.5
 
-  '@types/node@20.17.19':
+  '@types/node@22.13.4':
     dependencies:
-      undici-types: 6.19.6
+      undici-types: 6.20.0
 
   '@types/readable-stream@4.0.14':
     dependencies:
-      '@types/node': 20.17.19
+      '@types/node': 22.13.4
       safe-buffer: 5.1.2
 
   '@types/ssh2-streams@0.1.12':
     dependencies:
-      '@types/node': 20.17.19
+      '@types/node': 22.13.4
 
   '@types/ssh2@0.5.52':
     dependencies:
-      '@types/node': 20.17.19
+      '@types/node': 22.13.4
       '@types/ssh2-streams': 0.1.12
 
   '@types/ssh2@1.15.0':
@@ -2109,7 +2109,7 @@ snapshots:
 
   '@types/ws@8.5.10':
     dependencies:
-      '@types/node': 20.17.19
+      '@types/node': 22.13.4
 
   '@typescript-eslint/eslint-plugin@8.24.0(@typescript-eslint/parser@8.24.0(eslint@9.20.1)(typescript@5.7.3))(eslint@9.20.1)(typescript@5.7.3)':
     dependencies:
@@ -3360,14 +3360,14 @@ snapshots:
     dependencies:
       typescript: 5.7.3
 
-  ts-node@10.9.2(@types/node@20.17.19)(typescript@5.7.3):
+  ts-node@10.9.2(@types/node@22.13.4)(typescript@5.7.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 20.17.19
+      '@types/node': 22.13.4
       acorn: 8.11.3
       acorn-walk: 8.3.2
       arg: 4.1.3
@@ -3406,7 +3406,7 @@ snapshots:
 
   undici-types@5.26.5: {}
 
-  undici-types@6.19.6: {}
+  undici-types@6.20.0: {}
 
   undici@5.28.5:
     dependencies:
@@ -3422,13 +3422,13 @@ snapshots:
 
   v8-compile-cache-lib@3.0.1: {}
 
-  vite-node@1.6.1(@types/node@20.17.19):
+  vite-node@1.6.1(@types/node@22.13.4):
     dependencies:
       cac: 6.7.14
       debug: 4.3.5
       pathe: 1.1.2
       picocolors: 1.0.0
-      vite: 5.2.11(@types/node@20.17.19)
+      vite: 5.2.11(@types/node@22.13.4)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -3439,16 +3439,16 @@ snapshots:
       - supports-color
       - terser
 
-  vite@5.2.11(@types/node@20.17.19):
+  vite@5.2.11(@types/node@22.13.4):
     dependencies:
       esbuild: 0.20.2
       postcss: 8.4.38
       rollup: 4.17.2
     optionalDependencies:
-      '@types/node': 20.17.19
+      '@types/node': 22.13.4
       fsevents: 2.3.3
 
-  vitest@1.6.1(@types/node@20.17.19):
+  vitest@1.6.1(@types/node@22.13.4):
     dependencies:
       '@vitest/expect': 1.6.1
       '@vitest/runner': 1.6.1
@@ -3467,11 +3467,11 @@ snapshots:
       strip-literal: 2.1.0
       tinybench: 2.8.0
       tinypool: 0.8.4
-      vite: 5.2.11(@types/node@20.17.19)
-      vite-node: 1.6.1(@types/node@20.17.19)
+      vite: 5.2.11(@types/node@22.13.4)
+      vite-node: 1.6.1(@types/node@22.13.4)
       why-is-node-running: 2.2.2
     optionalDependencies:
-      '@types/node': 20.17.19
+      '@types/node': 22.13.4
     transitivePeerDependencies:
       - less
       - lightningcss
