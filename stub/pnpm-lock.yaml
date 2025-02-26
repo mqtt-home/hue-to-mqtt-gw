@@ -16,7 +16,7 @@ importers:
         version: 4.0.5
       axios:
         specifier: ^1.0.0
-        version: 1.8.0
+        version: 1.8.1
       rimraf:
         specifier: ^5.0.0
         version: 5.0.10
@@ -76,8 +76,8 @@ packages:
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
-  axios@1.8.0:
-    resolution: {integrity: sha512-AS3x1klSQ4VeoeAaOyITVjomjITxIRgpKVgAXhE8QFJiNiYliuU+cW0p7XpqvlwNKmiwE57aNEyhPtsfAxERqg==}
+  axios@1.8.1:
+    resolution: {integrity: sha512-NN+fvwH/kV01dYUQ3PTOZns4LWtWhOFCAhQ/pHb88WQ1hNe5V/dvFwc4VJcDL11LT9xSX0QtsR8sWUuyOuOq7g==}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -416,7 +416,7 @@ snapshots:
 
   asynckit@0.4.0: {}
 
-  axios@1.8.0:
+  axios@1.8.1:
     dependencies:
       follow-redirects: 1.15.9
       form-data: 4.0.2
