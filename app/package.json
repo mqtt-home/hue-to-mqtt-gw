@@ -26,7 +26,7 @@
         "@types/node-cron": "3.0.11",
         "@vercel/ncc": "0.38.3",
         "eslint": "9.21.0",
-        "eslint-plugin-n": "17.16.1",
+        "eslint-plugin-n": "17.16.2",
         "npm-run-all2": "6.2.6",
         "rimraf": "5.0.10",
         "testcontainers": "10.18.0",
