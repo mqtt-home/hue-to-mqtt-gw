@@ -61,8 +61,8 @@ importers:
         specifier: 5.0.10
         version: 5.0.10
       testcontainers:
-        specifier: 10.18.0
-        version: 10.18.0
+        specifier: 10.19.0
+        version: 10.19.0
       ts-node:
         specifier: 10.9.2
         version: 10.9.2(@types/node@20.17.24)(typescript@5.8.2)
@@ -1412,10 +1412,6 @@ packages:
     resolution: {integrity: sha512-9u/sniCrY3D5WdsERHzHE4G2YCXqoG5FTHUiCC4SIbr6XcLZBY05ya9EKjYek9O5xOAwjGq+1JdGBAS7Q9ScoA==}
     engines: {node: '>= 6'}
 
-  readable-stream@4.5.2:
-    resolution: {integrity: sha512-yjavECdqeZ3GLXNgRXgeQEdz9fvDDkNKyHnbHRFtOr7/LcfgBcmct7t/ET+HaCTqfh06OzoAxrkN/IfjJBVe+g==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-
   readable-stream@4.7.0:
     resolution: {integrity: sha512-oIGGmcpTLwPga8Bn6/Z75SVaH1z5dUut2ibSyAMVhmUggWpmDn2dapB0n7f8nwaSiRtepAsfJyfXIO5DCVAODg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -1585,8 +1581,8 @@ packages:
   tar-stream@3.1.7:
     resolution: {integrity: sha512-qJj60CXt7IU1Ffyc3NJMjh6EkuCFej46zUqJ4J7pqYlThyd9bO0XBTmcOIhSzZJVWfsLks0+nle/j538YAW9RQ==}
 
-  testcontainers@10.18.0:
-    resolution: {integrity: sha512-MnwWsPjsN5QVe+lSU1LwLZVOyjgwSwv1INzkw8FekdwgvOtvJ7FThQEkbmzRcguQootgwmA9FG54NoTChZDRvA==}
+  testcontainers@10.19.0:
+    resolution: {integrity: sha512-/mbcCOaj6jj2IPMMmt+YrBi71MZ4BqEzqicjAInsfEox4pVVMnYIW4CkWOdCLiuZ9nVUkoBtxFSJDTqggJNB5A==}
 
   text-hex@1.0.0:
     resolution: {integrity: sha512-uuVGNWzgJ4yhRaNSiubPY7OjISw4sw4E5Uv0wbjp+OzcbmVU/rsT8ujgcXJhn9ypzsgr5vlzpPqP+MBBKcGvbg==}
@@ -2274,14 +2270,14 @@ snapshots:
       lazystream: 1.0.1
       lodash: 4.17.21
       normalize-path: 3.0.0
-      readable-stream: 4.5.2
+      readable-stream: 4.7.0
 
   archiver@7.0.1:
     dependencies:
       archiver-utils: 5.0.2
       async: 3.2.5
       buffer-crc32: 1.0.0
-      readable-stream: 4.5.2
+      readable-stream: 4.7.0
       readdir-glob: 1.1.3
       tar-stream: 3.1.7
       zip-stream: 6.0.1
@@ -2454,7 +2450,7 @@ snapshots:
       crc32-stream: 6.0.0
       is-stream: 2.0.1
       normalize-path: 3.0.0
-      readable-stream: 4.5.2
+      readable-stream: 4.7.0
 
   concat-map@0.0.1: {}
 
@@ -2480,7 +2476,7 @@ snapshots:
   crc32-stream@6.0.0:
     dependencies:
       crc-32: 1.2.2
-      readable-stream: 4.5.2
+      readable-stream: 4.7.0
 
   create-require@1.1.1: {}
 
@@ -3154,14 +3150,6 @@ snapshots:
       string_decoder: 1.3.0
       util-deprecate: 1.0.2
 
-  readable-stream@4.5.2:
-    dependencies:
-      abort-controller: 3.0.0
-      buffer: 6.0.3
-      events: 3.3.0
-      process: 0.11.10
-      string_decoder: 1.3.0
-
   readable-stream@4.7.0:
     dependencies:
       abort-controller: 3.0.0
@@ -3349,14 +3337,14 @@ snapshots:
       fast-fifo: 1.3.2
       streamx: 2.16.1
 
-  testcontainers@10.18.0:
+  testcontainers@10.19.0:
     dependencies:
       '@balena/dockerignore': 1.0.2
       '@types/dockerode': 3.3.29
       archiver: 7.0.1
       async-lock: 1.4.1
       byline: 5.0.0
-      debug: 4.3.5
+      debug: 4.4.0
       docker-compose: 0.24.8
       dockerode: 3.3.5
       get-port: 5.1.1
@@ -3592,4 +3580,4 @@ snapshots:
     dependencies:
       archiver-utils: 5.0.2
       compress-commons: 6.0.2
-      readable-stream: 4.5.2
+      readable-stream: 4.7.0
