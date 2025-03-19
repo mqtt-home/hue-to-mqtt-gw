@@ -37,7 +37,7 @@
     },
     "dependencies": {
         "async-lock": "1.4.1",
-        "axios": "1.8.3",
+        "axios": "1.8.4",
         "chalk": "5.4.1",
         "eventsource": "2.0.2",
         "mqtt": "5.10.4",
