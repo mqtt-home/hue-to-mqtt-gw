@@ -40,7 +40,7 @@
         "axios": "1.8.4",
         "chalk": "5.4.1",
         "eventsource": "2.0.2",
-        "mqtt": "5.10.4",
+        "mqtt": "5.11.0",
         "node-cron": "3.0.3",
         "winston": "3.17.0",
         "winston-transport": "4.9.0"
