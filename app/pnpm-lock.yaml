@@ -40,8 +40,8 @@ importers:
         specifier: 1.1.15
         version: 1.1.15
       '@types/node':
-        specifier: 20.19.1
-        version: 20.19.1
+        specifier: 20.19.2
+        version: 20.19.2
       '@types/node-cron':
         specifier: 3.0.11
         version: 3.0.11
@@ -65,7 +65,7 @@ importers:
         version: 10.28.0
       ts-node:
         specifier: 10.9.2
-        version: 10.9.2(@types/node@20.19.1)(typescript@5.8.3)
+        version: 10.9.2(@types/node@20.19.2)(typescript@5.8.3)
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -74,7 +74,7 @@ importers:
         version: 8.35.0(eslint@9.30.0)(typescript@5.8.3)
       vitest:
         specifier: 1.6.1
-        version: 1.6.1(@types/node@20.19.1)
+        version: 1.6.1(@types/node@20.19.2)
 
 packages:
 
@@ -494,8 +494,8 @@ packages:
   '@types/node@18.19.33':
     resolution: {integrity: sha512-NR9+KrpSajr2qBVp/Yt5TU/rp+b5Mayi3+OlMlcg2cVCfRmcG5PWZ7S4+MG9PZ5gWBoc9Pd0BKSRViuBCRPu0A==}
 
-  '@types/node@20.19.1':
-    resolution: {integrity: sha512-jJD50LtlD2dodAEO653i3YF04NWak6jN3ky+Ri3Em3mGR39/glWiboM/IePaRbgwSfqM1TpGXfAg8ohn/4dTgA==}
+  '@types/node@20.19.2':
+    resolution: {integrity: sha512-9pLGGwdzOUBDYi0GNjM97FIA+f92fqSke6joWeBjWXllfNxZBs7qeMF7tvtOIsbY45xkWkxrdwUfUf3MnQa9gA==}
 
   '@types/readable-stream@4.0.18':
     resolution: {integrity: sha512-21jK/1j+Wg+7jVw1xnSwy/2Q1VgVjWuFssbYGTREPUBeZ+rqVFl2udq0IkxzPC0ZhOzVceUbyIACFZKLqKEBlA==}
@@ -2280,13 +2280,13 @@ snapshots:
 
   '@types/docker-modem@3.0.6':
     dependencies:
-      '@types/node': 20.19.1
+      '@types/node': 20.19.2
       '@types/ssh2': 1.15.0
 
   '@types/dockerode@3.3.35':
     dependencies:
       '@types/docker-modem': 3.0.6
-      '@types/node': 20.19.1
+      '@types/node': 20.19.2
       '@types/ssh2': 1.15.0
 
   '@types/estree@1.0.5': {}
@@ -2303,22 +2303,22 @@ snapshots:
     dependencies:
       undici-types: 5.26.5
 
-  '@types/node@20.19.1':
+  '@types/node@20.19.2':
     dependencies:
       undici-types: 6.21.0
 
   '@types/readable-stream@4.0.18':
     dependencies:
-      '@types/node': 20.19.1
+      '@types/node': 20.19.2
       safe-buffer: 5.1.2
 
   '@types/ssh2-streams@0.1.12':
     dependencies:
-      '@types/node': 20.19.1
+      '@types/node': 20.19.2
 
   '@types/ssh2@0.5.52':
     dependencies:
-      '@types/node': 20.19.1
+      '@types/node': 20.19.2
       '@types/ssh2-streams': 0.1.12
 
   '@types/ssh2@1.15.0':
@@ -3433,7 +3433,7 @@ snapshots:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 20.19.1
+      '@types/node': 20.19.2
       long: 5.3.1
 
   proxy-from-env@1.1.0: {}
@@ -3718,14 +3718,14 @@ snapshots:
       picomatch: 4.0.2
       typescript: 5.8.3
 
-  ts-node@10.9.2(@types/node@20.19.1)(typescript@5.8.3):
+  ts-node@10.9.2(@types/node@20.19.2)(typescript@5.8.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 20.19.1
+      '@types/node': 20.19.2
       acorn: 8.11.3
       acorn-walk: 8.3.2
       arg: 4.1.3
@@ -3782,13 +3782,13 @@ snapshots:
 
   v8-compile-cache-lib@3.0.1: {}
 
-  vite-node@1.6.1(@types/node@20.19.1):
+  vite-node@1.6.1(@types/node@20.19.2):
     dependencies:
       cac: 6.7.14
       debug: 4.4.0
       pathe: 1.1.2
       picocolors: 1.0.0
-      vite: 5.2.11(@types/node@20.19.1)
+      vite: 5.2.11(@types/node@20.19.2)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -3799,16 +3799,16 @@ snapshots:
       - supports-color
       - terser
 
-  vite@5.2.11(@types/node@20.19.1):
+  vite@5.2.11(@types/node@20.19.2):
     dependencies:
       esbuild: 0.20.2
       postcss: 8.4.38
       rollup: 4.17.2
     optionalDependencies:
-      '@types/node': 20.19.1
+      '@types/node': 20.19.2
       fsevents: 2.3.3
 
-  vitest@1.6.1(@types/node@20.19.1):
+  vitest@1.6.1(@types/node@20.19.2):
     dependencies:
       '@vitest/expect': 1.6.1
       '@vitest/runner': 1.6.1
@@ -3827,11 +3827,11 @@ snapshots:
       strip-literal: 2.1.0
       tinybench: 2.8.0
       tinypool: 0.8.4
-      vite: 5.2.11(@types/node@20.19.1)
-      vite-node: 1.6.1(@types/node@20.19.1)
+      vite: 5.2.11(@types/node@20.19.2)
+      vite-node: 1.6.1(@types/node@20.19.2)
       why-is-node-running: 2.2.2
     optionalDependencies:
-      '@types/node': 20.19.1
+      '@types/node': 20.19.2
     transitivePeerDependencies:
       - less
       - lightningcss
