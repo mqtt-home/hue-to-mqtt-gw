@@ -41,7 +41,7 @@
         "chalk": "5.4.1",
         "eventsource": "2.0.2",
         "mqtt": "5.13.1",
-        "node-cron": "3.0.3",
+        "node-cron": "4.2.0",
         "winston": "3.17.0",
         "winston-transport": "4.9.0"
     }
