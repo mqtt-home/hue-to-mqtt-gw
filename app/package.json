@@ -39,7 +39,7 @@
         "async-lock": "1.4.1",
         "axios": "1.12.0",
         "chalk": "5.5.0",
-        "eventsource": "2.0.2",
+        "eventsource": "4.0.0",
         "mqtt": "5.14.0",
         "node-cron": "3.0.3",
         "winston": "3.17.0",
