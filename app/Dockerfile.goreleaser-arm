@@ -1,12 +1,7 @@
-# syntax=docker/dockerfile:1.17
-
-FROM alpine:3.21
-
-WORKDIR /
+FROM scratch
 
 COPY hue2mqtt /hue2mqtt
 
-RUN addgroup -S app && adduser -S app -G app
-USER app:app
+USER 65534:65534
 
 ENTRYPOINT ["/hue2mqtt", "/var/lib/huemqtt/config.json"]
