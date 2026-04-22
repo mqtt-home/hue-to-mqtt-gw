@@ -1,13 +1,8 @@
-**/coverage/
 *.iml
 .idea/
 .github/
 .run/
-
-# Node/NPM
-**/node_modules/
-**/junit.xml
-**/build_internal/
-
-# Test Cases
-**/*.test.ts
+.claude/
+openspec/
+production/
+coverage.*

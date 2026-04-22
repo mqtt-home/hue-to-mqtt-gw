@@ -1,9 +1,5 @@
-coverage/
 *.iml
 .idea/
-
-# Node/NPM
-node_modules/
-dist/
-junit.xml
-build_internal/
+.DS_Store
+app/build/
+app/coverage.*

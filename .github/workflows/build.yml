@@ -12,30 +12,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-go@v5
         with:
-          node-version: 20.x
+          go-version: '1.25'
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 9
-
-      - name: Install
+      - name: Test
         working-directory: app
-        run: |
-          pnpm install
-
-      - name: Lint/Test
-        working-directory: app
-        run: |
-          pnpm lint
-          pnpm test
+        run: go test -v ./...
 
       - name: Build
         working-directory: app
-        run: |
-          pnpm build
+        run: go build .
 
-      - name: Build container
-        run: docker compose build
+      - name: Build docker container
+        id: docker_build
+        uses: docker/build-push-action@v6
+        with:
+          context: ./app
+          file: ./app/Dockerfile
+          platforms: linux/amd64
+          push: false
+          tags: |
+            pharndt/hue2mqtt:latest

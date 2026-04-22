@@ -1,0 +1,7 @@
+FROM scratch
+
+COPY hue2mqtt /hue2mqtt
+
+USER 65534:65534
+
+ENTRYPOINT ["/hue2mqtt", "/var/lib/huemqtt/config.json"]
