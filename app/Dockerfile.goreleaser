@@ -1,0 +1,14 @@
+# syntax=docker/dockerfile:1.17
+
+# Final stage - only for the binary
+FROM gcr.io/distroless/static:nonroot
+
+WORKDIR /
+
+# Copy the pre-built binary from GoReleaser
+COPY hue2mqtt /hue2mqtt
+
+# Use non-root user (distroless already provides this)
+USER nonroot:nonroot
+
+ENTRYPOINT ["/hue2mqtt", "/var/lib/huemqtt/config.json"]

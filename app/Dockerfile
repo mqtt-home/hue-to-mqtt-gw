@@ -29,4 +29,4 @@ COPY --from=builder /app/hue2mqtt /hue2mqtt
 # Create a non-root user (distroless already provides this)
 USER nonroot:nonroot
 
-ENTRYPOINT ["/hue2mqtt", "/var/lib/hue2mqtt/config.json"]
+ENTRYPOINT ["/hue2mqtt", "/var/lib/huemqtt/config.json"]

@@ -5,7 +5,7 @@ services:
     hostname: huemqtt
     image: pharndt/hue2mqtt:${VERSION}
     build:
-      context: app-go
+      context: app
     volumes:
-      - ./production/config:/var/lib/hue2mqtt:ro
+      - ./production/config:/var/lib/huemqtt:ro
     restart: "no"

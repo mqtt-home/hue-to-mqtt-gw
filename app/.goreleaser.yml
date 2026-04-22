@@ -1,0 +1,92 @@
+project_name: hue2mqtt
+version: 2
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: hue2mqtt
+    main: ./main.go
+    binary: hue2mqtt
+    goos:
+      - linux
+    goarch:
+      - amd64
+      - arm64
+      - arm
+    goarm:
+      - "6"
+      - "7"
+    env:
+      - CGO_ENABLED=0
+    ldflags:
+      - -s -w -X github.com/mqtt-home/hue2mqtt/version.Version={{.Version}} -X github.com/mqtt-home/hue2mqtt/version.GitCommit={{.Commit}} -X github.com/mqtt-home/hue2mqtt/version.BuildTime={{.Date}}
+
+dockers:
+  - image_templates:
+      - "pharndt/hue2mqtt:{{ .Tag }}-amd64"
+    dockerfile: Dockerfile.goreleaser
+    use: buildx
+    goos: linux
+    goarch: amd64
+    build_flag_templates:
+      - "--platform=linux/amd64"
+    skip_push: false
+
+  - image_templates:
+      - "pharndt/hue2mqtt:{{ .Tag }}-arm64"
+    dockerfile: Dockerfile.goreleaser
+    use: buildx
+    goos: linux
+    goarch: arm64
+    build_flag_templates:
+      - "--platform=linux/arm64"
+    skip_push: false
+
+  - image_templates:
+      - "pharndt/hue2mqtt:{{ .Tag }}-armv6"
+    dockerfile: Dockerfile.goreleaser
+    use: buildx
+    goos: linux
+    goarch: arm
+    goarm: "6"
+    build_flag_templates:
+      - "--platform=linux/arm/v6"
+    skip_push: false
+
+  - image_templates:
+      - "pharndt/hue2mqtt:{{ .Tag }}-armv7"
+    dockerfile: Dockerfile.goreleaser
+    use: buildx
+    goos: linux
+    goarch: arm
+    goarm: "7"
+    build_flag_templates:
+      - "--platform=linux/arm/v7"
+    skip_push: false
+
+docker_manifests:
+  - id: tag
+    name_template: "pharndt/hue2mqtt:{{ .Tag }}"
+    image_templates:
+      - pharndt/hue2mqtt:{{ .Tag }}-amd64
+      - pharndt/hue2mqtt:{{ .Tag }}-arm64
+      - pharndt/hue2mqtt:{{ .Tag }}-armv6
+      - pharndt/hue2mqtt:{{ .Tag }}-armv7
+
+  - id: latest
+    name_template: "pharndt/hue2mqtt:latest"
+    image_templates:
+      - pharndt/hue2mqtt:{{ .Tag }}-amd64
+      - pharndt/hue2mqtt:{{ .Tag }}-arm64
+      - pharndt/hue2mqtt:{{ .Tag }}-armv6
+      - pharndt/hue2mqtt:{{ .Tag }}-armv7
+
+release:
+  disable: false
+  mode: replace
+  draft: false
+  prerelease: auto
+  make_latest: true
+  skip_upload: true
