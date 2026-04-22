@@ -46,7 +46,7 @@ dockers:
 
   - image_templates:
       - "pharndt/hue2mqtt:{{ .Tag }}-armv6"
-    dockerfile: Dockerfile.goreleaser
+    dockerfile: Dockerfile.goreleaser-arm
     use: buildx
     goos: linux
     goarch: arm
@@ -57,7 +57,7 @@ dockers:
 
   - image_templates:
       - "pharndt/hue2mqtt:{{ .Tag }}-armv7"
-    dockerfile: Dockerfile.goreleaser
+    dockerfile: Dockerfile.goreleaser-arm
     use: buildx
     goos: linux
     goarch: arm
