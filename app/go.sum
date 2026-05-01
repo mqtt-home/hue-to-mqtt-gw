@@ -14,6 +14,8 @@ github.com/philipparndt/mqtt-gateway v1.5.0 h1:ztbosd6iR3zuMtZA4YLXc+mME6JrwnoOM
 github.com/philipparndt/mqtt-gateway v1.5.0/go.mod h1:tFOGp9b5d/HX1o45uM7wkDp3ytJviW9ONOiVJ3lXcw8=
 github.com/philipparndt/mqtt-gateway v1.5.1 h1:rtw5xUILaODedYHNySrNbdiTr7SQ94obWtNGniPz7vQ=
 github.com/philipparndt/mqtt-gateway v1.5.1/go.mod h1:HCJFPtKU79ISlepAVNPoibk4OIs8PqWoamHZp/40mcs=
+github.com/philipparndt/mqtt-gateway v1.6.0 h1:f+gU+5ZAmFWn+laEcXKfGv1oa6xkb7MV7DNDU5/mwr8=
+github.com/philipparndt/mqtt-gateway v1.6.0/go.mod h1:HCJFPtKU79ISlepAVNPoibk4OIs8PqWoamHZp/40mcs=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/testify v1.9.0 h1:HtqpIVDClZ4nwg75+f6Lvsy/wHu+3BoSGCbBAcpTsTg=
