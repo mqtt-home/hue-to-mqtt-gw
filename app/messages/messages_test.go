@@ -91,6 +91,43 @@ func TestFromLight_JSON(t *testing.T) {
 	}
 }
 
+func TestToLight_DoesNotMutateTemplate(t *testing.T) {
+	// The template's pointer fields are shared with the state manager, so
+	// ToLight must not write through them. Turning a light off must leave the
+	// template's On object untouched.
+	on := &hue.LightOnOffData{On: true}
+	template := hue.Resource{Type: "light", On: on}
+
+	result := ToLight(template, LightMessage{State: "OFF"})
+
+	if !on.On {
+		t.Error("ToLight mutated the template's shared On object")
+	}
+	if result.On == on {
+		t.Error("expected a fresh On pointer, not the template's")
+	}
+	if result.On.On {
+		t.Error("expected result on=false")
+	}
+}
+
+func TestToGroupedLight_DoesNotMutateTemplate(t *testing.T) {
+	on := &hue.LightOnOffData{On: true}
+	template := hue.Resource{Type: "grouped_light", On: on}
+
+	result := ToGroupedLight(template, LightMessage{State: "OFF"})
+
+	if !on.On {
+		t.Error("ToGroupedLight mutated the template's shared On object")
+	}
+	if result.On == on {
+		t.Error("expected a fresh On pointer, not the template's")
+	}
+	if result.On.On {
+		t.Error("expected result on=false")
+	}
+}
+
 func TestToLight_OnWithColorTemp(t *testing.T) {
 	template := hue.Resource{
 		Type: "light",

@@ -52,10 +52,13 @@ func FromLight(light hue.Resource) LightMessage {
 func ToLight(template hue.Resource, msg LightMessage) hue.Resource {
 	result := template
 
-	if result.On == nil {
-		result.On = &hue.LightOnOffData{}
-	}
-	result.On.On = msg.State == "ON"
+	// result is a shallow copy of template, so its pointer fields still alias
+	// the objects held in the shared state map. Always allocate a fresh On
+	// rather than writing through result.On.On, otherwise we would mutate the
+	// canonical state in place from outside the state lock (data race + the
+	// state would flip before the bridge confirms). Reassigning a pointer field
+	// only touches our local copy, which is safe.
+	result.On = &hue.LightOnOffData{On: msg.State == "ON"}
 	result.Dimming = &hue.LightDimmingData{Brightness: float64(msg.Brightness)}
 
 	if msg.ColorTemp != nil && template.ColorTemperature != nil {
@@ -75,10 +78,8 @@ func ToLight(template hue.Resource, msg LightMessage) hue.Resource {
 func ToGroupedLight(template hue.Resource, msg LightMessage) hue.Resource {
 	result := template
 
-	if result.On == nil {
-		result.On = &hue.LightOnOffData{}
-	}
-	result.On.On = msg.State == "ON"
+	// Allocate a fresh On instead of mutating template.On in place; see ToLight.
+	result.On = &hue.LightOnOffData{On: msg.State == "ON"}
 
 	if msg.ColorTemp != nil && template.ColorTemperature != nil {
 		ct := *template.ColorTemperature
