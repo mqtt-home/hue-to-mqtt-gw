@@ -91,6 +91,51 @@ func TestFromLight_JSON(t *testing.T) {
 	}
 }
 
+func TestToLight_OffDropsColor(t *testing.T) {
+	// A color-mode light carries both a color_temperature (null mirek) and a
+	// color. Turning it off must send neither: a null mirek is rejected by the
+	// bridge (400) and a stale color makes the bulb fade to blue on off.
+	template := hue.Resource{
+		Type:             "light",
+		On:               &hue.LightOnOffData{On: true},
+		ColorTemperature: &hue.LightColorTemperatureData{Mirek: nil, MirekValid: false},
+		Color:            &hue.LightColorData{XY: hue.ColorXY{X: 0.15, Y: 0.06}},
+	}
+
+	result := ToLight(template, LightMessage{State: "OFF"})
+
+	if result.On.On {
+		t.Error("expected on=false")
+	}
+	if result.ColorTemperature != nil {
+		t.Error("expected color_temperature dropped on off")
+	}
+	if result.Color != nil {
+		t.Error("expected color dropped on off")
+	}
+}
+
+func TestToGroupedLight_OffDropsColor(t *testing.T) {
+	template := hue.Resource{
+		Type:             "grouped_light",
+		On:               &hue.LightOnOffData{On: true},
+		ColorTemperature: &hue.LightColorTemperatureData{Mirek: nil, MirekValid: false},
+		Color:            &hue.LightColorData{XY: hue.ColorXY{X: 0.15, Y: 0.06}},
+	}
+
+	result := ToGroupedLight(template, LightMessage{State: "OFF"})
+
+	if result.On.On {
+		t.Error("expected on=false")
+	}
+	if result.ColorTemperature != nil {
+		t.Error("expected color_temperature dropped on off")
+	}
+	if result.Color != nil {
+		t.Error("expected color dropped on off")
+	}
+}
+
 func TestToLight_DoesNotMutateTemplate(t *testing.T) {
 	// The template's pointer fields are shared with the state manager, so
 	// ToLight must not write through them. Turning a light off must leave the

@@ -61,15 +61,23 @@ func ToLight(template hue.Resource, msg LightMessage) hue.Resource {
 	result.On = &hue.LightOnOffData{On: msg.State == "ON"}
 	result.Dimming = &hue.LightDimmingData{Brightness: float64(msg.Brightness)}
 
-	if msg.ColorTemp != nil && template.ColorTemperature != nil {
+	switch {
+	case msg.ColorTemp != nil && template.ColorTemperature != nil:
 		ct := *template.ColorTemperature
 		ct.Mirek = msg.ColorTemp
 		result.ColorTemperature = &ct
 		result.Color = nil
-	} else if msg.Color != nil && template.Color != nil {
+	case msg.Color != nil && template.Color != nil:
 		result.ColorTemperature = nil
 		result.Dimming = nil
 		result.Color = &hue.LightColorData{XY: *msg.Color}
+	default:
+		// Plain on/off with no color change requested. Do not carry the
+		// template's color over to the bridge: sending a color_temperature
+		// with a null mirek is rejected (HTTP 400), and sending a stale color
+		// makes the bulb fade to it as it powers off (it looks blue).
+		result.ColorTemperature = nil
+		result.Color = nil
 	}
 
 	return result
@@ -81,16 +89,21 @@ func ToGroupedLight(template hue.Resource, msg LightMessage) hue.Resource {
 	// Allocate a fresh On instead of mutating template.On in place; see ToLight.
 	result.On = &hue.LightOnOffData{On: msg.State == "ON"}
 
-	if msg.ColorTemp != nil && template.ColorTemperature != nil {
+	switch {
+	case msg.ColorTemp != nil && template.ColorTemperature != nil:
 		ct := *template.ColorTemperature
 		ct.Mirek = msg.ColorTemp
 		result.ColorTemperature = &ct
 		result.Color = nil
 		result.Dimming = &hue.LightDimmingData{Brightness: float64(msg.Brightness)}
-	} else if msg.Color != nil && template.Color != nil {
+	case msg.Color != nil && template.Color != nil:
 		result.ColorTemperature = nil
 		result.Dimming = nil
 		result.Color = &hue.LightColorData{XY: *msg.Color}
+	default:
+		// Plain on/off with no color change requested; see ToLight.
+		result.ColorTemperature = nil
+		result.Color = nil
 	}
 
 	return result
