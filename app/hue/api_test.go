@@ -104,12 +104,20 @@ func TestCleanPutMessage(t *testing.T) {
 		t.Error("expected color_temperature to be kept")
 	}
 
-	// Nil mirek should remove color_temperature
+	// Turning off a color-mode light: it carries both a color_temperature
+	// block (mirek null) and a color block. We must prefer color_temperature
+	// and drop the color, otherwise the bridge fades the bulb to that xy as it
+	// powers off (looks blue). This matches the TypeScript behaviour.
 	msg2 := PutMessage{
-		ColorTemperature: &LightColorTemperatureData{Mirek: nil},
+		On:               &LightOnOffData{On: false},
+		ColorTemperature: &LightColorTemperatureData{Mirek: nil, MirekValid: false},
+		Color:            &LightColorData{XY: ColorXY{X: 0.15, Y: 0.06}},
 	}
 	cleaned2 := cleanPutMessage(msg2)
-	if cleaned2.ColorTemperature != nil {
-		t.Error("expected nil mirek to remove color_temperature")
+	if cleaned2.Color != nil {
+		t.Error("expected color to be dropped on off, not sent to the bridge")
+	}
+	if cleaned2.ColorTemperature == nil {
+		t.Error("expected color_temperature to be kept even with nil mirek")
 	}
 }

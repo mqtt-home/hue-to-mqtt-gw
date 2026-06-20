@@ -140,12 +140,12 @@ type PutMessage struct {
 }
 
 func cleanPutMessage(msg PutMessage) PutMessage {
-	// Remove empty color_temperature
-	if msg.ColorTemperature != nil && msg.ColorTemperature.Mirek == nil {
-		msg.ColorTemperature = nil
-	}
-
-	// If both color_temperature and color present, prefer color_temperature
+	// If both color_temperature and color are present, prefer color_temperature
+	// and never send the raw color. This matches the TypeScript version: a
+	// color-capable light always carries both blocks, and sending the color
+	// alongside on:false makes the bridge fade the bulb through that xy as it
+	// powers off (it ends up looking blue). Keeping color_temperature with a
+	// null mirek is a no-op for the bridge, so the light just turns off.
 	if msg.ColorTemperature != nil && msg.Color != nil {
 		msg.Color = nil
 	}
