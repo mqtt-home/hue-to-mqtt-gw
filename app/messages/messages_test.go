@@ -91,6 +91,46 @@ func TestFromLight_JSON(t *testing.T) {
 	}
 }
 
+func TestToLight_OffOmitsDimming(t *testing.T) {
+	// Turning off must not send dimming: dimming alongside on:false makes the
+	// bridge flash to that brightness while powering off.
+	template := hue.Resource{Type: "light", On: &hue.LightOnOffData{On: true}}
+
+	result := ToLight(template, LightMessage{State: "OFF", Brightness: 100})
+
+	if result.On.On {
+		t.Error("expected on=false")
+	}
+	if result.Dimming != nil {
+		t.Errorf("expected no dimming on off, got %v", result.Dimming)
+	}
+}
+
+func TestToLight_OnAppliesBrightness(t *testing.T) {
+	template := hue.Resource{Type: "light", On: &hue.LightOnOffData{On: false}}
+
+	result := ToLight(template, LightMessage{State: "ON", Brightness: 100})
+
+	if result.Dimming == nil || result.Dimming.Brightness != 100 {
+		t.Errorf("expected brightness 100 on, got %v", result.Dimming)
+	}
+}
+
+func TestToGroupedLight_OnWithoutBrightnessOmitsDimming(t *testing.T) {
+	// A plain group "ON" carries no brightness; sending dimming:{brightness:0}
+	// would turn the group on at 0%.
+	template := hue.Resource{Type: "grouped_light", On: &hue.LightOnOffData{On: false}}
+
+	result := ToGroupedLight(template, LightMessage{State: "ON"})
+
+	if !result.On.On {
+		t.Error("expected on=true")
+	}
+	if result.Dimming != nil {
+		t.Errorf("expected no dimming for brightness-less group on, got %v", result.Dimming)
+	}
+}
+
 func TestToLight_OffDropsColor(t *testing.T) {
 	// A color-mode light carries both a color_temperature (null mirek) and a
 	// color. Turning it off must send neither: a null mirek is rejected by the

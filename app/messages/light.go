@@ -59,7 +59,17 @@ func ToLight(template hue.Resource, msg LightMessage) hue.Resource {
 	// state would flip before the bridge confirms). Reassigning a pointer field
 	// only touches our local copy, which is safe.
 	result.On = &hue.LightOnOffData{On: msg.State == "ON"}
-	result.Dimming = &hue.LightDimmingData{Brightness: float64(msg.Brightness)}
+
+	// Only apply brightness when turning on with an explicit level. Sending
+	// dimming together with on:false makes the bridge ramp to that brightness
+	// while powering off, which shows as a brief flash (e.g. to 100%) before
+	// the light fades out. Turning on still applies the requested brightness,
+	// so a light comes back at the level the on-command asks for.
+	if msg.State == "ON" && msg.Brightness > 0 {
+		result.Dimming = &hue.LightDimmingData{Brightness: float64(msg.Brightness)}
+	} else {
+		result.Dimming = nil
+	}
 
 	switch {
 	case msg.ColorTemp != nil && template.ColorTemperature != nil:
@@ -89,13 +99,21 @@ func ToGroupedLight(template hue.Resource, msg LightMessage) hue.Resource {
 	// Allocate a fresh On instead of mutating template.On in place; see ToLight.
 	result.On = &hue.LightOnOffData{On: msg.State == "ON"}
 
+	// Only apply brightness when turning on with an explicit level; see ToLight.
+	// A plain group "ON" carries no brightness, so we leave dimming unset and
+	// let the group restore its previous level instead of jumping to 0%.
+	if msg.State == "ON" && msg.Brightness > 0 {
+		result.Dimming = &hue.LightDimmingData{Brightness: float64(msg.Brightness)}
+	} else {
+		result.Dimming = nil
+	}
+
 	switch {
 	case msg.ColorTemp != nil && template.ColorTemperature != nil:
 		ct := *template.ColorTemperature
 		ct.Mirek = msg.ColorTemp
 		result.ColorTemperature = &ct
 		result.Color = nil
-		result.Dimming = &hue.LightDimmingData{Brightness: float64(msg.Brightness)}
 	case msg.Color != nil && template.Color != nil:
 		result.ColorTemperature = nil
 		result.Dimming = nil
