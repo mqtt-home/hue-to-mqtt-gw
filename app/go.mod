@@ -3,8 +3,8 @@ module github.com/mqtt-home/hue2mqtt
 go 1.25.0
 
 require (
-	github.com/philipparndt/go-logger v1.8.0
-	github.com/philipparndt/mqtt-gateway v1.6.0
+	github.com/philipparndt/go-logger v1.10.0
+	github.com/philipparndt/mqtt-gateway v1.11.0
 )
 
 require (
